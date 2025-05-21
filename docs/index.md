@@ -1,14 +1,125 @@
 ---
 layout: default
-title: Black Hole V1.0
+title: Home
 ---
 
+<div class="socials-container">
+  <div class="platform-buttons">
+    <button data-platform="instagram">Instagram</button>
+    <button data-platform="tiktok">TikTok</button>
+    <button data-platform="youtube">YouTube</button>
+  </div>
+
+  <ul class="video-list"></ul>
+
+  <div class="pagination">
+    <button id="prev-btn" disabled>Previous</button>
+    <button id="next-btn" disabled>Next</button>
+  </div>
+</div>
+
+<div class="container">
+  <!-- Platform Selection -->
+  <div class="platform-buttons">
+    <button onclick="showPlatform('youtube')">YouTube</button>
+    <button onclick="showPlatform('tiktok')">TikTok</button>
+    <button onclick="showPlatform('instagram')">Instagram</button>
+  </div>
+
+  <!-- Video Display -->
+  <!-- ... rest of the video platform sections ... -->
+</div>
+<!-- END OF SOCIAL MEDIA SECTION -->
+
+<script>
+  const videoData = {
+    youtube: [
+      { title: "YouTube Video 1", url: "https://youtu.be/example1" },
+      { title: "YouTube Video 2", url: "https://youtu.be/example2" },
+      { title: "YouTube Video 3", url: "https://youtu.be/example3" },
+      { title: "YouTube Video 4", url: "https://youtu.be/example4" },
+      { title: "YouTube Video 5", url: "https://youtu.be/example5" },
+      { title: "YouTube Video 6", url: "https://youtu.be/example6" }
+    ],
+    tiktok: [
+      { title: "TikTok Video 1", url: "https://www.tiktok.com/@example/video/1" },
+      { title: "TikTok Video 2", url: "https://www.tiktok.com/@example/video/2" },
+      { title: "TikTok Video 3", url: "https://www.tiktok.com/@example/video/3" },
+      { title: "TikTok Video 4", url: "https://www.tiktok.com/@example/video/4" },
+      { title: "TikTok Video 5", url: "https://www.tiktok.com/@example/video/5" },
+      { title: "TikTok Video 6", url: "https://www.tiktok.com/@example/video/6" }
+    ],
+    instagram: [
+      { title: "Instagram Video 1", url: "https://www.instagram.com/reel/example1" },
+      { title: "Instagram Video 2", url: "https://www.instagram.com/reel/example2" },
+      { title: "Instagram Video 3", url: "https://www.instagram.com/reel/example3" },
+      { title: "Instagram Video 4", url: "https://www.instagram.com/reel/example4" },
+      { title: "Instagram Video 5", url: "https://www.instagram.com/reel/example5" },
+      { title: "Instagram Video 6", url: "https://www.instagram.com/reel/example6" }
+    ]
+  };
+
+  let currentPlatform = "youtube";
+  let currentPage = 1;
+  const itemsPerPage = 5;
+
+  function showPlatform(platform) {
+    currentPlatform = platform;
+    currentPage = 1;
+    updateVideoList();
+  }
+
+  function updateVideoList() {
+    const list = document.getElementById("video-list");
+    const pagination = document.getElementById("pagination");
+    const videos = videoData[currentPlatform];
+
+    // Clear the list
+    list.innerHTML = "";
+
+    // Paginate
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const currentVideos = videos.slice(start, end);
+
+    currentVideos.forEach(video => {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="${video.url}" target="_blank">${video.title}</a>`;
+      list.appendChild(li);
+    });
+
+    // Update pagination buttons
+    pagination.innerHTML = `
+      <button onclick="changePage(-1)" ${currentPage === 1 ? "disabled" : ""}>Prev</button>
+      <button onclick="changePage(1)" ${end >= videos.length ? "disabled" : ""}>Next</button>
+    `;
+  }
+
+  function changePage(amount) {
+    currentPage += amount;
+    updateVideoList();
+  }
+
+  // Init
+  document.addEventListener("DOMContentLoaded", () => {
+    updateVideoList();
+  });
+</script>
+
+
 <style>
-/* === Social Media Section Styles === */
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .platform-buttons {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-right: 2rem;
+  min-width: 120px;
 }
 
 .platform-buttons button {
@@ -20,11 +131,16 @@ title: Black Hole V1.0
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s;
+  text-align: left;
 }
 
 .platform-buttons button:hover {
   background-color: #00ffff;
   color: #000;
+}
+
+.video-section {
+  flex: 1;
 }
 
 .video-list {
@@ -56,7 +172,25 @@ title: Black Hole V1.0
   border-radius: 6px;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .platform-buttons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+
+  .platform-buttons button {
+    flex: 1 1 auto;
+  }
+}
 </style>
+
 
 <style>
   :root {
