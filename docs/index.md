@@ -214,81 +214,124 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <style>
   :root {
-    --bg-dark: #0a0a1a;
-    --text-light: #e0e0ff;
-    --accent-neon: #39ff14;
-    --accent-pink: #ff44cc;
-    --section-bg: #12122f;
-    --button-radius: 12px;
-    --gap: 1.5rem;
-    --font-retro: 'Courier New', Courier, monospace;
-  }
+  --bg-dark: #0d0d0d;
+  --text-light: #ffffff;
+  --section-bg: #1a1a1a;
+  --accent: #00ffff; /* bright blue */
+  --button-radius: 10px;
+  --gap: 1.5rem;
+}
 
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px; /* make main text bigger */
+  line-height: 1.5;
+  margin: 0 1rem;
+}
+
+h1, h2 {
+  color: var(--accent);
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+section {
+  margin-top: var(--gap);
+  padding: 1.25rem 1rem;
+  background-color: var(--section-bg);
+  border-radius: var(--button-radius);
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.2); /* neon blue glow */
+}
+
+/* Buttons container */
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+/* Buttons style */
+button {
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--button-radius);
+  cursor: pointer;
+  min-width: 140px;
+  max-width: 320px;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* Emoji fix */
+button span.emoji {
+  font-size: 1.4rem;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Menu buttons container */
+.menu-buttons {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Menu buttons style */
+.menu-buttons button {
+  background-color: #111;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.menu-buttons button:hover {
+  background-color: var(--accent);
+  color: #000;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 600px) {
   body {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    font-family: var(--font-retro);
-    margin: 0;
-    padding: 0 2rem;
+    font-size: 16px; /* slightly smaller text on phones */
   }
+  .menu-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu-buttons button {
+    width: 120px;
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+  .button-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  button {
+    width: 90vw;
+    max-width: none;
+  }
+}
 
-  h1, h2 {
-    color: var(--accent-neon);
-    text-shadow: 0 0 8px var(--accent-neon);
-  }
-
-  nav {
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-  }
-
-  nav button {
-    background-color: transparent;
-    border: 2px solid var(--accent-pink);
-    color: var(--accent-pink);
-    padding: 0.6rem 1.4rem;
-    font-weight: bold;
-    border-radius: var(--button-radius);
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-
-  nav button.active,
-  nav button:hover {
-    background-color: var(--accent-pink);
-    color: var(--bg-dark);
-    box-shadow: 0 0 12px var(--accent-pink);
-  }
-
-  section.content-section {
-    background-color: var(--section-bg);
-    border-radius: var(--button-radius);
-    padding: 2rem;
-    margin-top: var(--gap);
-    box-shadow: 0 0 20px var(--accent-neon);
-    display: none;
-  }
-
-  section.content-section.active {
-    display: block;
-  }
-
-  .image-placeholder {
-    width: 100%;
-    max-width: 400px;
-    height: 250px;
-    background: #222244;
-    border: 2px dashed var(--accent-pink);
-    border-radius: var(--button-radius);
-    margin-top: 1rem;
-    box-shadow: 0 0 10px var(--accent-pink);
-  }
-
-  p, ul, ol {
-    line-height: 1.6;
-  }
 
 </style>
 
