@@ -4,78 +4,126 @@ title: Home
 ---
 
 <script>
-  const videoData = {
-    youtube: [
-      { title: "YouTube Video 1", url: "https://youtu.be/example1" },
-      { title: "YouTube Video 2", url: "https://youtu.be/example2" },
-      { title: "YouTube Video 3", url: "https://youtu.be/example3" },
-      { title: "YouTube Video 4", url: "https://youtu.be/example4" },
-      { title: "YouTube Video 5", url: "https://youtu.be/example5" },
-      { title: "YouTube Video 6", url: "https://youtu.be/example6" }
+document.addEventListener('DOMContentLoaded', () => {
+  // Sample video links per platform (replace these URLs with your actual video links)
+  const videos = {
+    instagram: [
+      'https://instagram.com/p/video1',
+      'https://instagram.com/p/video2',
+      'https://instagram.com/p/video3',
+      'https://instagram.com/p/video4',
+      'https://instagram.com/p/video5',
+      'https://instagram.com/p/video6',
+      'https://instagram.com/p/video7',
+      'https://instagram.com/p/video8',
+      'https://instagram.com/p/video9',
+      'https://instagram.com/p/video10',
+      // add up to 50 links...
     ],
     tiktok: [
-      { title: "TikTok Video 1", url: "https://www.tiktok.com/@example/video/1" },
-      { title: "TikTok Video 2", url: "https://www.tiktok.com/@example/video/2" },
-      { title: "TikTok Video 3", url: "https://www.tiktok.com/@example/video/3" },
-      { title: "TikTok Video 4", url: "https://www.tiktok.com/@example/video/4" },
-      { title: "TikTok Video 5", url: "https://www.tiktok.com/@example/video/5" },
-      { title: "TikTok Video 6", url: "https://www.tiktok.com/@example/video/6" }
+      'https://www.tiktok.com/@user/video/1',
+      'https://www.tiktok.com/@user/video/2',
+      'https://www.tiktok.com/@user/video/3',
+      'https://www.tiktok.com/@user/video/4',
+      'https://www.tiktok.com/@user/video/5',
+      'https://www.tiktok.com/@user/video/6',
+      'https://www.tiktok.com/@user/video/7',
+      'https://www.tiktok.com/@user/video/8',
+      'https://www.tiktok.com/@user/video/9',
+      'https://www.tiktok.com/@user/video/10',
+      // add up to 50 links...
     ],
-    instagram: [
-      { title: "Instagram Video 1", url: "https://www.instagram.com/reel/example1" },
-      { title: "Instagram Video 2", url: "https://www.instagram.com/reel/example2" },
-      { title: "Instagram Video 3", url: "https://www.instagram.com/reel/example3" },
-      { title: "Instagram Video 4", url: "https://www.instagram.com/reel/example4" },
-      { title: "Instagram Video 5", url: "https://www.instagram.com/reel/example5" },
-      { title: "Instagram Video 6", url: "https://www.instagram.com/reel/example6" }
+    youtube: [
+      'https://youtube.com/watch?v=video1',
+      'https://youtube.com/watch?v=video2',
+      'https://youtube.com/watch?v=video3',
+      'https://youtube.com/watch?v=video4',
+      'https://youtube.com/watch?v=video5',
+      'https://youtube.com/watch?v=video6',
+      'https://youtube.com/watch?v=video7',
+      'https://youtube.com/watch?v=video8',
+      'https://youtube.com/watch?v=video9',
+      'https://youtube.com/watch?v=video10',
+      // add up to 50 links...
     ]
   };
 
-  let currentPlatform = "youtube";
+  const videosPerPage = 5;
+  let currentPlatform = 'instagram';
   let currentPage = 1;
-  const itemsPerPage = 5;
 
-  function showPlatform(platform) {
-    currentPlatform = platform;
-    currentPage = 1;
-    updateVideoList();
-  }
+  const platformButtons = document.querySelectorAll('.platform-buttons button');
+  const videoList = document.getElementById('video-list');
+  const prevBtn = document.getElementById('prev-page');
+  const nextBtn = document.getElementById('next-page');
 
-  function updateVideoList() {
-    const list = document.getElementById("video-list");
-    const pagination = document.getElementById("pagination");
-    const videos = videoData[currentPlatform];
+  function renderVideos() {
+    videoList.innerHTML = '';
 
-    // Clear the list
-    list.innerHTML = "";
+    const startIndex = (currentPage - 1) * videosPerPage;
+    const platformVideos = videos[currentPlatform] || [];
+    const pageVideos = platformVideos.slice(startIndex, startIndex + videosPerPage);
 
-    // Paginate
-    const start = (currentPage - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const currentVideos = videos.slice(start, end);
+    if (pageVideos.length === 0) {
+      videoList.innerHTML = '<li>No videos found.</li>';
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      return;
+    }
 
-    currentVideos.forEach(video => {
-      const li = document.createElement("li");
-      li.innerHTML = `<a href="${video.url}" target="_blank">${video.title}</a>`;
-      list.appendChild(li);
+    pageVideos.forEach(link => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = link;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.textContent = link;
+      li.appendChild(a);
+      videoList.appendChild(li);
     });
 
-    // Update pagination buttons
-    pagination.innerHTML = `
-      <button onclick="changePage(-1)" ${currentPage === 1 ? "disabled" : ""}>Prev</button>
-      <button onclick="changePage(1)" ${end >= videos.length ? "disabled" : ""}>Next</button>
-    `;
+    // Disable prev if on first page
+    prevBtn.disabled = currentPage === 1;
+    // Disable next if on last page
+    nextBtn.disabled = startIndex + videosPerPage >= platformVideos.length;
   }
 
-  function changePage(amount) {
-    currentPage += amount;
-    updateVideoList();
+  function setActiveButton() {
+    platformButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.platform === currentPlatform);
+    });
   }
 
-  // Init
-  document.addEventListener("DOMContentLoaded", () => {
-    updateVideoList();
+  platformButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (currentPlatform !== button.dataset.platform) {
+        currentPlatform = button.dataset.platform;
+        currentPage = 1;
+        setActiveButton();
+        renderVideos();
+      }
+    });
   });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+      currentPage--;
+      renderVideos();
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    const maxPage = Math.ceil((videos[currentPlatform]?.length || 0) / videosPerPage);
+    if (currentPage < maxPage) {
+      currentPage++;
+      renderVideos();
+    }
+  });
+
+  // Initial render
+  setActiveButton();
+  renderVideos();
+});
 </script>
 
 
