@@ -1,117 +1,147 @@
 ---
 layout: default
-title: Home
+title: Black Hole V1.0
 ---
 
-<section class="button-row" style="margin-bottom: 2rem;">
-  <a href="#about">
-    <button style="background-color:#6c63ff; color:white;">
-      🧑 About Me
-    </button>
-  </a>
-  <a href="#products">
-    <button style="background-color:#00b894; color:white;">
-      📦 Products
-    </button>
-  </a>
-  <a href="#social">
-    <button style="background-color:#e17055; color:white;">
-      🔗 Social Media
-    </button>
-  </a>
-</section>
+<style>
+  :root {
+    --bg-dark: #0a0a1a;
+    --text-light: #e0e0ff;
+    --accent-neon: #39ff14;
+    --accent-pink: #ff44cc;
+    --section-bg: #12122f;
+    --button-radius: 12px;
+    --gap: 1.5rem;
+    --font-retro: 'Courier New', Courier, monospace;
+  }
 
-# Welcome to unnamedperson488's page!
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-retro);
+    margin: 0;
+    padding: 0 2rem;
+  }
 
-Intro text here...
+  h1, h2 {
+    color: var(--accent-neon);
+    text-shadow: 0 0 8px var(--accent-neon);
+  }
 
-<!-- Later in the file -->
+  nav {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
 
-## 🧑 About Me
-<section id="about">
-  <section style="background-color: #1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 12px rgba(255,255,255,0.05);">
-  
-  <h2 style="color: #6c63ff;">🧑 About Me</h2>
-  
+  nav button {
+    background-color: transparent;
+    border: 2px solid var(--accent-pink);
+    color: var(--accent-pink);
+    padding: 0.6rem 1.4rem;
+    font-weight: bold;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  nav button.active,
+  nav button:hover {
+    background-color: var(--accent-pink);
+    color: var(--bg-dark);
+    box-shadow: 0 0 12px var(--accent-pink);
+  }
+
+  section.content-section {
+    background-color: var(--section-bg);
+    border-radius: var(--button-radius);
+    padding: 2rem;
+    margin-top: var(--gap);
+    box-shadow: 0 0 20px var(--accent-neon);
+    display: none;
+  }
+
+  section.content-section.active {
+    display: block;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    background: #222244;
+    border: 2px dashed var(--accent-pink);
+    border-radius: var(--button-radius);
+    margin-top: 1rem;
+    box-shadow: 0 0 10px var(--accent-pink);
+  }
+
+  p, ul, ol {
+    line-height: 1.6;
+  }
+
+</style>
+
+# 🌌 Black Hole V1.0
+
+<nav>
+  <button class="tab-btn active" data-target="home">Home</button>
+  <button class="tab-btn" data-target="products">Products</button>
+  <button class="tab-btn" data-target="social">Social</button>
+  <button class="tab-btn" data-target="about">About</button>
+</nav>
+
+<section id="home" class="content-section active">
+  <h2>Welcome</h2>
   <p>
-    Hey, I’m <strong>unnamedperson488</strong> — a professional hacker, DIY electronics enthusiast, and reseller.  
-    I specialize in creating <em>ChatGPT jailbreaks</em> and building custom <em>PCB projects</em> from scratch.  
-    My goal is to empower people with tools that push the boundaries of technology.
+    I’m <strong>unnamedperson488</strong> — a hacker, engineer, and reseller focused on building advanced DIY PCB projects and ChatGPT jailbreaks.
   </p>
+  <p>All my projects and tools are paid products with professional support and quality assurance.</p>
+  <div class="image-placeholder" aria-label="Home image placeholder"></div>
+</section>
+
+<section id="products" class="content-section">
+  <h2>Products</h2>
+  <p>Here you can find the products I currently offer:</p>
   
-  <p>
-    All of my projects are paid products — I dedicate serious time and skill to designing, testing, and producing quality tools.  
-    Every product is engineered for performance, usability, and reliability.
-  </p>
-  
-  <p>
-    Beyond hacking and PCB design, I also enjoy gaming (especially Fortnite), and reselling products across the country to make solid income for myself.
-  </p>
-
-  <p>
-    Feel free to explore my products and follow me on social media to keep up with the latest releases!
-  </p>
+  <h3>Black Hole V1.0</h3>
+  <div class="image-placeholder" aria-label="Black Hole V1.0 product image placeholder"></div>
+  <ul>
+    <li><strong>Type:</strong> Dual-band WiFi auditing tool</li>
+    <li><strong>Features:</strong> 2.4GHz + 5GHz support, LiPo charging, dual SMA antennas</li>
+    <li><strong>Price:</strong> $140</li>
+    <li><strong>Production Time:</strong> Typically 5 days to build + 2 days shipping</li>
+  </ul>
+  <p>More products coming soon!</p>
 </section>
 
+<section id="social" class="content-section">
+  {% include social.md %}
 </section>
 
-## 📦 Products
-<section id="products">
-  ## 🛒 Products
-
-<section>
-  <article style="margin-bottom: 1.5rem;">
-    <h3>🌌 Black Hole V1.0</h3>
-    <p><strong>Price:</strong> $140</p>
-    <p><strong>Production Time:</strong> 5-7 business days</p>
-    <p><strong>Description:</strong> Professional-grade dual-band WiFi auditing tool designed for both 2.4GHz (ESP32) and 5GHz (BW16) network testing.</p>
-    <p><strong>Features:</strong></p>
-    <ul>
-      <li>Dual-Band: 2.4GHz + 5GHz</li>
-      <li>Black 4-layer PCB</li>
-      <li>LiPo charging support (USB-C)</li>
-      <li>Dual SMA connectors for max signal</li>
-      <li>Reset and Power buttons designed for case-friendly use</li>
-    </ul>
-  </article>
-
-  <!-- Add more products here in the future -->
+<section id="about" class="content-section">
+  {% include about.md %}
 </section>
 
-</section>
+<script>
+  // Simple tab functionality
+  const tabs = document.querySelectorAll('.tab-btn');
+  const sections = document.querySelectorAll('.content-section');
 
-## 🔗 Social Media
-<section id="social">
-  ## 🔗 Connect with Me
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(btn => btn.classList.remove('active'));
+      tab.classList.add('active');
 
-<section>
-  <div class="button-row">
-    <a href="https://www.instagram.com/unnamedperson488" target="_blank" rel="noopener noreferrer">
-      <button style="background-color:#E1306C; color:white;">
-        <span class="emoji">📸</span> Instagram — 0 followers
-      </button>
-    </a>
-    <a href="https://github.com/unnamedperson488" target="_blank" rel="noopener noreferrer">
-      <button style="background-color:#24292e; color:white;">
-        <span class="emoji">🐙</span> GitHub — 0 followers
-      </button>
-    </a>
-    <a href="https://youtube.com/@unnamedperson488" target="_blank" rel="noopener noreferrer">
-      <button style="background-color:#FF0000; color:white;">
-        <span class="emoji">▶️</span> YouTube — 0 subscribers
-      </button>
-    </a>
-    <a href="https://discord.gg/yourdiscordserver" target="_blank" rel="noopener noreferrer">
-      <button style="background-color:#5865F2; color:white;">
-        <span class="emoji">💬</span> Discord — 0 members
-      </button>
-    </a>
-    <a href="https://www.tiktok.com/@unnamedperson488" target="_blank" rel="noopener noreferrer">
-      <button style="background-color:#000000; color:white;">
-        <span class="emoji">🎵</span> TikTok — 84 followers
-      </button>
-    </a>
-  </div>
-</section>
-
-</section>
+      const target = tab.getAttribute('data-target');
+      sections.forEach(sec => {
+        if (sec.id === target) {
+          sec.classList.add('active');
+        } else {
+          sec.classList.remove('active');
+        }
+      });
+    });
+  });
+</script>
