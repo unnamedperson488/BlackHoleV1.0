@@ -372,56 +372,22 @@ button span.emoji {
   <section id="social-media">
   <h2 style="color: #00ffff;">📡 Social Media Updates</h2>
 
+  <div class="container">
   <div class="platform-buttons">
-    <button onclick="showPlatform('youtube')">YouTube</button>
-    <button onclick="showPlatform('tiktok')">TikTok</button>
-    <button onclick="showPlatform('instagram')">Instagram</button>
+    <button data-platform="youtube">YouTube</button>
+    <button data-platform="tiktok">TikTok</button>
+    <button data-platform="instagram" class="active">Instagram</button>
   </div>
 
-  <div id="youtube" class="platform-section">
-    <h3 style="color: #ff0000;">▶️ YouTube</h3>
-    <ul class="video-list">
-      <li><a href="#" target="_blank">Video 1</a></li>
-      <li><a href="#" target="_blank">Video 2</a></li>
-      <li><a href="#" target="_blank">Video 3</a></li>
-      <li><a href="#" target="_blank">Video 4</a></li>
-      <li><a href="#" target="_blank">Video 5</a></li>
-    </ul>
+  <div class="video-section">
+    <ul id="video-list" class="video-list"></ul>
     <div class="pagination">
-      <button>« Prev</button>
-      <button>Next »</button>
+      <button id="prev-page">« Prev</button>
+      <button id="next-page">Next »</button>
     </div>
   </div>
+</div>
 
-  <div id="tiktok" class="platform-section" style="display:none;">
-    <h3 style="color: #69C9D0;">🎵 TikTok</h3>
-    <ul class="video-list">
-      <li><a href="#" target="_blank">TikTok 1</a></li>
-      <li><a href="#" target="_blank">TikTok 2</a></li>
-      <li><a href="#" target="_blank">TikTok 3</a></li>
-      <li><a href="#" target="_blank">TikTok 4</a></li>
-      <li><a href="#" target="_blank">TikTok 5</a></li>
-    </ul>
-    <div class="pagination">
-      <button>« Prev</button>
-      <button>Next »</button>
-    </div>
-  </div>
-
-  <div id="instagram" class="platform-section" style="display:none;">
-    <h3 style="color: #E1306C;">📸 Instagram</h3>
-    <ul class="video-list">
-      <li><a href="#" target="_blank">Reel 1</a></li>
-      <li><a href="#" target="_blank">Reel 2</a></li>
-      <li><a href="#" target="_blank">Reel 3</a></li>
-      <li><a href="#" target="_blank">Reel 4</a></li>
-      <li><a href="#" target="_blank">Reel 5</a></li>
-    </ul>
-    <div class="pagination">
-      <button>« Prev</button>
-      <button>Next »</button>
-    </div>
-  </div>
 </section>
 
 <script>
