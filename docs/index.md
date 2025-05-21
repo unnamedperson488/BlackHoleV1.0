@@ -1,6 +1,6 @@
 ---
 title: Black Hole V1.0
-layout: default
+layout: Minimal
 ---
 # Black Hole V1.0
 
