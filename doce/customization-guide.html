@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole WareHouse - Customization Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #6a1b9a;
+            border-bottom: 2px solid #6a1b9a;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1565c0;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #c62828;
+        }
+        code {
+            background-color: #f5f5f5;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .tip {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-left: 4px solid #4caf50;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-left: 4px solid #ff9800;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Black Hole WareHouse - Customization Guide</h1>
+    
+    <p>Welcome to your new Black Hole WareHouse website! This guide will help you customize the site to your specific needs.</p>
+    
+    <h2>Site Structure</h2>
+    <p>The website has a modular structure with the following components:</p>
+    <ul>
+        <li><strong>index.html</strong> - Homepage with sections for hero banner, features preview, showcase, media, social links, and FAQ</li>
+        <li><strong>pages/</strong> - Directory containing individual pages:
+            <ul>
+                <li><strong>features.html</strong> - Detailed features page with card layout</li>
+                <li><strong>showcase.html</strong> - Product showcase with specifications</li>
+                <li><strong>media.html</strong> - Videos and images gallery</li>
+                <li><strong>social.html</strong> - Social media links and community</li>
+                <li><strong>faq.html</strong> - Frequently asked questions</li>
+            </ul>
+        </li>
+        <li><strong>css/styles.css</strong> - Main stylesheet with customizable variables</li>
+        <li><strong>js/main.js</strong> - JavaScript for interactive elements</li>
+        <li><strong>images/</strong> - Directory for your images (currently contains placeholders)</li>
+    </ul>
+    
+    <h2>Quick Customization Guide</h2>
+    
+    <h3>1. Changing Colors</h3>
+    <p>The site uses CSS variables for easy color customization. Open <code>css/styles.css</code> and look for the <code>:root</code> section at the top:</p>
+    <pre>
+:root {
+  /* Main colors - easily customizable */
+  --bg-dark: #121212;
+  --bg-darker: #0a0a0a;
+  --bg-lighter: #1e1e1e;
+  
+  /* Accent colors - easily customizable */
+  --accent-purple: #6a1b9a;
+  --accent-red: #c62828;
+  --accent-blue: #1565c0;
+  
+  /* Text colors */
+  --text-primary: #f5f5f5;
+  --text-secondary: #b0b0b0;
+  
+  /* ... other variables ... */
+}</pre>
+    <p>Simply change these color values to match your preferred color scheme.</p>
+    
+    <div class="tip">
+        <strong>Tip:</strong> You can use any color format (hex, rgb, hsl) for these variables. For example, <code>#6a1b9a</code> could be changed to <code>rgb(106, 27, 154)</code> or <code>hsl(282, 68%, 35%)</code>.
+    </div>
+    
+    <h3>2. Adding Your Images</h3>
+    <p>Replace the placeholder images with your own by:</p>
+    <ol>
+        <li>Adding your images to the <code>images/</code> directory</li>
+        <li>Updating the image paths in the HTML files</li>
+    </ol>
+    <p>For example, to replace the hero image on the homepage, find this line in <code>index.html</code>:</p>
+    <pre>&lt;img src="images/placeholder-hero.png" alt="Black Hole Device" class="hero-image"&gt;</pre>
+    <p>And change it to:</p>
+    <pre>&lt;img src="images/your-hero-image.jpg" alt="Black Hole Device" class="hero-image"&gt;</pre>
+    
+    <div class="warning">
+        <strong>Note:</strong> Make sure your images are optimized for web (compressed) to ensure fast loading times. Recommended formats are JPEG for photos and PNG for graphics with transparency.
+    </div>
+    
+    <h3>3. Modifying Content</h3>
+    <p>Each page is divided into clear sections that you can easily modify:</p>
+    <ul>
+        <li>Update text by editing the content between HTML tags</li>
+        <li>Add or remove sections by copying existing section structures</li>
+        <li>Modify navigation links in the navbar section of each page</li>
+    </ul>
+    <p>Example of a section structure:</p>
+    <pre>
+&lt;section&gt;
+    &lt;div class="container"&gt;
+        &lt;h2 class="text-center"&gt;Section &lt;span class="text-purple"&gt;Title&lt;/span&gt;&lt;/h2&gt;
+        &lt;p class="text-center mb-3"&gt;Section description goes here.&lt;/p&gt;
+        
+        &lt;!-- Section content goes here --&gt;
+        
+    &lt;/div&gt;
+&lt;/section&gt;</pre>
+    
+    <h3>4. Adding New Pages</h3>
+    <p>To add a new page:</p>
+    <ol>
+        <li>Copy one of the existing HTML files in the <code>pages/</code> directory</li>
+        <li>Rename it to your desired page name (e.g., <code>new-page.html</code>)</li>
+        <li>Update the title, content, and active navigation link</li>
+        <li>Add a link to the new page in the navigation section of all pages</li>
+    </ol>
+    
+    <h2>Advanced Customization</h2>
+    
+    <h3>Layout Modifications</h3>
+    <p>The site uses a combination of flexbox and grid layouts for responsive design. To modify layouts:</p>
+    <ul>
+        <li>For card layouts, adjust the <code>grid-template-columns</code> property in <code>.features-grid</code> and <code>.media-grid</code> classes</li>
+        <li>For showcase items, modify the <code>flex</code> properties in <code>.showcase-item</code>, <code>.showcase-image</code>, and <code>.showcase-content</code> classes</li>
+    </ul>
+    
+    <h3>Adding Custom JavaScript</h3>
+    <p>To add custom JavaScript functionality:</p>
+    <ol>
+        <li>Open <code>js/main.js</code></li>
+        <li>Add your custom code within the <code>DOMContentLoaded</code> event listener</li>
+        <li>For larger customizations, create a new JS file and link it in the HTML files</li>
+    </ol>
+    
+    <h3>Responsive Design Adjustments</h3>
+    <p>The site is already responsive, but you can fine-tune the mobile experience by modifying the media queries at the bottom of <code>css/styles.css</code>:</p>
+    <pre>
+@media (max-width: 992px) {
+  /* Tablet adjustments */
+}
+
+@media (max-width: 768px) {
+  /* Mobile adjustments */
+}</pre>
+    
+    <h2>Need Help?</h2>
+    <p>If you need assistance with customization or have any questions, feel free to reach out for further guidance.</p>
+    
+    <p>Happy customizing!</p>
+</body>
+</html>
