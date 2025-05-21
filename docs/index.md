@@ -95,7 +95,7 @@ title: Black Hole V1.0
     user-select: none;
   }
 
-  ul {
+  ul, p {
     line-height: 1.7;
     font-size: 1.15rem;
   }
@@ -107,9 +107,7 @@ title: Black Hole V1.0
     background-color: #002233cc;
     border-radius: 7px;
     color: #00bfff;
-    text-shadow:
-      0 0 5px #00bfff,
-      0 0 15px #00bfff;
+    text-shadow: 0 0 5px #00bfff, 0 0 15px #00bfff;
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -117,26 +115,41 @@ title: Black Hole V1.0
 
   .video-link:hover {
     background-color: #005577cc;
-    box-shadow:
-      0 0 10px #00bfff,
-      0 0 25px #00bfff;
+    box-shadow: 0 0 10px #00bfff, 0 0 25px #00bfff;
   }
 
-  /* Footer */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    border: 1px solid #006080;
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #001f33;
+    color: #00ccff;
+  }
+
+  td {
+    background-color: #000f1a;
+  }
+
   footer {
     text-align: center;
     padding: 18px 0;
     font-size: 0.9rem;
     color: #0077aa;
-    text-shadow:
-      0 0 5px #0077aa,
-      0 0 10px #004466;
+    text-shadow: 0 0 5px #0077aa, 0 0 10px #004466;
     user-select: none;
     background-color: #111111cc;
     margin-top: 50px;
   }
 
-  /* Back to top button */
   #backToTop {
     position: fixed;
     bottom: 25px;
@@ -149,9 +162,7 @@ title: Black Hole V1.0
     height: 45px;
     font-size: 22px;
     cursor: pointer;
-    box-shadow:
-      0 0 12px #00bfff,
-      0 0 25px #00bfff;
+    box-shadow: 0 0 12px #00bfff, 0 0 25px #00bfff;
     display: none;
     align-items: center;
     justify-content: center;
@@ -174,44 +185,84 @@ title: Black Hole V1.0
 
 <div id="home" class="section active">
   <h1 class="glow-title">Welcome to Black Hole V1.0</h1>
-  <p>This is the main page of the site where you’ll find the latest updates and info.</p>
+  <p>This is your go-to hub for updates, information, and development logs related to the Black Hole V1.0 project. Scroll or navigate through the menu to learn more.</p>
 </div>
 
 <div id="product" class="section">
-  <h1 class="glow-title">Product Information</h1>
+  <h1 class="glow-title">Product Overview</h1>
   <ul>
-    <li><strong>Product:</strong> Black Hole V1.0</li>
-    <li><strong>Features:</strong> Dual-band jamming, compact case, long battery life</li>
+    <li><strong>Name:</strong> Black Hole V1.0</li>
+    <li><strong>Type:</strong> Dual-Band Wi-Fi Deauther</li>
     <li><strong>Price:</strong> $140</li>
+    <li><strong>Battery:</strong> Rechargeable 3.7V LiPo (with onboard charging)</li>
+  </ul>
+
+  <h2 class="glow-title" style="font-size: 1.6rem; margin-top: 40px;">Detailed Specifications</h2>
+  <table>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Chipset</td>
+      <td>ESP32 + BW16 (2.4GHz + 5GHz)</td>
+    </tr>
+    <tr>
+      <td>Antennas</td>
+      <td>Dual SMA ports for max range</td>
+    </tr>
+    <tr>
+      <td>Buttons</td>
+      <td>Power + Reset (tactile)</td>
+    </tr>
+    <tr>
+      <td>Form Factor</td>
+      <td>Rectangular custom PCB, black</td>
+    </tr>
+    <tr>
+      <td>Case</td>
+      <td>3D-printed to fit exactly</td>
+    </tr>
+  </table>
+
+  <h2 class="glow-title" style="font-size: 1.6rem; margin-top: 40px;">Use Cases</h2>
+  <ul>
+    <li>Penetration testing in dual-band environments</li>
+    <li>Signal strength and interference experimentation</li>
+    <li>Custom automation with Arduino-compatible code</li>
   </ul>
 </div>
 
 <div id="about" class="section">
   <h1 class="glow-title">About Me</h1>
-  <p>I’m <strong>unnamedperson488</strong> — a professional hacker, builder, and creator of tech tools like Black Hole V1.0.</p>
+  <p><strong>Name:</strong> unnamedperson488</p>
+  <p><strong>Role:</strong> Developer, Hacker, Builder</p>
+
+  <h2 style="color:#00bfff; margin-top: 30px;">🚀 Mission</h2>
+  <p>To design powerful, compact, and customizable devices that push the boundaries of open-source security testing.</p>
+
+  <h2 style="color:#00bfff; margin-top: 25px;">🧠 Background</h2>
+  <p>I specialize in building advanced PCB tools for ethical hacking and testing wireless networks. My projects combine hardware engineering with real-world software integration, making each product highly usable and unique.</p>
+
+  <h2 style="color:#00bfff; margin-top: 25px;">🌍 Vision</h2>
+  <p>Expand a full product line of wireless tools, increase community engagement, and push innovation into the next-gen of ethical hardware hacking.</p>
 </div>
 
 <div id="faq" class="section">
   <h1 class="glow-title">Frequently Asked Questions</h1>
   <ul>
-    <li><strong>Q:</strong> How do I use this device?<br><strong>A:</strong> A full guide is available in the documentation.</li>
-    <li><strong>Q:</strong> Is it legal to use?<br><strong>A:</strong> Use responsibly. Follow your local laws.</li>
+    <li><strong>Q:</strong> Is Black Hole V1.0 legal?<br><strong>A:</strong> This is a testing tool for authorized environments. You are responsible for how it's used.</li>
+    <li><strong>Q:</strong> Can I program it myself?<br><strong>A:</strong> Yes. It works with .ino Arduino files and accepts OTA updates too.</li>
   </ul>
 </div>
 
 <div id="media" class="section">
   <h1 class="glow-title">Media & Links</h1>
-  <p>Follow me on social media:</p>
   <ul>
-    <li><a class="video-link" href="https://instagram.com/unnamedperson488" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-    <li><a class="video-link" href="https://tiktok.com/@unnamedperson488" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-    <li><a class="video-link" href="https://youtube.com/@unnamedperson488" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+    <li><a class="video-link" href="https://instagram.com/unnamedperson488" target="_blank">Instagram</a></li>
+    <li><a class="video-link" href="https://tiktok.com/@unnamedperson488" target="_blank">TikTok</a></li>
+    <li><a class="video-link" href="https://youtube.com/@unnamedperson488" target="_blank">YouTube</a></li>
   </ul>
-
-  <h2 class="glow-title" style="margin-top: 30px;">Video Placeholders</h2>
-  <a class="video-link" href="#" tabindex="0">Video Placeholder 1</a>
-  <a class="video-link" href="#" tabindex="0">Video Placeholder 2</a>
-  <a class="video-link" href="#" tabindex="0">Video Placeholder 3</a>
 </div>
 
 <footer>
@@ -227,14 +278,9 @@ title: Black Hole V1.0
     window.scrollTo(0, 0);
   }
 
-  // Back to Top button logic
-  const backToTopBtn = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 200) {
-      backToTopBtn.style.display = 'flex';
-    } else {
-      backToTopBtn.style.display = 'none';
-    }
+    const btn = document.getElementById('backToTop');
+    btn.style.display = window.scrollY > 200 ? 'flex' : 'none';
   });
 
   function scrollToTop() {
