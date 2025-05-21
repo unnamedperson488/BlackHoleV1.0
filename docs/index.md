@@ -176,6 +176,7 @@ title: Black Hole V1.0
 </style>
 
 <nav>
+  <span style="color:#00bfff; font-weight:900; font-size:1.3rem; text-shadow: 0 0 6px #00bfff, 0 0 15px #00ccff, 0 0 30px #00ccffaa;">Black Hole V1.0</span>
   <a href="#" onclick="showSection('home')">Home</a>
   <a href="#" onclick="showSection('product')">Product</a>
   <a href="#" onclick="showSection('about')">About</a>
@@ -183,10 +184,12 @@ title: Black Hole V1.0
   <a href="#" onclick="showSection('media')">Media</a>
 </nav>
 
+
 <div id="home" class="section active">
-  <h1 class="glow-title">Welcome to Black Hole V1.0</h1>
+  <h1 class="glow-title">🌌 Black Hole V1.0</h1>
   <p>This is your go-to hub for updates, information, and development logs related to the Black Hole V1.0 project. Scroll or navigate through the menu to learn more.</p>
 </div>
+
 
 <div id="product" class="section">
   <h1 class="glow-title">Product Overview</h1>
