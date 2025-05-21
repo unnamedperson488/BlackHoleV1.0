@@ -1,0 +1,67 @@
+title: Black Hole WareHouse
+description: Documentation for Black Hole V1.0 - The ultimate WiFi security testing device
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Navigation
+navigation:
+  - title: Home
+    url: /
+  - title: Getting Started
+    url: /getting-started
+  - title: Installation
+    url: /installation
+  - title: Features
+    url: /features
+  - title: Specifications
+    url: /specs
+  - title: Firmware
+    url: /firmware
+  - title: Pricing
+    url: /pricing
+  - title: FAQ
+    url: /faq
+  - title: Changelog
+    url: /changelog
+  - title: Contact
+    url: /contact
+  - title: License
+    url: /license
+  - title: Contributing
+    url: /contributing
+  - title: Disclaimer
+    url: /disclaimer
+
+# Social links
+social:
+  - name: TikTok
+    url: https://tiktok.com/
+    icon: fab fa-tiktok
+  - name: YouTube
+    url: https://youtube.com/
+    icon: fab fa-youtube
+  - name: Discord
+    url: https://discord.gg/
+    icon: fab fa-discord
+  - name: Instagram
+    url: https://instagram.com/
+    icon: fab fa-instagram
+  - name: GitHub
+    url: https://github.com/
+    icon: fab fa-github
+
+# Theme settings
+theme_settings:
+  primary_color: "#ff0000"
+  secondary_color: "#ffffff"
+  background_color: "#121212"
+  text_color: "#f5f5f5"
+  accent_color: "#ff0000"
