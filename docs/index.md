@@ -2,6 +2,59 @@
 layout: default
 title: Black Hole V1.0
 ---
+<style>
+  body {
+    background-color: #0d0d0d;
+    color: #00f0ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  nav {
+    background-color: #001f33;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    box-shadow: 0 0 10px #00f0ff;
+  }
+  nav a {
+    color: #00f0ff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0 25px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  nav a:hover {
+    background-color: #00f0ff;
+    color: #001f33;
+    box-shadow: 0 0 15px #00f0ff;
+  }
+  h1, h2, h3 {
+    text-align: center;
+    color: #00f0ff;
+    text-shadow:
+      0 0 5px #00f0ff,
+      0 0 10px #00f0ff,
+      0 0 20px #00f0ff,
+      0 0 40px #00f0ff;
+  }
+  main {
+    padding: 30px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+</style>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="video1.html">Video 1</a>
+  <a href="video2.html">Video 2</a>
+  <a href="video3.html">Video 3</a>
+</nav>
+
 
 <style>
 /* Your CSS styles */
