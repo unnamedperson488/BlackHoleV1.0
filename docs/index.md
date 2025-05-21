@@ -3,34 +3,6 @@ layout: default
 title: Home
 ---
 
-<div class="socials-container">
-  <div class="platform-buttons">
-    <button data-platform="instagram">Instagram</button>
-    <button data-platform="tiktok">TikTok</button>
-    <button data-platform="youtube">YouTube</button>
-  </div>
-
-  <ul class="video-list"></ul>
-
-  <div class="pagination">
-    <button id="prev-btn" disabled>Previous</button>
-    <button id="next-btn" disabled>Next</button>
-  </div>
-</div>
-
-<div class="container">
-  <!-- Platform Selection -->
-  <div class="platform-buttons">
-    <button onclick="showPlatform('youtube')">YouTube</button>
-    <button onclick="showPlatform('tiktok')">TikTok</button>
-    <button onclick="showPlatform('instagram')">Instagram</button>
-  </div>
-
-  <!-- Video Display -->
-  <!-- ... rest of the video platform sections ... -->
-</div>
-<!-- END OF SOCIAL MEDIA SECTION -->
-
 <script>
   const videoData = {
     youtube: [
