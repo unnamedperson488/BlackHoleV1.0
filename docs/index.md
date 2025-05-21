@@ -1,3 +1,7 @@
+---
+title: Black Hole V1.0
+layout: default
+---
 # Black Hole V1.0
 
 Welcome to the official page for the Black Hole V1.0 Dual-Band Deauther.
