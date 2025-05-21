@@ -6,256 +6,106 @@ title: Black Hole V1.0
 <style>
   body {
     background-color: #0a0a0a;
-    color: #d0f0ff;
+    color: #e0e0e0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
   }
 
   nav {
     display: flex;
     justify-content: center;
-    gap: 35px;
-    padding: 18px 0;
-    background-color: #111111dd;
+    gap: 30px;
+    padding: 20px;
+    background-color: #111;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 0 15px #00f0ff88;
   }
 
-  nav a {
-    color: #00ccff;
+  nav a, nav span {
+    color: #00f0ff;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    text-shadow:
-      0 0 8px #00ccff,
-      0 0 15px #00ccff,
-      0 0 20px #00aacc,
-      0 0 30px #00aacc88;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    position: relative;
-  }
-
-  nav a::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: #00ccff;
-    opacity: 0;
-    border-radius: 2px;
-    box-shadow: 0 0 8px #00ccff, 0 0 15px #00ccff;
-    transition: opacity 0.3s ease;
+    font-weight: bold;
+    text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff;
+    transition: transform 0.2s;
   }
 
   nav a:hover {
-    color: #00e5ff;
-    text-shadow:
-      0 0 12px #00e5ff,
-      0 0 25px #00e5ff,
-      0 0 40px #00cce5,
-      0 0 50px #00cce5cc;
-  }
-
-  nav a:hover::after {
-    opacity: 1;
+    transform: scale(1.1);
   }
 
   .section {
     display: none;
-    padding: 50px 15px;
-    max-width: 900px;
-    margin: 0 auto;
-    animation: fadeIn 0.4s ease forwards;
+    padding: 40px 20px;
   }
 
   .section.active {
     display: block;
   }
 
-  @keyframes fadeIn {
-    from {opacity: 0; transform: translateY(10px);}
-    to {opacity: 1; transform: translateY(0);}
-  }
-
   .glow-title {
-    color: #00bfff;
-    font-size: 2.4rem;
-    font-weight: 900;
-    text-shadow:
-      0 0 8px #00bfff,
-      0 0 20px #00bfff,
-      0 0 35px #0099cc,
-      0 0 50px #0099cc;
-    margin-bottom: 25px;
-    user-select: none;
-  }
-
-  ul, p {
-    line-height: 1.7;
-    font-size: 1.15rem;
+    color: #00f0ff;
+    text-shadow: 0 0 5px #00f0ff, 0 0 15px #00f0ff;
+    font-size: 2rem;
+    margin-bottom: 20px;
   }
 
   .video-link {
-    display: inline-block;
-    margin: 12px 20px 12px 0;
-    padding: 8px 12px;
-    background-color: #002233cc;
-    border-radius: 7px;
-    color: #00bfff;
-    text-shadow: 0 0 5px #00bfff, 0 0 15px #00bfff;
+    display: block;
+    margin: 10px 0;
+    color: #00f0ff;
+    text-shadow: 0 0 5px #00f0ff;
     text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
 
-  .video-link:hover {
-    background-color: #005577cc;
-    box-shadow: 0 0 10px #00bfff, 0 0 25px #00bfff;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-
-  th, td {
-    border: 1px solid #006080;
-    padding: 10px;
-    text-align: left;
-  }
-
-  th {
-    background-color: #001f33;
-    color: #00ccff;
-  }
-
-  td {
-    background-color: #000f1a;
-  }
-
-  footer {
-    text-align: center;
-    padding: 18px 0;
-    font-size: 0.9rem;
-    color: #0077aa;
-    text-shadow: 0 0 5px #0077aa, 0 0 10px #004466;
-    user-select: none;
-    background-color: #111111cc;
-    margin-top: 50px;
-  }
-
-  #backToTop {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background-color: #00bfffcc;
-    color: #001f33;
-    border: none;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    font-size: 22px;
-    cursor: pointer;
-    box-shadow: 0 0 12px #00bfff, 0 0 25px #00bfff;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 1100;
-    transition: background-color 0.3s ease;
-  }
-
-  #backToTop:hover {
-    background-color: #0099ccdd;
+  .glow-block {
+    border: 1px solid #00f0ff44;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #111;
+    box-shadow: 0 0 10px #00f0ff33;
+    border-radius: 8px;
   }
 </style>
 
 <nav>
-  <span style="color:#00bfff; font-weight:900; font-size:1.3rem; text-shadow: 0 0 6px #00bfff, 0 0 15px #00ccff, 0 0 30px #00ccffaa;">Black Hole V1.0</span>
+  <span style="font-size: 1.4rem;">Black Hole V1.0</span>
   <a href="#" onclick="showSection('home')">Home</a>
   <a href="#" onclick="showSection('product')">Product</a>
   <a href="#" onclick="showSection('about')">About</a>
   <a href="#" onclick="showSection('faq')">FAQ</a>
   <a href="#" onclick="showSection('media')">Media</a>
+  <a href="#" onclick="showSection('demos')">Demos</a>
+  <a href="#" onclick="showSection('firmware')">Firmware</a>
+  <a href="#" onclick="showSection('timeline')">Timeline</a>
 </nav>
-
 
 <div id="home" class="section active">
   <h1 class="glow-title">🌌 Black Hole V1.0</h1>
-  <p>This is your go-to hub for updates, information, and development logs related to the Black Hole V1.0 project. Scroll or navigate through the menu to learn more.</p>
+  <p>Welcome to the official hub for development, documentation, and product information.</p>
 </div>
 
-
 <div id="product" class="section">
-  <h1 class="glow-title">Product Overview</h1>
-  <ul>
-    <li><strong>Name:</strong> Black Hole V1.0</li>
-    <li><strong>Type:</strong> Dual-Band Wi-Fi Deauther</li>
-    <li><strong>Price:</strong> $140</li>
-    <li><strong>Battery:</strong> Rechargeable 3.7V LiPo (with onboard charging)</li>
-  </ul>
-
-  <h2 class="glow-title" style="font-size: 1.6rem; margin-top: 40px;">Detailed Specifications</h2>
-  <table>
-    <tr>
-      <th>Feature</th>
-      <th>Description</th>
-    </tr>
-    <tr>
-      <td>Chipset</td>
-      <td>ESP32 + BW16 (2.4GHz + 5GHz)</td>
-    </tr>
-    <tr>
-      <td>Antennas</td>
-      <td>Dual SMA ports for max range</td>
-    </tr>
-    <tr>
-      <td>Buttons</td>
-      <td>Power + Reset (tactile)</td>
-    </tr>
-    <tr>
-      <td>Form Factor</td>
-      <td>Rectangular custom PCB, black</td>
-    </tr>
-    <tr>
-      <td>Case</td>
-      <td>3D-printed to fit exactly</td>
-    </tr>
-  </table>
-
-  <h2 class="glow-title" style="font-size: 1.6rem; margin-top: 40px;">Use Cases</h2>
-  <ul>
-    <li>Penetration testing in dual-band environments</li>
-    <li>Signal strength and interference experimentation</li>
-    <li>Custom automation with Arduino-compatible code</li>
-  </ul>
+  <h1 class="glow-title">Product Information</h1>
+  <div class="glow-block">
+    <strong>Product:</strong> Black Hole V1.0<br>
+    <strong>Features:</strong> Dual-band jamming, SMA antennas, LiPo support, case-compatible design.<br>
+    <strong>Price:</strong> $140
+  </div>
+  <div class="glow-block">
+    <strong>Inventory:</strong> <em>Live tracking coming soon — message @unnamedperson488 for availability.</em>
+  </div>
 </div>
 
 <div id="about" class="section">
   <h1 class="glow-title">About Me</h1>
-  <p><strong>Name:</strong> unnamedperson488</p>
-  <p><strong>Role:</strong> Developer, Hacker, Builder</p>
-
-  <h2 style="color:#00bfff; margin-top: 30px;">🚀 Mission</h2>
-  <p>To design powerful, compact, and customizable devices that push the boundaries of open-source security testing.</p>
-
-  <h2 style="color:#00bfff; margin-top: 25px;">🧠 Background</h2>
-  <p>I specialize in building advanced PCB tools for ethical hacking and testing wireless networks. My projects combine hardware engineering with real-world software integration, making each product highly usable and unique.</p>
-
-  <h2 style="color:#00bfff; margin-top: 25px;">🌍 Vision</h2>
-  <p>Expand a full product line of wireless tools, increase community engagement, and push innovation into the next-gen of ethical hardware hacking.</p>
+  <p>I’m unnamedperson488 — professional hacker, builder, and designer of the Black Hole project. This site documents the evolution and community around my custom ESP32-based tools.</p>
 </div>
 
 <div id="faq" class="section">
   <h1 class="glow-title">Frequently Asked Questions</h1>
   <ul>
-    <li><strong>Q:</strong> Is Black Hole V1.0 legal?<br><strong>A:</strong> This is a testing tool for authorized environments. You are responsible for how it's used.</li>
-    <li><strong>Q:</strong> Can I program it myself?<br><strong>A:</strong> Yes. It works with .ino Arduino files and accepts OTA updates too.</li>
+    <li><strong>Q:</strong> How do I use this device?<br><strong>A:</strong> A full guide is available in the documentation.</li>
+    <li><strong>Q:</strong> Is it legal to use?<br><strong>A:</strong> Use responsibly. Follow your local laws.</li>
   </ul>
 </div>
 
@@ -266,27 +116,48 @@ title: Black Hole V1.0
     <li><a class="video-link" href="https://tiktok.com/@unnamedperson488" target="_blank">TikTok</a></li>
     <li><a class="video-link" href="https://youtube.com/@unnamedperson488" target="_blank">YouTube</a></li>
   </ul>
+  <h2 class="glow-title">Video Placeholders</h2>
+  <a class="video-link" href="#">Demo Clip 1</a>
+  <a class="video-link" href="#">Demo Clip 2</a>
 </div>
 
-<footer>
-  &copy; 2025 unnamedperson488 — All rights reserved
-</footer>
+<div id="demos" class="section">
+  <h1 class="glow-title">Performance Demos</h1>
+  <div class="glow-block">
+    <p><strong>Signal Range Test:</strong> Demonstrating both 2.4GHz and 5GHz range vs environment interference. <a href="#">[Link]</a></p>
+  </div>
+  <div class="glow-block">
+    <p><strong>Battery Runtime:</strong> Using a 1200mAh LiPo. Real-world performance test. <a href="#">[Link]</a></p>
+  </div>
+</div>
 
-<button id="backToTop" title="Back to Top" onclick="scrollToTop()">↑</button>
+<div id="firmware" class="section">
+  <h1 class="glow-title">Firmware Download</h1>
+  <div class="glow-block">
+    <p>Latest firmware: <a href="#">BlackHoleV1.0_Firmware.bin</a></p>
+    <p>How to flash: Use ESPTool or Arduino IDE. Full flashing guide will be linked here soon.</p>
+  </div>
+</div>
+
+<div id="timeline" class="section">
+  <h1 class="glow-title">Development Timeline</h1>
+  <div class="glow-block">
+    <strong>March 2024:</strong> Idea & research begins.
+  </div>
+  <div class="glow-block">
+    <strong>April 2024:</strong> First ESP32 PCB prototype.
+  </div>
+  <div class="glow-block">
+    <strong>May 2024:</strong> BW16 integration for dual-band.
+  </div>
+  <div class="glow-block">
+    <strong>June 2024:</strong> Release of Black Hole V1.0 to public.
+  </div>
+</div>
 
 <script>
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    window.scrollTo(0, 0);
-  }
-
-  window.addEventListener('scroll', () => {
-    const btn = document.getElementById('backToTop');
-    btn.style.display = window.scrollY > 200 ? 'flex' : 'none';
-  });
-
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
 </script>
