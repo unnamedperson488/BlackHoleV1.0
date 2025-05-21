@@ -123,7 +123,7 @@ View the full project, source code, and schematics here:
 
 <section>
 <div class="button-row">
-  <a href="https://www.instagram.com/unnamedperson">
+  <a href="https://www.instagram.com/unnamedperson488">
     <button style="background-color:#E1306C; color:white;">
       <span class="emoji">📸</span> Instagram — 0 followers
     </button>
@@ -133,7 +133,7 @@ View the full project, source code, and schematics here:
       <span class="emoji">🐙</span> GitHub — 0 followers
     </button>
   </a>
-  <a href="https://youtube.com/@unnamedperson">
+  <a href="https://youtube.com/@unnamedperson488">
     <button style="background-color:#FF0000; color:white;">
       <span class="emoji">▶️</span> YouTube — 0 subscribers
     </button>
@@ -143,7 +143,7 @@ View the full project, source code, and schematics here:
       <span class="emoji">💬</span> Discord — 0 members
     </button>
   </a>
-  <a href="https://www.tiktok.com/@unnamedperson">
+  <a href="https://www.tiktok.com/@unnamedperson488">
     <button style="background-color:#000000; color:white;">
       <span class="emoji">🎵</span> TikTok — 84 followers
     </button>
@@ -154,7 +154,7 @@ View the full project, source code, and schematics here:
 ## 👤 About Me
 
 <section>
-I’m <strong>unnamedperson</strong> — a hacker, engineer, and reseller pushing the limits of WiFi technology. I build elite tools like the Black Hole V1.0 to empower testing, education, and innovation across the globe.
+I’m <strong>unnamedperson488</strong> — a hacker, engineer, and reseller pushing the limits of WiFi technology. I build elite tools like the Black Hole V1.0 to empower testing, education, and innovation across the globe.
 </section>
 
 ## 📜 License
