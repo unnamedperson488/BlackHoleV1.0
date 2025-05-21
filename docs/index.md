@@ -117,44 +117,46 @@ title: Black Hole V1.0
 </section>
 
 <section id="social" class="content-section">
-  <section style="background-color: #111; border: 1px solid #333; border-radius: 12px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 0 10px #0ff2;">
-  <h2 style="color: #00ffff; font-size: 1.8rem; text-shadow: 0 0 6px #0ff;">🌐 Social Media</h2>
-  <p style="color: #ccc;">Follow me and stay updated on everything I launch.</p>
+  <section style="background-color: #111; border: 1px solid #333; border-radius: 12px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 0 10px #ff00ff;">
+  <h2 style="color: #ff00ff; font-size: 1.8rem; text-shadow: 0 0 6px #ff00ff;">📲 Social Media</h2>
 
-  <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+  <!-- Instagram Section -->
+  <div style="margin-top: 1.5rem;">
+    <h3 style="color: #ff007f;">📸 Instagram Videos</h3>
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li><a href="#" style="color: #ff007f; text-decoration: underline;">Instagram Video 1</a></li>
+      <li><a href="#" style="color: #ff007f; text-decoration: underline;">Instagram Video 2</a></li>
+      <li><a href="#" style="color: #ff007f; text-decoration: underline;">Instagram Video 3</a></li>
+      <li><a href="#" style="color: #ff007f; text-decoration: underline;">Instagram Video 4</a></li>
+      <li><a href="#" style="color: #ff007f; text-decoration: underline;">Instagram Video 5</a></li>
+    </ul>
+  </div>
 
-    <a href="https://www.instagram.com/unnamedperson488" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #E1306C; color: white; padding: 12px 18px; border-radius: 10px; border: none; font-weight: bold; font-size: 1rem; width: 100%;">
-        📸 Instagram — 0 followers
-      </button>
-    </a>
+  <!-- TikTok Section -->
+  <div style="margin-top: 1.5rem;">
+    <h3 style="color: #00f2ea;">🎵 TikTok Videos</h3>
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li><a href="#" style="color: #00f2ea; text-decoration: underline;">TikTok Video 1</a></li>
+      <li><a href="#" style="color: #00f2ea; text-decoration: underline;">TikTok Video 2</a></li>
+      <li><a href="#" style="color: #00f2ea; text-decoration: underline;">TikTok Video 3</a></li>
+      <li><a href="#" style="color: #00f2ea; text-decoration: underline;">TikTok Video 4</a></li>
+      <li><a href="#" style="color: #00f2ea; text-decoration: underline;">TikTok Video 5</a></li>
+    </ul>
+  </div>
 
-    <a href="https://github.com/unnamedperson488" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #24292e; color: white; padding: 12px 18px; border-radius: 10px; border: none; font-weight: bold; font-size: 1rem; width: 100%;">
-        🐙 GitHub — 0 followers
-      </button>
-    </a>
-
-    <a href="https://youtube.com/@unnamedperson488" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #FF0000; color: white; padding: 12px 18px; border-radius: 10px; border: none; font-weight: bold; font-size: 1rem; width: 100%;">
-        ▶️ YouTube — 0 subscribers
-      </button>
-    </a>
-
-    <a href="https://discord.gg/yourdiscordserver" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #5865F2; color: white; padding: 12px 18px; border-radius: 10px; border: none; font-weight: bold; font-size: 1rem; width: 100%;">
-        💬 Discord — 0 members
-      </button>
-    </a>
-
-    <a href="https://www.tiktok.com/@unnamedperson488" target="_blank" style="text-decoration: none;">
-      <button style="background-color: #000000; color: white; padding: 12px 18px; border-radius: 10px; border: none; font-weight: bold; font-size: 1rem; width: 100%;">
-        🎵 TikTok — 84 followers
-      </button>
-    </a>
-
+  <!-- YouTube Section -->
+  <div style="margin-top: 1.5rem;">
+    <h3 style="color: #ff0000;">▶️ YouTube Videos</h3>
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li><a href="#" style="color: #ff0000; text-decoration: underline;">YouTube Video 1</a></li>
+      <li><a href="#" style="color: #ff0000; text-decoration: underline;">YouTube Video 2</a></li>
+      <li><a href="#" style="color: #ff0000; text-decoration: underline;">YouTube Video 3</a></li>
+      <li><a href="#" style="color: #ff0000; text-decoration: underline;">YouTube Video 4</a></li>
+      <li><a href="#" style="color: #ff0000; text-decoration: underline;">YouTube Video 5</a></li>
+    </ul>
   </div>
 </section>
+
 
 </section>
 
