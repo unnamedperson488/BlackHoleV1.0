@@ -117,11 +117,72 @@ title: Black Hole V1.0
 </section>
 
 <section id="social" class="content-section">
-  {% include social.md %}
+  <section style="background-color: #111; border: 1px solid #333; border-radius: 12px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 0 10px #0ff2;">
+  <h2 style="color: #00ffff; font-size: 1.8rem; text-shadow: 0 0 6px #0ff;">🌐 Social Media</h2>
+  <p style="color: #ccc;">Follow me and stay updated on everything I launch.</p>
+
+  <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+
+    <a href="https://www.instagram.com/unnamedperson488" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #E1306C; color: white; padding: 12px 18px; border-radius: 10px; border: none; font-weight: bold; font-size: 1rem; width: 100%;">
+        📸 Instagram — 0 followers
+      </button>
+    </a>
+
+    <a href="https://github.com/unnamedperson488" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #24292e; color: white; padding: 12px 18px; border-radius: 10px; border: none; font-weight: bold; font-size: 1rem; width: 100%;">
+        🐙 GitHub — 0 followers
+      </button>
+    </a>
+
+    <a href="https://youtube.com/@unnamedperson488" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #FF0000; color: white; padding: 12px 18px; border-radius: 10px; border: none; font-weight: bold; font-size: 1rem; width: 100%;">
+        ▶️ YouTube — 0 subscribers
+      </button>
+    </a>
+
+    <a href="https://discord.gg/yourdiscordserver" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #5865F2; color: white; padding: 12px 18px; border-radius: 10px; border: none; font-weight: bold; font-size: 1rem; width: 100%;">
+        💬 Discord — 0 members
+      </button>
+    </a>
+
+    <a href="https://www.tiktok.com/@unnamedperson488" target="_blank" style="text-decoration: none;">
+      <button style="background-color: #000000; color: white; padding: 12px 18px; border-radius: 10px; border: none; font-weight: bold; font-size: 1rem; width: 100%;">
+        🎵 TikTok — 84 followers
+      </button>
+    </a>
+
+  </div>
+</section>
+
 </section>
 
 <section id="about" class="content-section">
-  {% include about.md %}
+  <section style="background-color: #111; border: 1px solid #333; border-radius: 12px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 0 10px #0ff;">
+  <h2 style="color: #00ffff; font-size: 1.8rem; text-shadow: 0 0 6px #0ff;">👤 About Me</h2>
+
+  <p style="color: #ccc; font-size: 1rem; line-height: 1.6;">
+    Hey, I'm <strong style="color: #0ff;">unnamedperson488</strong> — a developer, ethical hacker, and builder of next-gen WiFi tech. I specialize in:
+  </p>
+
+  <ul style="color: #0ff; margin-top: 1rem; font-size: 1rem; line-height: 1.6;">
+    <li>🛠️ Custom DIY PCB Projects</li>
+    <li>🤖 ChatGPT Jailbreak Scripts</li>
+    <li>📡 Wireless Auditing Tools</li>
+    <li>💾 Firmware Engineering & Reverse Engineering</li>
+    <li>🧩 Unique, limited-edition paid hardware releases</li>
+  </ul>
+
+  <p style="color: #ccc; margin-top: 1rem;">
+    All of my work is highly specialized and <strong style="color: #0ff;">paid only</strong>. I build everything from scratch — no templates, no clones. Every product or script you get is engineered for performance, security, and stealth.
+  </p>
+
+  <div style="margin-top: 1rem;">
+    <img src="/assets/images/about-placeholder.png" alt="Profile or setup image" style="width: 100%; border-radius: 10px; box-shadow: 0 0 15px #0ff4;">
+  </div>
+</section>
+
 </section>
 
 <script>
