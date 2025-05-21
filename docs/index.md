@@ -4,6 +4,61 @@ title: Black Hole V1.0
 ---
 
 <style>
+/* === Social Media Section Styles === */
+.platform-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.platform-buttons button {
+  padding: 0.5rem 1rem;
+  background-color: #1a1a1a;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.platform-buttons button:hover {
+  background-color: #00ffff;
+  color: #000;
+}
+
+.video-list {
+  list-style: none;
+  padding: 0;
+}
+
+.video-list li {
+  margin: 0.5rem 0;
+}
+
+.video-list a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination button {
+  background-color: #333;
+  color: #0ff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+</style>
+
+<style>
   :root {
     --bg-dark: #0a0a1a;
     --text-light: #e0e0ff;
@@ -117,45 +172,70 @@ title: Black Hole V1.0
 </section>
 
 <section id="social" class="content-section">
-  <section style="background-color: #111; border: 1px solid #333; border-radius: 12px; padding: 1.5rem; margin-top: 2rem; box-shadow: 0 0 10px #ff00ff;">
-  <h2 style="color: #ff00ff; font-size: 1.8rem; text-shadow: 0 0 6px #ff00ff;">📲 Social Media</h2>
+  <section id="social-media">
+  <h2 style="color: #00ffff;">📡 Social Media Updates</h2>
 
-  <!-- Instagram Section -->
-  <div style="margin-top: 1.5rem;">
-    <h3 style="color: #ff007f;">📸 Instagram Videos</h3>
-    <ul style="list-style-type: none; padding-left: 0;">
-      <li><a href="#" style="color: #ff007f; text-decoration: underline;">Instagram Video 1</a></li>
-      <li><a href="#" style="color: #ff007f; text-decoration: underline;">Instagram Video 2</a></li>
-      <li><a href="#" style="color: #ff007f; text-decoration: underline;">Instagram Video 3</a></li>
-      <li><a href="#" style="color: #ff007f; text-decoration: underline;">Instagram Video 4</a></li>
-      <li><a href="#" style="color: #ff007f; text-decoration: underline;">Instagram Video 5</a></li>
-    </ul>
+  <div class="platform-buttons">
+    <button onclick="showPlatform('youtube')">YouTube</button>
+    <button onclick="showPlatform('tiktok')">TikTok</button>
+    <button onclick="showPlatform('instagram')">Instagram</button>
   </div>
 
-  <!-- TikTok Section -->
-  <div style="margin-top: 1.5rem;">
-    <h3 style="color: #00f2ea;">🎵 TikTok Videos</h3>
-    <ul style="list-style-type: none; padding-left: 0;">
-      <li><a href="#" style="color: #00f2ea; text-decoration: underline;">TikTok Video 1</a></li>
-      <li><a href="#" style="color: #00f2ea; text-decoration: underline;">TikTok Video 2</a></li>
-      <li><a href="#" style="color: #00f2ea; text-decoration: underline;">TikTok Video 3</a></li>
-      <li><a href="#" style="color: #00f2ea; text-decoration: underline;">TikTok Video 4</a></li>
-      <li><a href="#" style="color: #00f2ea; text-decoration: underline;">TikTok Video 5</a></li>
+  <div id="youtube" class="platform-section">
+    <h3 style="color: #ff0000;">▶️ YouTube</h3>
+    <ul class="video-list">
+      <li><a href="#" target="_blank">Video 1</a></li>
+      <li><a href="#" target="_blank">Video 2</a></li>
+      <li><a href="#" target="_blank">Video 3</a></li>
+      <li><a href="#" target="_blank">Video 4</a></li>
+      <li><a href="#" target="_blank">Video 5</a></li>
     </ul>
+    <div class="pagination">
+      <button>« Prev</button>
+      <button>Next »</button>
+    </div>
   </div>
 
-  <!-- YouTube Section -->
-  <div style="margin-top: 1.5rem;">
-    <h3 style="color: #ff0000;">▶️ YouTube Videos</h3>
-    <ul style="list-style-type: none; padding-left: 0;">
-      <li><a href="#" style="color: #ff0000; text-decoration: underline;">YouTube Video 1</a></li>
-      <li><a href="#" style="color: #ff0000; text-decoration: underline;">YouTube Video 2</a></li>
-      <li><a href="#" style="color: #ff0000; text-decoration: underline;">YouTube Video 3</a></li>
-      <li><a href="#" style="color: #ff0000; text-decoration: underline;">YouTube Video 4</a></li>
-      <li><a href="#" style="color: #ff0000; text-decoration: underline;">YouTube Video 5</a></li>
+  <div id="tiktok" class="platform-section" style="display:none;">
+    <h3 style="color: #69C9D0;">🎵 TikTok</h3>
+    <ul class="video-list">
+      <li><a href="#" target="_blank">TikTok 1</a></li>
+      <li><a href="#" target="_blank">TikTok 2</a></li>
+      <li><a href="#" target="_blank">TikTok 3</a></li>
+      <li><a href="#" target="_blank">TikTok 4</a></li>
+      <li><a href="#" target="_blank">TikTok 5</a></li>
     </ul>
+    <div class="pagination">
+      <button>« Prev</button>
+      <button>Next »</button>
+    </div>
+  </div>
+
+  <div id="instagram" class="platform-section" style="display:none;">
+    <h3 style="color: #E1306C;">📸 Instagram</h3>
+    <ul class="video-list">
+      <li><a href="#" target="_blank">Reel 1</a></li>
+      <li><a href="#" target="_blank">Reel 2</a></li>
+      <li><a href="#" target="_blank">Reel 3</a></li>
+      <li><a href="#" target="_blank">Reel 4</a></li>
+      <li><a href="#" target="_blank">Reel 5</a></li>
+    </ul>
+    <div class="pagination">
+      <button>« Prev</button>
+      <button>Next »</button>
+    </div>
   </div>
 </section>
+
+<script>
+  function showPlatform(platform) {
+    document.querySelectorAll('.platform-section').forEach(section => {
+      section.style.display = 'none';
+    });
+    document.getElementById(platform).style.display = 'block';
+  }
+</script>
+
 
 
 </section>
