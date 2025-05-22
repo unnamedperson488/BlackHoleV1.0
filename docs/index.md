@@ -415,22 +415,35 @@ title: Black Hole V1.0
   </div>
 
   <div class="glow-block">
-    <a href="firmware/blackhole-v1.2.3.bin" class="neon-button" download>Download Firmware v1.2.3</a>
+    <a href="firmware/blackhole-v1.2.3.bin" download class="neon-button">Download v1.2.3</a>
+    <p style="margin-top: 10px;">Instructions: Use the provided flashing tool or follow the guide in the documentation to update your device.</p>
   </div>
 
   <div class="glow-block">
-    <p><strong>Previous Versions:</strong></p>
+    <h3>Previous Versions</h3>
     <ul>
-      <li><a href="firmware/blackhole-v1.2.2.bin" class="neon-button" download>v1.2.2</a></li>
-      <li><a href="firmware/blackhole-v1.2.1.bin" class="neon-button" download>v1.2.1</a></li>
-      <li><a href="firmware/blackhole-v1.1.0.bin" class="neon-button" download>v1.1.0</a></li>
+      <li><a href="firmware/blackhole-v1.2.0.bin" download>v1.2.0</a> – April 2025</li>
+      <li><a href="firmware/blackhole-v1.1.5.bin" download>v1.1.5</a> – March 2025</li>
+      <li><a href="firmware/blackhole-v1.1.0.bin" download>v1.1.0</a> – January 2025</li>
     </ul>
   </div>
+</div>
+
+<div id="timeline" class="section">
+  <h2 class="glow-title">⏳ Project Timeline</h2>
 
   <div class="glow-block">
-    <p>For flashing instructions, please visit the <a href="#demos" onclick="showSection('demos')">Demos</a> section.</p>
+    <ul>
+      <li><strong>Jan 2024:</strong> Project conception and initial research.</li>
+      <li><strong>Jun 2024:</strong> Prototype development with ESP32 and BW16 chipset.</li>
+      <li><strong>Nov 2024:</strong> Hardware design finalized, 4-layer PCB created.</li>
+      <li><strong>Feb 2025:</strong> Firmware v1.0 released to beta testers.</li>
+      <li><strong>May 2025:</strong> Firmware v1.2.3 released with key feature updates.</li>
+      <li><strong>Jun 2025:</strong> Planned live demo event and community Q&A.</li>
+    </ul>
   </div>
 </div>
+
 <div id="timeline" class="section">
   <h2 class="glow-title">📅 Project Timeline</h2>
 
