@@ -123,20 +123,6 @@ title: Black Hole V1.0
     font-family: 'Orbitron', sans-serif;
   }
 
-  .video-link, .external-link {
-    display: inline-block;
-    margin: 8px 0;
-    color: #00f0ff;
-    text-shadow: 0 0 5px #00f0ff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease;
-  }
-
-  .video-link:hover, .external-link:hover {
-    color: #80ffff;
-  }
-
   .glow-block {
     border: 1px solid #00f0ff44;
     padding: 25px 30px;
@@ -164,73 +150,78 @@ title: Black Hole V1.0
     color: #a3b6ff;
   }
 
-  .product-image {
-    display: block;
-    margin: 20px auto 30px auto;
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #00f0ff44;
-    box-shadow: 0 0 15px #00f0ff55;
-    border-radius: 10px;
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    margin-bottom: 60px;
   }
 
-  ul, ol {
-    margin-left: 20px;
-    margin-bottom: 20px;
-  }
-
-  code {
-    background: #001f1f;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: monospace;
-    font-size: 16px;
-  }
-
-  pre {
-    background: #001f1f;
-    padding: 15px;
+  .social-button {
+    background-color: #111;
+    color: #00f0ff;
+    border: 2px solid #00f0ff;
+    padding: 12px 20px;
+    font-size: 1rem;
     border-radius: 8px;
-    overflow-x: auto;
-    font-family: monospace;
-    font-size: 16px;
-    margin-bottom: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    box-shadow: 0 0 10px #00f0ff44;
+    text-align: center;
   }
 
-  hr {
-    border: none;
-    border-top: 1px solid #004f4f;
-    margin: 40px 0;
+  .social-button:hover {
+    background-color: #00f0ff;
+    color: #000;
+    box-shadow: 0 0 25px #00f0ff88;
+  }
+
+  .social-button:focus {
+    outline: 2px solid #00f0ff;
+    outline-offset: 4px;
   }
 </style>
 
-<div class="nav-wrapper" role="navigation" aria-label="Primary Navigation">
-  <div class="nav-title" tabindex="0" aria-label="Site title">Black Hole V1.0</div>
+<script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+      section.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
+<div class="nav-wrapper">
+  <div class="nav-title">Black Hole V1.0</div>
   <div class="nav-row">
-    <a href="#" onclick="showSection('home')" class="neon-button" role="button" aria-pressed="true" tabindex="0">Home</a>
-    <a href="#" onclick="showSection('product')" class="neon-button" role="button" aria-pressed="false" tabindex="0">Product</a>
-    <a href="#" onclick="showSection('media')" class="neon-button" role="button" aria-pressed="false" tabindex="0">Media</a>
-    <a href="#" onclick="showSection('demos')" class="neon-button" role="button" aria-pressed="false" tabindex="0">Demos</a>
+    <a href="#" class="neon-button" onclick="showSection('home')">Home</a>
+    <a href="#" class="neon-button" onclick="showSection('product')">Product</a>
+    <a href="#" class="neon-button" onclick="showSection('media')">Media</a>
+    <a href="#" class="neon-button" onclick="showSection('demos')">Demos</a>
   </div>
   <div class="nav-row">
-    <a href="#" onclick="showSection('about')" class="neon-button" role="button" aria-pressed="false" tabindex="0">About</a>
-    <a href="#" onclick="showSection('faq')" class="neon-button" role="button" aria-pressed="false" tabindex="0">FAQ</a>
-    <a href="#" onclick="showSection('firmware')" class="neon-button" role="button" aria-pressed="false" tabindex="0">Firmware</a>
-    <a href="#" onclick="showSection('timeline')" class="neon-button" role="button" aria-pressed="false" tabindex="0">Timeline</a>
+    <a href="#" class="neon-button" onclick="showSection('about')">About</a>
+    <a href="#" class="neon-button" onclick="showSection('faq')">FAQ</a>
+    <a href="#" class="neon-button" onclick="showSection('firmware')">Firmware</a>
+    <a href="#" class="neon-button" onclick="showSection('timeline')">Timeline</a>
   </div>
 </div>
 
-<!-- Home Section -->
-<div id="home" class="section active" tabindex="0" aria-live="polite" aria-label="Home Section">
+<!-- HOME -->
+<div id="home" class="section active">
   <h1 class="glow-title">🌌 Welcome to Black Hole V1.0</h1>
   <p>This is your central hub for all things Black Hole — updates, documentation, media, and community interaction. Explore everything this project has to offer.</p>
-  <div class="discord-join" role="region" aria-label="Discord community invite">
+  <div class="discord-join">
     <p>💬 Join the community on Discord!</p>
-    <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank" rel="noopener noreferrer" aria-label="Join Discord server">Click here to join my Discord Server</a>
+    <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank">Click here to join my Discord Server</a>
   </div>
   <hr>
   <h2 class="glow-title">Latest Updates</h2>
-  <div class="glow-block" role="article" aria-label="Latest news update March 2025">
+  <div class="glow-block">
     <strong>May 2025:</strong> Released new firmware v1.2.3 with enhanced stability and new anti-jamming features.
     <ul>
       <li>Improved 5GHz antenna switching</li>
@@ -238,283 +229,235 @@ title: Black Hole V1.0
       <li>Bug fixes for ESP32 connectivity</li>
     </ul>
   </div>
-  <div class="glow-block" role="article" aria-label="Upcoming events April 2025">
+  <div class="glow-block">
     <strong>Upcoming:</strong> Live demo event scheduled for June 10, 2025 — join via Discord or YouTube livestream.
   </div>
+  <div class="social-buttons">
+    <a class="social-button" href="https://instagram.com/unnamedperson488" target="_blank">Instagram</a>
+    <a class="social-button" href="https://github.com/unnamedperson488" target="_blank">GitHub</a>
+    <a class="social-button" href="https://youtube.com/@unnamedperson488" target="_blank">YouTube</a>
+    <a class="social-button" href="https://discord.gg/YOUR_INVITE_CODE" target="_blank">Discord</a>
+    <a class="social-button" href="https://tiktok.com/@unnamedperson488" target="_blank">TikTok</a>
+  </div>
 </div>
 
-<!-- Product Section -->
-<div id="product" class="section" tabindex="0" aria-live="polite" aria-label="Product Information Section">
-  <h1 class="glow-title">Product Information</h1>
-  <img class="product-image" src="https://via.placeholder.com/600x350?text=Black+Hole+V1.0+Device" alt="Black Hole V1.0 Device Image">
-  <div class="glow-block" role="region" aria-label="Product features and details">
-    <strong>Product:</strong> Black Hole V1.0<br>
-    <strong>Features:</strong>
+<div id="product" class="section">
+  <h2 class="glow-title">📦 Product</h2>
+  <p>Introducing <strong>Black Hole V1.0</strong> — a cutting-edge dual-band deauther device designed for advanced wireless security testing and research.</p>
+
+  <div class="glow-block">
+    <h3>Key Features</h3>
     <ul>
-      <li>Dual-band WiFi jamming (2.4GHz + 5GHz)</li>
-      <li>External SMA antennas for improved signal range and stability</li>
-      <li>Rechargeable LiPo battery support with USB-C charging</li>
-      <li>Compact, sleek black PCB with protective case</li>
-      <li>Easy firmware upgrades via USB</li>
-      <li>Customizable launch control and anti-lag settings</li>
+      <li>Dual-band operation: 2.4GHz ESP32 + 5GHz BW16 chipset</li>
+      <li>Separate antennas with SMA connectors for max signal strength</li>
+      <li>4-layer black PCB with high-quality components</li>
+      <li>Custom firmware with anti-jamming and launch control</li>
+      <li>Boot and Reset buttons designed for easy hardware control</li>
+      <li>Compact and rugged design, suitable for wardriving and pentesting</li>
     </ul>
-    <strong>Price:</strong> $140
   </div>
-  <div class="glow-block" role="region" aria-label="Product inventory status">
-    <strong>Inventory:</strong> <em>0 in stock. 1 unit arriving in approximately 3 weeks.</em>
-  </div>
-  <hr>
-  <h2 class="glow-title">Detailed Specifications</h2>
-  <table style="width:100%; border-collapse: collapse; margin-bottom: 30px;">
-    <thead>
-      <tr style="border-bottom: 2px solid #00f0ff;">
-        <th style="text-align:left; padding:10px; color:#00f0ff;">Component</th>
-        <th style="text-align:left; padding:10px; color:#00f0ff;">Specification</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr style="border-bottom: 1px solid #004f4f;">
-        <td style="padding:10px;">Microcontroller</td>
-        <td style="padding:10px;">ESP32-WROOM-32U</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #004f4f;">
-        <td style="padding:10px;">Dual-band Module</td>
-        <td style="padding:10px;">BW16 (2.4GHz + 5GHz)</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #004f4f;">
-        <td style="padding:10px;">Antennas</td>
-        <td style="padding:10px;">2x SMA connectors, external antennas</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #004f4f;">
-        <td style="padding:10px;">Battery</td>
-        <td style="padding:10px;">Single-cell LiPo, 3.7V, USB-C charge</td>
-      </tr>
-      <tr style="border-bottom: 1px solid #004f4f;">
-        <td style="padding:10px;">Dimensions</td>
-        <td style="padding:10px;">85mm x 60mm x 15mm (with case)</td>
+
+  <div class="glow-block">
+    <h3>Technical Specifications</h3>
+    <table style="width:100%; border-collapse: collapse;">
+      <tr>
+        <th style="text-align:left; border-bottom: 1px solid #00f0ff;">Component</th>
+        <th style="text-align:left; border-bottom: 1px solid #00f0ff;">Details</th>
       </tr>
       <tr>
-        <td style="padding:10px;">Weight</td>
-        <td style="padding:10px;">150g</td>
+        <td>Microcontroller</td>
+        <td>ESP32-WROOM-32 (dual-core 240 MHz)</td>
       </tr>
-    </tbody>
-  </table>
-  <hr>
-  <h2 class="glow-title">Included Parts List</h2>
-  <ol>
-    <li>ESP32-WROOM-32U Microcontroller Module</li>
-    <li>BW16 Dual-band WiFi Module</li>
-    <li>2x SMA Connectors (2.4GHz & 5GHz Antennas)</li>
-    <li>LiPo Battery Charging Circuit</li>
-    <li>USB-C Charging Port</li>
-    <li>Reset Button (Red Tip)</li>
-    <li>Power Button (Black, Centered)</li>
-    <li>4-layer Black PCB</li>
-    <li>Protective Custom Case</li>
-    <li>Firmware Preloaded on Device</li>
-    <li>Instruction Manual PDF</li>
-  </ol>
-  <hr>
-  <h2 class="glow-title">Ordering Information</h2>
-  <p>To place an order or request a custom build, please contact me via Discord or GitHub:</p>
-  <ul>
-    <li><a href="https://discord.gg/YOUR_INVITE_CODE" class="external-link" target="_blank" rel="noopener noreferrer">Discord Server</a></li>
-    <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0" class="external-link" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
-  </ul>
+      <tr>
+        <td>5GHz Chipset</td>
+        <td>BW16 5GHz WiFi chip</td>
+      </tr>
+      <tr>
+        <td>Antennas</td>
+        <td>2 x SMA connectors (external antennas for 2.4GHz & 5GHz)</td>
+      </tr>
+      <tr>
+        <td>Buttons</td>
+        <td>Boot (power) button, Reset button</td>
+      </tr>
+      <tr>
+        <td>PCB</td>
+        <td>4-layer black matte, custom silkscreen 'ENGINEERED BY unnamedperson'</td>
+      </tr>
+      <tr>
+        <td>Power</td>
+        <td>LiPo battery charging onboard</td>
+      </tr>
+      <tr>
+        <td>Dimensions</td>
+        <td>Approx. 75mm x 50mm x 15mm</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="glow-block">
+    <h3>What's in the Box?</h3>
+    <ul>
+      <li>Black Hole V1.0 device</li>
+      <li>Two SMA antennas (2.4GHz and 5GHz)</li>
+      <li>USB-C charging cable</li>
+      <li>User manual & quick start guide</li>
+      <li>Access to exclusive Discord support community</li>
+    </ul>
+  </div>
 </div>
 
-<!-- Media Section -->
-<div id="media" class="section" tabindex="0" aria-live="polite" aria-label="Media Section">
-  <h1 class="glow-title">Media</h1>
-  <p>Explore videos, images, and walkthroughs of the Black Hole V1.0 device in action.</p>
-  
-  <h2>Video Walkthroughs</h2>
-  <ul>
-    <li><a href="https://youtu.be/example1" target="_blank" rel="noopener noreferrer" class="video-link" aria-label="Watch Black Hole V1.0 introduction video on YouTube">Introduction to Black Hole V1.0</a></li>
-    <li><a href="https://youtu.be/example2" target="_blank" rel="noopener noreferrer" class="video-link" aria-label="Watch detailed teardown and build guide video">Teardown and Build Guide</a></li>
-    <li><a href="https://youtu.be/example3" target="_blank" rel="noopener noreferrer" class="video-link" aria-label="Watch firmware update tutorial video">Firmware Update Tutorial</a></li>
-  </ul>
+<div id="media" class="section">
+  <h2 class="glow-title">🎥 Media</h2>
+  <p>Explore photos, videos, and demos showcasing the Black Hole V1.0 in action.</p>
 
-  <h2>Photo Gallery</h2>
-  <img src="https://via.placeholder.com/450x300?text=Black+Hole+PCB+Closeup" alt="Close-up image of Black Hole V1.0 PCB" class="product-image" />
-  <img src="https://via.placeholder.com/450x300?text=Black+Hole+In+Case" alt="Black Hole V1.0 device inside protective case" class="product-image" />
-  <img src="https://via.placeholder.com/450x300?text=Black+Hole+Setup" alt="Black Hole V1.0 setup during a test" class="product-image" />
+  <div class="glow-block">
+    <h3>Gallery</h3>
+    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
+      <img src="https://via.placeholder.com/180x120?text=Device+Front" alt="Black Hole Front View" style="border-radius: 8px; box-shadow: 0 0 10px #00f0ff77;">
+      <img src="https://via.placeholder.com/180x120?text=Device+Back" alt="Black Hole Back View" style="border-radius: 8px; box-shadow: 0 0 10px #00f0ff77;">
+      <img src="https://via.placeholder.com/180x120?text=PCB+Layout" alt="PCB Layout" style="border-radius: 8px; box-shadow: 0 0 10px #00f0ff77;">
+    </div>
+  </div>
 
-  <h2>Demo Clips</h2>
-  <ul>
-    <li><a href="https://youtu.be/demo1" target="_blank" rel="noopener noreferrer" class="video-link" aria-label="Watch WiFi jamming demo clip">WiFi Jamming Demo</a></li>
-    <li><a href="https://youtu.be/demo2" target="_blank" rel="noopener noreferrer" class="video-link" aria-label="Watch antenna range comparison video">Antenna Range Comparison</a></li>
-    <li><a href="https://youtu.be/demo3" target="_blank" rel="noopener noreferrer" class="video-link" aria-label="Watch battery life test video">Battery Life Test</a></li>
-  </ul>
+  <div class="glow-block">
+    <h3>Videos</h3>
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Black Hole V1.0 Demo" frameborder="0" allowfullscreen style="border-radius: 8px; box-shadow: 0 0 15px #00f0ff88;"></iframe>
+  </div>
 </div>
+<div id="demos" class="section">
+  <h2 class="glow-title">⚙️ Demos</h2>
+  <p>Try out live demos or explore interactive examples of Black Hole V1.0 features.</p>
 
-<!-- Demos Section -->
-<div id="demos" class="section" tabindex="0" aria-live="polite" aria-label="Demo Section">
-  <h1 class="glow-title">Live Demos & Interactive Content</h1>
-  <p>Try out firmware simulation or explore interactive demos below.</p>
+  <div class="glow-block">
+    <h3>Live Demo</h3>
+    <p>Experience the device in real time through our web interface:</p>
+    <a href="https://example.com/live-demo" target="_blank" class="neon-button">Open Live Demo</a>
+  </div>
 
-  <h2>Firmware Simulator</h2>
-  <p>Simulate key firmware functions in a web interface:</p>
-  <pre><code>
-  # Example firmware simulation commands
-  # Start jamming on 2.4GHz band
-  start_jamming(2.4)
+  <div class="glow-block">
+    <h3>Interactive Simulator</h3>
+    <p>Test functionalities and settings with our online simulator.</p>
+    <a href="https://example.com/simulator" target="_blank" class="neon-button">Open Simulator</a>
+  </div>
 
-  # Switch to 5GHz band
-  switch_band(5)
-
-  # Check battery status
-  battery_status()
-  </code></pre>
-  <p><em>Note: This is a conceptual simulator and not a real device emulator.</em></p>
-
-  <h2>Interactive Signal Range Map</h2>
-  <p>Explore how the signal strength varies with antenna type and distance (conceptual visualization):</p>
-  <ul>
-    <li><strong>Short-range mode:</strong> Up to 50 meters</li>
-    <li><strong>Medium-range mode:</strong> Up to 150 meters</li>
-    <li><strong>Long-range mode:</strong> Up to 300 meters (with external antenna)</li>
-  </ul>
-
-  <h2>Source Code Snippet</h2>
-  <pre><code class="language-c">
-// Setup WiFi jamming
-void start_jamming(float band) {
-  if (band == 2.4) {
-    // Initialize 2.4GHz band jammer
-    initialize_24GHz();
-  } else if (band == 5.0) {
-    // Initialize 5GHz band jammer
-    initialize_5GHz();
-  }
-  start_jamming_routine();
-}
-  </code></pre>
-
-  <h2>Download Firmware</h2>
-  <p><a href="firmware/BlackHoleV1.0_v1.2.3.bin" class="external-link" download aria-label="Download Black Hole V1.0 firmware version 1.2.3">Black Hole V1.0 Firmware v1.2.3</a></p>
+  <div class="glow-block">
+    <h3>Code Examples</h3>
+    <p>Explore example scripts and how to use the device APIs.</p>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0-examples" target="_blank" class="neon-button">View Code on GitHub</a>
+  </div>
 </div>
+<div id="about" class="section">
+  <h2 class="glow-title">🔭 About Black Hole V1.0</h2>
+  <div class="glow-block">
+    <p>
+      Black Hole V1.0 is a cutting-edge dual-band deauther device engineered for maximum performance in wireless network testing and security research. 
+      Designed by <strong>unnamedperson488</strong>, it features advanced antenna switching, anti-jamming capabilities, and an intuitive interface.
+    </p>
+    <p>
+      The project is open-source and community-driven, aiming to empower cybersecurity enthusiasts and professionals to explore and improve wireless security.
+    </p>
+  </div>
 
-<!-- About Section -->
-<div id="about" class="section" tabindex="0" aria-live="polite" aria-label="About Section">
-  <h1 class="glow-title">About Black Hole V1.0</h1>
-  <p>Black Hole V1.0 is a project developed and engineered by <strong>unnamedperson488</strong>. Designed as a powerful dual-band WiFi auditing and jamming tool, it combines cutting-edge hardware with sleek design and robust software.</p>
-  <p>This project was inspired by the need for a reliable, compact, and customizable wireless security tool for ethical hacking and testing purposes.</p>
-
-  <h2>Project Goals</h2>
-  <ul>
-    <li>Provide a dual-band WiFi jammer with external antennas for increased effectiveness.</li>
-    <li>Make firmware easily upgradeable and customizable.</li>
-    <li>Create a user-friendly interface and community for support.</li>
-    <li>Use high-quality, accessible hardware components.</li>
-  </ul>
-
-  <h2>Future Plans</h2>
-  <ol>
-    <li>Develop a wardriving module with GPS integration.</li>
-    <li>Expand firmware features including launch control and anti-lag systems.</li>
-    <li>Introduce additional external antenna options for extended range.</li>
-    <li>Open-source select portions of the project to encourage community contribution.</li>
-  </ol>
-
-  <h2>Contact</h2>
-  <p>Reach out via <a href="https://discord.gg/YOUR_INVITE_CODE" class="external-link" target="_blank" rel="noopener noreferrer">Discord</a> or check the <a href="https://github.com/unnamedperson488" class="external-link" target="_blank" rel="noopener noreferrer">GitHub</a> profile for collaboration opportunities.</p>
+  <div class="glow-block">
+    <h3>Project Goals</h3>
+    <ul>
+      <li>Deliver a reliable and efficient dual-band deauther device.</li>
+      <li>Provide extensive documentation and support for users.</li>
+      <li>Encourage community collaboration and feature development.</li>
+    </ul>
+  </div>
 </div>
+<div id="faq" class="section">
+  <h2 class="glow-title">❓ Frequently Asked Questions</h2>
 
-<!-- FAQ Section -->
-<div id="faq" class="section" tabindex="0" aria-live="polite" aria-label="FAQ Section">
-  <h1 class="glow-title">Frequently Asked Questions</h1>
-  
-  <h2>Q: What is the range of the Black Hole V1.0?</h2>
-  <p>A: It varies based on antenna and environment, typically 100-300 meters outdoors with external antennas.</p>
+  <div class="glow-block">
+    <button class="faq-question neon-button" onclick="toggleFAQ(this)">What is Black Hole V1.0?</button>
+    <p class="faq-answer" style="display:none; margin-top: 10px;">
+      Black Hole V1.0 is a powerful dual-band deauther device designed for network security testing and research.
+    </p>
+  </div>
 
-  <h2>Q: Can I update the firmware myself?</h2>
-  <p>A: Yes, firmware updates are user-friendly and downloadable from the Media section.</p>
+  <div class="glow-block">
+    <button class="faq-question neon-button" onclick="toggleFAQ(this)">Is Black Hole V1.0 open source?</button>
+    <p class="faq-answer" style="display:none; margin-top: 10px;">
+      Yes! The project is fully open source, and contributions are welcome.
+    </p>
+  </div>
 
-  <h2>Q: Is the device legal to use?</h2>
-  <p>A: Usage depends on local laws. The device is intended for ethical testing and research only.</p>
-
-  <h2>Q: How long does the battery last?</h2>
-  <p>A: Typical battery life is 3-4 hours under continuous use.</p>
-
-  <h2>Q: Can I customize the device hardware?</h2>
-  <p>A: Yes, the project encourages customization with available hardware parts and open schematics.</p>
-
-  <h2>Q: What support do you offer?</h2>
-  <p>A: Community support is available on Discord; official support via GitHub issues.</p>
-</div>
-
-<!-- Firmware Section -->
-<div id="firmware" class="section" tabindex="0" aria-live="polite" aria-label="Firmware Section">
-  <h1 class="glow-title">Firmware</h1>
-  <p>Firmware updates are released regularly to improve functionality, fix bugs, and add features.</p>
-  <ul>
-    <li><strong>Current Version:</strong> v1.2.3 (May 2025)</li>
-    <li><strong>Supported Devices:</strong> Black Hole V1.0</li>
-  </ul>
-
-  <h2>Download Firmware</h2>
-  <p><a href="firmware/BlackHoleV1.0_v1.2.3.bin" class="external-link" download aria-label="Download firmware version 1.2.3">Black Hole V1.0 Firmware v1.2.3</a></p>
-
-  <h2>Flashing Instructions</h2>
-  <ol>
-    <li>Connect your Black Hole V1.0 device to your PC via USB-C cable.</li>
-    <li>Download the <code>flash_tool.exe</code> or use <code>esptool.py</code> on Linux/Mac.</li>
-    <li>Open a terminal or command prompt in the directory containing the firmware binary.</li>
-    <li>Run the following command to flash:
-      <pre><code>esptool.py --chip esp32 --port COM3 write_flash -z 0x1000 BlackHoleV1.0_v1.2.3.bin</code></pre>
-    </li>
-    <li>After flashing, reset the device by pressing the reset button.</li>
-    <li>Verify the device boots correctly and check functionality.</li>
-  </ol>
-  
-  <h2>Troubleshooting</h2>
-  <ul>
-    <li>Make sure drivers for the ESP32 are installed.</li>
-    <li>Verify the correct COM port is selected.</li>
-    <li>Check USB cable and connection.</li>
-    <li>If flashing fails, press and hold the boot button while connecting.</li>
-  </ul>
-</div>
-
-<!-- Timeline Section -->
-<div id="timeline" class="section" tabindex="0" aria-live="polite" aria-label="Timeline Section">
-  <h1 class="glow-title">Development Timeline</h1>
-  
-  <ul>
-    <li><strong>January 2025:</strong> Conceptual design and initial hardware research.</li>
-    <li><strong>February 2025:</strong> Prototype PCB designed and fabricated.</li>
-    <li><strong>March 2025:</strong> Firmware v1.0 released; basic jamming functions tested.</li>
-    <li><strong>April 2025:</strong> Integration of external antennas and battery management.</li>
-    <li><strong>May 2025:</strong> Firmware v1.2.3 released; stability improvements and bug fixes.</li>
-    <li><strong>June 2025 (Planned):</strong> Live demo and release of wardriving module concept.</li>
-    <li><strong>July 2025 (Planned):</strong> Community open source collaboration starts.</li>
-  </ul>
+  <div class="glow-block">
+    <button class="faq-question neon-button" onclick="toggleFAQ(this)">Where can I download the firmware?</button>
+    <p class="faq-answer" style="display:none; margin-top: 10px;">
+      Firmware downloads and instructions are available in the Firmware section.
+    </p>
+  </div>
 </div>
 
 <script>
-  function showSection(sectionId) {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(sec => {
-      if (sec.id === sectionId) {
-        sec.classList.add('active');
-        sec.setAttribute('aria-hidden', 'false');
-      } else {
-        sec.classList.remove('active');
-        sec.setAttribute('aria-hidden', 'true');
-      }
-    });
-
-    // Update aria-pressed attributes on nav buttons
-    const buttons = document.querySelectorAll('.nav-row a.neon-button');
-    buttons.forEach(button => {
-      button.setAttribute('aria-pressed', 'false');
-    });
-    const activeButton = Array.from(buttons).find(btn => btn.textContent.toLowerCase() === sectionId);
-    if (activeButton) activeButton.setAttribute('aria-pressed', 'true');
-
-    // Focus the shown section for screen readers
-    const activeSection = document.getElementById(sectionId);
-    if (activeSection) activeSection.focus();
+  function toggleFAQ(button) {
+    const answer = button.nextElementSibling;
+    if (answer.style.display === "none" || answer.style.display === "") {
+      answer.style.display = "block";
+      button.style.boxShadow = "0 0 40px 10px rgba(0, 255, 255, 0.7)";
+    } else {
+      answer.style.display = "none";
+      button.style.boxShadow = "0 0 0 0 transparent";
+    }
   }
 </script>
+<div id="firmware" class="section">
+  <h2 class="glow-title">⚙️ Firmware Downloads</h2>
+
+  <div class="glow-block">
+    <p><strong>Current Version:</strong> v1.2.3</p>
+    <p>Release Date: May 2025</p>
+    <p>This firmware includes improved antenna switching, better battery management, and enhanced stability.</p>
+  </div>
+
+  <div class="glow-block">
+    <a href="firmware/blackhole-v1.2.3.bin" class="neon-button" download>Download Firmware v1.2.3</a>
+  </div>
+
+  <div class="glow-block">
+    <p><strong>Previous Versions:</strong></p>
+    <ul>
+      <li><a href="firmware/blackhole-v1.2.2.bin" class="neon-button" download>v1.2.2</a></li>
+      <li><a href="firmware/blackhole-v1.2.1.bin" class="neon-button" download>v1.2.1</a></li>
+      <li><a href="firmware/blackhole-v1.1.0.bin" class="neon-button" download>v1.1.0</a></li>
+    </ul>
+  </div>
+
+  <div class="glow-block">
+    <p>For flashing instructions, please visit the <a href="#demos" onclick="showSection('demos')">Demos</a> section.</p>
+  </div>
+</div>
+<div id="timeline" class="section">
+  <h2 class="glow-title">📅 Project Timeline</h2>
+
+  <div class="glow-block">
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li>
+        <strong>Jan 2024:</strong> Project conception and initial design sketches.
+      </li>
+      <li>
+        <strong>Mar 2024:</strong> First prototype PCB manufactured and tested.
+      </li>
+      <li>
+        <strong>Jul 2024:</strong> Firmware development v1.0 started.
+      </li>
+      <li>
+        <strong>Dec 2024:</strong> Beta firmware released to testers.
+      </li>
+      <li>
+        <strong>Feb 2025:</strong> Hardware revisions based on beta feedback.
+      </li>
+      <li>
+        <strong>May 2025:</strong> Official release of Black Hole V1.0 with firmware v1.2.3.
+      </li>
+      <li>
+        <strong>Jun 2025:</strong> Upcoming live demo and community events.
+      </li>
+    </ul>
+  </div>
+</div>
+
