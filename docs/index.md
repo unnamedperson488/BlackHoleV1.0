@@ -368,81 +368,149 @@ title: Black Hole V1.0
     </ul>
   </div>
 </div>
-<div id="faq" class="section">
-  <h2 class="glow-title">❓ Frequently Asked Questions</h2>
+<section id="faq" style="margin:1rem 0;">
+  <h2>Frequently Asked Questions</h2>
+  <details>
+    <summary>How do I flash the firmware?</summary>
+    <p>Use the ESP32 Flash Tool and select the correct COM port. Follow the download guide steps above.</p>
+  </details>
+  <details>
+    <summary>Is this firmware compatible with all ESP32 boards?</summary>
+    <p>This firmware supports ESP32-WROOM-32 and compatible variants. Check compatibility on the download page.</p>
+  </details>
+  <details>
+    <summary>How do I reset the device?</summary>
+    <p>Press and hold the reset button for 5 seconds to reboot the device.</p>
+  </details>
+  <!-- Add more as needed -->
+</section>
 
-  <div class="glow-block">
-    <button class="faq-question neon-button" onclick="toggleFAQ(this)">What is Black Hole V1.0?</button>
-    <p class="faq-answer" style="display:none; margin-top: 10px;">
-      Black Hole V1.0 is a powerful dual-band deauther device designed for network security testing and research.
-    </p>
+<section id="firmware" style="max-width: 600px; margin: auto; background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
+
+  <h1 style="text-align:center; margin-bottom:1rem;">Firmware</h1>
+
+  <!-- Download Guide inside Firmware -->
+  <div id="download-guide" style="margin-bottom: 2rem;">
+    <h2>Download Guide</h2>
+    <p>Follow these steps to download and install the latest firmware:</p>
+    <ol>
+      <li>Visit <a href="[https://example.com/firmware](https://github.com/tesa-klebeband/RTL8720dn-Deauther/blob/master/RTL8720dn-Deauther.ino)" target="_blank" rel="noopener noreferrer">Firmware Downloads</a>.</li>
+      <li>Select your device model.</li>
+      <li>Download the latest <code>.bin</code> firmware file.</li>
+      <li>Flash the firmware using the recommended tool (e.g., ESP32 Flash Tool).</li>
+      <li>Restart your device once flashing is complete.</li>
+    </ol>
+    <p>If you encounter issues, check the FAQ below or contact support.</p>
   </div>
 
-  <div class="glow-block">
-    <button class="faq-question neon-button" onclick="toggleFAQ(this)">Is Black Hole V1.0 open source?</button>
-    <p class="faq-answer" style="display:none; margin-top: 10px;">
-      Yes! The project is fully open source, and contributions are welcome.
-    </p>
+  <!-- FAQ Search -->
+  <input type="text" id="faq-search" placeholder="Search FAQ..." 
+         style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem;">
+
+  <!-- FAQ Section -->
+  <div id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <details>
+      <summary>How do I flash the firmware?</summary>
+      <p>Use the ESP32 Flash Tool and select the correct COM port. Follow the download guide steps above.</p>
+    </details>
+
+    <details>
+      <summary>Is this firmware compatible with all ESP32 boards?</summary>
+      <p>This firmware supports ESP32-WROOM-32 and compatible variants. Please check the compatibility list on the download page.</p>
+    </details>
+
+    <details>
+      <summary>How do I reset the device?</summary>
+      <p>Press and hold the reset button on the device for 5 seconds to reboot.</p>
+    </details>
+
+    <details>
+      <summary>Can I downgrade the firmware?</summary>
+      <p>Downgrading is possible but not recommended. Always back up your configuration before flashing.</p>
+    </details>
+
+    <details>
+      <summary>Where can I get support?</summary>
+      <p>Visit our support page or contact us via email at support@example.com.</p>
+    </details>
+
   </div>
 
-  <div class="glow-block">
-    <button class="faq-question neon-button" onclick="toggleFAQ(this)">Where can I download the firmware?</button>
-    <p class="faq-answer" style="display:none; margin-top: 10px;">
-      Firmware downloads and instructions are available in the Firmware section.
-    </p>
-  </div>
-</div>
+</section>
 
 <script>
-  function toggleFAQ(button) {
-    const answer = button.nextElementSibling;
-    if (answer.style.display === "none" || answer.style.display === "") {
-      answer.style.display = "block";
-      button.style.boxShadow = "0 0 40px 10px rgba(0, 255, 255, 0.7)";
-    } else {
-      answer.style.display = "none";
-      button.style.boxShadow = "0 0 0 0 transparent";
+  // FAQ Search functionality
+  const searchInput = document.getElementById('faq-search');
+  const faqItems = document.querySelectorAll('#faq details');
+
+  searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    faqItems.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(query) ? 'block' : 'none';
+    });
+  });
+</script>
+
+<style>
+  /* Responsive and mobile-friendly */
+  #firmware {
+    background: #fff;
+    color: #222;
+  }
+
+  #firmware h1, #firmware h2 {
+    color: #333;
+  }
+
+  details {
+    margin-bottom: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    background: #f9f9f9;
+  }
+
+  summary {
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 8px;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  details[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  @media (max-width: 600px) {
+    #firmware {
+      margin: 0.5rem;
+      padding: 0.75rem;
+    }
+
+    #faq-search {
+      font-size: 1rem;
+    }
+
+    ol {
+      padding-left: 1.25rem;
     }
   }
-</script>
-<div id="firmware" class="section">
-  <h2 class="glow-title">⚙️ Firmware Downloads</h2>
+</style>
 
-  <div class="glow-block">
-    <p><strong>Current Version:</strong> v1.2.3</p>
-    <p>Release Date: May 2025</p>
-    <p>This firmware includes improved antenna switching, better battery management, and enhanced stability.</p>
-  </div>
-
-  <div class="glow-block">
-    <a href="firmware/blackhole-v1.2.3.bin" download class="neon-button">Download v1.2.3</a>
-    <p style="margin-top: 10px;">Instructions: Use the provided flashing tool or follow the guide in the documentation to update your device.</p>
-  </div>
-
-  <div class="glow-block">
-    <h3>Previous Versions</h3>
-    <ul>
-      <li><a href="firmware/blackhole-v1.2.0.bin" download>v1.2.0</a> – April 2025</li>
-      <li><a href="firmware/blackhole-v1.1.5.bin" download>v1.1.5</a> – March 2025</li>
-      <li><a href="firmware/blackhole-v1.1.0.bin" download>v1.1.0</a> – January 2025</li>
-    </ul>
-  </div>
-</div>
-
-<div id="timeline" class="section">
-  <h2 class="glow-title">⏳ Project Timeline</h2>
-
-  <div class="glow-block">
-    <ul>
-      <li><strong>Jan 2024:</strong> Project conception and initial research.</li>
-      <li><strong>Jun 2024:</strong> Prototype development with ESP32 and BW16 chipset.</li>
-      <li><strong>Nov 2024:</strong> Hardware design finalized, 4-layer PCB created.</li>
-      <li><strong>Feb 2025:</strong> Firmware v1.0 released to beta testers.</li>
-      <li><strong>May 2025:</strong> Firmware v1.2.3 released with key feature updates.</li>
-      <li><strong>Jun 2025:</strong> Planned live demo event and community Q&A.</li>
-    </ul>
-  </div>
-</div>
 
 <div id="timeline" class="section">
   <h2 class="glow-title">📅 Project Timeline</h2>
