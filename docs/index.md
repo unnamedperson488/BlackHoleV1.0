@@ -350,51 +350,27 @@ title: Black Hole V1.0
 </div>
 <div id="faq" class="section">
   <h2 class="glow-title">❓ FAQ</h2>
-  <div class="glow-block">
-    <h3>Is Black Hole V1.0 legal to use?</h3>
-    <p>The device is intended strictly for educational and authorized security testing purposes. Always comply with your local laws before using the device.</p>
-  </div>
-  <div class="glow-block">
-    <h3>Can I use this for 5GHz deauthing?</h3>
-    <p>Yes — Black Hole V1.0 includes a BW16 chipset to enable dual-band support, including 5GHz deauthentication capabilities.</p>
-  </div>
-  <div class="glow-block">
-    <h3>How do I flash new firmware?</h3>
-    <p>You can follow the Firmware section on this site or refer to the GitHub repository for detailed flashing instructions.</p>
-  </div>
-  <div class="glow-block">
-    <h3>What devices are compatible?</h3>
-    <p>Any WiFi-enabled device in range may be affected during testing. The tool is platform-agnostic but requires proper use and responsibility.</p>
-  </div>
-</div>
-
-    <h3>What is Black Hole V1.0 used for?</h3>
-    <p>Black Hole V1.0 is designed for wireless security research, network stress testing, and educational pentesting environments. It allows users to analyze, test, and experiment with 2.4GHz and 5GHz WiFi signals.</p>
-  </div>
-
-  <div class="glow-block">
-    <h3>Is it legal to use this device?</h3>
-    <p>Using deauther or jamming functionality on networks you do not own or have explicit permission to test is illegal in many countries. This device is intended for responsible use only — always comply with local laws and use it ethically.</p>
-  </div>
-
-  <div class="glow-block">
-    <h3>How do I flash new firmware?</h3>
-    <p>Refer to the Firmware section of this site. You’ll download the latest release, use a flashing tool like ESPFlashTool, and follow the step-by-step process. Always verify you’re using the correct firmware file for your board revision.</p>
-  </div>
-
-  <div class="glow-block">
-    <h3>Can I power it with any battery?</h3>
-    <p>Black Hole V1.0 supports standard LiPo batteries. We recommend 3.7V single-cell packs with JST connectors. Avoid exceeding voltage specs to prevent hardware damage.</p>
-  </div>
-
-  <div class="glow-block">
-    <h3>How do I join the community?</h3>
-    <p>Click the Discord invite link in the Home section or social buttons. You’ll get access to support, beta testing info, and a group of fellow developers and hackers using Black Hole V1.0.</p>
-  </div>
-
-  <div class="glow-block">
-    <h3>Can I contribute to the project?</h3>
-    <p>Yes! Visit our <a href="https://github.com/unnamedperson488/BlackHoleV1.0" class="neon-link" target="_blank">GitHub repository</a> to report bugs, suggest features, or contribute code/documentation. Community contributions are welcomed and appreciated.</p>
+  <div class="space-y-6 text-gray-300">
+    <div>
+      <h3 class="text-white text-lg font-semibold">What is Black Hole V1.0?</h3>
+      <p>A dual-band WiFi deauther designed for educational use, security testing, and research. It supports both 2.4GHz and 5GHz via ESP32 and BW16 chipsets.</p>
+    </div>
+    <div>
+      <h3 class="text-white text-lg font-semibold">Is 5GHz support real?</h3>
+      <p>Yes. It uses the Realtek BW16 module with SDK-based implementation for 5GHz deauth and packet injection.</p>
+    </div>
+    <div>
+      <h3 class="text-white text-lg font-semibold">Can I flash my own firmware?</h3>
+      <p>Absolutely. The board supports PlatformIO, Arduino IDE, and direct UART flashing. Open-source firmware is provided.</p>
+    </div>
+    <div>
+      <h3 class="text-white text-lg font-semibold">How long does the battery last?</h3>
+      <p>It depends on usage and battery size. A 1000mAh LiPo can last ~4-5 hours under moderate scanning/jamming.</p>
+    </div>
+    <div>
+      <h3 class="text-white text-lg font-semibold">Is it legal?</h3>
+      <p>This device is for educational and authorized testing only. Unauthorized use may violate local laws. You are responsible for how you use it.</p>
+    </div>
   </div>
 </div>
 
@@ -482,32 +458,34 @@ title: Black Hole V1.0
 
 
 <div id="timeline" class="section">
-  <h2 class="glow-title">📅 Project Timeline</h2>
+  <h2 class="glow-title">🗓️ Timeline</h2>
+  <ul class="border-l-4 border-purple-500 pl-6 space-y-6 mt-4 text-gray-300">
 
-  <div class="glow-block">
-    <ul style="list-style-type: none; padding-left: 0;">
-      <li>
-        <strong>Jan 2024:</strong> Project conception and initial design sketches.
-      </li>
-      <li>
-        <strong>Mar 2024:</strong> First prototype PCB manufactured and tested.
-      </li>
-      <li>
-        <strong>Jul 2024:</strong> Firmware development v1.0 started.
-      </li>
-      <li>
-        <strong>Dec 2024:</strong> Beta firmware released to testers.
-      </li>
-      <li>
-        <strong>Feb 2025:</strong> Hardware revisions based on beta feedback.
-      </li>
-      <li>
-        <strong>May 2025:</strong> Official release of Black Hole V1.0 with firmware v1.2.3.
-      </li>
-      <li>
-        <strong>Jun 2025:</strong> Upcoming live demo and community events.
-      </li>
-    </ul>
-  </div>
+    <li>
+      <div class="font-bold text-white">🔧 Prototype 1 – Complete</div>
+      <p>Initial ESP32-based design with 2.4GHz deauth and LiPo charging.</p>
+    </li>
+
+    <li>
+      <div class="font-bold text-white">📡 Dual-Band Upgrade – Complete</div>
+      <p>Integrated BW16 for 5GHz support. Redesigned to fit SMA antennas and new boot/reset layout.</p>
+    </li>
+
+    <li>
+      <div class="font-bold text-white">💻 Firmware V1.0 – Released</div>
+      <p>Stable release with web UI and OTA support.</p>
+    </li>
+
+    <li>
+      <div class="font-bold text-white">📦 Public Release – Coming June 2025</div>
+      <p>Final hardware with case design and shipping options for first 100 units.</p>
+    </li>
+
+    <li>
+      <div class="font-bold text-white">🚀 V2 Development – Q4 2025</div>
+      <p>Research into integrated GPS and better chipset support for future expansion (wardriving module).</p>
+    </li>
+  </ul>
 </div>
+
 
