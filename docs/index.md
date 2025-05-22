@@ -1,4 +1,3 @@
-White card cards 
 ---
 layout: default
 title: Black Hole V1.0
@@ -11,18 +10,33 @@ title: Black Hole V1.0
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
+  .nav-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #00f0ff;
+    text-shadow: 0 0 5px #00f0ff, 0 0 15px #00f0ff;
+    margin-top: 20px;
+  }
+
   nav {
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
     background-color: #111;
     position: sticky;
     top: 0;
     z-index: 1000;
   }
 
-  nav a, nav span {
+  .nav-group {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  nav a {
     color: #00f0ff;
     text-decoration: none;
     font-weight: bold;
@@ -68,16 +82,20 @@ title: Black Hole V1.0
   }
 </style>
 
+<div class="nav-title">Black Hole V1.0</div>
 <nav>
-  <span style="font-size: 1.4rem;">Black Hole V1.0</span>
-  <a href="#" onclick="showSection('home')">Home</a>
-  <a href="#" onclick="showSection('product')">Product</a>
-  <a href="#" onclick="showSection('about')">About</a>
-  <a href="#" onclick="showSection('faq')">FAQ</a>
-  <a href="#" onclick="showSection('media')">Media</a>
-  <a href="#" onclick="showSection('demos')">Demos</a>
-  <a href="#" onclick="showSection('firmware')">Firmware</a>
-  <a href="#" onclick="showSection('timeline')">Timeline</a>
+  <div class="nav-group">
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('product')">Product</a>
+    <a href="#" onclick="showSection('media')">Media</a>
+    <a href="#" onclick="showSection('demos')">Demos</a>
+  </div>
+  <div class="nav-group">
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('faq')">FAQ</a>
+    <a href="#" onclick="showSection('firmware')">Firmware</a>
+    <a href="#" onclick="showSection('timeline')">Timeline</a>
+  </div>
 </nav>
 
 <div id="home" class="section active">
