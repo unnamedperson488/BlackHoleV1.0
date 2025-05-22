@@ -305,6 +305,20 @@ title: Black Hole V1.0
       <li>Access to exclusive Discord support community</li>
     </ul>
   </div>
+
+  <!-- Firmware Download Guide added here -->
+  <div class="glow-block neon-box">
+    <h3>Firmware Download Guide</h3>
+    <ol>
+      <li>Download the latest firmware <a href="https://your-firmware-link.com" class="neon-link" target="_blank" rel="noopener noreferrer">here</a>.</li>
+      <li>Connect your Black Hole V1.0 device to your PC via USB-C cable.</li>
+      <li>Open the recommended flashing tool (e.g., ESPFlashTool).</li>
+      <li>Select the downloaded firmware file and configure your device as per instructions.</li>
+      <li>Click "Flash" and wait for the process to complete successfully.</li>
+      <li>Disconnect your device and power it on to verify the firmware update.</li>
+    </ol>
+    <p>If you encounter any issues, please refer to the <a href="#faq" class="neon-link">FAQ section</a> or join our <a href="https://discord.gg/yourdiscord" class="neon-link" target="_blank" rel="noopener noreferrer">Discord support community</a>.</p>
+  </div>
 </div>
 
 <div id="media" class="section">
@@ -368,119 +382,58 @@ title: Black Hole V1.0
     </ul>
   </div>
 </div>
-<style>
-  /* Dark background and neon text for FAQ */
-  #faq {
-    background-color: #121212; /* dark background */
-    color: #0ff; /* neon cyan text */
-    padding: 1.5rem;
-    border-radius: 12px;
-    max-width: 800px;
-    margin: 2rem auto;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  #faq h2 {
-    color: #0ff;
-    text-align: center;
-    font-weight: 700;
-    text-shadow:
-      0 0 5px #0ff,
-      0 0 10px #0ff,
-      0 0 20px #0ff;
-    margin-bottom: 1rem;
-  }
-
-  .faq-item {
-    background: #1a1a1a;
-    border: 1px solid #0ff;
-    border-radius: 8px;
-    margin: 0.75rem 0;
-    padding: 1rem;
-    box-shadow:
-      0 0 5px #0ff,
-      0 0 15px #0ff inset;
-  }
-
-  .faq-question {
-    font-weight: 600;
-    font-size: 1.1rem;
-    cursor: pointer;
-    user-select: none;
-    position: relative;
-    padding-right: 20px;
-  }
-
-  .faq-question::after {
-    content: '+';
-    position: absolute;
-    right: 0;
-    top: 0;
-    font-size: 1.3rem;
-    color: #0ff;
-    transition: transform 0.3s ease;
-  }
-
-  .faq-item.open .faq-question::after {
-    content: '−';
-    transform: rotate(180deg);
-  }
-
-  .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-    padding-left: 0.5rem;
-    color: #afffff;
-  }
-
-  .faq-item.open .faq-answer {
-    max-height: 500px; /* enough for most answers */
-    margin-top: 0.5rem;
-  }
-</style>
-
-<section id="faq">
-  <h2>Frequently Asked Questions</h2>
-
-  <div class="faq-item">
-    <div class="faq-question">How do I install the firmware?</div>
-    <div class="faq-answer">
-      Download the firmware from the official website, then flash it using the recommended flashing tool following the guide.
-    </div>
+<div id="faq" class="section">
+  <h2 class="glow-title">❓ Frequently Asked Questions</h2>
+  <div class="glow-block neon-box">
+    <h3>What is Black Hole V1.0?</h3>
+    <p>Black Hole V1.0 is a dual-band deauther device designed for advanced wireless security testing, featuring both 2.4GHz and 5GHz capabilities with separate antennas and custom firmware.</p>
   </div>
-
-  <div class="faq-item">
-    <div class="faq-question">Is this compatible with my device?</div>
-    <div class="faq-answer">
-      The firmware supports most devices listed in the compatibility section. Check your model before installing.
-    </div>
+  <div class="glow-block neon-box">
+    <h3>How do I update the firmware?</h3>
+    <p>Follow the <a href="#product" class="neon-link">Firmware Download Guide</a> in the product section for detailed steps on downloading and flashing the latest firmware.</p>
   </div>
-
-  <div class="faq-item">
-    <div class="faq-question">How can I report bugs?</div>
-    <div class="faq-answer">
-      You can report bugs via our GitHub issues page or contact support through Discord.
-    </div>
+  <div class="glow-block neon-box">
+    <h3>What tools do I need to flash the firmware?</h3>
+    <p>You will need a USB-C cable and a flashing tool compatible with ESP32 devices, such as ESPFlashTool or esptool.py.</p>
   </div>
-
-  <div class="faq-item">
-    <div class="faq-question">Will updates erase my settings?</div>
-    <div class="faq-answer">
-      Generally, no. But we recommend backing up your settings before upgrading.
-    </div>
+  <div class="glow-block neon-box">
+    <h3>Does it support both 2.4GHz and 5GHz WiFi?</h3>
+    <p>Yes, the device supports dual-band operation with separate antennas for 2.4GHz (ESP32) and 5GHz (BW16 chipset).</p>
   </div>
-</section>
+  <div class="glow-block neon-box">
+    <h3>Can I use it for wardriving?</h3>
+    <p>Absolutely! Its compact design and dual-band functionality make it ideal for wardriving and wireless security assessments.</p>
+  </div>
+  <div class="glow-block neon-box">
+    <h3>How long does the battery last?</h3>
+    <p>Battery life depends on usage, but with a typical LiPo battery and normal use, you can expect several hours of continuous operation.</p>
+  </div>
+  <div class="glow-block neon-box">
+    <h3>Is there customer support available?</h3>
+    <p>Yes, you can join our exclusive <a href="https://discord.gg/yourdiscord" class="neon-link" target="_blank" rel="noopener noreferrer">Discord support community</a> for help, updates, and discussions.</p>
+  </div>
+  <div class="glow-block neon-box">
+    <h3>What are the device dimensions?</h3>
+    <p>The device measures approximately 75mm x 50mm x 15mm, making it compact and portable.</p>
+  </div>
+  <div class="glow-block neon-box">
+    <h3>Can I use custom antennas?</h3>
+    <p>Yes, the device uses SMA connectors, allowing you to attach custom antennas for enhanced performance.</p>
+  </div>
+  <div class="glow-block neon-box">
+    <h3>Does it support anti-jamming features?</h3>
+    <p>Yes, the custom firmware includes anti-jamming capabilities to improve signal reliability during testing.</p>
+  </div>
+  <div class="glow-block neon-box">
+    <h3>Is the device legal to use?</h3>
+    <p>Usage of this device must comply with your local laws and regulations. It is intended for authorized security testing and educational purposes only.</p>
+  </div>
+  <div class="glow-block neon-box">
+    <h3>What is included in the box?</h3>
+    <p>The package includes the Black Hole V1.0 device, two SMA antennas (2.4GHz and 5GHz), a USB-C charging cable, a user manual, and access to the Discord support community.</p>
+  </div>
+</div>
 
-<script>
-  // Simple toggle open/close for FAQ answers
-  document.querySelectorAll('.faq-question').forEach(question => {
-    question.addEventListener('click', () => {
-      const item = question.parentElement;
-      item.classList.toggle('open');
-    });
-  });
-</script>
 
 
 <section id="firmware" style="max-width: 600px; margin: auto; background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
