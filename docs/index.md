@@ -350,56 +350,38 @@ title: Black Hole V1.0
 </div>
 <div id="faq" class="section">
   <h2 class="glow-title">❓ Frequently Asked Questions</h2>
-  <div class="glow-block neon-box">
-    <h3>What is Black Hole V1.0?</h3>
-    <p>Black Hole V1.0 is a dual-band deauther device designed for advanced wireless security testing, featuring both 2.4GHz and 5GHz capabilities with separate antennas and custom firmware.</p>
-  </div>
-  <div class="glow-block neon-box">
-    <h3>How do I update the firmware?</h3>
-    <p>Follow the <a href="#product" class="neon-link">Firmware Download Guide</a> in the product section for detailed steps on downloading and flashing the latest firmware.</p>
-  </div>
-  <div class="glow-block neon-box">
-    <h3>What tools do I need to flash the firmware?</h3>
-    <p>You will need a USB-C cable and a flashing tool compatible with ESP32 devices, such as ESPFlashTool or esptool.py.</p>
-  </div>
-  <div class="glow-block neon-box">
-    <h3>Does it support both 2.4GHz and 5GHz WiFi?</h3>
-    <p>Yes, the device supports dual-band operation with separate antennas for 2.4GHz (ESP32) and 5GHz (BW16 chipset).</p>
-  </div>
-  <div class="glow-block neon-box">
-    <h3>Can I use it for wardriving?</h3>
-    <p>Absolutely! Its compact design and dual-band functionality make it ideal for wardriving and wireless security assessments.</p>
-  </div>
-  <div class="glow-block neon-box">
-    <h3>How long does the battery last?</h3>
-    <p>Battery life depends on usage, but with a typical LiPo battery and normal use, you can expect several hours of continuous operation.</p>
-  </div>
-  <div class="glow-block neon-box">
-    <h3>Is there customer support available?</h3>
-    <p>Yes, you can join our exclusive <a href="https://discord.gg/yourdiscord" class="neon-link" target="_blank" rel="noopener noreferrer">Discord support community</a> for help, updates, and discussions.</p>
-  </div>
-  <div class="glow-block neon-box">
-    <h3>What are the device dimensions?</h3>
-<p>The device measures approximately 75mm x 50mm x 15mm, designed for compact portability and ease of use.</p>
 
+  <div class="glow-block">
+    <h3>What is Black Hole V1.0 used for?</h3>
+    <p>Black Hole V1.0 is designed for wireless security research, network stress testing, and educational pentesting environments. It allows users to analyze, test, and experiment with 2.4GHz and 5GHz WiFi signals.</p>
   </div>
-  <div class="glow-block neon-box">
-    <h3>Can I use custom antennas?</h3>
-    <p>Yes, the device uses SMA connectors, allowing you to attach custom antennas for enhanced performance.</p>
+
+  <div class="glow-block">
+    <h3>Is it legal to use this device?</h3>
+    <p>Using deauther or jamming functionality on networks you do not own or have explicit permission to test is illegal in many countries. This device is intended for responsible use only — always comply with local laws and use it ethically.</p>
   </div>
-  <div class="glow-block neon-box">
-    <h3>Does it support anti-jamming features?</h3>
-    <p>Yes, the custom firmware includes anti-jamming capabilities to improve signal reliability during testing.</p>
+
+  <div class="glow-block">
+    <h3>How do I flash new firmware?</h3>
+    <p>Refer to the Firmware section of this site. You’ll download the latest release, use a flashing tool like ESPFlashTool, and follow the step-by-step process. Always verify you’re using the correct firmware file for your board revision.</p>
   </div>
-  <div class="glow-block neon-box">
-    <h3>Is the device legal to use?</h3>
-    <p>Usage of this device must comply with your local laws and regulations. It is intended for authorized security testing and educational purposes only.</p>
+
+  <div class="glow-block">
+    <h3>Can I power it with any battery?</h3>
+    <p>Black Hole V1.0 supports standard LiPo batteries. We recommend 3.7V single-cell packs with JST connectors. Avoid exceeding voltage specs to prevent hardware damage.</p>
   </div>
-  <div class="glow-block neon-box">
-    <h3>What is included in the box?</h3>
-    <p>The package includes the Black Hole V1.0 device, two SMA antennas (2.4GHz and 5GHz), a USB-C charging cable, a user manual, and access to the Discord support community.</p>
+
+  <div class="glow-block">
+    <h3>How do I join the community?</h3>
+    <p>Click the Discord invite link in the Home section or social buttons. You’ll get access to support, beta testing info, and a group of fellow developers and hackers using Black Hole V1.0.</p>
+  </div>
+
+  <div class="glow-block">
+    <h3>Can I contribute to the project?</h3>
+    <p>Yes! Visit our <a href="https://github.com/unnamedperson488/BlackHoleV1.0" class="neon-link" target="_blank">GitHub repository</a> to report bugs, suggest features, or contribute code/documentation. Community contributions are welcomed and appreciated.</p>
   </div>
 </div>
+
 
 
 
