@@ -37,17 +37,67 @@ title: Black Hole V1.0
     margin-bottom: 15px;
   }
 
-  nav a, nav span {
-    color: #00f0ff;
+  .neon-button {
+    position: relative;
+    padding: 0.75em 1.5em;
+    border-radius: 0.625em;
+    border: 2px solid #00ffff;
+    font-size: 0.938em;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.125em;
+    background: transparent;
+    color: #00ffff;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 transparent;
+    transition: all 0.3s ease-in-out;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 20px;
-    text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
-    transition: transform 0.2s;
   }
 
-  nav a:hover {
-    transform: scale(1.1);
+  .neon-button:hover {
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 40px 10px rgba(0, 255, 255, 0.5);
+    color: #ffffff;
+  }
+
+  .neon-button::before {
+    content: "";
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+    box-shadow: 0 0 50px 30px #00ffff;
+    transform: skewX(-20deg);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .neon-button:hover::before {
+    animation: neon-shine 0.6s 0s linear;
+  }
+
+  @keyframes neon-shine {
+    from {
+      opacity: 0;
+      left: 0%;
+    }
+    50% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      left: 100%;
+    }
+  }
+
+  .neon-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 transparent;
+    transition: all 0.2s ease-in;
   }
 
   .section {
@@ -111,16 +161,16 @@ title: Black Hole V1.0
 <div class="nav-wrapper">
   <div class="nav-title">Black Hole V1.0</div>
   <div class="nav-row">
-    <a href="#" onclick="showSection('home')">Home</a>
-    <a href="#" onclick="showSection('product')">Product</a>
-    <a href="#" onclick="showSection('media')">Media</a>
-    <a href="#" onclick="showSection('demos')">Demos</a>
+    <a href="#" onclick="showSection('home')" class="neon-button">Home</a>
+    <a href="#" onclick="showSection('product')" class="neon-button">Product</a>
+    <a href="#" onclick="showSection('media')" class="neon-button">Media</a>
+    <a href="#" onclick="showSection('demos')" class="neon-button">Demos</a>
   </div>
   <div class="nav-row">
-    <a href="#" onclick="showSection('about')">About</a>
-    <a href="#" onclick="showSection('faq')">FAQ</a>
-    <a href="#" onclick="showSection('firmware')">Firmware</a>
-    <a href="#" onclick="showSection('timeline')">Timeline</a>
+    <a href="#" onclick="showSection('about')" class="neon-button">About</a>
+    <a href="#" onclick="showSection('faq')" class="neon-button">FAQ</a>
+    <a href="#" onclick="showSection('firmware')" class="neon-button">Firmware</a>
+    <a href="#" onclick="showSection('timeline')" class="neon-button">Timeline</a>
   </div>
 </div>
 
@@ -177,8 +227,8 @@ title: Black Hole V1.0
 
 <div id="about" class="section">
   <h1 class="glow-title">About Me</h1>
-  <p>I’m <strong>unnamedperson488</strong> — professional hacker, builder, and creator of the Black Hole project. I specialize in security tools, Wi-Fi technology, and electronics innovation. This project showcases not just my skills but a mission to empower others with knowledge and reliable tools.</p>
-  <p>I’ve spent years perfecting embedded systems, designing PCBs, and contributing to the hacker/maker community. Black Hole is a culmination of all of that work — combining functionality, sleek design, and cutting-edge capabilities into one portable device.</p>
+  <p>I'm <strong>unnamedperson488</strong> — professional hacker, builder, and creator of the Black Hole project. I specialize in security tools, Wi-Fi technology, and electronics innovation. This project showcases not just my skills but a mission to empower others with knowledge and reliable tools.</p>
+  <p>I've spent years perfecting embedded systems, designing PCBs, and contributing to the hacker/maker community. Black Hole is a culmination of all of that work — combining functionality, sleek design, and cutting-edge capabilities into one portable device.</p>
 </div>
 
 <div id="faq" class="section">
@@ -187,7 +237,7 @@ title: Black Hole V1.0
     <li><strong>Q:</strong> How do I use this device?<br><strong>A:</strong> A full guide is available in the documentation (firmware section).</li>
     <li><strong>Q:</strong> Is it legal to use?<br><strong>A:</strong> Use responsibly. Follow all applicable laws in your country.</li>
     <li><strong>Q:</strong> Does it support firmware updates?<br><strong>A:</strong> Yes. You can download the latest versions right here.</li>
-    <li><strong>Q:</strong> What’s included in the package?<br><strong>A:</strong> The Black Hole V1.0 device, dual SMA antennas, and a USB-C charging cable.</li>
+    <li><strong>Q:</strong> What's included in the package?<br><strong>A:</strong> The Black Hole V1.0 device, dual SMA antennas, and a USB-C charging cable.</li>
     <li><strong>Q:</strong> Can I get support?<br><strong>A:</strong> Join the Discord server or contact @unnamedperson488 for assistance.</li>
   </ul>
 </div>
