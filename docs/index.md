@@ -65,18 +65,24 @@ title: Black Hole V1.0
     box-shadow: 0 0 10px #00f0ff33;
     border-radius: 8px;
   }
+
+  /* Added for accessibility */
+  nav a:focus {
+    outline: 2px solid #00f0ff;
+    outline-offset: 2px;
+  }
 </style>
 
 <nav>
   <span style="font-size: 1.4rem;">Black Hole V1.0</span>
-  <a href="#" onclick="showSection('home')">Home</a>
-  <a href="#" onclick="showSection('product')">Product</a>
-  <a href="#" onclick="showSection('about')">About</a>
-  <a href="#" onclick="showSection('faq')">FAQ</a>
-  <a href="#" onclick="showSection('media')">Media</a>
-  <a href="#" onclick="showSection('demos')">Demos</a>
-  <a href="#" onclick="showSection('firmware')">Firmware</a>
-  <a href="#" onclick="showSection('timeline')">Timeline</a>
+  <a href="#home" onclick="showSection('home')">Home</a>
+  <a href="#product" onclick="showSection('product')">Product</a>
+  <a href="#about" onclick="showSection('about')">About</a>
+  <a href="#faq" onclick="showSection('faq')">FAQ</a>
+  <a href="#media" onclick="showSection('media')">Media</a>
+  <a href="#demos" onclick="showSection('demos')">Demos</a>
+  <a href="#firmware" onclick="showSection('firmware')">Firmware</a>
+  <a href="#timeline" onclick="showSection('timeline')">Timeline</a>
 </nav>
 
 <div id="home" class="section active">
@@ -92,7 +98,7 @@ title: Black Hole V1.0
     <strong>Price:</strong> $140
   </div>
   <div class="glow-block">
-    <strong>Inventory:</strong> <em>Live tracking coming soon — message @unnamedperson488 for availability.</em>
+    <strong>Inventory:</strong> <em>Live tracking coming soon — message <a href="https://tiktok.com/@unnamedperson488" target="_blank">@unnamedperson488</a> for availability.</em>
   </div>
 </div>
 
@@ -112,29 +118,29 @@ title: Black Hole V1.0
 <div id="media" class="section">
   <h1 class="glow-title">Media & Links</h1>
   <ul>
-    <li><a class="video-link" href="https://instagram.com/unnamedperson488" target="_blank">Instagram</a></li>
-    <li><a class="video-link" href="https://tiktok.com/@unnamedperson488" target="_blank">TikTok</a></li>
-    <li><a class="video-link" href="https://youtube.com/@unnamedperson488" target="_blank">YouTube</a></li>
+    <li><a class="video-link" href="https://instagram.com/unnamedperson488" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+    <li><a class="video-link" href="https://tiktok.com/@unnamedperson488" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+    <li><a class="video-link" href="https://youtube.com/@unnamedperson488" target="_blank" rel="noopener noreferrer">YouTube</a></li>
   </ul>
   <h2 class="glow-title">Video Placeholders</h2>
-  <a class="video-link" href="#">Demo Clip 1</a>
-  <a class="video-link" href="#">Demo Clip 2</a>
+  <a class="video-link" href="#" aria-disabled="true">Demo Clip 1 (Coming Soon)</a>
+  <a class="video-link" href="#" aria-disabled="true">Demo Clip 2 (Coming Soon)</a>
 </div>
 
 <div id="demos" class="section">
   <h1 class="glow-title">Performance Demos</h1>
   <div class="glow-block">
-    <p><strong>Signal Range Test:</strong> Demonstrating both 2.4GHz and 5GHz range vs environment interference. <a href="#">[Link]</a></p>
+    <p><strong>Signal Range Test:</strong> Demonstrating both 2.4GHz and 5GHz range vs environment interference. <a href="#" aria-disabled="true">[Coming Soon]</a></p>
   </div>
   <div class="glow-block">
-    <p><strong>Battery Runtime:</strong> Using a 1200mAh LiPo. Real-world performance test. <a href="#">[Link]</a></p>
+    <p><strong>Battery Runtime:</strong> Using a 1200mAh LiPo. Real-world performance test. <a href="#" aria-disabled="true">[Coming Soon]</a></p>
   </div>
 </div>
 
 <div id="firmware" class="section">
   <h1 class="glow-title">Firmware Download</h1>
   <div class="glow-block">
-    <p>Latest firmware: <a href="https://github.com/unnamedperson488/BlackHoleV1.0/raw/main/firmware/BlackHoleV1.0_Firmware.bin" target="_blank">BlackHoleV1.0_Firmware.bin</a></p>
+    <p>Latest firmware: <a href="#" aria-disabled="true">BlackHoleV1.0_Firmware.bin (Coming Soon)</a></p>
     <p>How to flash: Use ESPTool or Arduino IDE. Full flashing guide will be linked here soon.</p>
   </div>
 </div>
@@ -156,8 +162,16 @@ title: Black Hole V1.0
 </div>
 
 <script>
-function showSection(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    // Update URL hash without reloading
+    history.pushState(null, null, `#${id}`);
+  }
+
+  // Check for hash on page load to display correct section
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.replace('#', '') || 'home';
+    showSection(hash);
+  });
 </script>
