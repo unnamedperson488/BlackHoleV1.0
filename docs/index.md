@@ -349,9 +349,25 @@ title: Black Hole V1.0
   </div>
 </div>
 <div id="faq" class="section">
-  <h2 class="glow-title">❓ Frequently Asked Questions</h2>
-
+  <h2 class="glow-title">❓ FAQ</h2>
   <div class="glow-block">
+    <h3>Is Black Hole V1.0 legal to use?</h3>
+    <p>The device is intended strictly for educational and authorized security testing purposes. Always comply with your local laws before using the device.</p>
+  </div>
+  <div class="glow-block">
+    <h3>Can I use this for 5GHz deauthing?</h3>
+    <p>Yes — Black Hole V1.0 includes a BW16 chipset to enable dual-band support, including 5GHz deauthentication capabilities.</p>
+  </div>
+  <div class="glow-block">
+    <h3>How do I flash new firmware?</h3>
+    <p>You can follow the Firmware section on this site or refer to the GitHub repository for detailed flashing instructions.</p>
+  </div>
+  <div class="glow-block">
+    <h3>What devices are compatible?</h3>
+    <p>Any WiFi-enabled device in range may be affected during testing. The tool is platform-agnostic but requires proper use and responsibility.</p>
+  </div>
+</div>
+
     <h3>What is Black Hole V1.0 used for?</h3>
     <p>Black Hole V1.0 is designed for wireless security research, network stress testing, and educational pentesting environments. It allows users to analyze, test, and experiment with 2.4GHz and 5GHz WiFi signals.</p>
   </div>
@@ -390,11 +406,6 @@ title: Black Hole V1.0
   <h1 style="text-align:center; margin-bottom:1rem;">Firmware</h1>
 
 
-  <!-- FAQ Search -->
-  <input type="text" id="faq-search" placeholder="Search FAQ..." 
-         style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem;">
-
-  </div>
 
 </section>
 
