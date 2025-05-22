@@ -183,6 +183,53 @@ title: Black Hole V1.0
     outline: 2px solid #00f0ff;
     outline-offset: 4px;
   }
+
+  details {
+    margin-bottom: 0.75rem;
+    border: 1px solid #00f0ff44;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    background: #111;
+    box-shadow: 0 0 10px #00f0ff44;
+  }
+
+  summary {
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    color: #e0e0e0;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 8px;
+    transform: rotate(0deg);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  details[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  @media (max-width: 600px) {
+    .section {
+      padding: 20px 10px;
+    }
+
+    .glow-title {
+      font-size: 1.8rem;
+    }
+
+    .neon-button {
+      font-size: 0.875rem;
+      padding: 0.5em 1em;
+    }
+  }
 </style>
 
 <script>
@@ -193,19 +240,36 @@ title: Black Hole V1.0
     });
     document.getElementById(id).classList.add('active');
   }
+
+  // FAQ Search functionality
+  const searchInput = document.getElementById('faq-search');
+  const faqItems = document.querySelectorAll('#faq details');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      faqItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    });
+  }
 </script>
 
-<div class="nav-row">
-  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('home');">Home</a>
-  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('product');">Product</a>
-  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('media');">Media</a>
-  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('demos');">Demos</a>
-</div>
-<div class="nav-row">
-  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('about');">About</a>
-  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('faq');">FAQ</a>
-  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('firmware');">Firmware</a>
-  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('timeline');">Timeline</a>
+<!-- Navigation -->
+<div class="nav-wrapper">
+  <div class="nav-row">
+    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('home');">Home</a>
+    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('product');">Product</a>
+    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('media');">Media</a>
+    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('demos');">Demos</a>
+  </div>
+  <div class="nav-row">
+    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('about');">About</a>
+    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('faq');">FAQ</a>
+    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('firmware');">Firmware</a>
+    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('timeline');">Timeline</a>
+  </div>
 </div>
 
 <!-- HOME -->
@@ -214,7 +278,7 @@ title: Black Hole V1.0
   <p>This is your central hub for all things Black Hole — updates, documentation, media, and community interaction. Explore everything this project has to offer.</p>
   <div class="discord-join">
     <p>💬 Join the community on Discord!</p>
-    <a href="https://discord.gg/YOUR_INVITE_CODE" target="_blank">Click here to join my Discord Server</a>
+    <a href="https://discord.gg/actual-invite-code" target="_blank">Click here to join my Discord Server</a>
   </div>
   <hr>
   <h2 class="glow-title">Latest Updates</h2>
@@ -233,11 +297,12 @@ title: Black Hole V1.0
     <a class="social-button" href="https://instagram.com/unnamedperson488" target="_blank">Instagram</a>
     <a class="social-button" href="https://github.com/unnamedperson488" target="_blank">GitHub</a>
     <a class="social-button" href="https://youtube.com/@unnamedperson488" target="_blank">YouTube</a>
-    <a class="social-button" href="https://discord.gg/YOUR_INVITE_CODE" target="_blank">Discord</a>
+    <a class="social-button" href="https://discord.gg/actual-invite-code" target="_blank">Discord</a>
     <a class="social-button" href="https://tiktok.com/@unnamedperson488" target="_blank">TikTok</a>
   </div>
 </div>
 
+<!-- PRODUCT -->
 <div id="product" class="section">
   <h2 class="glow-title">📦 Product</h2>
   <p>Introducing <strong>Black Hole V1.0</strong> — a cutting-edge dual-band deauther device designed for advanced wireless security testing and research.</p>
@@ -302,23 +367,37 @@ title: Black Hole V1.0
       <li>Access to exclusive Discord support community</li>
     </ul>
   </div>
+</div>
 
+<!-- MEDIA -->
+<div id="media" class="section">
+  <h2 class="glow-title">📸 Media</h2>
+  <div class="glow-block">
+    <h3>Photos & Videos</h3>
+    <p>Check out photos and videos showcasing Black Hole V1.0 in action.</p>
+    <ul>
+      <li><a href="https://youtube.com/@unnamedperson488" target="_blank">Watch demos on YouTube</a></li>
+      <li><a href="https://instagram.com/unnamedperson488" target="_blank">View photos on Instagram</a></li>
+      <li><a href="https://tiktok.com/@unnamedperson488" target="_blank">See short clips on TikTok</a></li>
+    </ul>
+  </div>
+</div>
 
-
+<!-- DEMOS -->
 <div id="demos" class="section">
   <h2 class="glow-title">⚙️ Demos</h2>
   <p>Try out live demos or explore interactive examples of Black Hole V1.0 features.</p>
 
   <div class="glow-block">
     <h3>Live Demo</h3>
-    <p>Experience the device in real time through our web interface:</p>
-    <a href="https://example.com/live-demo" target="_blank" class="neon-button">Open Live Demo</a>
+    <p>Live demo coming soon. Join our Discord for updates!</p>
+    <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Join Discord</a>
   </div>
 
   <div class="glow-block">
     <h3>Interactive Simulator</h3>
-    <p>Test functionalities and settings with our online simulator.</p>
-    <a href="https://example.com/simulator" target="_blank" class="neon-button">Open Simulator</a>
+    <p>Simulator coming soon. Check back for updates!</p>
+    <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Join Discord</a>
   </div>
 
   <div class="glow-block">
@@ -327,6 +406,8 @@ title: Black Hole V1.0
     <a href="https://github.com/unnamedperson488/BlackHoleV1.0-examples" target="_blank" class="neon-button">View Code on GitHub</a>
   </div>
 </div>
+
+<!-- ABOUT -->
 <div id="about" class="section">
   <h2 class="glow-title">🔭 About Black Hole V1.0</h2>
   <div class="glow-block">
@@ -348,144 +429,80 @@ title: Black Hole V1.0
     </ul>
   </div>
 </div>
+
+<!-- FAQ -->
 <div id="faq" class="section">
   <h2 class="glow-title">❓ FAQ</h2>
-  <div class="space-y-6 text-gray-300">
-    <div>
-      <h3 class="text-white text-lg font-semibold">What is Black Hole V1.0?</h3>
+  <input type="text" id="faq-search" placeholder="Search FAQs..." style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #00f0ff; background: #111; color: #e0e0e0; border-radius: 5px;">
+  <div class="faq-items">
+    <details>
+      <summary>What is Black Hole V1.0?</summary>
       <p>A dual-band WiFi deauther designed for educational use, security testing, and research. It supports both 2.4GHz and 5GHz via ESP32 and BW16 chipsets.</p>
-    </div>
-    <div>
-      <h3 class="text-white text-lg font-semibold">Is 5GHz support real?</h3>
+    </details>
+    <details>
+      <summary>Is 5GHz support real?</summary>
       <p>Yes. It uses the Realtek BW16 module with SDK-based implementation for 5GHz deauth and packet injection.</p>
-    </div>
-    <div>
-      <h3 class="text-white text-lg font-semibold">Can I flash my own firmware?</h3>
+    </details>
+    <details>
+      <summary>Can I flash my own firmware?</summary>
       <p>Absolutely. The board supports PlatformIO, Arduino IDE, and direct UART flashing. Open-source firmware is provided.</p>
-    </div>
-    <div>
-      <h3 class="text-white text-lg font-semibold">How long does the battery last?</h3>
+    </details>
+    <details>
+      <summary>How long does the battery last?</summary>
       <p>It depends on usage and battery size. A 1000mAh LiPo can last ~4-5 hours under moderate scanning/jamming.</p>
-    </div>
-    <div>
-      <h3 class="text-white text-lg font-semibold">Is it legal?</h3>
+    </details>
+    <details>
+      <summary>Is it legal?</summary>
       <p>This device is for educational and authorized testing only. Unauthorized use may violate local laws. You are responsible for how you use it.</p>
-    </div>
+    </details>
   </div>
 </div>
 
+<!-- FIRMWARE -->
+<div id="firmware" class="section">
+  <h2 class="glow-title">📱 Firmware</h2>
+  <div class="glow-block">
+    <h3>Firmware Downloads</h3>
+    <p>Download the latest firmware for Black Hole V1.0:</p>
+    <ul>
+      <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0/releases" target="_blank">Firmware v1.2.3 (Latest, May 2025)</a></li>
+      <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0/wiki/Firmware-Installation" target="_blank">Installation Guide</a></li>
+    </ul>
+  </div>
+  <div class="glow-block">
+    <h3>Firmware Features</h3>
+    <ul>
+      <li>Web-based UI for configuration</li>
+      <li>Over-the-air (OTA) updates</li>
+      <li>Anti-jamming and packet injection support</li>
+      <li>Compatible with PlatformIO and Arduino IDE</li>
+    </ul>
+  </div>
+</div>
 
-
-
-<section id="firmware" style="max-width: 600px; margin: auto; background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
-
-  <h1 style="text-align:center; margin-bottom:1rem;">Firmware</h1>
-
-
-
-</section>
-
-<script>
-  // FAQ Search functionality
-  const searchInput = document.getElementById('faq-search');
-  const faqItems = document.querySelectorAll('#faq details');
-
-  searchInput.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase();
-    faqItems.forEach(item => {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(query) ? 'block' : 'none';
-    });
-  });
-</script>
-
-<style>
-  /* Responsive and mobile-friendly */
-  #firmware {
-    background: #fff;
-    color: #222;
-  }
-
-  #firmware h1, #firmware h2 {
-    color: #333;
-  }
-
-  details {
-    margin-bottom: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    background: #f9f9f9;
-  }
-
-  summary {
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-  }
-
-  summary::-webkit-details-marker {
-    display: none;
-  }
-
-  summary::before {
-    content: "▶";
-    display: inline-block;
-    margin-right: 8px;
-    transform: rotate(0deg);
-    transition: transform 0.2s ease-in-out;
-  }
-
-  details[open] summary::before {
-    transform: rotate(90deg);
-  }
-
-  @media (max-width: 600px) {
-    #firmware {
-      margin: 0.5rem;
-      padding: 0.75rem;
-    }
-
-    #faq-search {
-      font-size: 1rem;
-    }
-
-    ol {
-      padding-left: 1.25rem;
-    }
-  }
-</style>
-
-
+<!-- TIMELINE -->
 <div id="timeline" class="section">
   <h2 class="glow-title">🗓️ Timeline</h2>
-  <ul class="border-l-4 border-purple-500 pl-6 space-y-6 mt-4 text-gray-300">
-
+  <ul class="border-l-4 border-purple-500 pl-6 space-y-6 mt-4">
     <li>
-      <div class="font-bold text-white">🔧 Prototype 1 – Complete</div>
+      <div class="font-bold">🔧 Prototype 1 – Complete</div>
       <p>Initial ESP32-based design with 2.4GHz deauth and LiPo charging.</p>
     </li>
-
     <li>
-      <div class="font-bold text-white">📡 Dual-Band Upgrade – Complete</div>
+      <div class="font-bold">📡 Dual-Band Upgrade – Complete</div>
       <p>Integrated BW16 for 5GHz support. Redesigned to fit SMA antennas and new boot/reset layout.</p>
     </li>
-
     <li>
-      <div class="font-bold text-white">💻 Firmware V1.0 – Released</div>
+      <div class="font-bold">💻 Firmware V1.0 – Released</div>
       <p>Stable release with web UI and OTA support.</p>
     </li>
-
     <li>
-      <div class="font-bold text-white">📦 Public Release – Coming June 2025</div>
+      <div class="font-bold">📦 Public Release – Coming June 2025</div>
       <p>Final hardware with case design and shipping options for first 100 units.</p>
     </li>
-
     <li>
-      <div class="font-bold text-white">🚀 V2 Development – Q4 2025</div>
+      <div class="font-bold">🚀 V2 Development – Q4 2025</div>
       <p>Research into integrated GPS and better chipset support for future expansion (wardriving module).</p>
     </li>
   </ul>
 </div>
-
-
