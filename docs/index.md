@@ -425,19 +425,6 @@ title: Black Hole V1.0
 
   <h1 style="text-align:center; margin-bottom:1rem;">Firmware</h1>
 
-  <!-- Download Guide inside Firmware -->
-  <div id="download-guide" style="margin-bottom: 2rem;">
-    <h2>Download Guide</h2>
-    <p>Follow these steps to download and install the latest firmware:</p>
-    <ol>
-      <li>Visit <a href="[https://example.com/firmware](https://github.com/tesa-klebeband/RTL8720dn-Deauther/blob/master/RTL8720dn-Deauther.ino)" target="_blank" rel="noopener noreferrer">Firmware Downloads</a>.</li>
-      <li>Select your device model.</li>
-      <li>Download the latest <code>.bin</code> firmware file.</li>
-      <li>Flash the firmware using the recommended tool (e.g., ESP32 Flash Tool).</li>
-      <li>Restart your device once flashing is complete.</li>
-    </ol>
-    <p>If you encounter issues, check the FAQ below or contact support.</p>
-  </div>
 
   <!-- FAQ Search -->
   <input type="text" id="faq-search" placeholder="Search FAQ..." 
