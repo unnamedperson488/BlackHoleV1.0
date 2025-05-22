@@ -306,24 +306,21 @@ title: Black Hole V1.0
     </ul>
   </div>
 
-<div id="media" class="section">
-  <h2 class="glow-title">🎥 Media</h2>
-  <p>Explore photos, videos, and demos showcasing the Black Hole V1.0 in action.</p>
-
-  <div class="glow-block">
-    <h3>Gallery</h3>
-    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-      <img src="https://via.placeholder.com/180x120?text=Device+Front" alt="Black Hole Front View" style="border-radius: 8px; box-shadow: 0 0 10px #00f0ff77;">
-      <img src="https://via.placeholder.com/180x120?text=Device+Back" alt="Black Hole Back View" style="border-radius: 8px; box-shadow: 0 0 10px #00f0ff77;">
-      <img src="https://via.placeholder.com/180x120?text=PCB+Layout" alt="PCB Layout" style="border-radius: 8px; box-shadow: 0 0 10px #00f0ff77;">
-    </div>
-  </div>
-
-  <div class="glow-block">
-    <h3>Videos</h3>
-    <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Black Hole V1.0 Demo" frameborder="0" allowfullscreen style="border-radius: 8px; box-shadow: 0 0 15px #00f0ff88;"></iframe>
+  <!-- Firmware Download Guide added here -->
+  <div class="glow-block neon-box">
+    <h3>Firmware Download Guide</h3>
+    <ol>
+      <li>Download the latest firmware <a href="https://your-firmware-link.com" class="neon-link" target="_blank" rel="noopener noreferrer">here</a>.</li>
+      <li>Connect your Black Hole V1.0 device to your PC via USB-C cable.</li>
+      <li>Open the recommended flashing tool (e.g., ESPFlashTool).</li>
+      <li>Select the downloaded firmware file and configure your device as per instructions.</li>
+      <li>Click "Flash" and wait for the process to complete successfully.</li>
+      <li>Disconnect your device and power it on to verify the firmware update.</li>
+    </ol>
+    <p>If you encounter any issues, please refer to the <a href="#faq" class="neon-link">FAQ section</a> or join our <a href="https://discord.gg/yourdiscord" class="neon-link" target="_blank" rel="noopener noreferrer">Discord support community</a>.</p>
   </div>
 </div>
+
 <div id="demos" class="section">
   <h2 class="glow-title">⚙️ Demos</h2>
   <p>Try out live demos or explore interactive examples of Black Hole V1.0 features.</p>
