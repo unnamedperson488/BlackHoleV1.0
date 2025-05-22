@@ -32,10 +32,12 @@ title: Black Hole V1.0
   }
 
   nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
     padding: 15px;
     background-color: var(--card-bg);
     position: sticky;
@@ -44,7 +46,16 @@ title: Black Hole V1.0
     box-shadow: 0 2px 5px var(--shadow-color);
   }
 
-  nav a, nav span {
+  nav span {
+    grid-column: 1 / -1;
+    justify-self: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--shadow-glow);
+  }
+
+  nav a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
@@ -57,11 +68,6 @@ title: Black Hole V1.0
     transform: scale(1.05);
     color: var(--primary-color);
     outline: none;
-  }
-
-  nav span {
-    font-size: 1.2rem;
-    font-weight: 700;
   }
 
   .section {
@@ -155,12 +161,14 @@ title: Black Hole V1.0
 
   @media (max-width: 600px) {
     nav {
-      flex-direction: column;
-      align-items: center;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      padding: 10px;
     }
 
-    nav a, nav span {
-      padding: 10px;
+    nav a {
+      padding: 6px 8px;
+      font-size: 0.9rem;
     }
 
     .section {
@@ -186,13 +194,13 @@ title: Black Hole V1.0
   <p>Welcome to the official hub for development, documentation, and product information.</p>
   <div class="followers-stats">
     <div class="stat-item">
-      <span>15</span> Following
+      <span>84</span> TikTok Followers
     </div>
     <div class="stat-item">
-      <span>84</span> Followers
+      <span>0</span> YouTube Subscribers
     </div>
     <div class="stat-item">
-      <span>923</span> Likes
+      <span>0</span> Instagram Followers
     </div>
   </div>
 </div>
