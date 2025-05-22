@@ -425,35 +425,6 @@ title: Black Hole V1.0
   <input type="text" id="faq-search" placeholder="Search FAQ..." 
          style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem;">
 
-  <!-- FAQ Section -->
-  <div id="faq">
-    <h2>Frequently Asked Questions</h2>
-
-    <details>
-      <summary>How do I flash the firmware?</summary>
-      <p>Use the ESP32 Flash Tool and select the correct COM port. Follow the download guide steps above.</p>
-    </details>
-
-    <details>
-      <summary>Is this firmware compatible with all ESP32 boards?</summary>
-      <p>This firmware supports ESP32-WROOM-32 and compatible variants. Please check the compatibility list on the download page.</p>
-    </details>
-
-    <details>
-      <summary>How do I reset the device?</summary>
-      <p>Press and hold the reset button on the device for 5 seconds to reboot.</p>
-    </details>
-
-    <details>
-      <summary>Can I downgrade the firmware?</summary>
-      <p>Downgrading is possible but not recommended. Always back up your configuration before flashing.</p>
-    </details>
-
-    <details>
-      <summary>Where can I get support?</summary>
-      <p>Visit our support page or contact us via email at support@example.com.</p>
-    </details>
-
   </div>
 
 </section>
