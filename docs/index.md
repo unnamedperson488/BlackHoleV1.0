@@ -11,6 +11,7 @@ title: Black Hole V1.0
     font-size: 18px;
     line-height: 1.6;
     overflow-x: hidden;
+    margin: 0;
   }
 
   .nav-wrapper {
@@ -18,14 +19,11 @@ title: Black Hole V1.0
     flex-direction: column;
     align-items: center;
     background-color: #111;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 20px 0;
+    padding: 20px 10px;
     user-select: none;
     max-width: 100%;
     box-sizing: border-box;
-    box-shadow: 0 2px 5px rgba(0, 234, 255, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 234, 255, 0.2);
   }
 
   .nav-title {
@@ -59,7 +57,7 @@ title: Black Hole V1.0
     color: #00eaff;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 0 0 0 transparent;
+    box-shadow: 0 0 10px #00eaff44;
     transition: all 0.3s ease-in-out;
     text-decoration: none;
     user-select: none;
@@ -112,9 +110,12 @@ title: Black Hole V1.0
 
   .section {
     display: none;
-    padding: 40px 20px;
+    padding: 30px 20px;
     max-width: 900px;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 40px auto;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    border-radius: 8px;
+    box-shadow: 0 0 15px #00eaff44;
   }
 
   .section.active {
@@ -131,23 +132,26 @@ title: Black Hole V1.0
 
   .glow-block {
     border: 1px solid #00eaff44;
-    padding: 25px 30px;
-    margin-bottom: 25px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
     background-color: #111;
     box-shadow: 0 0 15px #00eaff44 inset;
     border-radius: 8px;
   }
 
   .glow-block h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 15px;
     color: #e0e0e0;
   }
 
+  .glow-block p, .glow-block li {
+    font-size: 1rem;
+  }
+
   .discord-join {
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 50px;
+    margin: 30px 0;
   }
 
   .discord-join a {
@@ -155,7 +159,8 @@ title: Black Hole V1.0
     font-weight: bold;
     text-shadow: 0 0 10px #5865F2;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
   }
 
   .discord-join a:hover {
@@ -165,18 +170,17 @@ title: Black Hole V1.0
   .social-buttons {
     display: flex;
     justify-content: center;
-    gap: 18px;
+    gap: 15px;
     flex-wrap: wrap;
-    margin-top: 40px;
-    margin-bottom: 60px;
+    margin: 30px 0;
   }
 
   .social-button {
     background-color: #111;
     color: #00eaff;
     border: 2px solid #00eaff;
-    padding: 12px 20px;
-    font-size: 1rem;
+    padding: 10px 18px;
+    font-size: 0.938rem;
     border-radius: 8px;
     text-decoration: none;
     transition: all 0.3s ease;
@@ -196,6 +200,22 @@ title: Black Hole V1.0
     outline-offset: 4px;
   }
 
+  #faq-search {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #00eaff;
+    background: #111;
+    color: #e0e0e0;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+  }
+
+  #faq-search:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00eaff;
+  }
+
   details {
     margin-bottom: 0.75rem;
     border: 1px solid #00eaff44;
@@ -210,6 +230,7 @@ title: Black Hole V1.0
     cursor: pointer;
     outline: none;
     color: #e0e0e0;
+    font-size: 1rem;
   }
 
   summary::-webkit-details-marker {
@@ -228,18 +249,52 @@ title: Black Hole V1.0
     transform: rotate(90deg);
   }
 
-  table td, table th {
-    padding: 8px;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table th, table td {
+    padding: 10px;
     background: #111;
+    border-bottom: 1px solid #00eaff44;
+  }
+
+  table tr:nth-child(even) td {
+    background: #151515;
+  }
+
+  table th {
+    text-align: left;
+    border-bottom: 1px solid #00eaff;
+    color: #00eaff;
+  }
+
+  ul.border-l-4 li {
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  ul.border-l-4 li:hover {
+    transform: translateX(5px);
   }
 
   @media (max-width: 600px) {
     .section {
       padding: 20px 10px;
+      margin: 0 10px 30px 10px;
     }
 
     .glow-title {
       font-size: 1.8rem;
+    }
+
+    .glow-block h3 {
+      font-size: 1.2rem;
+    }
+
+    .glow-block p, .glow-block li {
+      font-size: 0.938rem;
     }
 
     .neon-button {
@@ -255,6 +310,15 @@ title: Black Hole V1.0
     .nav-row {
       gap: 10px;
       padding: 0 10px;
+    }
+
+    .social-button {
+      font-size: 0.875rem;
+      padding: 8px 15px;
+    }
+
+    .discord-join a {
+      font-size: 1rem;
     }
   }
 </style>
@@ -304,6 +368,10 @@ title: Black Hole V1.0
 <div id="home" class="section active">
   <h1 class="glow-title">🌌 Welcome to Black Hole V1.0</h1>
   <p>This is your central hub for all things Black Hole — updates, documentation, media, and community interaction. Explore everything this project has to offer.</p>
+  <div class="glow-block">
+    <h3>Our Mission</h3>
+    <p>Black Hole V1.0 aims to empower cybersecurity enthusiasts with a powerful, open-source tool for wireless network testing, fostering education and innovation in ethical hacking.</p>
+  </div>
   <div class="discord-join">
     <p>💬 Join the community on Discord!</p>
     <a href="https://discord.gg/actual-invite-code" target="_blank">Click here to join my Discord Server</a>
@@ -313,13 +381,18 @@ title: Black Hole V1.0
   <div class="glow-block">
     <strong>May 2025:</strong> Released new firmware v1.2.3 with enhanced stability and new anti-jamming features.
     <ul>
-      <li>Improved 5GHz antenna switching</li>
-      <li>Battery optimization for longer runtime</li>
-      <li>Bug fixes for ESP32 connectivity</li>
+      <li>Improved 5GHz antenna switching for seamless dual-band operation</li>
+      <li>Battery optimization for up to 20% longer runtime</li>
+      <li>Bug fixes for ESP32 connectivity issues under high load</li>
     </ul>
   </div>
   <div class="glow-block">
-    <strong>Upcoming:</strong> Live demo event scheduled for June 10, 2025 — join via Discord or YouTube livestream.
+    <strong>Upcoming:</strong> Live demo event scheduled for June 10, 2025 — join via Discord or YouTube livestream for a deep dive into Black Hole’s capabilities.
+  </div>
+  <div class="glow-block">
+    <h3>Contribute</h3>
+    <p>Have ideas or improvements? Contribute to the project on GitHub or join our Discord to share feedback!</p>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0" target="_blank" class="neon-button">Contribute on GitHub</a>
   </div>
   <div class="social-buttons">
     <a class="social-button" href="https://instagram.com/unnamedperson488" target="_blank">Instagram</a>
@@ -338,21 +411,22 @@ title: Black Hole V1.0
   <div class="glow-block">
     <h3>Key Features</h3>
     <ul>
-      <li>Dual-band operation: 2.4GHz ESP32 + 5GHz BW16 chipset</li>
-      <li>Separate antennas with SMA connectors for max signal strength</li>
-      <li>4-layer black PCB with high-quality components</li>
-      <li>Custom firmware with anti-jamming and launch control</li>
+      <li>Dual-band operation: 2.4GHz ESP32 + 5GHz BW16 chipset for versatile network testing</li>
+      <li>Separate antennas with SMA connectors for maximum signal strength and range</li>
+      <li>4-layer black PCB with high-quality components for durability</li>
+      <li>Custom open-source firmware with anti-jamming and launch control capabilities</li>
       <li>Boot and Reset buttons designed for easy hardware control</li>
-      <li>Compact and rugged design, suitable for wardriving and pentesting</li>
+      <li>Compact and rugged design, ideal for wardriving, pentesting, and field research</li>
+      <li>Community-driven updates and support via Discord and GitHub</li>
     </ul>
   </div>
 
   <div class="glow-block">
     <h3>Technical Specifications</h3>
-    <table style="width:100%; border-collapse: collapse;">
+    <table>
       <tr>
-        <th style="text-align:left; border-bottom: 1px solid #00eaff;">Component</th>
-        <th style="text-align:left; border-bottom: 1px solid #00eaff;">Details</th>
+        <th>Component</th>
+        <th>Details</th>
       </tr>
       <tr>
         <td>Microcontroller</td>
@@ -395,6 +469,16 @@ title: Black Hole V1.0
       <li>Access to exclusive Discord support community</li>
     </ul>
   </div>
+
+  <div class="glow-block">
+    <h3>Use Cases</h3>
+    <ul>
+      <li>Penetration testing for WiFi network security audits</li>
+      <li>Educational workshops on wireless protocol vulnerabilities</li>
+      <li>Research into advanced deauthentication and packet injection techniques</li>
+      <li>Wardriving for mapping WiFi networks in field environments</li>
+    </ul>
+  </div>
 </div>
 
 <!-- MEDIA -->
@@ -402,36 +486,47 @@ title: Black Hole V1.0
   <h2 class="glow-title">📸 Media</h2>
   <div class="glow-block">
     <h3>Photos & Videos</h3>
-    <p>Check out photos and videos showcasing Black Hole V1.0 in action.</p>
+    <p>Check out photos and videos showcasing Black Hole V1.0 in action, including hardware demos and testing scenarios.</p>
     <ul>
       <li><a href="https://youtube.com/@unnamedperson488" target="_blank">Watch demos on YouTube</a></li>
       <li><a href="https://instagram.com/unnamedperson488" target="_blank">View photos on Instagram</a></li>
       <li><a href="https://tiktok.com/@unnamedperson488" target="_blank">See short clips on TikTok</a></li>
     </ul>
   </div>
+  <div class="glow-block">
+    <h3>Community Showcase</h3>
+    <p>Coming soon: User-submitted projects, tutorials, and custom firmware demos. Share your work on Discord!</p>
+    <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Join Discord</a>
+  </div>
 </div>
 
 <!-- DEMOS -->
 <div id="demos" class="section">
   <h2 class="glow-title">⚙️ Demos</h2>
-  <p>Try out live demos or explore interactive examples of Black Hole V1.0 features.</p>
+  <p>Try out live demos or explore interactive examples of Black Hole V1.0 features. Stay tuned for our June 2025 demo event!</p>
 
   <div class="glow-block">
     <h3>Live Demo</h3>
-    <p>Live demo coming soon. Join our Discord for updates!</p>
+    <p>Live demo coming soon. Join our Discord for updates on the June 10, 2025, livestream event!</p>
     <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Join Discord</a>
   </div>
 
   <div class="glow-block">
     <h3>Interactive Simulator</h3>
-    <p>Simulator coming soon. Check back for updates!</p>
+    <p>Simulator coming soon. Check back for updates or suggest features on GitHub!</p>
     <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Join Discord</a>
   </div>
 
   <div class="glow-block">
     <h3>Code Examples</h3>
-    <p>Explore example scripts and how to use the device APIs.</p>
+    <p>Explore example scripts and APIs for custom integrations with Black Hole V1.0.</p>
     <a href="https://github.com/unnamedperson488/BlackHoleV1.0-examples" target="_blank" class="neon-button">View Code on GitHub</a>
+  </div>
+
+  <div class="glow-block">
+    <h3>Request a Feature</h3>
+    <p>Have an idea for a demo or feature? Submit it to our GitHub issues page!</p>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0/issues" target="_blank" class="neon-button">Submit a Feature Request</a>
   </div>
 </div>
 
@@ -444,16 +539,18 @@ title: Black Hole V1.0
       Designed by <strong>unnamedperson488</strong>, it features advanced antenna switching, anti-jamming capabilities, and an intuitive interface.
     </p>
     <p>
-      The project is open-source and community-driven, aiming to empower cybersecurity enthusiasts and professionals to explore and improve wireless security.
+      The project is open-source and community-driven, aiming to empower cybersecurity enthusiasts and professionals to explore and improve wireless security. 
+      From initial prototyping to public release, the design process emphasizes reliability, accessibility, and collaboration.
     </p>
   </div>
 
   <div class="glow-block">
     <h3>Project Goals</h3>
     <ul>
-      <li>Deliver a reliable and efficient dual-band deauther device.</li>
-      <li>Provide extensive documentation and support for users.</li>
-      <li>Encourage community collaboration and feature development.</li>
+      <li>Deliver a reliable and efficient dual-band deauther device for ethical hacking.</li>
+      <li>Provide extensive documentation, tutorials, and support for users of all skill levels.</li>
+      <li>Encourage community collaboration through GitHub contributions and Discord discussions.</li>
+      <li>Foster innovation in wireless security research with open-source tools.</li>
     </ul>
   </div>
 </div>
@@ -483,6 +580,14 @@ title: Black Hole V1.0
       <summary>Is it legal?</summary>
       <p>This device is for educational and authorized testing only. Unauthorized use may violate local laws. You are responsible for how you use it.</p>
     </details>
+    <details>
+      <summary>Is Black Hole V1.0 compatible with other tools?</summary>
+      <p>Yes, it integrates with tools like Wireshark and Aircrack-ng for advanced analysis, and supports custom scripts via its APIs.</p>
+    </details>
+    <details>
+      <summary>What safety precautions should I take?</summary>
+      <p>Use only on networks you own or have permission to test. Ensure proper handling of the LiPo battery to avoid damage or hazards.</p>
+    </details>
   </div>
 </div>
 
@@ -491,7 +596,7 @@ title: Black Hole V1.0
   <h2 class="glow-title">📱 Firmware</h2>
   <div class="glow-block">
     <h3>Firmware Downloads</h3>
-    <p>Download the latest firmware for Black Hole V1.0:</p>
+    <p>Download the latest firmware for Black Hole V1.0 to keep your device up to date:</p>
     <ul>
       <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0/releases" target="_blank">Firmware v1.2.3 (Latest, May 2025)</a></li>
       <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0/wiki/Firmware-Installation" target="_blank">Installation Guide</a></li>
@@ -500,10 +605,12 @@ title: Black Hole V1.0
   <div class="glow-block">
     <h3>Firmware Features</h3>
     <ul>
-      <li>Web-based UI for configuration</li>
-      <li>Over-the-air (OTA) updates</li>
-      <li>Anti-jamming and packet injection support</li>
-      <li>Compatible with PlatformIO and Arduino IDE</li>
+      <li>Web-based UI for easy configuration and control</li>
+      <li>Over-the-air (OTA) updates for seamless upgrades</li>
+      <li>Anti-jamming and packet injection support for robust testing</li>
+      <li>Compatible with PlatformIO and Arduino IDE for custom development</li>
+      <li>Enhanced security features to prevent unauthorized access</li>
+      <li>Customizable settings for tailored network testing scenarios</li>
     </ul>
   </div>
 </div>
@@ -511,7 +618,7 @@ title: Black Hole V1.0
 <!-- TIMELINE -->
 <div id="timeline" class="section">
   <h2 class="glow-title">🗓️ Timeline</h2>
-  <ul class="border-l-4 border-purple-500 pl-6 space-y-6 mt-4">
+  <ul class="border-l-4 border-[#00eaff] pl-6 space-y-6 mt-4">
     <li>
       <div class="font-bold">🔧 Prototype 1 – Complete</div>
       <p>Initial ESP32-based design with 2.4GHz deauth and LiPo charging.</p>
@@ -525,12 +632,20 @@ title: Black Hole V1.0
       <p>Stable release with web UI and OTA support.</p>
     </li>
     <li>
+      <div class="font-bold">📣 Community Feedback – Ongoing</div>
+      <p>Collecting user feedback via Discord and GitHub to improve features and usability.</p>
+    </li>
+    <li>
       <div class="font-bold">📦 Public Release – Coming June 2025</div>
       <p>Final hardware with case design and shipping options for first 100 units.</p>
     </li>
     <li>
       <div class="font-bold">🚀 V2 Development – Q4 2025</div>
       <p>Research into integrated GPS and better chipset support for future expansion (wardriving module).</p>
+    </li>
+    <li>
+      <div class="font-bold">🔄 Firmware V2.0 – Q1 2026</div>
+      <p>Planned update with advanced analytics and expanded API support.</p>
     </li>
   </ul>
 </div>
