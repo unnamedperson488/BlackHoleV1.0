@@ -368,22 +368,120 @@ title: Black Hole V1.0
     </ul>
   </div>
 </div>
-<section id="faq" style="margin:1rem 0;">
+<style>
+  /* Dark background and neon text for FAQ */
+  #faq {
+    background-color: #121212; /* dark background */
+    color: #0ff; /* neon cyan text */
+    padding: 1.5rem;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 2rem auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  #faq h2 {
+    color: #0ff;
+    text-align: center;
+    font-weight: 700;
+    text-shadow:
+      0 0 5px #0ff,
+      0 0 10px #0ff,
+      0 0 20px #0ff;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item {
+    background: #1a1a1a;
+    border: 1px solid #0ff;
+    border-radius: 8px;
+    margin: 0.75rem 0;
+    padding: 1rem;
+    box-shadow:
+      0 0 5px #0ff,
+      0 0 15px #0ff inset;
+  }
+
+  .faq-question {
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-right: 20px;
+  }
+
+  .faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.3rem;
+    color: #0ff;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.open .faq-question::after {
+    content: '−';
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    padding-left: 0.5rem;
+    color: #afffff;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 500px; /* enough for most answers */
+    margin-top: 0.5rem;
+  }
+</style>
+
+<section id="faq">
   <h2>Frequently Asked Questions</h2>
-  <details>
-    <summary>How do I flash the firmware?</summary>
-    <p>Use the ESP32 Flash Tool and select the correct COM port. Follow the download guide steps above.</p>
-  </details>
-  <details>
-    <summary>Is this firmware compatible with all ESP32 boards?</summary>
-    <p>This firmware supports ESP32-WROOM-32 and compatible variants. Check compatibility on the download page.</p>
-  </details>
-  <details>
-    <summary>How do I reset the device?</summary>
-    <p>Press and hold the reset button for 5 seconds to reboot the device.</p>
-  </details>
-  <!-- Add more as needed -->
+
+  <div class="faq-item">
+    <div class="faq-question">How do I install the firmware?</div>
+    <div class="faq-answer">
+      Download the firmware from the official website, then flash it using the recommended flashing tool following the guide.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Is this compatible with my device?</div>
+    <div class="faq-answer">
+      The firmware supports most devices listed in the compatibility section. Check your model before installing.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">How can I report bugs?</div>
+    <div class="faq-answer">
+      You can report bugs via our GitHub issues page or contact support through Discord.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">Will updates erase my settings?</div>
+    <div class="faq-answer">
+      Generally, no. But we recommend backing up your settings before upgrading.
+    </div>
+  </div>
 </section>
+
+<script>
+  // Simple toggle open/close for FAQ answers
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
 
 <section id="firmware" style="max-width: 600px; margin: auto; background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 0 12px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
 
