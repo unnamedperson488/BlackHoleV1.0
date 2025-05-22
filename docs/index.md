@@ -10,6 +10,7 @@ title: Black Hole V1.0
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
   .nav-wrapper {
@@ -20,37 +21,42 @@ title: Black Hole V1.0
     position: sticky;
     top: 0;
     z-index: 1000;
-    padding: 30px 0;
+    padding: 20px 0;
     user-select: none;
+    max-width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 234, 255, 0.2);
   }
 
   .nav-title {
     font-size: 2.5rem;
-    color: #00f0ff;
+    color: #00eaff;
     font-weight: bold;
-    text-shadow: 0 0 5px #00f0ff, 0 0 15px #00f0ff;
-    margin-bottom: 15px;
+    text-shadow: 0 0 5px #00eaff, 0 0 15px #00eaff;
+    margin: 0 0 15px 0;
     font-family: 'Orbitron', sans-serif;
+    text-align: center;
   }
 
   .nav-row {
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 
   .neon-button {
     position: relative;
     padding: 0.75em 1.5em;
-    border-radius: 0.625em;
-    border: 2px solid #00ffff;
+    border-radius: 8px;
+    border: 2px solid #00eaff;
     font-size: 0.938em;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.125em;
     background: transparent;
-    color: #00ffff;
+    color: #00eaff;
     overflow: hidden;
     cursor: pointer;
     box-shadow: 0 0 0 0 transparent;
@@ -60,8 +66,8 @@ title: Black Hole V1.0
   }
 
   .neon-button:hover {
-    background: rgba(0, 255, 255, 0.1);
-    box-shadow: 0 0 40px 10px rgba(0, 255, 255, 0.5);
+    background: rgba(0, 234, 255, 0.1);
+    box-shadow: 0 0 40px 10px rgba(0, 234, 255, 0.5);
     color: #ffffff;
   }
 
@@ -74,8 +80,8 @@ title: Black Hole V1.0
     top: 7%;
     left: 0%;
     opacity: 0;
-    background: linear-gradient(90deg, transparent, #00ffff, transparent);
-    box-shadow: 0 0 50px 30px #00ffff;
+    background: linear-gradient(90deg, transparent, #00eaff, transparent);
+    box-shadow: 0 0 50px 30px #00eaff;
     transform: skewX(-20deg);
     transition: all 0.5s ease-in-out;
   }
@@ -116,20 +122,26 @@ title: Black Hole V1.0
   }
 
   .glow-title {
-    color: #00f0ff;
-    text-shadow: 0 0 5px #00f0ff, 0 0 15px #00f0ff;
+    color: #00eaff;
+    text-shadow: 0 0 5px #00eaff, 0 0 15px #00eaff;
     font-size: 2.2rem;
     margin-bottom: 20px;
     font-family: 'Orbitron', sans-serif;
   }
 
   .glow-block {
-    border: 1px solid #00f0ff44;
+    border: 1px solid #00eaff44;
     padding: 25px 30px;
     margin-bottom: 25px;
     background-color: #111;
-    box-shadow: 0 0 15px #00f0ff44 inset;
+    box-shadow: 0 0 15px #00eaff44 inset;
     border-radius: 8px;
+  }
+
+  .glow-block h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #e0e0e0;
   }
 
   .discord-join {
@@ -161,36 +173,36 @@ title: Black Hole V1.0
 
   .social-button {
     background-color: #111;
-    color: #00f0ff;
-    border: 2px solid #00f0ff;
+    color: #00eaff;
+    border: 2px solid #00eaff;
     padding: 12px 20px;
     font-size: 1rem;
     border-radius: 8px;
     text-decoration: none;
     transition: all 0.3s ease;
     font-weight: bold;
-    box-shadow: 0 0 10px #00f0ff44;
+    box-shadow: 0 0 10px #00eaff44;
     text-align: center;
   }
 
   .social-button:hover {
-    background-color: #00f0ff;
+    background-color: #00eaff;
     color: #000;
-    box-shadow: 0 0 25px #00f0ff88;
+    box-shadow: 0 0 25px #00eaff88;
   }
 
   .social-button:focus {
-    outline: 2px solid #00f0ff;
+    outline: 2px solid #00eaff;
     outline-offset: 4px;
   }
 
   details {
     margin-bottom: 0.75rem;
-    border: 1px solid #00f0ff44;
-    border-radius: 5px;
+    border: 1px solid #00eaff44;
+    border-radius: 8px;
     padding: 0.5rem 1rem;
     background: #111;
-    box-shadow: 0 0 10px #00f0ff44;
+    box-shadow: 0 0 10px #00eaff44;
   }
 
   summary {
@@ -216,6 +228,11 @@ title: Black Hole V1.0
     transform: rotate(90deg);
   }
 
+  table td, table th {
+    padding: 8px;
+    background: #111;
+  }
+
   @media (max-width: 600px) {
     .section {
       padding: 20px 10px;
@@ -226,8 +243,18 @@ title: Black Hole V1.0
     }
 
     .neon-button {
-      font-size: 0.875rem;
+      font-size: 0.75rem;
       padding: 0.5em 1em;
+      min-width: 80px;
+    }
+
+    .nav-title {
+      font-size: 2rem;
+    }
+
+    .nav-row {
+      gap: 10px;
+      padding: 0 10px;
     }
   }
 </style>
@@ -258,6 +285,7 @@ title: Black Hole V1.0
 
 <!-- Navigation -->
 <div class="nav-wrapper">
+  <h1 class="nav-title">Black Hole V1.0</h1>
   <div class="nav-row">
     <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('home');">Home</a>
     <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('product');">Product</a>
@@ -323,8 +351,8 @@ title: Black Hole V1.0
     <h3>Technical Specifications</h3>
     <table style="width:100%; border-collapse: collapse;">
       <tr>
-        <th style="text-align:left; border-bottom: 1px solid #00f0ff;">Component</th>
-        <th style="text-align:left; border-bottom: 1px solid #00f0ff;">Details</th>
+        <th style="text-align:left; border-bottom: 1px solid #00eaff;">Component</th>
+        <th style="text-align:left; border-bottom: 1px solid #00eaff;">Details</th>
       </tr>
       <tr>
         <td>Microcontroller</td>
@@ -433,7 +461,7 @@ title: Black Hole V1.0
 <!-- FAQ -->
 <div id="faq" class="section">
   <h2 class="glow-title">❓ FAQ</h2>
-  <input type="text" id="faq-search" placeholder="Search FAQs..." style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #00f0ff; background: #111; color: #e0e0e0; border-radius: 5px;">
+  <input type="text" id="faq-search" placeholder="Search FAQs..." style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #00eaff; background: #111; color: #e0e0e0; border-radius: 8px;">
   <div class="faq-items">
     <details>
       <summary>What is Black Hole V1.0?</summary>
