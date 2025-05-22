@@ -303,20 +303,7 @@ title: Black Hole V1.0
     </ul>
   </div>
 
-  <!-- Firmware Download Guide added here -->
-  <div class="glow-block neon-box">
-    <h3>Firmware Download Guide</h3>
-    <ol>
-      <li>Download the latest firmware <a href="https://your-firmware-link.com" class="neon-link" target="_blank" rel="noopener noreferrer">here</a>.</li>
-      <li>Connect your Black Hole V1.0 device to your PC via USB-C cable.</li>
-      <li>Open the recommended flashing tool (e.g., ESPFlashTool).</li>
-      <li>Select the downloaded firmware file and configure your device as per instructions.</li>
-      <li>Click "Flash" and wait for the process to complete successfully.</li>
-      <li>Disconnect your device and power it on to verify the firmware update.</li>
-    </ol>
-    <p>If you encounter any issues, please refer to the <a href="#faq" class="neon-link">FAQ section</a> or join our <a href="https://discord.gg/yourdiscord" class="neon-link" target="_blank" rel="noopener noreferrer">Discord support community</a>.</p>
-  </div>
-</div>
+
 
 <div id="demos" class="section">
   <h2 class="glow-title">⚙️ Demos</h2>
