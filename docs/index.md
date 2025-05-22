@@ -195,20 +195,17 @@ title: Black Hole V1.0
   }
 </script>
 
-<div class="nav-wrapper">
-  <div class="nav-title">Black Hole V1.0</div>
-  <div class="nav-row">
-    <a href="#" class="neon-button" onclick="showSection('home')">Home</a>
-    <a href="#" class="neon-button" onclick="showSection('product')">Product</a>
-    <a href="#" class="neon-button" onclick="showSection('media')">Media</a>
-    <a href="#" class="neon-button" onclick="showSection('demos')">Demos</a>
-  </div>
-  <div class="nav-row">
-    <a href="#" class="neon-button" onclick="showSection('about')">About</a>
-    <a href="#" class="neon-button" onclick="showSection('faq')">FAQ</a>
-    <a href="#" class="neon-button" onclick="showSection('firmware')">Firmware</a>
-    <a href="#" class="neon-button" onclick="showSection('timeline')">Timeline</a>
-  </div>
+<div class="nav-row">
+  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('home');">Home</a>
+  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('product');">Product</a>
+  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('media');">Media</a>
+  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('demos');">Demos</a>
+</div>
+<div class="nav-row">
+  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('about');">About</a>
+  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('faq');">FAQ</a>
+  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('firmware');">Firmware</a>
+  <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('timeline');">Timeline</a>
 </div>
 
 <!-- HOME -->
@@ -396,7 +393,8 @@ title: Black Hole V1.0
   </div>
   <div class="glow-block neon-box">
     <h3>What are the device dimensions?</h3>
-    <p>The device measures approximately 75mm x 50mm x 15mm, making it compact and portable.</p>
+<p>The device measures approximately 75mm x 50mm x 15mm, designed for compact portability and ease of use.</p>
+
   </div>
   <div class="glow-block neon-box">
     <h3>Can I use custom antennas?</h3>
