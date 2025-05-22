@@ -34,7 +34,7 @@ title: Black Hole V1.0
   nav {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     justify-items: center;
     align-items: center;
     gap: 10px;
@@ -48,6 +48,7 @@ title: Black Hole V1.0
 
   nav span {
     grid-column: 1 / -1;
+    grid-row: 3 / 4;
     justify-self: center;
     font-size: 1.2rem;
     font-weight: 700;
@@ -67,6 +68,7 @@ title: Black Hole V1.0
   nav a:hover, nav a:focus {
     transform: scale(1.05);
     color: var(--primary-color);
+    text-shadow: 0 0 8px var(--shadow-glow);
     outline: none;
   }
 
@@ -157,6 +159,7 @@ title: Black Hole V1.0
     font-size: 1.5rem;
     color: var(--primary-color);
     font-weight: bold;
+    text-shadow: 0 0 5px var(--shadow-glow);
   }
 
   @media (max-width: 600px) {
@@ -178,7 +181,6 @@ title: Black Hole V1.0
 </style>
 
 <nav>
-  <span>Black Hole V1.0</span>
   <a href="#" onclick="showSection('home')" aria-label="Home Section">Home</a>
   <a href="#" onclick="showSection('product')" aria-label="Product Section">Product</a>
   <a href="#" onclick="showSection('about')" aria-label="About Section">About</a>
@@ -187,6 +189,7 @@ title: Black Hole V1.0
   <a href="#" onclick="showSection('demos')" aria-label="Demos Section">Demos</a>
   <a href="#" onclick="showSection('firmware')" aria-label="Firmware Section">Firmware</a>
   <a href="#" onclick="showSection('timeline')" aria-label="Timeline Section">Timeline</a>
+  <span>Black Hole V1.0</span>
 </nav>
 
 <div id="home" class="section active">
