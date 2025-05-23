@@ -22,6 +22,19 @@ title: Black Hole V1.0
     top: 0;
     z-index: 1000;
     box-shadow: 0 0 15px #00eaff44;
+    margin: 0;
+  }
+
+  .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #00eaff;
+    border-left: none;
+    border-right: none;
+    padding: 5px 0;
+    box-shadow: 0 0 15px #00eaff44;
+    margin: 0;
   }
 
   .name {
@@ -35,15 +48,14 @@ title: Black Hole V1.0
     padding: 10px 0;
   }
 
-  .text {
+  .nav-wrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    border: 2px solid #00eaff;
-    border-left: none;
-    border-right: none;
-    padding: 5px 0;
-    box-shadow: 0 0 15px #00eaff44;
+    padding: 10px 0;
+    user-select: none;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .card.nav-card {
@@ -146,109 +158,55 @@ title: Black Hole V1.0
     margin: 0;
   }
 
-  .card.product-details-card {
+  .product-info {
     width: 100%;
     max-width: 600px;
-    height: auto;
     background: #111;
-    border: 1px solid #00eaff44;
-    font-size: 0.938rem;
-    font-family: 'Segoe UI', monospace;
-    overflow: auto;
+    border: 2px solid #00eaff;
     border-radius: 8px;
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
     box-shadow: 0 0 15px #00eaff44;
     margin: 0 auto 20px;
   }
 
-  .titlebar {
+  .product-info h4 {
     font-family: 'Orbitron', sans-serif;
-    font-size: 21px;
-    font-weight: 450;
-    background-color: #0a0a0a;
-    width: 100%;
-    text-align: right;
+    font-size: 1.4rem;
     color: #00eaff;
     text-shadow: 0 0 5px #00eaff;
+    margin: 0 0 10px;
   }
 
-  .card.product-details-card button {
-    width: 40px;
-    height: 35px;
-    margin-left: -5px;
-    border: 0;
-    outline: 0;
-    background: transparent;
-    transition: 0.2s;
+  .product-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
   }
 
-  button svg path, 
-  button svg rect, 
-  button svg polygon {
-    fill: #00eaff;
-  }
-
-  button svg {
-    width: 10px;
-    height: 10px;
-  }
-
-  .close:hover {
-    background-color: #e81123;
-    box-shadow: 0 0 10px #00eaff44;
-  }
-
-  .maximize:hover, .minimize:hover {
-    background-color: rgba(0, 234, 255, 0.2);
-    box-shadow: 0 0 10px #00eaff44;
-  }
-
-  #pre {
-    overflow: auto;
-    width: 100%;
-    padding: 15px;
-    height: auto;
-    color: #bafff8;
-    margin: 0;
-  }
-
-  .curlies {
-    color: #ff4284;
-  }
-
-  .sc {
-    color: #00eaff;
-  }
-
-  .rounds {
-    color: #ffffff;
-  }
-
-  .operator {
-    color: #bafff8;
-  }
-
-  .s1 {
+  .product-info li {
+    font-size: 0.938rem;
     color: #22ff00;
+    margin-bottom: 8px;
   }
 
-  .s2 {
-    color: #4281ff;
-  }
-
-  .s3 {
-    color: #ffae00;
-  }
-
-  .s4 {
-    color: #ffae00;
-  }
-
-  .s5 {
-    color: #ffffff;
-  }
-
-  .s6 {
+  .product-info li span.key {
     color: #e0e0e0;
+    font-weight: 600;
+  }
+
+  .product-info::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .product-info::-webkit-scrollbar-track {
+    background: #111;
+  }
+
+  .product-info::-webkit-scrollbar-thumb {
+    background: #00eaff;
+    border-radius: 4px;
   }
 
   .discord-button {
@@ -550,23 +508,17 @@ title: Black Hole V1.0
       font-size: 0.875rem;
     }
 
-    .card.product-details-card {
-      max-width: 100%;
+    .product-info {
+      max-height: 300px;
       padding: 10px;
     }
 
-    .titlebar {
-      font-size: 18px;
+    .product-info h4 {
+      font-size: 1.2rem;
     }
 
-    .card.product-details-card button {
-      width: 30px;
-      height: 25px;
-    }
-
-    #pre {
+    .product-info li {
       font-size: 0.875rem;
-      padding: 10px;
     }
 
     .discord-button {
@@ -645,9 +597,6 @@ title: Black Hole V1.0
       <li class="element" onclick="event.preventDefault(); showSection('firmware');">
         <span class="label">Firmware</span>
       </li>
-      <li class="element" onclick="event.preventDefault(); showSection('blackHole');">
-        <span class="label">Black Hole</span>
-      </li>
     </ul>
   </div>
 </div>
@@ -711,52 +660,35 @@ title: Black Hole V1.0
     <h3>Product Overview</h3>
     <img src="blackhole-main.jpg" alt="Black Hole V1.0 Main View" class="product-image">
     <p><strong>Black Hole V1.0 - $140</strong></p>
-    <div class="card product-details-card">
-      <div class="titlebar">
-        <button class="minimize">
-          <svg viewBox="0 0 10 10">
-            <rect x="1" y="4" width="8" height="2"/>
-          </svg>
-        </button>
-        <button class="maximize">
-          <svg viewBox="0 0 10 10">
-            <rect x="2" y="2" width="6" height="6"/>
-          </svg>
-        </button>
-        <button class="close">
-          <svg viewBox="0 0 10 10">
-            <polygon points="8,2 2,8"/>
-            <polygon points="2,2 8,8"/>
-          </svg>
-        </button>
-      </div>
-      <pre id="pre"><span class="curlies">{</span>
-  <span class="s2">"features"</span><span class="sc">:</span> <span class="rounds">[</span>
-    <span class="s1">"Dual-band operation: 2.4GHz ESP32 + 5GHz BW16 chipset for versatile network testing"</span>,
-    <span class="s1">"Separate antennas with SMA connectors for maximum signal strength and range"</span>,
-    <span class="s1">"4-layer black PCB with high-quality components for durability"</span>,
-    <span class="s1">"Custom open-source firmware with anti-jamming and launch control capabilities"</span>,
-    <span class="s1">"Boot and Reset buttons designed for easy hardware control"</span>,
-    <span class="s1">"Compact and rugged design, ideal for wardriving, pentesting, and field research"</span>,
-    <span class="s1">"Community-driven updates and support via Discord and GitHub"</span>
-  <span class="rounds">]</span>,
-  <span class="s2">"specifications"</span><span class="sc">:</span> <span class="curlies">{</span>
-    <span class="s2">"Microcontroller"</span><span class="sc">:</span> <span class="s1">"ESP32-WROOM-32 (dual-core 240 MHz)"</span>,
-    <span class="s2">"5GHz Chipset"</span><span class="sc">:</span> <span class="s1">"BW16 5GHz WiFi chip"</span>,
-    <span class="s2">"Antennas"</span><span class="sc">:</span> <span class="s1">"2 x SMA connectors (external antennas for 2.4GHz & 5GHz)"</span>,
-    <span class="s2">"Buttons"</span><span class="sc">:</span> <span class="s1">"Boot (power) button, Reset button"</span>,
-    <span class="s2">"PCB"</span><span class="sc">:</span> <span class="s1">"4-layer black matte, custom silkscreen 'ENGINEERED BY unnamedperson'"</span>,
-    <span class="s2">"Power"</span><span class="sc">:</span> <span class="s1">"LiPo battery charging onboard"</span>,
-    <span class="s2">"Dimensions"</span><span class="sc">:</span> <span class="s1">"Approx. 75mm x 50mm x 15mm"</span>
-  <span class="curlies">}</span>,
-  <span class="s2">"whatsInTheBox"</span><span class="sc">:</span> <span class="rounds">[</span>
-    <span class="s1">"Black Hole V1.0 device"</span>,
-    <span class="s1">"Two SMA antennas (2.4GHz and 5GHz)"</span>,
-    <span class="s1">"USB-C charging cable"</span>,
-    <span class="s1">"User manual & quick start guide"</span>,
-    <span class="s1">"Access to exclusive Discord support community"</span>
-  <span class="rounds">]</span>
-<span class="curlies">}</span></pre>
+    <div class="product-info">
+      <h4>Key Features</h4>
+      <ul>
+        <li>Dual-band operation: 2.4GHz ESP32 + 5GHz BW16 chipset for versatile network testing</li>
+        <li>Separate antennas with SMA connectors for maximum signal strength and range</li>
+        <li>4-layer black PCB with high-quality components for durability</li>
+        <li>Custom open-source firmware with anti-jamming and launch control capabilities</li>
+        <li>Boot and Reset buttons designed for easy hardware control</li>
+        <li>Compact and rugged design, ideal for wardriving, pentesting, and field research</li>
+        <li>Community-driven updates and support via Discord and GitHub</li>
+      </ul>
+      <h4>Technical Specifications</h4>
+      <ul>
+        <li><span class="key">Microcontroller:</span> ESP32-WROOM-32 (dual-core 240 MHz)</li>
+        <li><span class="key">5GHz Chipset:</span> BW16 5GHz WiFi chip</li>
+        <li><span class="key">Antennas:</span> 2 x SMA connectors (external antennas for 2.4GHz & 5GHz)</li>
+        <li><span class="key">Buttons:</span> Boot (power) button, Reset button</li>
+        <li><span class="key">PCB:</span> 4-layer black matte, custom silkscreen 'ENGINEERED BY unnamedperson'</li>
+        <li><span class="key">Power:</span> LiPo battery charging onboard</li>
+        <li><span class="key">Dimensions:</span> Approx. 75mm x 50mm x 15mm</li>
+      </ul>
+      <h4>What's in the Box?</h4>
+      <ul>
+        <li>Black Hole V1.0 device</li>
+        <li>Two SMA antennas (2.4GHz and 5GHz)</li>
+        <li>USB-C charging cable</li>
+        <li>User manual & quick start guide</li>
+        <li>Access to exclusive Discord support community</li>
+      </ul>
     </div>
     <p>A powerful tool for wireless security testing, designed by unnamedperson488.</p>
     <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
