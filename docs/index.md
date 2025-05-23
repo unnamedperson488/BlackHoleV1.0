@@ -12,17 +12,68 @@ title: Black Hole V1.0
     line-height: 1.6;
     overflow-x: hidden;
     margin: 0;
+    position: relative;
+  }
+
+  .stars, .twinkling, .clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1;
+  }
+
+  .stars {
+    background: #0a0a0a url(https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/stars.png) repeat top center;
+  }
+
+  .twinkling {
+    background: transparent url(https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/twinkling.png) repeat top center;
+    animation: move-twink-back 200s linear infinite;
+  }
+
+  .clouds {
+    background: transparent url(https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/clouds.png) repeat top center;
+    animation: move-clouds-back 200s linear infinite;
+    opacity: 0.5;
+  }
+
+  @keyframes move-twink-back {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+  }
+
+  @keyframes move-clouds-back {
+    from { background-position: 0 0; }
+    to { background-position: 10000px 0; }
+  }
+
+  @media (max-width: 600px) {
+    @keyframes move-twink-back {
+      from { background-position: 0 0; }
+      to { background-position: -5000px 2500px; }
+    }
+
+    @keyframes move-clouds-back {
+      from { background-position: 0 0; }
+      to { background-position: 5000px 0; }
+    }
   }
 
   .wrapper {
     width: 100%;
-    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    background: rgba(17, 17, 17, 0.9);
     padding: 10px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 0 15px #00eaff44;
     margin: 0;
+    backdrop-filter: blur(2px);
   }
 
   .text {
@@ -61,7 +112,7 @@ title: Black Hole V1.0
   .card.nav-card {
     width: 100%;
     max-width: 900px;
-    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    background: rgba(17, 17, 17, 0.9);
     border: 2px solid #00eaff;
     border-radius: 10px;
     padding: 15px 0;
@@ -70,6 +121,7 @@ title: Black Hole V1.0
     gap: 10px;
     box-shadow: 0 0 15px #00eaff44;
     margin: 10px auto;
+    backdrop-filter: blur(2px);
   }
 
   .card.nav-card .list {
@@ -115,7 +167,7 @@ title: Black Hole V1.0
   .card.product-card {
     width: 100%;
     max-width: 300px;
-    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    background: rgba(17, 17, 17, 0.9);
     border: 2px solid #00eaff;
     border-radius: 12px;
     overflow: hidden;
@@ -124,6 +176,7 @@ title: Black Hole V1.0
     margin: 0 auto;
     text-decoration: none;
     color: inherit;
+    backdrop-filter: blur(2px);
   }
 
   .product-card:hover {
@@ -161,7 +214,7 @@ title: Black Hole V1.0
   .product-info {
     width: 100%;
     max-width: 600px;
-    background: #111;
+    background: rgba(17, 17, 17, 0.9);
     border: 2px solid #00eaff;
     border-radius: 8px;
     padding: 15px;
@@ -169,6 +222,7 @@ title: Black Hole V1.0
     overflow-y: auto;
     box-shadow: 0 0 15px #00eaff44;
     margin: 0 auto 20px;
+    backdrop-filter: blur(2px);
   }
 
   .product-info h4 {
@@ -209,15 +263,59 @@ title: Black Hole V1.0
     border-radius: 4px;
   }
 
-  .discord-button {
-    --clr: #00eaff;
-    --size: 140px;
-    width: var(--size);
-    height: 45px;
-    border: 2px solid var(--clr);
-    border-radius: 100px;
+  .social-media-button {
+    --c1: #00eaff;
+    --c2: #22ff00;
+    width: 120px;
+    height: 40px;
     background: #111;
-    color: #00eaff;
+    border: 2px solid var(--c1);
+    border-radius: 8px;
+    color: var(--c1);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.938rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 0 10px #00eaff44;
+    transition: all 0.3s ease;
+  }
+
+  .social-media-button:hover {
+    transform: scale(1.05);
+    background: var(--c2);
+    color: #111;
+    box-shadow: 0 0 15px #00eaff88;
+  }
+
+  .social-media-button:active {
+    transform: scale(0.95);
+  }
+
+  .social-media-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+  }
+
+  .github-button {
+    --background: #111;
+    --border: #00eaff;
+    --color: #00eaff;
+    --hover-background: rgba(0, 234, 255, 0.2);
+    --hover-color: #e0e0e0;
+    width: 160px;
+    height: 45px;
+    background: var(--background);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    color: var(--color);
     font-family: 'Orbitron', sans-serif;
     font-size: 0.938rem;
     font-weight: 500;
@@ -231,34 +329,66 @@ title: Black Hole V1.0
     transition: all 0.3s ease;
   }
 
-  .discord-button:hover {
-    background: rgba(0, 234, 255, 0.2);
-    color: #00eaff;
-    box-shadow: 0 0 25px #00eaff88;
+  .github-button:hover {
+    background: var(--hover-background);
+    color: var(--hover-color);
+    box-shadow: 0 0 15px #00eaff88;
   }
 
-  .discord-button:active {
+  .github-button:active {
     transform: scale(0.95);
   }
 
-  .discord-button span {
+  .new-discord-button {
+    --color: #00eaff;
+    --hover: #00eaff;
+    width: 140px;
+    height: 45px;
+    background: #111;
+    border: 2px solid var(--color);
+    border-radius: 100px;
+    color: var(--color);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.938rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 45px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 0 10px #00eaff44;
+    transition: all 0.3s ease;
+  }
+
+  .new-discord-button:hover {
+    background: rgba(0, 234, 255, 0.2);
+    color: var(--hover);
+    box-shadow: 0 0 15px #00eaff88;
+  }
+
+  .new-discord-button:active {
+    transform: scale(0.95);
+  }
+
+  .new-discord-button span {
     position: relative;
     z-index: 2;
   }
 
-  .discord-button::before {
+  .new-discord-button::before {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, var(--clr), transparent);
     top: 0;
     left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--hover), transparent);
     transition: 0.5s;
     z-index: 1;
   }
 
-  .discord-button:hover::before {
+  .new-discord-button:hover::before {
     left: 100%;
   }
 
@@ -267,9 +397,10 @@ title: Black Hole V1.0
     padding: 30px 20px;
     max-width: 900px;
     margin: 0 auto 40px auto;
-    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    background: rgba(17, 17, 17, 0.9);
     border-radius: 8px;
     box-shadow: 0 0 15px #00eaff44;
+    backdrop-filter: blur(2px);
   }
 
   .section.active {
@@ -288,9 +419,10 @@ title: Black Hole V1.0
     border: 1px solid #00eaff44;
     padding: 20px 25px;
     margin-bottom: 20px;
-    background-color: #111;
+    background: rgba(17, 17, 17, 0.9);
     box-shadow: 0 0 15px #00eaff44 inset;
     border-radius: 8px;
+    backdrop-filter: blur(2px);
   }
 
   .glow-block h3 {
@@ -321,39 +453,6 @@ title: Black Hole V1.0
     color: #a3b6ff;
   }
 
-  .social-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin: 30px 0;
-  }
-
-  .social-button {
-    background-color: #111;
-    color: #00eaff;
-    border: 2px solid #00eaff;
-    padding: 10px 18px;
-    font-size: 0.938rem;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    box-shadow: 0 0 10px #00eaff44;
-    text-align: center;
-  }
-
-  .social-button:hover {
-    background-color: #00eaff;
-    color: #000;
-    box-shadow: 0 0 25px #00eaff88;
-  }
-
-  .social-button:focus {
-    outline: 2px solid #00eaff;
-    outline-offset: 4px;
-  }
-
   #faq-search {
     width: 100%;
     padding: 10px;
@@ -375,8 +474,9 @@ title: Black Hole V1.0
     border: 1px solid #00eaff44;
     border-radius: 8px;
     padding: 0.5rem 1rem;
-    background: #111;
+    background: rgba(17, 17, 17, 0.9);
     box-shadow: 0 0 10px #00eaff44;
+    backdrop-filter: blur(2px);
   }
 
   summary {
@@ -410,12 +510,12 @@ title: Black Hole V1.0
 
   table th, table td {
     padding: 10px;
-    background: #111;
+    background: rgba(17, 17, 17, 0.9);
     border-bottom: 1px solid #00eaff44;
   }
 
   table tr:nth-child(even) td {
-    background: #151515;
+    background: rgba(21, 21, 21, 0.9);
   }
 
   table th {
@@ -521,16 +621,25 @@ title: Black Hole V1.0
       font-size: 0.875rem;
     }
 
-    .discord-button {
-      --size: 120px;
+    .social-media-button {
+      width: 100px;
+      font-size: 0.875rem;
+      height: 35px;
+      line-height: 35px;
+    }
+
+    .github-button {
+      width: 140px;
       font-size: 0.875rem;
       height: 40px;
       line-height: 40px;
     }
 
-    .social-button {
+    .new-discord-button {
+      width: 120px;
       font-size: 0.875rem;
-      padding: 8px 15px;
+      height: 40px;
+      line-height: 40px;
     }
 
     .discord-join a {
@@ -566,6 +675,10 @@ title: Black Hole V1.0
     });
   }
 </script>
+
+<div class="stars"></div>
+<div class="twinkling"></div>
+<div class="clouds"></div>
 
 <!-- Header and Navigation -->
 <div class="wrapper">
@@ -611,7 +724,7 @@ title: Black Hole V1.0
   </div>
   <div class="discord-join">
     <p>💬 Join the community on Discord!</p>
-    <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
+    <a href="https://discord.gg/PdpuDvVD" class="new-discord-button"><span>DISCORD</span></a>
   </div>
   <hr>
   <h2 class="glow-title">Latest Updates</h2>
@@ -629,13 +742,12 @@ title: Black Hole V1.0
   <div class="glow-block">
     <h3>Contribute</h3>
     <p>Have ideas or improvements? Contribute to the project on GitHub or join our Discord to share feedback!</p>
-    <a href="https://github.com/unnamedperson488/BlackHoleV1.0" target="_blank" class="social-button">Contribute on GitHub</a>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0" target="_blank" class="github-button">Contribute on GitHub</a>
   </div>
-  <div class="social-buttons">
-    <a class="social-button" href="https://instagram.com/unnamedperson488" target="_blank">Instagram</a>
-    <a class="social-button" href="https://github.com/unnamedperson488" target="_blank">GitHub</a>
-    <a class="social-button" href="https://youtube.com/@unnamedperson488" target="_blank">YouTube</a>
-    <a class="social-button" href="https://tiktok.com/@unnamedperson488" target="_blank">TikTok</a>
+  <div class="social-media-buttons">
+    <a class="social-media-button" href="https://instagram.com/unnamedperson488" target="_blank">Instagram</a>
+    <a class="social-media-button" href="https://youtube.com/@unnamedperson488" target="_blank">YouTube</a>
+    <a class="social-media-button" href="https://tiktok.com/@unnamedperson488" target="_blank">TikTok</a>
   </div>
 </div>
 
@@ -691,7 +803,7 @@ title: Black Hole V1.0
       </ul>
     </div>
     <p>A powerful tool for wireless security testing, designed by unnamedperson488.</p>
-    <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
+    <a href="https://discord.gg/PdpuDvVD" class="new-discord-button"><span>DISCORD</span></a>
   </div>
 </div>
 
@@ -710,7 +822,15 @@ title: Black Hole V1.0
   <div class="glow-block">
     <h3>Community Showcase</h3>
     <p>Coming soon: User-submitted projects, tutorials, and custom firmware demos. Share your work on Discord!</p>
-    <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
+    <a href="https://discord.gg/PdpuDvVD" class="new-discord-button"><span>DISCORD</span></a>
+  </div>
+  <div class="glow-block">
+    <h3>Follow Us</h3>
+    <div class="social-media-buttons">
+      <a class="social-media-button" href="https://instagram.com/unnamedperson488" target="_blank">Instagram</a>
+      <a class="social-media-button" href="https://youtube.com/@unnamedperson488" target="_blank">YouTube</a>
+      <a class="social-media-button" href="https://tiktok.com/@unnamedperson488" target="_blank">TikTok</a>
+    </div>
   </div>
 </div>
 
@@ -721,22 +841,22 @@ title: Black Hole V1.0
   <div class="glow-block">
     <h3>Live Demo</h3>
     <p>Live demo coming soon. Join our Discord for updates on the June 10, 2025, livestream event!</p>
-    <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
+    <a href="https://discord.gg/PdpuDvVD" class="new-discord-button"><span>DISCORD</span></a>
   </div>
   <div class="glow-block">
     <h3>Interactive Simulator</h3>
     <p>Simulator coming soon. Check back for updates or suggest features on GitHub!</p>
-    <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
+    <a href="https://discord.gg/PdpuDvVD" class="new-discord-button"><span>DISCORD</span></a>
   </div>
   <div class="glow-block">
     <h3>Code Examples</h3>
     <p>Explore example scripts and APIs for custom integrations with Black Hole V1.0.</p>
-    <a href="https://github.com/unnamedperson488/BlackHoleV1.0-examples" target="_blank" class="social-button">View Code on GitHub</a>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0-examples" target="_blank" class="github-button">View Code on GitHub</a>
   </div>
   <div class="glow-block">
     <h3>Request a Feature</h3>
     <p>Have an idea for a demo or feature? Submit it to our GitHub issues page!</p>
-    <a href="https://github.com/unnamedperson488/BlackHoleV1.0/issues" target="_blank" class="social-button">Submit a Feature Request</a>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0/issues" target="_blank" class="github-button">Submit a Feature Request</a>
   </div>
 </div>
 
@@ -807,8 +927,8 @@ title: Black Hole V1.0
     <h3>Firmware Downloads</h3>
     <p>Download the latest firmware for Black Hole V1.0 to keep your device up to date:</p>
     <ul>
-      <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0/releases" target="_blank">Firmware v1.2.3 (Latest, May 2025)</a></li>
-      <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0/wiki/Firmware-Installation" target="_blank">Installation Guide</a></li>
+      <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0/releases" target="_blank" class="github-button">Firmware v1.2.3 (Latest, May 2025)</a></li>
+      <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0/wiki/Firmware-Installation" target="_blank" class="github-button">Installation Guide</a></li>
     </ul>
   </div>
   <div class="glow-block">
