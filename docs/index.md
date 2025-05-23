@@ -279,6 +279,43 @@ title: Black Hole V1.0
     transform: translateX(5px);
   }
 
+  .product-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 20px;
+    border: 2px solid #00eaff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #00eaff44;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00eaff88;
+  }
+
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .gallery img {
+    max-width: 200px;
+    height: auto;
+    border: 2px solid #00eaff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00eaff44;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery img:hover {
+    transform: scale(1.1);
+  }
+
   @media (max-width: 600px) {
     .section {
       padding: 20px 10px;
@@ -320,6 +357,10 @@ title: Black Hole V1.0
     .discord-join a {
       font-size: 1rem;
     }
+
+    .gallery img {
+      max-width: 150px;
+    }
   }
 </style>
 
@@ -360,7 +401,7 @@ title: Black Hole V1.0
     <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('about');">About</a>
     <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('faq');">FAQ</a>
     <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('firmware');">Firmware</a>
-    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('timeline');">Timeline</a>
+    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('product-details');">Product Details</a>
   </div>
 </div>
 
@@ -406,8 +447,32 @@ title: Black Hole V1.0
 <!-- PRODUCT -->
 <div id="product" class="section">
   <h2 class="glow-title">📦 Product</h2>
-  <p>Introducing <strong>Black Hole V1.0</strong> — a cutting-edge dual-band deauther device designed for advanced wireless security testing and research.</p>
+  <div class="glow-block">
+    <a href="#" onclick="event.preventDefault(); showSection('product-details');">
+      <img src="blackhole-placeholder.jpg" alt="Black Hole V1.0 Device" class="product-image">
+    </a>
+    <h3>Black Hole V1.0</h3>
+    <p>Price: $140</p>
+    <p>A cutting-edge dual-band WiFi deauther for advanced security testing. Click the image to learn more!</p>
+  </div>
+</div>
 
+<!-- PRODUCT DETAILS -->
+<div id="product-details" class="section">
+  <h2 class="glow-title">📦 Black Hole V1.0 Details</h2>
+  <div class="glow-block">
+    <h3>Product Gallery</h3>
+    <div class="gallery">
+      <img src="blackhole-front.jpg" alt="Black Hole V1.0 Front View">
+      <img src="blackhole-side.jpg" alt="Black Hole V1.0 Side View">
+      <img src="blackhole-back.jpg" alt="Black Hole V1.0 Back View">
+    </div>
+  </div>
+  <div class="glow-block">
+    <h3>Black Hole V1.0 - $140</h3>
+    <p>A powerful tool for wireless security testing, designed by unnamedperson488.</p>
+    <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Buy Now via Discord</a>
+  </div>
   <div class="glow-block">
     <h3>Key Features</h3>
     <ul>
@@ -420,7 +485,6 @@ title: Black Hole V1.0
       <li>Community-driven updates and support via Discord and GitHub</li>
     </ul>
   </div>
-
   <div class="glow-block">
     <h3>Technical Specifications</h3>
     <table>
@@ -458,7 +522,6 @@ title: Black Hole V1.0
       </tr>
     </table>
   </div>
-
   <div class="glow-block">
     <h3>What's in the Box?</h3>
     <ul>
@@ -467,16 +530,6 @@ title: Black Hole V1.0
       <li>USB-C charging cable</li>
       <li>User manual & quick start guide</li>
       <li>Access to exclusive Discord support community</li>
-    </ul>
-  </div>
-
-  <div class="glow-block">
-    <h3>Use Cases</h3>
-    <ul>
-      <li>Penetration testing for WiFi network security audits</li>
-      <li>Educational workshops on wireless protocol vulnerabilities</li>
-      <li>Research into advanced deauthentication and packet injection techniques</li>
-      <li>Wardriving for mapping WiFi networks in field environments</li>
     </ul>
   </div>
 </div>
@@ -504,25 +557,21 @@ title: Black Hole V1.0
 <div id="demos" class="section">
   <h2 class="glow-title">⚙️ Demos</h2>
   <p>Try out live demos or explore interactive examples of Black Hole V1.0 features. Stay tuned for our June 2025 demo event!</p>
-
   <div class="glow-block">
     <h3>Live Demo</h3>
     <p>Live demo coming soon. Join our Discord for updates on the June 10, 2025, livestream event!</p>
     <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Join Discord</a>
   </div>
-
   <div class="glow-block">
     <h3>Interactive Simulator</h3>
     <p>Simulator coming soon. Check back for updates or suggest features on GitHub!</p>
     <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Join Discord</a>
   </div>
-
   <div class="glow-block">
     <h3>Code Examples</h3>
     <p>Explore example scripts and APIs for custom integrations with Black Hole V1.0.</p>
     <a href="https://github.com/unnamedperson488/BlackHoleV1.0-examples" target="_blank" class="neon-button">View Code on GitHub</a>
   </div>
-
   <div class="glow-block">
     <h3>Request a Feature</h3>
     <p>Have an idea for a demo or feature? Submit it to our GitHub issues page!</p>
@@ -543,7 +592,6 @@ title: Black Hole V1.0
       From initial prototyping to public release, the design process emphasizes reliability, accessibility, and collaboration.
     </p>
   </div>
-
   <div class="glow-block">
     <h3>Project Goals</h3>
     <ul>
