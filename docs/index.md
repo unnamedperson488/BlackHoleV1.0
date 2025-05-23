@@ -14,24 +14,36 @@ title: Black Hole V1.0
     margin: 0;
   }
 
-  .nav-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .wrapper {
+    width: 100%;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
     padding: 10px 0;
-    user-select: none;
-    max-width: 100%;
-    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0 15px #00eaff44;
   }
 
-  .nav-title {
+  .name {
+    font-family: 'Orbitron', sans-serif;
     font-size: 2.5rem;
     color: #00eaff;
-    font-weight: bold;
     text-shadow: 0 0 5px #00eaff, 0 0 15px #00eaff;
-    margin: 0 0 15px 0;
-    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
     text-align: center;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #00eaff;
+    border-left: none;
+    border-right: none;
+    padding: 5px 0;
+    box-shadow: 0 0 15px #00eaff44;
   }
 
   .card.nav-card {
@@ -45,6 +57,7 @@ title: Black Hole V1.0
     flex-direction: column;
     gap: 10px;
     box-shadow: 0 0 15px #00eaff44;
+    margin: 10px auto;
   }
 
   .card.nav-card .list {
@@ -89,6 +102,52 @@ title: Black Hole V1.0
 
   .card.product-card {
     width: 100%;
+    max-width: 300px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    border: 2px solid #00eaff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px #00eaff44;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00eaff88;
+  }
+
+  .product-card__img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #00eaff;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .product-card__content {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .product-card__content h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    color: #00eaff;
+    text-shadow: 0 0 5px #00eaff;
+    margin: 0 0 10px;
+  }
+
+  .product-card__content p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin: 0;
+  }
+
+  .card.product-details-card {
+    width: 100%;
     max-width: 600px;
     height: auto;
     background: #111;
@@ -112,7 +171,7 @@ title: Black Hole V1.0
     text-shadow: 0 0 5px #00eaff;
   }
 
-  .card.product-card button {
+  .card.product-details-card button {
     width: 40px;
     height: 35px;
     margin-left: -5px;
@@ -190,6 +249,59 @@ title: Black Hole V1.0
 
   .s6 {
     color: #e0e0e0;
+  }
+
+  .discord-button {
+    --clr: #00eaff;
+    --size: 140px;
+    width: var(--size);
+    height: 45px;
+    border: 2px solid var(--clr);
+    border-radius: 100px;
+    background: #111;
+    color: #00eaff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.938rem;
+    font-weight: 500;
+    text-align: center;
+    line-height: 45px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 0 10px #00eaff44;
+    transition: all 0.3s ease;
+  }
+
+  .discord-button:hover {
+    background: rgba(0, 234, 255, 0.2);
+    color: #00eaff;
+    box-shadow: 0 0 25px #00eaff88;
+  }
+
+  .discord-button:active {
+    transform: scale(0.95);
+  }
+
+  .discord-button span {
+    position: relative;
+    z-index: 2;
+  }
+
+  .discord-button::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--clr), transparent);
+    top: 0;
+    left: -100%;
+    transition: 0.5s;
+    z-index: 1;
+  }
+
+  .discord-button:hover::before {
+    left: 100%;
   }
 
   .section {
@@ -397,7 +509,11 @@ title: Black Hole V1.0
       font-size: 0.938rem;
     }
 
-    .nav-title {
+    .wrapper {
+      padding: 5px 0;
+    }
+
+    .name {
       font-size: 2rem;
     }
 
@@ -419,6 +535,22 @@ title: Black Hole V1.0
     }
 
     .card.product-card {
+      max-width: 250px;
+    }
+
+    .product-card__img {
+      height: 150px;
+    }
+
+    .product-card__content h3 {
+      font-size: 1.2rem;
+    }
+
+    .product-card__content p {
+      font-size: 0.875rem;
+    }
+
+    .card.product-details-card {
       max-width: 100%;
       padding: 10px;
     }
@@ -427,7 +559,7 @@ title: Black Hole V1.0
       font-size: 18px;
     }
 
-    .card.product-card button {
+    .card.product-details-card button {
       width: 30px;
       height: 25px;
     }
@@ -435,6 +567,13 @@ title: Black Hole V1.0
     #pre {
       font-size: 0.875rem;
       padding: 10px;
+    }
+
+    .discord-button {
+      --size: 120px;
+      font-size: 0.875rem;
+      height: 40px;
+      line-height: 40px;
     }
 
     .social-button {
@@ -476,9 +615,13 @@ title: Black Hole V1.0
   }
 </script>
 
-<!-- Navigation -->
+<!-- Header and Navigation -->
+<div class="wrapper">
+  <div class="text">
+    <h1 class="name">UNNAMEDPERSON</h1>
+  </div>
+</div>
 <div class="nav-wrapper">
-  <h1 class="nav-title">Black Hole V1.0</h1>
   <div class="card nav-card">
     <ul class="list">
       <li class="element" onclick="event.preventDefault(); showSection('home');">
@@ -519,7 +662,7 @@ title: Black Hole V1.0
   </div>
   <div class="discord-join">
     <p>💬 Join the community on Discord!</p>
-    <a href="https://discord.gg/actual-invite-code" target="_blank">Click here to join my Discord Server</a>
+    <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
   </div>
   <hr>
   <h2 class="glow-title">Latest Updates</h2>
@@ -543,7 +686,6 @@ title: Black Hole V1.0
     <a class="social-button" href="https://instagram.com/unnamedperson488" target="_blank">Instagram</a>
     <a class="social-button" href="https://github.com/unnamedperson488" target="_blank">GitHub</a>
     <a class="social-button" href="https://youtube.com/@unnamedperson488" target="_blank">YouTube</a>
-    <a class="social-button" href="https://discord.gg/actual-invite-code" target="_blank">Discord</a>
     <a class="social-button" href="https://tiktok.com/@unnamedperson488" target="_blank">TikTok</a>
   </div>
 </div>
@@ -552,12 +694,13 @@ title: Black Hole V1.0
 <div id="product" class="section">
   <h2 class="glow-title">📦 Product</h2>
   <div class="glow-block">
-    <a href="#" onclick="event.preventDefault(); showSection('blackHole');">
-      <img src="blackhole-placeholder.jpg" alt="Black Hole V1.0 Device" class="product-image">
+    <a onclick="event.preventDefault(); showSection('blackHole')" class="product-card">
+      <img src="blackhole-placeholder.jpg" alt="Black Hole V1.0 Device" class="product-card__img">
+      <div class="product-card__content">
+        <h3>Black Hole V1.0</h3>
+        <p>$140</p>
+      </div>
     </a>
-    <h3>Black Hole V1.0</h3>
-    <p>Price: $140</p>
-    <p>A cutting-edge dual-band WiFi deauther for advanced security testing. Click the image to learn more!</p>
   </div>
 </div>
 
@@ -568,7 +711,7 @@ title: Black Hole V1.0
     <h3>Product Overview</h3>
     <img src="blackhole-main.jpg" alt="Black Hole V1.0 Main View" class="product-image">
     <p><strong>Black Hole V1.0 - $140</strong></p>
-    <div class="card product-card">
+    <div class="card product-details-card">
       <div class="titlebar">
         <button class="minimize">
           <svg viewBox="0 0 10 10">
@@ -616,7 +759,7 @@ title: Black Hole V1.0
 <span class="curlies">}</span></pre>
     </div>
     <p>A powerful tool for wireless security testing, designed by unnamedperson488.</p>
-    <a href="https://discord.gg/actual-invite-code" target="_blank" class="social-button">Buy Now via Discord</a>
+    <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
   </div>
 </div>
 
@@ -635,7 +778,7 @@ title: Black Hole V1.0
   <div class="glow-block">
     <h3>Community Showcase</h3>
     <p>Coming soon: User-submitted projects, tutorials, and custom firmware demos. Share your work on Discord!</p>
-    <a href="https://discord.gg/actual-invite-code" target="_blank" class="social-button">Join Discord</a>
+    <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
   </div>
 </div>
 
@@ -646,12 +789,12 @@ title: Black Hole V1.0
   <div class="glow-block">
     <h3>Live Demo</h3>
     <p>Live demo coming soon. Join our Discord for updates on the June 10, 2025, livestream event!</p>
-    <a href="https://discord.gg/actual-invite-code" target="_blank" class="social-button">Join Discord</a>
+    <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
   </div>
   <div class="glow-block">
     <h3>Interactive Simulator</h3>
     <p>Simulator coming soon. Check back for updates or suggest features on GitHub!</p>
-    <a href="https://discord.gg/actual-invite-code" target="_blank" class="social-button">Join Discord</a>
+    <a href="https://discord.gg/actual-invite-code" class="discord-button"><span>DISCORD</span></a>
   </div>
   <div class="glow-block">
     <h3>Code Examples</h3>
@@ -682,7 +825,6 @@ title: Black Hole V1.0
     <h3>Project Goals</h3>
     <ul>
       <li>Deliver a reliable and efficient dual-band deauther device for ethical hacking.</li>
-      <lihttps://github.com/unnamedperson488/BlackHoleV1.0/issuesli>
       <li>Provide extensive documentation, tutorials, and support for users of all skill levels.</li>
       <li>Encourage community collaboration through GitHub contributions and Discord discussions.</li>
       <li>Foster innovation in wireless security research with open-source tools.</li>
