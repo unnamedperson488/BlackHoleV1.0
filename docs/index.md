@@ -18,12 +18,10 @@ title: Black Hole V1.0
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #111;
-    padding: 20px 10px;
+    padding: 10px 0;
     user-select: none;
     max-width: 100%;
     box-sizing: border-box;
-    box-shadow: 0 2px 10px rgba(0, 234, 255, 0.2);
   }
 
   .nav-title {
@@ -36,76 +34,57 @@ title: Black Hole V1.0
     text-align: center;
   }
 
-  .nav-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  .neon-button {
-    position: relative;
-    padding: 0.75em 1.5em;
-    border-radius: 8px;
+  .card {
+    width: 100%;
+    max-width: 900px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
     border: 2px solid #00eaff;
-    font-size: 0.938em;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.125em;
-    background: transparent;
-    color: #00eaff;
-    overflow: hidden;
+    border-radius: 10px;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 0 15px #00eaff44;
+  }
+
+  .card .list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .card .list .element {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e0e0e0;
+    transition: all 0.3s ease-out;
+    padding: 4px 7px;
+    border-radius: 6px;
     cursor: pointer;
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+  }
+
+  .card .list .element .label {
+    font-weight: 600;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.938rem;
+  }
+
+  .card .list .element:hover {
+    background-color: rgba(0, 234, 255, 0.2);
+    color: #00eaff;
+    transform: translate(1px, -1px);
     box-shadow: 0 0 10px #00eaff44;
-    transition: all 0.3s ease-in-out;
-    text-decoration: none;
-    user-select: none;
   }
 
-  .neon-button:hover {
-    background: rgba(0, 234, 255, 0.1);
-    box-shadow: 0 0 40px 10px rgba(0, 234, 255, 0.5);
-    color: #ffffff;
-  }
-
-  .neon-button::before {
-    content: "";
-    display: block;
-    width: 0px;
-    height: 86%;
-    position: absolute;
-    top: 7%;
-    left: 0%;
-    opacity: 0;
-    background: linear-gradient(90deg, transparent, #00eaff, transparent);
-    box-shadow: 0 0 50px 30px #00eaff;
-    transform: skewX(-20deg);
-    transition: all 0.5s ease-in-out;
-  }
-
-  .neon-button:hover::before {
-    animation: neon-shine 0.6s 0s linear;
-  }
-
-  @keyframes neon-shine {
-    from {
-      opacity: 0;
-      left: 0%;
-    }
-    50% {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-      left: 100%;
-    }
-  }
-
-  .neon-button:active {
+  .card .list .element:active {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 transparent;
-    transition: all 0.2s ease-in;
   }
 
   .section {
@@ -295,27 +274,6 @@ title: Black Hole V1.0
     box-shadow: 0 0 25px #00eaff88;
   }
 
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .gallery img {
-    max-width: 200px;
-    height: auto;
-    border: 2px solid #00eaff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #00eaff44;
-    transition: transform 0.3s ease;
-  }
-
-  .gallery img:hover {
-    transform: scale(1.1);
-  }
-
   @media (max-width: 600px) {
     .section {
       padding: 20px 10px;
@@ -334,19 +292,25 @@ title: Black Hole V1.0
       font-size: 0.938rem;
     }
 
-    .neon-button {
-      font-size: 0.75rem;
-      padding: 0.5em 1em;
-      min-width: 80px;
-    }
-
     .nav-title {
       font-size: 2rem;
     }
 
-    .nav-row {
-      gap: 10px;
-      padding: 0 10px;
+    .card {
+      padding: 10px 5px;
+    }
+
+    .card .list {
+      flex-direction: column;
+      padding: 0 5px;
+    }
+
+    .card .list .element {
+      padding: 4px 5px;
+    }
+
+    .card .list .element .label {
+      font-size: 0.875rem;
     }
 
     .social-button {
@@ -358,8 +322,8 @@ title: Black Hole V1.0
       font-size: 1rem;
     }
 
-    .gallery img {
-      max-width: 150px;
+    .product-image {
+      max-width: 80%;
     }
   }
 </style>
@@ -391,17 +355,33 @@ title: Black Hole V1.0
 <!-- Navigation -->
 <div class="nav-wrapper">
   <h1 class="nav-title">Black Hole V1.0</h1>
-  <div class="nav-row">
-    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('home');">Home</a>
-    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('product');">Product</a>
-    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('media');">Media</a>
-    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('demos');">Demos</a>
-  </div>
-  <div class="nav-row">
-    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('about');">About</a>
-    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('faq');">FAQ</a>
-    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('firmware');">Firmware</a>
-    <a href="#" class="neon-button" onclick="event.preventDefault(); showSection('product-details');">Product Details</a>
+  <div class="card">
+    <ul class="list">
+      <li class="element" onclick="event.preventDefault(); showSection('home');">
+        <span class="label">Home</span>
+      </li>
+      <li class="element" onclick="event.preventDefault(); showSection('product');">
+        <span class="label">Product</span>
+      </li>
+      <li class="element" onclick="event.preventDefault(); showSection('media');">
+        <span class="label">Media</span>
+      </li>
+      <li class="element" onclick="event.preventDefault(); showSection('demos');">
+        <span class="label">Demos</span>
+      </li>
+      <li class="element" onclick="event.preventDefault(); showSection('about');">
+        <span class="label">About</span>
+      </li>
+      <li class="element" onclick="event.preventDefault(); showSection('faq');">
+        <span class="label">FAQ</span>
+      </li>
+      <li class="element" onclick="event.preventDefault(); showSection('firmware');">
+        <span class="label">Firmware</span>
+      </li>
+      <li class="element" onclick="event.preventDefault(); showSection('blackHole');">
+        <span class="label">Black Hole</span>
+      </li>
+    </ul>
   </div>
 </div>
 
@@ -433,7 +413,7 @@ title: Black Hole V1.0
   <div class="glow-block">
     <h3>Contribute</h3>
     <p>Have ideas or improvements? Contribute to the project on GitHub or join our Discord to share feedback!</p>
-    <a href="https://github.com/unnamedperson488/BlackHoleV1.0" target="_blank" class="neon-button">Contribute on GitHub</a>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0" target="_blank" class="social-button">Contribute on GitHub</a>
   </div>
   <div class="social-buttons">
     <a class="social-button" href="https://instagram.com/unnamedperson488" target="_blank">Instagram</a>
@@ -448,7 +428,7 @@ title: Black Hole V1.0
 <div id="product" class="section">
   <h2 class="glow-title">📦 Product</h2>
   <div class="glow-block">
-    <a href="#" onclick="event.preventDefault(); showSection('product-details');">
+    <a href="#" onclick="event.preventDefault(); showSection('blackHole');">
       <img src="blackhole-placeholder.jpg" alt="Black Hole V1.0 Device" class="product-image">
     </a>
     <h3>Black Hole V1.0</h3>
@@ -457,21 +437,15 @@ title: Black Hole V1.0
   </div>
 </div>
 
-<!-- PRODUCT DETAILS -->
-<div id="product-details" class="section">
-  <h2 class="glow-title">📦 Black Hole V1.0 Details</h2>
+<!-- BLACK HOLE DETAILS -->
+<div id="blackHole" class="section">
+  <h2 class="glow-title">📦 Black Hole V1.0</h2>
   <div class="glow-block">
-    <h3>Product Gallery</h3>
-    <div class="gallery">
-      <img src="blackhole-front.jpg" alt="Black Hole V1.0 Front View">
-      <img src="blackhole-side.jpg" alt="Black Hole V1.0 Side View">
-      <img src="blackhole-back.jpg" alt="Black Hole V1.0 Back View">
-    </div>
-  </div>
-  <div class="glow-block">
-    <h3>Black Hole V1.0 - $140</h3>
+    <h3>Product Overview</h3>
+    <img src="blackhole-main.jpg" alt="Black Hole V1.0 Main View" class="product-image">
+    <p><strong>Black Hole V1.0 - $140</strong></p>
     <p>A powerful tool for wireless security testing, designed by unnamedperson488.</p>
-    <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Buy Now via Discord</a>
+    <a href="https://discord.gg/actual-invite-code" target="_blank" class="social-button">Buy Now via Discord</a>
   </div>
   <div class="glow-block">
     <h3>Key Features</h3>
@@ -549,7 +523,7 @@ title: Black Hole V1.0
   <div class="glow-block">
     <h3>Community Showcase</h3>
     <p>Coming soon: User-submitted projects, tutorials, and custom firmware demos. Share your work on Discord!</p>
-    <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Join Discord</a>
+    <a href="https://discord.gg/actual-invite-code" target="_blank" class="social-button">Join Discord</a>
   </div>
 </div>
 
@@ -560,22 +534,22 @@ title: Black Hole V1.0
   <div class="glow-block">
     <h3>Live Demo</h3>
     <p>Live demo coming soon. Join our Discord for updates on the June 10, 2025, livestream event!</p>
-    <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Join Discord</a>
+    <a href="https://discord.gg/actual-invite-code" target="_blank" class="social-button">Join Discord</a>
   </div>
   <div class="glow-block">
     <h3>Interactive Simulator</h3>
     <p>Simulator coming soon. Check back for updates or suggest features on GitHub!</p>
-    <a href="https://discord.gg/actual-invite-code" target="_blank" class="neon-button">Join Discord</a>
+    <a href="https://discord.gg/actual-invite-code" target="_blank" class="social-button">Join Discord</a>
   </div>
   <div class="glow-block">
     <h3>Code Examples</h3>
     <p>Explore example scripts and APIs for custom integrations with Black Hole V1.0.</p>
-    <a href="https://github.com/unnamedperson488/BlackHoleV1.0-examples" target="_blank" class="neon-button">View Code on GitHub</a>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0-examples" target="_blank" class="social-button">View Code on GitHub</a>
   </div>
   <div class="glow-block">
     <h3>Request a Feature</h3>
     <p>Have an idea for a demo or feature? Submit it to our GitHub issues page!</p>
-    <a href="https://github.com/unnamedperson488/BlackHoleV1.0/issues" target="_blank" class="neon-button">Submit a Feature Request</a>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0/issues" target="_blank" class="social-button">Submit a Feature Request</a>
   </div>
 </div>
 
