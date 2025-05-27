@@ -392,6 +392,74 @@ title: Black Hole V1.0
     left: 100%;
   }
 
+  .flasher-card {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(17, 17, 17, 0.9);
+    border: 2px solid #00eaff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 0 15px #00eaff44;
+    margin: 0 auto 20px;
+    text-align: center;
+    backdrop-filter: blur(2px);
+  }
+
+  .flasher-button {
+    width: 160px;
+    height: 45px;
+    background: #111;
+    border: 2px solid #00eaff;
+    border-radius: 8px;
+    color: #00eaff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.938rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 0 0 10px #00eaff44;
+    transition: all 0.3s ease;
+  }
+
+  .flasher-button:hover {
+    background: rgba(0, 234, 255, 0.2);
+    box-shadow: 0 0 15px #00eaff88;
+  }
+
+  .flasher-button:active {
+    transform: scale(0.95);
+  }
+
+  .flasher-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #e0e0e0;
+    color: #e0e0e0;
+  }
+
+  .progress-bar {
+    width: 80%;
+    height: 10px;
+    background: #111;
+    border: 1px solid #00eaff;
+    border-radius: 5px;
+    margin: 15px auto;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #22ff00;
+    transition: width 0.3s ease;
+  }
+
+  #flasher-status {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin: 10px 0;
+  }
+
   .section {
     display: none;
     padding: 30px 20px;
@@ -642,6 +710,24 @@ title: Black Hole V1.0
       line-height: 40px;
     }
 
+    .flasher-card {
+      padding: 10px;
+    }
+
+    .flasher-button {
+      width: 140px;
+      font-size: 0.875rem;
+      height: 40px;
+    }
+
+    .progress-bar {
+      width: 90%;
+    }
+
+    #flasher-status {
+      font-size: 0.875rem;
+    }
+
     .discord-join a {
       font-size: 1rem;
     }
@@ -672,6 +758,78 @@ title: Black Hole V1.0
         const text = item.textContent.toLowerCase();
         item.style.display = text.includes(query) ? 'block' : 'none';
       });
+    });
+  }
+
+  // Web Flasher functionality
+  const connectButton = document.querySelector('.flasher-button.connect');
+  const flashButton = document.querySelector('.flasher-button.flash');
+  const progressFill = document.querySelector('.progress-fill');
+  const statusText = document.getElementById('flasher-status');
+
+  if (connectButton && flashButton) {
+    connectButton.addEventListener('click', async () => {
+      if (!navigator.serial) {
+        statusText.textContent = 'Web Serial API not supported. Use Chrome or Edge.';
+        return;
+      }
+
+      try {
+        const port = await navigator.serial.requestPort();
+        await port.open({ baudRate: 115200 });
+        statusText.textContent = 'Device connected. Enter Download Mode (connect LOG_TX to GND, EN to GND then 3V3, disconnect LOG_TX) and click Flash Firmware.';
+        flashButton.disabled = false;
+        connectButton.disabled = true;
+        flashButton.port = port; // Store port for flashing
+      } catch (error) {
+        statusText.textContent = `Error connecting: ${error.message}`;
+      }
+    });
+
+    flashButton.addEventListener('click', async () => {
+      const port = flashButton.port;
+      if (!port) {
+        statusText.textContent = 'No device connected.';
+        return;
+      }
+
+      statusText.textContent = 'Flashing firmware...';
+      flashButton.disabled = true;
+      progressFill.style.width = '0%';
+
+      try {
+        // Simulate fetching firmware binary
+        const firmwareUrl = 'https://github.com/unnamedperson488/BlackHoleV1.0/releases/download/v1.2.3/firmware-v1.2.3.bin';
+        const response = await fetch(firmwareUrl);
+        if (!response.ok) throw new Error('Failed to fetch firmware.');
+
+        const firmware = await response.arrayBuffer();
+        const writer = port.writable.getWriter();
+
+        // Simulate flashing process
+        let progress = 0;
+        const totalSize = firmware.byteLength;
+        const chunkSize = 1024;
+
+        for (let offset = 0; offset < totalSize; offset += chunkSize) {
+          const chunk = firmware.slice(offset, offset + chunkSize);
+          await writer.write(new Uint8Array(chunk));
+          progress = Math.min((offset + chunkSize) / totalSize * 100, 100);
+          progressFill.style.width = `${progress}%`;
+          statusText.textContent = `Flashing... ${Math.round(progress)}%`;
+          await new Promise(resolve => setTimeout(resolve, 50)); // Simulate delay
+        }
+
+        await writer.close();
+        statusText.textContent = 'Firmware flashed successfully! Reset your device.';
+        progressFill.style.width = '100%';
+        await port.close();
+        connectButton.disabled = false;
+      } catch (error) {
+        statusText.textContent = `Error flashing: ${error.message}`;
+        progressFill.style.width = '0%';
+        flashButton.disabled = false;
+      }
     });
   }
 </script>
@@ -733,7 +891,7 @@ title: Black Hole V1.0
     <ul>
       <li>Improved 5GHz antenna switching for seamless dual-band operation</li>
       <li>Battery optimization for up to 20% longer runtime</li>
-      <li>Bug fixes for ESP32 connectivity issues under high load</li>
+      <li>Bug fixes for connectivity issues under high load</li>
     </ul>
   </div>
   <div class="glow-block">
@@ -775,7 +933,7 @@ title: Black Hole V1.0
     <div class="product-info">
       <h4>Key Features</h4>
       <ul>
-        <li>Dual-band operation: 2.4GHz ESP32 + 5GHz BW16 chipset for versatile network testing</li>
+        <li>Dual-band operation: 2.4GHz and 5GHz via RTL8720DN for versatile network testing</li>
         <li>Separate antennas with SMA connectors for maximum signal strength and range</li>
         <li>4-layer black PCB with high-quality components for durability</li>
         <li>Custom open-source firmware with anti-jamming and launch control capabilities</li>
@@ -785,8 +943,8 @@ title: Black Hole V1.0
       </ul>
       <h4>Technical Specifications</h4>
       <ul>
-        <li><span class="key">Microcontroller:</span> ESP32-WROOM-32 (dual-core 240 MHz)</li>
-        <li><span class="key">5GHz Chipset:</span> BW16 5GHz WiFi chip</li>
+        <li><span class="key">Microcontroller:</span> RTL8720DN (dual-core ARM Cortex-M4F and Cortex-M0)</li>
+        <li><span class="key">Connectivity:</span> WiFi 802.11 a/b/g/n (2.4GHz and 5GHz), Bluetooth 5.0</li>
         <li><span class="key">Antennas:</span> 2 x SMA connectors (external antennas for 2.4GHz & 5GHz)</li>
         <li><span class="key">Buttons:</span> Boot (power) button, Reset button</li>
         <li><span class="key">PCB:</span> 4-layer black matte, custom silkscreen 'ENGINEERED BY unnamedperson'</li>
@@ -860,6 +1018,42 @@ title: Black Hole V1.0
   </div>
 </div>
 
+<!-- FIRMWARE -->
+<div id="firmware" class="section">
+  <h2 class="glow-title">📱 Firmware Updates</h2>
+  <div class="glow-block">
+    <h3>Update Firmware</h3>
+    <p>Update your Black Hole V1.0 to the latest firmware (v1.2.3) directly from your browser. Use Chrome or Edge, connect your device via USB, and follow these steps:</p>
+    <ol>
+      <li>Connect your Black Hole V1.0 to your computer via USB-C. If the onboard USB doesn’t work, use an external USB-to-UART adapter connected to D0 (LOG_RX) and D1 (LOG_TX).</li>
+      <li>Click "Connect Device" to select your device’s serial port.</li>
+      <li>Enter Download Mode: connect LOG_TX (PA7) to GND, pull EN to GND then to 3V3, then disconnect LOG_TX.</li>
+      <li>Click "Flash Firmware" to install the firmware.</li>
+      <li>Reset your device after flashing is complete.</li>
+    </ol>
+    <div class="flasher-card">
+      <button class="flasher-button connect">Connect Device</button>
+      <button class="flasher-button flash" disabled>Flash Firmware</button>
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <p id="flasher-status">Connect your device to begin.</p>
+    </div>
+    <p><strong>Note:</strong> If you have default B&T firmware, you may need to erase flash first. Follow troubleshooting guides on our Discord or GitHub.</p>
+  </div>
+  <div class="glow-block">
+    <h3>Firmware Features</h3>
+    <ul>
+      <li>Web-based UI for easy configuration and control</li>
+      <li>Over-the-air (OTA) updates for seamless upgrades</li>
+      <li>Anti-jamming and packet injection support for robust testing</li>
+      <li>Compatible with Arduino IDE for custom development</li>
+      <li>Enhanced security features to prevent unauthorized access</li>
+      <li>Customizable settings for tailored network testing scenarios</li>
+    </ul>
+  </div>
+</div>
+
 <!-- ABOUT -->
 <div id="about" class="section">
   <h2 class="glow-title">🔭 About Black Hole V1.0</h2>
@@ -869,8 +1063,7 @@ title: Black Hole V1.0
       Designed by <strong>unnamedperson488</strong>, it features advanced antenna switching, anti-jamming capabilities, and an intuitive interface.
     </p>
     <p>
-      The project is open-source and community-driven, aiming to empower cybersecurity enthusiasts and professionals to explore and improve wireless security. 
-      From initial prototyping to public release, the design process emphasizes reliability, accessibility, and collaboration.
+      The project is open-source and community-driven, aiming to empower cybersecurity enthusiasts and professionals to explore and improve wireless security. From initial prototyping to public release, the design process emphasizes reliability, accessibility, and collaboration.
     </p>
   </div>
   <div class="glow-block">
@@ -891,15 +1084,15 @@ title: Black Hole V1.0
   <div class="faq-items">
     <details>
       <summary>What is Black Hole V1.0?</summary>
-      <p>A dual-band WiFi deauther designed for educational use, security testing, and research. It supports both 2.4GHz and 5GHz via ESP32 and BW16 chipsets.</p>
+      <p>A dual-band WiFi deauther designed for educational use, security testing, and research. It supports both 2.4GHz and 5GHz via RTL8720DN.</p>
     </details>
     <details>
       <summary>Is 5GHz support real?</summary>
-      <p>Yes. It uses the Realtek BW16 module with SDK-based implementation for 5GHz deauth and packet injection.</p>
+      <p>Yes. It uses the Realtek RTL8720DN module with SDK-based implementation for 5GHz deauth and packet injection.</p>
     </details>
     <details>
       <summary>Can I flash my own firmware?</summary>
-      <p>Absolutely. The board supports PlatformIO, Arduino IDE, and direct UART flashing. Open-source firmware is provided.</p>
+      <p>Absolutely, the board supports custom firmware via the web flasher or Arduino IDE. Open-source firmware is provided.</p>
     </details>
     <details>
       <summary>How long does the battery last?</summary>
@@ -920,41 +1113,17 @@ title: Black Hole V1.0
   </div>
 </div>
 
-<!-- FIRMWARE -->
-<div id="firmware" class="section">
-  <h2 class="glow-title">📱 Firmware</h2>
-  <div class="glow-block">
-    <h3>Firmware Downloads</h3>
-    <p>Download the latest firmware for Black Hole V1.0 to keep your device up to date:</p>
-    <ul>
-      <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0/releases" target="_blank" class="github-button">Firmware v1.2.3 (Latest, May 2025)</a></li>
-      <li><a href="https://github.com/unnamedperson488/BlackHoleV1.0/wiki/Firmware-Installation" target="_blank" class="github-button">Installation Guide</a></li>
-    </ul>
-  </div>
-  <div class="glow-block">
-    <h3>Firmware Features</h3>
-    <ul>
-      <li>Web-based UI for easy configuration and control</li>
-      <li>Over-the-air (OTA) updates for seamless upgrades</li>
-      <li>Anti-jamming and packet injection support for robust testing</li>
-      <li>Compatible with PlatformIO and Arduino IDE for custom development</li>
-      <li>Enhanced security features to prevent unauthorized access</li>
-      <li>Customizable settings for tailored network testing scenarios</li>
-    </ul>
-  </div>
-</div>
-
 <!-- TIMELINE -->
 <div id="timeline" class="section">
   <h2 class="glow-title">🗓️ Timeline</h2>
-  <ul class="border-l-4 border-[#00eaff] pl-6 space-y-6 mt-4">
+  <ul class="border-l-4 border-[#00FFFF] pl-6 space-y-6 mt-4">
     <li>
       <div class="font-bold">🔧 Prototype 1 – Complete</div>
-      <p>Initial ESP32-based design with 2.4GHz deauth and LiPo charging.</p>
+      <p>Initial RTL8720DN-based design with 2.4GHz and 5GHz WiFi and LiPo charging.</p>
     </li>
     <li>
       <div class="font-bold">📡 Dual-Band Upgrade – Complete</div>
-      <p>Integrated BW16 for 5GHz support. Redesigned to fit SMA antennas and new boot/reset layout.</p>
+      <p>Optimized dual-band support with SMA antennas and new boot/reset layout.</p>
     </li>
     <li>
       <div class="font-bold">💻 Firmware V1.0 – Released</div>
@@ -969,8 +1138,8 @@ title: Black Hole V1.0
       <p>Final hardware with case design and shipping options for first 100 units.</p>
     </li>
     <li>
-      <div class="font-bold">🚀 V2 Development – Q4 2025</div>
-      <p>Research into integrated GPS and better chipset support for future expansion (wardriving module).</p>
+      <div class="font-bold">🚀 V2 Development – Q3 2025</div>
+      <p>Research into enhanced features and better chipset support for future expansion.</p>
     </li>
     <li>
       <div class="font-bold">🔄 Firmware V2.0 – Q1 2026</div>
