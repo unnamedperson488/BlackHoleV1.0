@@ -405,6 +405,27 @@ title: Black Hole V1.0
     backdrop-filter: blur(2px);
   }
 
+  #port-select {
+    width: 80%;
+    max-width: 300px;
+    padding: 8px;
+    margin: 10px 0;
+    background: #111;
+    border: 2px solid #00eaff;
+    border-radius: 8px;
+    color: #e0e0e0;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.938rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00eaff44;
+    transition: box-shadow 0.3s ease;
+  }
+
+  #port-select:focus {
+    outline: none;
+    box-shadow: 0 0 15px #00eaff88;
+  }
+
   .flasher-button {
     width: 160px;
     height: 45px;
@@ -714,6 +735,12 @@ title: Black Hole V1.0
       padding: 10px;
     }
 
+    #port-select {
+      width: 90%;
+      font-size: 0.875rem;
+      padding: 6px;
+    }
+
     .flasher-button {
       width: 140px;
       font-size: 0.875rem;
@@ -762,33 +789,82 @@ title: Black Hole V1.0
   }
 
   // Web Flasher functionality
+  const portSelect = document.querySelector('#port-select');
+  const refreshButton = document.querySelector('.flasher-button.refresh');
   const connectButton = document.querySelector('.flasher-button.connect');
   const flashButton = document.querySelector('.flasher-button.flash');
   const progressFill = document.querySelector('.progress-fill');
-  const statusText = document.getElementById('flasher-status');
+  const statusText = document.querySelector('#flasher-status');
+  let selectedPort = null;
 
-  if (connectButton && flashButton) {
+  async function populatePorts() {
+    if (!navigator.serial) {
+      statusText.textContent = 'Web Serial API not supported. Use Chrome or Edge.';
+      portSelect.disabled = true;
+      refreshButton.disabled = true;
+      connectButton.disabled = true;
+      flashButton.disabled = true;
+      return;
+    }
+
+    try {
+      const ports = await navigator.serial.getPorts();
+      portSelect.innerHTML = '<option value="">Select a port</option>';
+      ports.forEach((port, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.text = `Port ${index + 1} (${port.getInfo().usbVendorId || 'Unknown'}:${port.getInfo().usbProductId || 'Unknown'})`;
+        portSelect.appendChild(option);
+      });
+      statusText.textContent = ports.length ? 'Select a port and click Connect.' : 'No serial ports detected. Connect your device.';
+    } catch (error) {
+      statusText.textContent = `Error listing ports: ${error.message}`;
+    }
+  }
+
+  if (refreshButton) {
+    refreshButton.addEventListener('click', async () => {
+      statusText.textContent = 'Refreshing ports...';
+      await populatePorts();
+    });
+  }
+
+  if (connectButton) {
     connectButton.addEventListener('click', async () => {
       if (!navigator.serial) {
         statusText.textContent = 'Web Serial API not supported. Use Chrome or Edge.';
         return;
       }
 
+      const portIndex = portSelect.value;
+      if (!portIndex) {
+        statusText.textContent = 'Please select a port.';
+        return;
+      }
+
       try {
-        const port = await navigator.serial.requestPort();
-        await port.open({ baudRate: 115200 });
+        const ports = await navigator.serial.getPorts();
+        selectedPort = ports[portIndex];
+        if (!selectedPort) {
+          statusText.textContent = 'Invalid port selected.';
+          return;
+        }
+
+        await selectedPort.open({ baudRate: 115200 });
         statusText.textContent = 'Device connected. Enter Download Mode (connect LOG_TX to GND, EN to GND then 3V3, disconnect LOG_TX) and click Flash Firmware.';
         flashButton.disabled = false;
         connectButton.disabled = true;
-        flashButton.port = port; // Store port for flashing
+        refreshButton.disabled = true;
+        portSelect.disabled = true;
       } catch (error) {
         statusText.textContent = `Error connecting: ${error.message}`;
       }
     });
+  }
 
+  if (flashButton) {
     flashButton.addEventListener('click', async () => {
-      const port = flashButton.port;
-      if (!port) {
+      if (!selectedPort) {
         statusText.textContent = 'No device connected.';
         return;
       }
@@ -804,7 +880,7 @@ title: Black Hole V1.0
         if (!response.ok) throw new Error('Failed to fetch firmware.');
 
         const firmware = await response.arrayBuffer();
-        const writer = port.writable.getWriter();
+        const writer = selectedPort.writable.getWriter();
 
         // Simulate flashing process
         let progress = 0;
@@ -823,14 +899,26 @@ title: Black Hole V1.0
         await writer.close();
         statusText.textContent = 'Firmware flashed successfully! Reset your device.';
         progressFill.style.width = '100%';
-        await port.close();
+        await selectedPort.close();
+        selectedPort = null;
         connectButton.disabled = false;
+        refreshButton.disabled = false;
+        portSelect.disabled = false;
+        await populatePorts();
       } catch (error) {
         statusText.textContent = `Error flashing: ${error.message}`;
         progressFill.style.width = '0%';
         flashButton.disabled = false;
+        connectButton.disabled = false;
+        refreshButton.disabled = false;
+        portSelect.disabled = false;
       }
     });
+  }
+
+  // Initialize ports on page load
+  if (portSelect) {
+    populatePorts();
   }
 </script>
 
@@ -848,7 +936,7 @@ title: Black Hole V1.0
   <div class="card nav-card">
     <ul class="list">
       <li class="element" onclick="event.preventDefault(); showSection('home');">
-        <span class="label">Home</span>
+        <span class="label">Homepage</span>
       </li>
       <li class="element" onclick="event.preventDefault(); showSection('product');">
         <span class="label">Product</span>
@@ -891,15 +979,15 @@ title: Black Hole V1.0
     <ul>
       <li>Improved 5GHz antenna switching for seamless dual-band operation</li>
       <li>Battery optimization for up to 20% longer runtime</li>
-      <li>Bug fixes for connectivity issues under high load</li>
+      <li>Bug fixes</li>
     </ul>
   </div>
   <div class="glow-block">
-    <strong>Upcoming:</strong> Live demo event scheduled for June 10, 2025 — join via Discord or YouTube livestream for a deep dive into Black Hole’s capabilities.
+    <strong>Upcoming:</strong> Live demo event scheduled for June 10, 2025 — join via livestream for a deep dive into Black Hole’s capabilities.
   </div>
   <div class="glow-block">
     <h3>Contribute</h3>
-    <p>Have ideas or improvements? Contribute to the project on GitHub or join our Discord to share feedback!</p>
+    <p>Have ideas or improvements? Contribute to the project or join our discussion!</p>
     <a href="https://github.com/unnamedperson488/BlackHoleV1.0" target="_blank" class="github-button">Contribute on GitHub</a>
   </div>
   <div class="social-media-buttons">
@@ -909,15 +997,15 @@ title: Black Hole V1.0
   </div>
 </div>
 
-<!-- PRODUCT -->
+<!-- PRODUCT PAGE -->
 <div id="product" class="section">
   <h2 class="glow-title">📦 Product</h2>
   <div class="glow-block">
     <a onclick="event.preventDefault(); showSection('blackHole')" class="product-card">
-      <img src="blackhole-placeholder.jpg" alt="Black Hole V1.0 Device" class="product-card__img">
+      <img src="https://via.placeholder.com/300x200?text=Black+Hole+V1.0" alt="Black Hole V1.0 Device" class="product-card__img">
       <div class="product-card__content">
         <h3>Black Hole V1.0</h3>
-        <p>$140</p>
+        <p>$149</p>
       </div>
     </a>
   </div>
@@ -928,8 +1016,8 @@ title: Black Hole V1.0
   <h2 class="glow-title">📦 Black Hole V1.0</h2>
   <div class="glow-block">
     <h3>Product Overview</h3>
-    <img src="blackhole-main.jpg" alt="Black Hole V1.0 Main View" class="product-image">
-    <p><strong>Black Hole V1.0 - $140</strong></p>
+    <img src="https://via.placeholder.com/600x400?text=Black+Hole+V1.0+Main+View" alt="Black Hole V1.0 Main View" class="product-image">
+    <p><strong>Black Hole V1.0 - $149</strong></p>
     <div class="product-info">
       <h4>Key Features</h4>
       <ul>
@@ -939,7 +1027,7 @@ title: Black Hole V1.0
         <li>Custom open-source firmware with anti-jamming and launch control capabilities</li>
         <li>Boot and Reset buttons designed for easy hardware control</li>
         <li>Compact and rugged design, ideal for wardriving, pentesting, and field research</li>
-        <li>Community-driven updates and support via Discord and GitHub</li>
+        <li>Community-driven updates and support</li>
       </ul>
       <h4>Technical Specifications</h4>
       <ul>
@@ -957,7 +1045,7 @@ title: Black Hole V1.0
         <li>Two SMA antennas (2.4GHz and 5GHz)</li>
         <li>USB-C charging cable</li>
         <li>User manual & quick start guide</li>
-        <li>Access to exclusive Discord support community</li>
+        <li>Access to exclusive support community</li>
       </ul>
     </div>
     <p>A powerful tool for wireless security testing, designed by unnamedperson488.</p>
@@ -979,7 +1067,7 @@ title: Black Hole V1.0
   </div>
   <div class="glow-block">
     <h3>Community Showcase</h3>
-    <p>Coming soon: User-submitted projects, tutorials, and custom firmware demos. Share your work on Discord!</p>
+    <p>Coming soon: User-submitted projects, tutorials, and custom firmware demos. Share your work!</p>
     <a href="https://discord.gg/PdpuDvVD" class="new-discord-button"><span>DISCORD</span></a>
   </div>
   <div class="glow-block">
@@ -998,12 +1086,12 @@ title: Black Hole V1.0
   <p>Try out live demos or explore interactive examples of Black Hole V1.0 features. Stay tuned for our June 2025 demo event!</p>
   <div class="glow-block">
     <h3>Live Demo</h3>
-    <p>Live demo coming soon. Join our Discord for updates on the June 10, 2025, livestream event!</p>
+    <p>Live demo coming soon. Join for updates on the June 10, 2025, livestream event!</p>
     <a href="https://discord.gg/PdpuDvVD" class="new-discord-button"><span>DISCORD</span></a>
   </div>
   <div class="glow-block">
     <h3>Interactive Simulator</h3>
-    <p>Simulator coming soon. Check back for updates or suggest features on GitHub!</p>
+    <p>Simulator coming soon. Check back for updates or suggest features!</p>
     <a href="https://discord.gg/PdpuDvVD" class="new-discord-button"><span>DISCORD</span></a>
   </div>
   <div class="glow-block">
@@ -1013,7 +1101,7 @@ title: Black Hole V1.0
   </div>
   <div class="glow-block">
     <h3>Request a Feature</h3>
-    <p>Have an idea for a demo or feature? Submit it to our GitHub issues page!</p>
+    <p>Have an idea for a demo or feature? Submit it!</p>
     <a href="https://github.com/unnamedperson488/BlackHoleV1.0/issues" target="_blank" class="github-button">Submit a Feature Request</a>
   </div>
 </div>
@@ -1025,31 +1113,37 @@ title: Black Hole V1.0
     <h3>Update Firmware</h3>
     <p>Update your Black Hole V1.0 to the latest firmware (v1.2.3) directly from your browser. Use Chrome or Edge, connect your device via USB, and follow these steps:</p>
     <ol>
-      <li>Connect your Black Hole V1.0 to your computer via USB-C. If the onboard USB doesn’t work, use an external USB-to-UART adapter connected to D0 (LOG_RX) and D1 (LOG_TX).</li>
-      <li>Click "Connect Device" to select your device’s serial port.</li>
-      <li>Enter Download Mode: connect LOG_TX (PA7) to GND, pull EN to GND then to 3V3, then disconnect LOG_TX.</li>
+      <li>Connect your Black Hole V1.0 to your computer via USB-C. If the onboard USB doesn’t work for flashing, use an external USB-to-serial adapter connected to D0 (LOG_RX, PA8) and D1 (LOG_TX, PA7).</li>
+      <li>Click "Refresh Ports" to list available serial ports.</li>
+      <li>Select the port for your device’s LOG_UART.</li>
+      <li>Click "Connect" to establish a connection.</li>
+      <li>Enter Download Mode: connect LOG_TX (PA7) to VCC, pull EN to GND, then to VCC, then disconnect LOG_TX.</li>
       <li>Click "Flash Firmware" to install the firmware.</li>
       <li>Reset your device after flashing is complete.</li>
     </ol>
     <div class="flasher-card">
-      <button class="flasher-button connect">Connect Device</button>
+      <select id="port-select">
+        <option value="">Select a port</option>
+      </select>
+      <button class="flasher-button refresh">Connect</button>
+      <button class="flasher-button connect">Update</button>
       <button class="flasher-button flash" disabled>Flash Firmware</button>
       <div class="progress-bar">
         <div class="progress-fill"></div>
       </div>
-      <p id="flasher-status">Connect your device to begin.</p>
+      <p id="flasher-status">Click 'Connect' to update the firmware.</p>
     </div>
-    <p><strong>Note:</strong> If you have default B&T firmware, you may need to erase flash first. Follow troubleshooting guides on our Discord or GitHub.</p>
+    <p><strong>Note:</strong> If you have default firmware, you may need to erase flash first.</p>
   </div>
   <div class="glow-block">
     <h3>Firmware Features</h3>
     <ul>
       <li>Web-based UI for easy configuration and control</li>
-      <li>Over-the-air (OTA) updates for seamless upgrades</li>
+      <li>Over-the-air support for seamless upgrades</li>
       <li>Anti-jamming and packet injection support for robust testing</li>
-      <li>Compatible with Arduino IDE for custom development</li>
-      <li>Enhanced security features to prevent unauthorized access</li>
-      <li>Customizable settings for tailored network testing scenarios</li>
+      <li>Supports custom development</li>
+      <li>Enhanced security features</li>
+      <li>Customizable settings for tailored testing scenarios</li>
     </ul>
   </div>
 </div>
@@ -1059,20 +1153,19 @@ title: Black Hole V1.0
   <h2 class="glow-title">🔭 About Black Hole V1.0</h2>
   <div class="glow-block">
     <p>
-      Black Hole V1.0 is a cutting-edge dual-band deauther device engineered for maximum performance in wireless network testing and security research. 
-      Designed by <strong>unnamedperson488</strong>, it features advanced antenna switching, anti-jamming capabilities, and an intuitive interface.
+      Black Hole V1.0 is a cutting-edge dual-band wireless device engineered for performance in network testing and research. Designed by <strong>unnamedperson488</strong>, it features advanced antenna switching, anti-jamming capabilities, and an intuitive interface.
     </p>
     <p>
       The project is open-source and community-driven, aiming to empower cybersecurity enthusiasts and professionals to explore and improve wireless security. From initial prototyping to public release, the design process emphasizes reliability, accessibility, and collaboration.
     </p>
-  </div>
+    </p>
   <div class="glow-block">
     <h3>Project Goals</h3>
     <ul>
-      <li>Deliver a reliable and efficient dual-band deauther device for ethical hacking.</li>
-      <li>Provide extensive documentation, tutorials, and support for users of all skill levels.</li>
-      <li>Encourage community collaboration through GitHub contributions and Discord discussions.</li>
-      <li>Foster innovation in wireless security research with open-source tools.</li>
+      <li>Deliver a reliable and efficient dual-band wireless device.</li>
+      <li>Provide extensive documentation, tutorials, and support for all skill levels.</li>
+      <li>Encourage community collaboration through contributions.</li>
+      <li>Foster innovation in wireless security research.</li>
     </ul>
   </div>
 </div>
@@ -1080,70 +1173,70 @@ title: Black Hole V1.0
 <!-- FAQ -->
 <div id="faq" class="section">
   <h2 class="glow-title">❓ FAQ</h2>
-  <input type="text" id="faq-search" placeholder="Search FAQs..." style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #00eaff; background: #111; color: #e0e0e0; border-radius: 8px;">
+  <input type="text" id="faq-search" placeholder="text" type="Search FAQs..." style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #00eaff; border-radius: 8px;">
   <div class="faq-items">
     <details>
       <summary>What is Black Hole V1.0?</summary>
-      <p>A dual-band WiFi deauther designed for educational use, security testing, and research. It supports both 2.4GHz and 5GHz via RTL8720DN.</p>
+      <p>A dual-band wireless tool designed for educational use and testing.</p>
     </details>
     <details>
-      <summary>Is 5GHz support real?</summary>
-      <p>Yes. It uses the Realtek RTL8720DN module with SDK-based implementation for 5GHz deauth and packet injection.</p>
+      <summary>Is 5GHz supported?</summary>
+      <p>Yes, it uses the Realtek RTL8720d module for 5GHz capabilities.</p>
     </details>
     <details>
-      <summary>Can I flash my own firmware?</summary>
-      <p>Absolutely, the board supports custom firmware via the web flasher or Arduino IDE. Open-source firmware is provided.</p>
+      <summary>Can I use custom firmware?</summary>
+      <p>Yes, the board supports custom firmware via the web flasher or other methods.</p>
     </details>
     <details>
       <summary>How long does the battery last?</summary>
-      <p>It depends on usage and battery size. A 1000mAh LiPo can last ~4-5 hours under moderate scanning/jamming.</p>
+      <p>A 1000mAh battery can last ~3-5 hours under moderate usage.</p>
     </details>
     <details>
       <summary>Is it legal?</summary>
-      <p>This device is for educational and authorized testing only. Unauthorized use may violate local laws. You are responsible for how you use it.</p>
+      <p>The device is for educational and authorized testing only. Unauthorized use may violate local laws.</p>
     </details>
     <details>
-      <summary>Is Black Hole V1.0 compatible with other tools?</summary>
-      <p>Yes, it integrates with tools like Wireshark and Aircrack-ng for advanced analysis, and supports custom scripts via its APIs.</p>
+      <summary>Is it compatible with other tools?</summary>
+      <p>Yes, it integrates with various tools for advanced analysis.</p>
     </details>
     <details>
       <summary>What safety precautions should I take?</summary>
-      <p>Use only on networks you own or have permission to test. Ensure proper handling of the LiPo battery to avoid damage or hazards.</p>
+      <p>Use only on authorized networks and handle the battery properly.</p>
     </details>
   </div>
 </div>
 
 <!-- TIMELINE -->
 <div id="timeline" class="section">
-  <h2 class="glow-title">🗓️ Timeline</h2>
-  <ul class="border-l-4 border-[#00FFFF] pl-6 space-y-6 mt-4">
+  <h2 class="glow-title">Timeline</h2>
+  <ul class="border-l-4 border-[#00eaff] pl-6 space-y-6 mt-4">
     <li>
-      <div class="font-bold">🔧 Prototype 1 – Complete</div>
-      <p>Initial RTL8720DN-based design with 2.4GHz and 5GHz WiFi and LiPo charging.</p>
+      <div class="font-bold">🔧 Initial Prototype</div>
+      <p>Completed RTL-based design with dual-band WiFi and LiPo charging.</p>
     </li>
     <li>
-      <div class="font-bold">📡 Dual-Band Upgrade – Complete</div>
-      <p>Optimized dual-band support with SMA antennas and new boot/reset layout.</p>
+      <div class="font-bold">📡 Dual-Band Upgrade</div>
+      <p>Optimized dual-band support with enhanced antennas and layout.</p>
     </li>
     <li>
-      <div class="font-bold">💻 Firmware V1.0 – Released</div>
-      <p>Stable release with web UI and OTA support.</p>
+      <div class="font-bold">💻 Firmware Release</div>
+      <p>Stable release with web UI and control features.</p>
     </li>
     <li>
-      <div class="font-bold">📣 Community Feedback – Ongoing</div>
-      <p>Collecting user feedback via Discord and GitHub to improve features and usability.</p>
+      <div class="font-bold">📣 Community Feedback</div>
+      <p>Ongoing feedback collection to improve features.</p>
     </li>
     <li>
-      <div class="font-bold">📦 Public Release – Coming June 2025</div>
-      <p>Final hardware with case design and shipping options for first 100 units.</p>
+      <div class="font-bold">📦 Product Launch</div>
+      <p>Planned hardware release for June 2025.</p>
     </li>
     <li>
-      <div class="font-bold">🚀 V2 Development – Q3 2025</div>
-      <p>Research into enhanced features and better chipset support for future expansion.</p>
+      <div class="font-bold">🚀 Feature Development</div>
+      <p>Research into advanced features in Q2 2025.</p>
     </li>
     <li>
-      <div class="font-bold">🔄 Firmware V2.0 – Q1 2026</div>
-      <p>Planned update with advanced analytics and expanded API support.</p>
+      <div class="font-bold">🔄 Firmware Update</div>
+      <p>Planned update with enhanced analytics in Q1 2024.</p>
     </li>
   </ul>
 </div>
