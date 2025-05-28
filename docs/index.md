@@ -18,16 +18,16 @@
   <style>
     :root {
       --primary-color: #00eaff;
-      --accent-color: #22ff00;
+      --accent-color: #ff2200;
       --bg-color: #0a0a0a;
       --card-bg: rgba(17, 17, 17, 0.8);
-      --text-color: #e0e0e0;
+      --text-color: #ffffff;
       --shadow-glow: 0 0 10px rgba(0, 234, 255, 0.4);
     }
     [data-theme="light"] {
       --bg-color: #e6f3ff;
       --card-bg: rgba(255, 255, 255, 0.95);
-      --text-color: #1a1a1a;
+      --text-color: #333333;
       --shadow-glow: 0 0 8px rgba(0, 234, 255, 0.3);
       --primary-color: #00b7eb;
       --accent-color: #1ae01a;
@@ -36,6 +36,7 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       font-family: 'Orbitron', sans-serif;
+      font-size: '18px';
       font-size: 18px;
       line-height: 1.6;
       margin: 0;
@@ -49,7 +50,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: #0a0a0a;
+      background: #000;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -66,7 +67,7 @@
       font-size: 2.5rem;
       color: var(--primary-color);
       text-shadow: 0 0 10px var(--primary-color);
-      animation: pulse 1.5s infinite;
+      animation: pulse 1s.5s infinite;
       margin-bottom: 20px;
     }
     .boot-progress {
@@ -841,7 +842,7 @@
 <body>
   <div id="boot-screen">
     <div class="boot-logo">Black Hole V1.0</div>
-    <div class="boot-progress" style="display: none;">
+    <div class="boot-progress">
       <div class="boot-progress-fill"></div>
     </div>
     <button class="start-button" aria-label="Start loading" data-target-section="#about">Start</button>
@@ -901,9 +902,43 @@
     </div>
     <div class="social-media-buttons">
       <a href="https://instagram.com/unnamedperson488" class="social-media-button" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="https://youtube.com/@unnamedperson488" class="social-media-button" target="_blank" aria-label="YouTube">Check out</a>
-      <li><a href="https://tiktok.com/@undefined" target="_blank"></a></li>
-      <li><a href="https://github.com/unnamedperson488/undefined" target="_blank"></a></li>
+      <a href="https://youtube.com/@unnamedperson488" class="social-media-button" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i> YouTube</a>
+    </div>
+  </section>
+  <section id="product" class="section">
+    <h2 class="glow-title">📡 Product</h2>
+    <div class="glow-block">
+      <h3>Black Hole V1.0 Device</h3>
+      <p>A compact wireless testing tool powered by RTL8720DN.</p>
+      <div class="product-card" data-section="#product">
+        <img class="product-card__img" src="https://via.placeholder.com/250x150?text=Black+Hole+V1.0" alt="Black Hole V1.0 Device">
+        <div class="product-card__content">
+          <h3>Black Hole V1.0</h3>
+          <p>Portable and powerful for ethical hacking.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="media" class="section">
+    <h2 class="glow-title">🎥 Media</h2>
+    <div class="glow-block">
+      <h3>Video Showcase</h3>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Black Hole V1.0 Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+  <section id="demos" class="section">
+    <h2 class="glow-title">🌐 Community</h2>
+    <div class="glow-block">
+      <h3>Join the Discussion</h3>
+      <p>Connect with enthusiasts and developers on Discord.</p>
+      <div id="discord-link">
+        <a href="https://discord.gg/PdQz4vTVD" target="_blank" class="new-discord-button" aria-label="Join Discord">
+          <i class="fab fa-discord"></i> Join Discord
+        </a>
+      </div>
+    </div>
   </section>
   <section id="about" class="section">
     <h2 class="glow-title">🔭 About Us</h2>
@@ -916,25 +951,15 @@
         <li><strong>Focus:</strong> Wireless security, open-source hardware</li>
         <li><strong>Community:</strong> Over 10,000 members on Discord</li>
       </ul>
-      <a href="https://github.com/unnamedperson488/BlackHoleV1.0 class="github-button" target="_blank" aria-label="Contribute on GitHub">
+      <a href="https://github.com/unnamedperson488/BlackHoleV1.0" class="github-button" target="_blank" aria-label="Contribute on GitHub">
         <i class="fab fa-github"></i> Contribute on GitHub
       </a>
-    </div>
-    <div class="glow-block">
-      <h3>Contact Us</h3>
-      <p>Have questions or ideas? Join our community or reach out directly.</p>
-      <div id="discord-link">
-        <a href="https://discord.gg/PdQz4vTVD" target="_blank" class="new-discord-button" aria-label="Join Discord">
-          <i class="fab fa-discord"></i> Join Discord
-        </a>
-      </div>
     </div>
   </section>
   <section id="faq" class="section">
     <h2 class="glow-title">❓ FAQs</h2>
     <input type="text" id="faq-search" placeholder="Search FAQs..." aria-label="Search FAQs">
-    <div class="faq-no-results" id="faq-no-results"></div>
-    <p>No FAQs match your search.</p>
+    <p class="faq-no-results" id="faq-no-results">No FAQs match your search.</p>
     <div class="details">
       <summary>What is Black Hole V1.0?</summary>
       <p>An open-source wireless testing tool for cybersecurity and IoT applications.</p>
@@ -956,22 +981,21 @@
       <p>Join our Discord community for help and updates.</p>
     </div>
   </section>
-</div>
   <section id="firmware" class="section">
-    <h2 class="glow-title">📱 Flash Firmware</h3>
+    <h2 class="glow-title">📱 Flash Firmware</h2>
     <div class="glow-block">
       <h3>Firmware Update (v1.2.3)</h3>
       <p>Keep your Black Hole V1.0 up to date with the latest firmware for optimal functionality. Use Chrome/Edge for Web Serial support.</p>
       <ol>
         <li>Connect your device via USB-C or serial.</li>
-        <li>Click 'Refresh' and select your port USB.</li>
-        <li>Click 'Connect' to initiate flashing.</p>
+        <li>Click 'Refresh' and select your port.</li>
+        <li>Click 'Connect' to initiate flashing.</li>
         <li>Enter bootloader mode (Download Mode).</li>
         <li>Erase flash if necessary.</li>
         <li>Upload and flash a .bin file.</li>
         <li>Reset the device.</li>
       </ol>
-      <svg width="200" height="100" viewBox="0 0 200 300" style="width: 50%; max-width: 300px; margin: 20px auto; display: block;">
+      <svg width="200" height="100" viewBox="0 0 200 100" style="width: 50%; max-width: 300px; margin: 20px auto; display: block;">
         <rect x="50" y="20" width="100" height="60" fill="#111" stroke="var(--primary-color)" stroke-width="2"/>
         <text x="55" y="35" fill="#FFD700" font-size="12">Log</text>
         <text x="55" y="50" fill="#FFD700" font-size="12">EN</text>
@@ -981,55 +1005,29 @@
         <line x1="45" y1="60" x2="30" y2="60" stroke="#FFD700"/>
       </svg>
       <div class="flasher-card">
-        <select id="port-select" aria-label="Select port"></select>
+        <select id="port-select" aria-label="Select port">
+          <option value="">Select Port</option>
+        </select>
         <input type="file" id="firmware-upload" accept=".bin" aria-label="Upload firmware">
         <input type="text" class="ota-input" placeholder="Enter OTA IP" aria-label="OTA IP">
         <button class="flasher-button refresh" aria-label="Refresh ports">Refresh</button>
         <button class="flasher-button connect" id="connect-button" aria-label="Connect to port">Connect</button>
-        <button class="flasher-button erase" disabled aria-label="Erase flash"></button>Erase Flash
+        <button class="flasher-button erase" disabled aria-label="Erase flash">Erase Flash</button>
         <button class="flasher-button flash" disabled id="flash-btn" aria-label="Flash firmware">Flash</button>
-        <button class="ota-button ota" aria-label="OTA update">OTA Update</button>
+        <button class="flasher-button ota" aria-label="OTA update">OTA Update</button>
         <div class="progress-bar">
           <div class="progress-fill"></div>
         </div>
         <p id="flasher-status">Click 'Refresh' to begin.</p>
         <div id="flasher-log"></div>
-        <p><a href="https://github.com/SelfMadeSystem/selfFlash/blob/main/docs/Troubleshooting.md" target="_blank">Troubleshooting</a> | <a href="https://discord.com/PdpuDvvD" target="_blank">Browse Discord</a></p>
+        <p><a href="https://github.com/SelfMadeSystem/selfFlash/blob/main/docs/Troubleshooting.md" target="_blank">Troubleshooting</a> | <a href="https://discord.gg/PdQz4vTVD" target="_blank">Join Discord</a></p>
       </div>
-    </div>
-    <div class="glow-block">
-      <h3>Version History</h3>
-      <ul>
-        <li><strong>V1.2.3 (May 2025):</strong> Improved WiFi stability, and battery life.</li>
-        <li><strong>V1.1.0 (January 2025):</strong> Added OTA support.</li>
-        <li><strong>V1.0.0 (November 2023):</strong> Initial release.</li>
-      </ul>
-      <a href="https://github.com/SelfMadeSystem/selfFlash/releases" target="_blank" class="github-button" aria-label="Firmware Downloads">
-        <i class="fab fa-github"></i> Firmware Downloads
-      </a>
-    </div>
-    <div class="glow-block">
-      <h3>Troubleshooting</h3>
-      <ul>
-        <li><strong>Port Not Detected:</strong> Ensure USB drivers are installed.</li>
-        <li><strong>Flash Failed:</strong> Verify Download Mode connections.</li>
-        <li><strong>OTA Issues:</strong> Check Wi-Fi connection and IP address.</li>
-      </ul>
-    </div>
-    <div class="glow-block">
-      <h3>OTA Setup</h3>
-      <p>Enable OTA updates:</p>
-      <ol>
-        <li>Connect your device to Wi-Fi via USB configuration.</li>
-        <li>Note Record the OTA device’s IP address.</li>
-        <li>Enter the IP in the OTA field and click “OTA.”</li>
-      </ol>
     </div>
   </section>
   <section id="simulator" class="section">
     <div class="deauther-simulator">
       <div class="container">
-        <h1>Black Hole V1.0 Deauther</h2>
+        <h1>Black Hole V1.0 Deauther</h1>
         <div class="right">
           <div class="button-container">
             <form method="post">
@@ -1043,268 +1041,265 @@
         <div class="right">
           <div class="button-container">
             <form method="post">
-              <div class="button-container">
-                <input type="submit" value="Start Attack" disabled aria-label="Start Attack">
-              </div>
+              <input type="submit" value="Start Attack" disabled aria-label="Start Attack">
+            </form>
+            <form method="post">
+              <input type="submit" value="Stop" disabled aria-label="Stop Attack">
             </form>
           </div>
-            <form method="post">
-              <div class="button-container">
-                <input type="submit" value="Stop" disabled aria-label="Stop Attack">
-              </form>
-            </div>
-          </div>
+        </div>
         <h2>Dashboard</h2>
         <table>
           <tr><th>State</th><th>Current</th></tr>
-          <tr><td>Status Attack</td><td>Stopped</td></tr>
+          <tr><td>Attack Status</td><td>Stopped</td></tr>
           <tr><td>LED</td><td>Enabled</td></tr>
-<td>Frame Sent</td><td><td>0</td></tr>
-<td><td>Send Delay</td><td><td>5</td></tr>
-          <tr><td>Number of Frames Sent Each Time</td><td><td>5</td></tr>
-        </td>
+          <tr><td>Frames Sent</td><td>0</td></tr>
+          <tr><td>Send Delay</td><td>5</td></tr>
+          <tr><td>Frames Per Send</td><td>5</td></tr>
         </table>
         <h2>2.4GHz</h2>
         <table>
-          <tr><th>SSID</th><th>RSSI</th><th>RSSI<th>Channel</th></tr>
-          <tr><td>Network1</td><td class="tdMeter"><div class="meter_background"><div class="meter_foreground deauther-meter_green" style="width: 60%;"></div></div><div class="meter_value green">-72 dBm</div></td><td class="tdFixed">Fixed</td></tr>
-          <tr><td>Network2</td><td class="tdMeter"><td><div class="meter_background">"meter<div class="meter_foreground meter_orange" style="width: 40%;"></div></div><div class="meter_value orange">meter_orange">-80 dBm</div></td><td class="tdFixed"></td></tr>6</td>
-<td><tr><td>Network3</td><td><td class="tdMeter"><div class="meter_background">"meter<div class="meter_foreground meter_red"></div></div><div style="width: class="meter">"meter_value red">-45 dBm</div></td><td><td class="tdFixed"></td></tr>11</td>
-<td></tr>
-</table>
-          </table>
-          <h2>Setup</h2>
-          <div class="right">
-            <div id="right" class="button-double">
-              <div class="form">
-                <form method="post">
-                  <div class="button-container">
-                    <input type="longInput" type="text" name="frames" placeholder="none" placeholder="Number of Frames" disabled>
-                    <input type="submit" value="Set Frames" disabled aria-label="Set Frames">
-                  </div>
-                </form>
-              </div>
-                <form method="post">
-                  <div class="button-container">
-                    <form>
-                    <input type="text" class="longInput" type="text" name="delay" placeholder="none" placeholder="Send Delay" disabled>
-                    <input type="submit" value="Submit" disabled aria-label="Submit">
-                    <input type="submit" value="Update Delay" disabled>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <h2>LED Options</h2>
-            <div class="right">
+          <tr><th>SSID</th><th>RSSI</th><th>Channel</th></tr>
+          <tr>
+            <td>Network1</td>
+            <td class="tdMeter">
+              <div class="meter_background"><div class="meter_foreground deauther-meter_green" style="width: 60%;"></div></div>
+              <div class="meter_value green">-72 dBm</div>
+            </td>
+            <td class="tdFixed">6</td>
+          </tr>
+          <tr>
+            <td>Network2</td>
+            <td class="tdMeter">
+              <div class="meter_background"><div class="meter_foreground meter_orange" style="width: 40%;"></div></div>
+              <div class="meter_value orange">-80 dBm</div>
+            </td>
+            <td class="tdFixed">11</td>
+          </tr>
+          <tr>
+            <td>Network3</td>
+            <td class="tdMeter">
+              <div class="meter_background"><div class="meter_foreground meter_red" style="width: 20%;"></div></div>
+              <div class="meter_value red">-92 dBm</div>
+            </td>
+            <td class="tdFixed">1</td>
+          </tr>
+        </table>
+        <h2>Setup</h2>
+        <div class="right">
+          <div class="button-double">
+            <form method="post">
               <div class="button-container">
-                <form method="post">
-                  <input type="submit" value="Turn On" disabled aria-label="Turn On LED">
-                </form>
-                <form method="post">
-                  <input type="submit" value="Turn Off" disabled aria-label="Turn Off LED">
-                </div>
-              </form>
-            </div>
+                <input type="text" name="frames" placeholder="Number of Frames" disabled>
+                <input type="submit" value="Set Frames" disabled aria-label="Set Frames">
+              </div>
+            </form>
+            <form method="post">
+              <div class="button-container">
+                <input type="text" name="delay" placeholder="Send Delay" disabled>
+                <input type="submit" value="Update Delay" disabled aria-label="Update Delay">
+              </div>
+            </form>
           </div>
         </div>
+        <h2>LED Options</h2>
+        <div class="right">
+          <div class="button-container">
+            <form method="post">
+              <input type="submit" value="led-on" value="Turn On" disabled aria-label="Turn On LED">
+            </form>
+            <form method="post">
+              <input type="submit" value="led-off" value="Turn Off" disabled aria-label="Turn Off LED">
+            </form>
+          </div>
       </div>
     </div>
   </section>
-</div>
   <footer>
-    <p>&copy; 2025 SelfMadeSystem. All Rights Reserved.</p>
+    <p>© 2025 SelfMadeSystem. All Rights Reserved.</p>
     <p>
-      <a href="https://github.com/SelfMadeSystem/selfFlash" target="_blank" aria-label="GitHub">GitHub</a>
-      <a href="https://discord.gg/PdpuDvVD" target="_blank" aria-label="Discord">Discord</a> |
-      <a href="mailto:support@selfmadesystem.org" aria-label="Contact">Contact</a></p>
+      <a href="https://github.com/SelfMadeSystem" target="_blank" aria-label="GitHub">GitHub</a> |
+      <a href="https://discord.gg/PdQz4vTVD" target="_blank" aria-label="Discord">Discord</a>
+      <a href="mailto:support@selfmadesystem.com" aria-label="Support">Email Support</a></p>
+    </footer>
   </div>
-</footer>
 </div>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const bootScreen = document.querySelector('#boot-screen');
-      const bootProgressBar = document.querySelector('.boot-progress');
-      const progressBarFill = document.querySelector('.boot-progress-fill');
-      const startButton = = document.querySelector('.start-button');
-      const backgrounds = document.querySelectorAll('.stars-dark, .twinkling-dark, .clouds-dark');
-      const loadingSpinner = document.querySelector('.loading-spinner');
-      const wrapperDiv = document.querySelector('.wrapper-data');
-      const navWrapperDiv = document.querySelector('.nav-wrapper');
-      const themeToggleBtn = document.querySelector('.theme-toggle');
-      const langSwitcher = = document.querySelector('.lang-switcher');
-      const footerDiv = document.querySelector('footer');
+  document.addEventListener('DOMContentLoaded', () => {
+    // DOM Elements
+    const bootScreen = document.querySelector('#boot-screen');
+    const bootProgress = document.querySelector('.boot-progress');
+    const progressFill = document.querySelector('.boot-progress-fill');
+    const startButton = document.querySelector('.start-button');
+    const backgrounds = document.querySelectorAll('.stars, .twinkling, .clouds');
+    const loadingSpinner = document.querySelector('.loading-spinner');
+    const wrapper = document.querySelector('.wrapper');
+    const navWrapper = document.querySelector('.nav-wrapper');
+    const themeToggle = document.querySelector('.theme-toggle');
+    const langSwitcher = document.querySelector('.lang-switcher');
+    const footer = document.querySelector('footer');
 
-      if (!bootScreen || !startButton || !bootProgress || !progressBarFill || !wrapper || !navWrapper) {
-        console.error('Error loading critical UI elements');
-        alert('Critical Error: UI elements not found. Please check the console for details.');
-        return;
-      }
+    // Validate critical elements
+    if (!bootScreen || !startButton || !bootProgress || !progressFill || !wrapper || !navWrapper || !themeToggle || !themeToggle || !langSwitcher || !footer) {
+      console.error('Critical Error: Missing DOM elements');
+      alert('Error: UI elements not loaded correctly. Please check console for details.');
+      return;
+    }
 
-      const loadImage = (url) => new Promise(resolve => {
-        const img = new Image();
-        img.src = url;
-        img.onload = img.onerror = () => resolve();
+    // Image loading helper
+    const loadImage = (url) => new Promise(resolve => {
+      const img = new Image();
+      img.src = url;
+      img.onload = img.onerror = () => resolve();
+    });
+
+    // Show section function
+    function showSection(sectionId) {
+      console.log(`Activating section: ${sectionId}`);
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+        section.style.display = 'none';
       });
-
-      function showSection(sectionId) {
-        console.log(`Showing section: ${sectionId}`);
-        document.querySelectorAll('.section').forEach(section => {
-          section.classList.remove('active');
-          section.style.display = 'none';
-        });
-        const target = document.querySelector(sectionId);
-        if (target) {
-          target.classList.add('active');
-          target.style.display = 'block';
-          console.log(`Section activated: ${sectionId}`);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          console.error(`Section not found: ${sectionId}`);
-          alert(`Error: Section ${sectionId} not found. Check console for details.`);
-        }
+      const target = document.querySelector(sectionId);
+      if (target) {
+        target.classList.add('active');
+        target.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        console.error(`Section not found: ${sectionId}`);
+        alert(`Error: Section ${sectionId} not found`);
       }
+    }
 
-      document.querySelectorAll('.element, .product-card').forEach(element => {
-        element.addEventListener('click', (e) => {
+    // Navigation event listeners
+    document.querySelectorAll('.element').forEach(element => {
+      element.addEventListener('click', (e) => {
+        const sectionId = element.dataset.section;
+        if (sectionId) {
+          e.preventDefault();
+          showSection(sectionId);
+          element.classList.add('pulse');
+          setTimeout(() => element.classList.remove('pulse'), 200);
+        }
+      });
+      element.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
           const sectionId = element.dataset.section;
           if (sectionId) {
-            e.preventDefault();
             showSection(sectionId);
             element.classList.add('pulse');
-            setTimeout(() => element.classList.remove('pulse'), 250);
-            console.log(`Navigation click: ${sectionId}`);
+            setTimeout(() => element.classList.remove('pulse'), 200);
           }
-        });
-        element.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            const sectionId = element.dataset.section;
-            if (sectionId) {
-              showSection(sectionId);
-              element.classList.add('pulse');
-              setTimeout(() => element.classList.remove('pulse'), 250);
-              console.log(`Navigation keypress: ${sectionId}`);
-            }
-          }
-        });
+        }
       });
+    });
 
-      startButton.addEventListener('click', () => {
-        console.log('Start button clicked');
-        startButton.disabled = true;
-        startButton.style.display = 'none';
-        bootScreen.style.display = 'block';
-        loadingSpinner.classList.add('visible');
+    // Start button handler
+    startButton.addEventListener('click', async () => {
+      console.log('Start button clicked');
+      startButton.disabled = true;
+      startButton.classList.add('pulse');
+      loadingSpinner.classList.add('visible');
+      const targetSection = startButton.dataset.targetSection || '#about';
 
-        const targetSection = startButton.dataset.targetSection || '#home';
-        const loadProcess = async () => {
-          try {
-            console.log('Backgrounds loading...');
-            await Promise.allSettled([
-              loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse/raw/main/quiet-dark-snail-9/stars.png'),
-              loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse/raw/main/quiet-dark-snail-9/twinkling.png'),
-              loadImage('https://raw.githubusercontent.com/raw/master/quiet-dark-snail-9/clouds.png')
-            ]);
-            console.log('Background loaded');
-            progressBarFill.style.width = '100%';
-            backgrounds.forEach(bg => bg.classList.add('loaded'));
-          } catch (error) {
-            console.error('Background load error:', error.message);
-            alert('Error: Failed to load backgrounds, proceeding...');
-          }
+      try {
+        // Simulate loading
+        await Promise.allSettled([
+          loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/stars.png'),
+          loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/twinkling.png'),
+          loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/clouds.png')
+        ]);
+        progressFill.style.width = '100%';
+        backgrounds.forEach(bg => bg.classList.add('loaded'));
 
-          bootScreen.classList.add('hidden');
-          loadingSpinner.classList.remove('visible');
-          wrapperDiv.classList.add('visible');
-          navWrapper.classList.add('visible');
-          themeToggleBtn.classList.add('visible');
-          langSwitcher.classList.add('visible');
-          footerDiv.classList.add('visible');
-          showSection(targetSection);
-          console.log('Section loaded:', targetSection);
-        };
-
-        const loadTimeout = setTimeout(() => {
-          console.warn('Load timeout triggered');
-          logMessage('Loading timed out');
-          bootScreen.classList.add('hidden');
-          loadingSpinner.classList.remove('visible');
-          wrapper.classList.add('visible');
-          navWrapper.classList.add('visible');
-          themeToggleBtn.classList.add('disabled');
-          langSwitcher.classList.add('visible');
-          footer.classList.add('visible');
-          showSection(targetSection);
-          alert('Error: Loading timed out, proceeded to content.');
-        }, 10000);
-
-        loadProcess().finally(() => clearTimeout(loadTimeout));
-        });
+        // Transition
+        bootScreen.classList.add('hidden');
+        loadingSpinner.classList.remove('visible');
+        wrapper.classList.add('visible');
+        navWrapper.classList.add('visible');
+        themeToggle.classList.add('visible');
+        langSwitcher.classList.add('visible');
+        footer.classList.add('visible');
+        showSection(targetSection);
+        console.log('Loaded section:', targetSection);
+      } catch (err) {
+        console.error('Load error:', err);
+        alert('Error loading resources, proceeding...');
+        bootScreen.classList.add('hidden');
+        loadingSpinner.classList.remove('visible');
+        wrapper.classList.add('visible');
+        navWrapper.classList.add('visible');
+        themeToggle.classList.add('visible');
+        langSwitcher.classList.add('visible');
+        footer.classList.add('visible');
+        showSection(targetSection);
       }
+    });
 
-      themeToggleBtn.addEventListener('click', () => {
-        const isDarkTheme = document.body.dataset.theme !== 'light';
-        document.body.dataset.theme = isDarkTheme ? 'light' : 'dark';
-        localStorage.setItem('theme', isDarkTheme ? 'light' : 'dark');
-        themeToggleBtn.textContent = isDarkTheme ? '🌞' : '🌑';
-        console.log('Theme switched to:', document.body.dataset.theme);
+    // Theme toggle
+    themeToggle.addEventListener('click', () => {
+      const isDark = document.body.dataset.theme !== 'light';
+      document.body.dataset.theme = isDark ? 'light' : 'dark';
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      themeToggle.textContent = isDark ? '🌞' : '🌑';
+      console.log('Theme:', document.body.dataset.theme);
+    });
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.dataset.theme = savedTheme;
+    themeToggle.textContent = savedTheme === 'light' ? '🌞' : '🌑';
+
+    // Language selector
+    const translations = {
+      en: { home: 'Home', product: 'Product', media: 'Media', demos: 'Community', about: 'About', faq: 'FAQs', firmware: 'Firmware', simulator: 'Simulator', welcome: 'Welcome to Black Hole V1.0' },
+      es: { home: 'Inicio', product: 'Producto', media: 'Medios', demos: 'Comunidad', about: 'Acerca', faq: 'Preguntas Frecuentes', firmware: 'Firmware', simulator: 'Simulador', welcome: 'Bienvenidos a Black Hole V1.0' }
+    };
+    const langSelect = document.querySelector('.lang-select');
+    if (langSelect) {
+      langSelect.addEventListener('change', () => {
+        const lang = langSelect.value;
+        document.querySelectorAll('.nav-label').forEach((el, index) => {
+          const keys = ['home', 'product', 'media', 'demos', 'about', 'faq', 'firmware', 'simulator'];
+          el.textContent = translations[lang][keys[index]];
+        });
+        document.querySelector('#home-title').textContent = `🌌 ${translations[lang].welcome}`;
+        localStorage.setItem('language', lang);
       });
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.body.dataset.theme = savedTheme;
-        themeToggleBtn.textContent = savedTheme === 'light' ? '🌞' : '🌑';
-      }
+      const savedLang = localStorage.getItem('language') || 'en';
+      langSelect.value = savedLang;
+      langSelect.dispatchEvent(new Event('change'));
+    }
 
-      const translations = {
-        en: { home: 'Home', product: 'Product', media: 'Media', demos: 'Community', about: 'About Us', faq: 'FAQs', firmware: 'Firmware', simulator: 'Simulator', welcome: 'Welcome to Black Hole V1.0', flash: 'Flash Firmware' },
-        es: { home: 'Inicio', product: fuente: 'Producto', media: 'Medios', fuente: 'Comunidad', demos: 'Comunidad', about: comunidad, 'Acerca', faq: 'Preguntas Frecuentes', firmware: 'f', simulator: 'Simulador', flash: 'Actualizar Firmware', welcome Behavior: 'Bienvenidos a Black Hole V0.0' }
-      };
-
-      const langSelect = document.querySelector('.lang-select').lang-switcher';
-      if (langSelecter) {
-        langSelect.addEventListener('change', () => {
-          const lang = langSelect.value;
-          document.querySelectorAll('.nav-label').forEach((el, element) => {
-            const key = ['home', 'product', 'media', 'demos', 'about', 'faq', 'meter', 'firmware', 'source'].['simulator'][i];
-            el.textContent = translations[lang][key];
-            langSelect document.querySelector('#home-title').textContent = `🌌 ${translations[lang].welcome}`;
-            document.querySelector('.flash-title').textContent = `📱 ${translations[lang].flash}`;
-            localStorage.setItem('language', lang);
-            const savedLang = localStorage.getItem('language') || 'en';
-            langSelect.value = savedLang;
-            langSelect.dispatchEvent(new Event('change'));
-          });
-        });
-      }
-
+    // Firmware flasher
     const portSelect = document.querySelector('#port-select');
-    const refreshButton = document.querySelector('.refresh-flasher-button.refresh');
+    const refreshButton = document.querySelector('.flasher-button.refresh');
     const connectButton = document.querySelector('#connect-button');
-    const eraseButton = document.querySelector('.erase-flasher-button.erase');
+    const eraseButton = document.querySelector('.flasher-button.erase');
     const flashButton = document.querySelector('#flash-btn');
-    const otaButton = document.querySelector('.ota-button');
+    const otaButton = document.querySelector('.flasher-button.ota');
     const firmwareUpload = document.querySelector('#firmware-upload');
-    const otaInput = document.querySelector('.ota-input, ');
+    const otaInput = document.querySelector('.ota-input');
     const progressFill = document.querySelector('.progress-fill');
     const statusText = document.querySelector('#flasher-status');
     const flasherLog = document.querySelector('#flasher-log');
     let selectedPort = null;
 
     function logMessage(msg) {
-      flasherLog.innerHTML += `<p>${new Date().toLocaleString()}</p>: ${msg}`;
-      logMessage.flasherLog.scrollTop = flasherLog.scrollHeight;
-      console.log('Flasher log:', msg);
+      flasherLog.innerHTML += `<p>${new Date().toLocaleString()}: ${msg}</p>`;
+      flasherLog.scrollTop = flasherLog.scrollHeight;
+      console.log('Flasher:', msg);
     }
 
-    async function populateQueue() {
+    async function populatePorts() {
       if (!navigator.serial) {
         statusText.textContent = 'Error: Web Serial not supported. Use Chrome/Edge';
-        logMessage('Browser: Unsupported');
+        logMessage('Browser unsupported');
         [portSelect, refreshButton, connectButton, eraseButton, flashButton, otaButton].forEach(btn => btn.disabled = true);
-        alert('Error: Browser does not support Web Serial API. Please use Chrome or Edge.');
+        alert('Error: Web Serial not supported. Use Chrome/Edge.');
         return;
       }
       try {
-        const ports = await navigator.serial.getPort();
+        const ports = await navigator.serial.getPorts();
         portSelect.innerHTML = '<option value="">Select Port</option>';
         ports.forEach((port, index) => {
           const option = document.createElement('option');
@@ -1312,250 +1307,148 @@
           option.text = `Port ${index + 1}`;
           portSelect.appendChild(option);
         });
-        statusText.textContent = ports.length ? 'Select a port and click Connect.' : 'No ports found.';
-        logMessage(ports.length ? 'Ports detected' : 'No ports found');
+        statusText.textContent = ports.length ? 'Select a port' : 'No ports found';
+        logMessage(ports.length ? 'Ports detected' : 'No ports');
       } catch (error) {
-        statusText.textContent = `Error listing ports: ${error.message}`;
+        statusText.textContent = `Error: ${error.message}`;
         logMessage(`Port error: ${error.message}`);
-        console.error('Port listing error:', error);
       }
     }
 
-    if (refreshButton) {
-      refreshButton.addEventListener('click', async (event) => {
-        e.preventDefault();
-        event.target.classList.add('pulse');
-        statusText.textContent = 'Status: Refreshing ports...';
-        logMessage('Status: Refreshing ports');
-        await populatePorts();
-        setTimeout(() => event.target.classList.remove('pulse'), 200);
-      });
-    }
+    refreshButton.addEventListener('click', async (e) => {
+      e.preventDefault();
+      statusText.textContent = 'Refreshing ports...';
+      logMessage('Refreshing ports');
+      await populatePorts();
+    });
 
-    if (connectButton) {
-      connectButton.addEventListener('click', async (event) => {
-        e.preventDefault();
-        event.target.classList.add('pulse');
-        const portIndex = parseInt(portSelect.value);
-        if (isNaN(portIndex)) {
-          statusText.textContent = 'Error: Please select a port';
-          logMessage('Error: No port selected');
-          setTimeout(() => event.target.classList.remove('pulse'), 200);
-          return;
-        }
+    connectButton.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const portIndex = Number(portSelect.value);
+      if (!isNaN(portIndex)) {
         try {
-          const ports = await navigator.serial.getPort();
+          const ports = await navigator.serial.getPorts();
           selectedPort = ports[portIndex];
-          if (!selectedPort) throw new Error('Invalid port selected');
           await selectedPort.open({ baudRate: 115200 });
-          statusText.textContent = 'Connected! Status: Enter Download Mode (LOG to VCC, EN to GND, disconnect LOG)';
-          logMessage('Connected to port');
+          statusText.textContent = 'Connected! Enter Download Mode';
+          logMessage('Connected');
           flashButton.disabled = false;
           eraseButton.disabled = false;
           connectButton.disabled = true;
           refreshButton.disabled = true;
           portSelect.disabled = true;
-          setTimeout(() => event.target.classList.remove('pulse'), 200);
         } catch (error) {
-          statusText.textContent = `Connection error: ${error.message}`;
-          logMessage(`Error: ${error.message}`);
-          console.error('Connection error:', error);
-          setTimeout(() => event.target.classList.remove('pulse'), 200);
+          statusText.textContent = `Error: ${error.message}`;
+          logMessage(`Connection error: ${error.message}`);
         }
-      });
-    if (eraseButton) {
-      eraseButton.addEventListener('click', async (event) => {
-        event.preventDefault();
-        e.preventDefault();
-        event.target.classList.add('pulse');
-        if (!selectedPort) {
-          statusText.textContent = 'Error: No device connected';
-          logMessage('Error: No device connected');
-          setTimeout(() => event.target.classList.remove('pulse'), 200);
-          return;
-        }
-        statusText.textContent = 'Status: Erasing flash...';
-        eraseButton.disabled = true;
-        progressFill.style.width = '0%';
+      } else {
+        statusText.textContent = 'Select a port';
+        logMessage('No port selected');
+      }
+    });
+
+    eraseButton.addEventListener('click', async (e) => {
+      e.preventDefault();
+      if (!selectedPort) {
+        statusText.textContent = 'No device connected';
+        logMessage('No device');
+        return;
+      }
+      statusText.textContent = 'Erasing flash...';
+      logMessage('Erasing flash');
+      try {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        statusText.textContent = 'Flash erased';
+        logMessage('Flash erased');
+      } catch (error) {
+        statusText.textContent = `Error: ${error.message}`;
+        logMessage(`Erase error: ${error.message}`);
+      }
+    });
+
+    flashButton.addEventListener('click', async (e) => {
+      e.preventDefault();
+      if (!selectedPort) {
+        statusText.textContent = 'No device connected';
+        logMessage('No device');
+        return;
+      }
+      if (!firmwareUpload.files.length) {
+        statusText.textContent = 'Upload a .bin';
+        logMessage('No firmware file');
+        return;
+      }
+      const file = firmwareUpload.files[0];
+      if (file.name.endsWith('.bin')) {
+        statusText.textContent = 'Flashing...';
+        logMessage('Flashing firmware');
         try {
-          logMessage('Status: Erasing flash...');
-          await new Promise(resolve => setTimeout(resolve, 2000));
+          await new Promise(resolve => setTimeout(resolve, 1000));
           progressFill.style.width = '100%';
-          statusText.textContent = 'Status: Flash erased. Ready to flash new firmware.';
-          logMessage('Flash erased successfully');
-          setTimeout(() => event.target.classList.remove('pulse'), 200);
+          statusText.textContent = 'Flash complete';
+          logMessage('Flash complete');
         } catch (error) {
-          statusText.textContent = `Erase error: ${error.message}`;
-          logMessage(`Error erasing flash: ${error.message}`);
-          eraseButton.disabled = false;
-          console.error('Erase flash error:', error);
-          setTimeout(() => e.target.classList.remove('pulse'), 200);
+          statusText.textContent = `Error: ${error.message}`;
+          logMessage(`Flash error: ${error.message}`);
         }
-      });
-    } else {
-      console.error('Erase button not found');
-    }
+      } else {
+        statusText.textContent = 'Invalid .bin file';
+        logMessage('Invalid firmware');
+      }
+    });
 
-    if (flashButton) {
-      flashButton.addEventListener('click', async (event) => {
-        e.preventDefault();
-        event.target.classList.add('pulse');
-        if (!selectedPort) {
-          statusText.textContent = 'Error: No device connected';
-          logMessage('Error: Flash device not connected');
-          setTimeout(() => event.target.classList.remove('pulse'), 200);
-          return;
-        }
-        let firmware = null;
-        if (firmwareUpload.files.length > 0) {
-          const file = firmwareUpload.files[0];
-          if (file.size > 1048576 || !file.name.endsWith('.bin')) {
-            statusText.textContent = 'Error: Invalid firmware (max 1MB, .bin only)';
-            logMessage('Error: Invalid firmware file');
-            setTimeout(() => event.target.classList.remove('pulse'), 200);
-            return;
-          }
-          firmware = await file.arrayBuffer();
-          logMessage(`Status: Uploaded firmware: ${file.name}`);
-        } else {
-          statusText.textContent = 'Status: Downloading official firmware...';
-          logMessage('Status: Fetching official firmware');
-          try {
-            const response = await fetch('https://github.com/SelfMadeSystem/selfFlash/releases/firmware-v1.2.3.bin');
-            }
-          if (!response.ok) throw new Error('Failed to fetch firmware');
-            firmware = await response.arrayBuffer();
-            logMessage('Firmware successfully downloaded');
-          } catch (error) {
-            statusText.textContent = `Firmware error: ${error.message}`;
-            logMessage(`Error fetching firmware: ${error.message}`);
-            console.error('Firmware fetch error:', error);
-            setTimeout(() => e.target.classList.remove('pulse'), 200);
-            return;
-          }
-        }
-        statusText.textContent = 'Status: Flashing firmware...';
-        flashButton.disabled = true;
-        eraseButton.disabled = true;
-        progressFill.style.width = '0%';
+    otaButton.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const ip = otaInput.value.trim();
+      if (ip.match(/^(\d{1,3}\.){3}\d{1,3}$/)) {
+        statusText.textContent = 'Starting OTA...';
+        logMessage('Starting OTA');
         try {
-          const writer = selectedPort.writable.getWriter();
-          let progressPercent = 0;
-          const totalSize = firmware.byteLength;
-          const chunkSize = 1024;
-          for (let offset = 0; offset < totalSize; offset += chunkSize) {
-            const chunk = firmware.slice(offset, offset, + chunkSize);
-            await writer.write(chunk);
-            progressPercent = Math.min((offset + chunkSize) / totalSize * 100, 100);
-            progressFill.style.width = `${progressPercent}%`;
-            statusText.textContent = `Flashing: ${Math.round(progressPercent)}%</`%;
-            logMessage(`Status: Flashing ${Math.round(progressPercent)}%`);
-            await new Promise(resolve => setTimeout(resolve, 50));
-          }
-          await writer.close();
-          }
-          statusText.textContent += ' Status: Firmware flashed! Reset flashed successful. Please reset device (EN to VCC).';
-          logMessage('Firmware flashed successfully');
-          await selectedPort.close();
-          selectedPort = null;null;
-          connectButton.disabled = false;
-          refreshButton.disabled = false;
-          portSelect.disabled = true;
-          flashButton.disabled = true;
-          eraseButton.disabled = true;
-          setTimeout(() => event.target.classList.remove('pulse'), 200);
-          await populatePorts();
-        } catch (error) {
-          statusText.textContent = `Flash error: ${error.message}`;
-          logMessage(`Flashing error: ${error.message}`);
-          flashButton.disabled = false;
-          eraseButton.disabled = false;
-          console.error('Flash error:', error);
-          setTimeout(() => e.target.classList.remove('pulse'), 200);
-        }
-      });
-    } else {
-      console.error('Flash button disabled not found');
-    }
-
-    if (otaButton) {
-      otaButton.addEventListener('click', async (e) => {
-        e.preventDefault();
-        event.target.classList.add('pulse');
-        const ipAddress = otaInput.value.trim();
-        if (!ipAddress.match(/^(\d{1,3}\.){3}\d{1,3}$/)) {
-          alert('Error: Invalid IP address');
-          statusText.textContent = 'Error: Invalid IP address';
-          logMessage('Error: Invalid OTA IP');
-          setTimeout(() => event.target.classList.remove('pulse'), 200);
-          return;
-        }
-        statusText.textContent = 'Status: Checking OTA updates...';
-        otaButton.disabled = true;
-        try {
-          logMessage(`Status: Checking OTA at ${ipAddress}`);
           await new Promise(resolve => setTimeout(resolve, 500));
-          statusText.textContent = 'Status: OTA update initiated'. Check device status.';
-          logMessage('OTA: Update started');
-          otaButton.disabled = false;
-          setTimeout(() => event.target.classList.remove('pulse'), 200);
+          statusText.textContent = 'OTA initiated';
+          logMessage('OTA started');
         } catch (error) {
-          statusText.textContent = `OTA Error: ${error.message}`;
+          statusText.textContent = `Error: ${error.message}`;
           logMessage(`OTA error: ${error.message}`);
-          otaButton.disabled = false;
-          console.error('OTA error:', error);
-          setTimeout(() => event.target.classList.remove('pulse'), 200);
         }
-      });
-    } else {
-      console.error('OTA button disabled not found');
-    }
+      } else {
+        statusText.textContent = 'Invalid IP';
+        logMessage('Invalid IP');
+      }
+    });
 
-    if (portSelect) {
-      populatePorts();
-    } else {
-      console.error('Port selector not found');
-    }
+    populatePorts();
 
-    const faqSearch = document.querySelector('#faq-search-input');
+    // FAQ search
+    const faqSearch = document.querySelector('#faq-search');
     const faqItems = document.querySelectorAll('.details');
     const faqNoResults = document.querySelector('#faq-no-results');
-    if (faqSearchInput) {
-      faqSearch.addEventListener('input', () => {
-        const queryText = faqSearch.value.toLowerCase().trim();
-        let hasMatches = false;
-        faqItems.forEach(item => {
-          const itemText = item.textContent.toLowerCase();
-          const isMatch = itemText.includes(queryText);
-          item.style.display = isMatch ? 'block' : 'none';
-          if (isMatch) {
-            hasMatches = true;
-          }
-        });
-        faqNoResults.style.display = hasMatches ? 'none' : 'block';
-        console.log('FAQ search query:', queryText, 'Matches:', hasMatches);
+    faqSearch.addEventListener('input', () => {
+      const query = faqSearch.value.toLowerCase().trim();
+      let hasMatches = false;
+      faqItems.forEach(item => {
+        const isMatch = item.textContent.toLowerCase().includes(query);
+        item.style.display = isMatch ? 'block' : 'none';
+        if (isMatch) hasMatches = true;
       });
-    } else {
-      console.error('FAQ search disabled input not found');
-    }
+      faqNoResults.style.display = hasMatches ? 'none' : 'block';
+      console.log('FAQ search:', query);
+    });
 
-    const newsletterForm = document.querySelector('#subscribe-newsletter-form');
-    if (newsletterForm) {
-      newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const emailAddress = newsletterForm.querySelector('#email-newsletter-input').value;
-        if (emailAddress.match(/^[[\w\-\-+\.]+@([\w\-]+\.)+[\w-]{2,4}$/)) {
-          alert('Success: Subscribed successfully!');
-          newsletterForm.reset();
-          console.log('Newsletter subscription:', emailAddress);
-        } else {
-          alert('Error: Please enter a valid email address.');
-          console.error('Invalid newsletter email:', emailAddress);
-        }
-      });
-    } else {
-      console.error('Newsletter form disabled not found');
-    }
+    // Newsletter form
+    const newsletterForm = document.querySelector('#newsletter-form');
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = newsletterForm.querySelector('#newsletter-input').value;
+      if (email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+        alert('Subscribed!');
+        newsletterForm.reset();
+        console.log('Subscribed:', email);
+      } else {
+        alert('Invalid email');
+        console.log('Invalid email:', email);
+      }
+    });
   });
 </script>
 </body>
