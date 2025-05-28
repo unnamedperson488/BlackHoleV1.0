@@ -448,9 +448,12 @@
       border-radius: 8px;
       box-shadow: var(--shadow-glow);
       backdrop-filter: blur(10px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
     .section.active {
       display: block;
+      opacity: 1;
     }
     .glow-title {
       font-size: 2rem;
@@ -855,13 +858,13 @@
     <div class="card nav-card">
       <nav>
         <ul class="list">
-          <li class="element" tabindex="0" onclick="showSection('#home')"><span class="label nav-label">Home</span></li>
-          <li class="element" tabindex="0" onclick="showSection('#product')"><span class="label nav-label">Product</span></li>
-          <li class="element" tabindex="0" onclick="showSection('#media')"><span class="label nav-label">Media</span></li>
-          <li class="element" tabindex="0" onclick="showSection('#demos')"><span class="label nav-label">Community</span></li>
-          <li class="element" tabindex="0" onclick="showSection('#about')"><span class="label nav-label">About</span></li>
-          <li class="element" tabindex="0" onclick="showSection('#faq')"><span class="label nav-label">FAQ</span></li>
-          <li class="element" tabindex="0" onclick="showSection('#firmware')"><span class="label nav-label">Firmware</span></li>
+          <li class="element" data-section="#home"><span class="label nav-label">Home</span></li>
+          <li class="element" data-section="#product"><span class="label nav-label">Product</span></li>
+          <li class="element" data-section="#media"><span class="label nav-label">Media</span></li>
+          <li class="element" data-section="#demos"><span class="label nav-label">Community</span></li>
+          <li class="element" data-section="#about"><span class="label nav-label">About</span></li>
+          <li class="element" data-section="#faq"><span class="label nav-label">FAQ</span></li>
+          <li class="element" data-section="#firmware"><span class="label nav-label">Firmware</span></li>
         </ul>
       </nav>
     </div>
@@ -897,7 +900,7 @@
     <h2 class="glow-title">📦 Product</h2>
     <div class="glow-block">
       <h3>Black Hole V1.0</h3>
-      <a href="#" onclick="showSection('#blackHole'); return false;" class="product-card">
+      <a href="#" data-section="#blackHole" class="product-card">
         <img src="https://via.placeholder.com/250x150?text=Black+Hole+V1.0" alt="Black Hole V1.0" class="product-card__img">
         <div class="product-card__content">
           <h3>Black Hole V1.0</h3>
@@ -1197,22 +1200,68 @@
       const themeToggle = document.querySelector('.theme-toggle');
       const langSwitcher = document.querySelector('.lang-switcher');
       const footer = document.querySelector('footer');
+
       if (!bootScreen || !startButton || !bootProgress || !bootProgressFill || !wrapper || !navWrapper) {
         console.error('Missing critical elements');
         alert('Error: Critical UI elements not found. Check console.');
         return;
       }
+
       const loadImage = (url) => new Promise((resolve) => {
         const img = new Image();
         img.src = url;
         img.onload = img.onerror = () => resolve();
       });
+
+      function showSection(sectionId) {
+        console.log(`Attempting to show section: ${sectionId}`);
+        document.querySelectorAll('.section').forEach(section => {
+          section.classList.remove('active');
+          section.style.display = 'none';
+        });
+        const target = document.querySelector(sectionId);
+        if (target) {
+          target.classList.add('active');
+          target.style.display = 'block';
+          console.log(`Activated section: ${sectionId}`);
+        } else {
+          console.error(`Section not found: ${sectionId}`);
+          alert(`Section ${sectionId} not found. Check console for details.`);
+        }
+      }
+
+      document.querySelectorAll('.element, .product-card').forEach(element => {
+        element.addEventListener('click', (e) => {
+          const sectionId = element.dataset.section;
+          if (sectionId) {
+            e.preventDefault();
+            showSection(sectionId);
+            element.classList.add('pulse');
+            setTimeout(() => element.classList.remove('pulse'), 200);
+            console.log(`Navigation clicked: ${sectionId}`);
+          }
+        });
+        element.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const sectionId = element.dataset.section;
+            if (sectionId) {
+              showSection(sectionId);
+              element.classList.add('pulse');
+              setTimeout(() => element.classList.remove('pulse'), 200);
+              console.log(`Navigation keypress: ${sectionId}`);
+            }
+          }
+        });
+      });
+
       startButton.addEventListener('click', () => {
         console.log('Start button clicked');
         startButton.disabled = true;
         startButton.style.display = 'none';
         bootProgress.style.display = 'block';
         spinner.classList.add('visible');
+
         const targetSection = startButton.dataset.targetSection || '#home';
         const loadProcess = async () => {
           try {
@@ -1229,6 +1278,7 @@
             console.error('Background load error:', error);
             alert('Failed to load backgrounds, proceeding.');
           }
+
           bootScreen.classList.add('hidden');
           spinner.classList.remove('visible');
           wrapper.classList.add('visible');
@@ -1239,6 +1289,7 @@
           showSection(targetSection);
           console.log('Activated section:', targetSection);
         };
+
         const timeout = setTimeout(() => {
           console.warn('Loading timeout');
           bootScreen.classList.add('hidden');
@@ -1251,8 +1302,10 @@
           showSection(targetSection);
           alert('Loading timed out, proceeded to content.');
         }, 10000);
+
         loadProcess().finally(() => clearTimeout(timeout));
       });
+
       const themeToggleBtn = document.querySelector('.theme-toggle');
       if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
@@ -1265,10 +1318,12 @@
         document.body.dataset.theme = savedTheme;
         themeToggleBtn.textContent = savedTheme === 'light' ? '🌞' : '🌑';
       }
+
       const translations = {
         en: { home: 'Home', product: 'Product', media: 'Media', demos: 'Community', about: 'About', faq: 'FAQ', firmware: 'Firmware', welcome: 'Welcome to Black Hole V1.0', flash: 'Flash Firmware' },
         es: { home: 'Inicio', product: 'Producto', media: 'Medios', demos: 'Comunidad', about: 'Acerca', faq: 'Preguntas', firmware: 'Firmware', welcome: 'Bienvenido a Black Hole V1.0', flash: 'Actualizar Firmware' }
       };
+
       const langSelect = document.querySelector('.lang-select');
       if (langSelect) {
         langSelect.addEventListener('change', () => {
@@ -1285,16 +1340,7 @@
         langSelect.value = savedLang;
         langSelect.dispatchEvent(new Event('change'));
       }
-      function showSection(sectionId) {
-        document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
-        const target = document.querySelector(sectionId);
-        if (target) {
-          target.classList.add('active');
-          console.log('Switched to section:', sectionId);
-        } else {
-          console.error('Section not found:', sectionId);
-        }
-      }
+
       const portSelect = document.querySelector('#port-select');
       const refreshButton = document.querySelector('.flasher-button.refresh');
       const connectButton = document.querySelector('.flasher-button.connect');
@@ -1307,10 +1353,12 @@
       const statusText = document.querySelector('#flasher-status');
       const flasherLog = document.querySelector('#flasher-log');
       let selectedPort = null;
+
       function logMessage(msg) {
         flasherLog.innerHTML += `<p>${new Date().toLocaleTimeString()}: ${msg}</p>`;
         flasherLog.scrollTop = flasherLog.scrollHeight;
       }
+
       async function populatePorts() {
         if (!navigator.serial) {
           statusText.textContent = 'No USB Serial Support. Use Chrome/Edge.';
@@ -1334,6 +1382,7 @@
           logMessage(`Port error: ${error.message}`);
         }
       }
+
       if (refreshButton) {
         refreshButton.addEventListener('click', async (e) => {
           e.target.classList.add('pulse');
@@ -1343,6 +1392,7 @@
           setTimeout(() => e.target.classList.remove('pulse'), 200);
         });
       }
+
       if (connectButton) {
         connectButton.addEventListener('click', async (e) => {
           e.target.classList.add('pulse');
@@ -1373,6 +1423,7 @@
           }
         });
       }
+
       if (eraseButton) {
         eraseButton.addEventListener('click', async (e) => {
           e.target.classList.add('pulse');
@@ -1400,6 +1451,7 @@
           }
         });
       }
+
       if (flashButton) {
         flashButton.addEventListener('click', async (e) => {
           e.target.classList.add('pulse');
@@ -1474,6 +1526,7 @@
           }
         });
       }
+
       if (otaButton) {
         otaButton.addEventListener('click', async (e) => {
           e.target.classList.add('pulse');
@@ -1501,7 +1554,9 @@
           }
         });
       }
+
       if (portSelect) populatePorts();
+
       const searchInput = document.querySelector('#faq-search');
       const faqItems = document.querySelectorAll('.details');
       if (searchInput) {
@@ -1513,6 +1568,7 @@
           });
         });
       }
+
       const newsletterForm = document.querySelector('#newsletter-form');
       if (newsletterForm) {
         newsletterForm.addEventListener('submit', (e) => {
@@ -1526,6 +1582,7 @@
           }
         });
       }
+
       const simulatorButton = document.querySelector('#simulator-button');
       const deautherSimulator = document.querySelector('#deauther-simulator');
       if (simulatorButton && deautherSimulator) {
