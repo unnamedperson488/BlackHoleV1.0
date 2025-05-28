@@ -319,7 +319,7 @@ title: Black Hole V1.0
     overflow: hidden;
     box-shadow: var(--shadow-glow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 20px;
+    margin: 20px auto;
     text-decoration: none;
     color: inherit;
     backdrop-filter: blur(5px);
@@ -391,33 +391,6 @@ title: Black Hole V1.0
     font-weight: 600;
   }
 
-  .comparison-table {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: var(--card-bg);
-    border: 2px solid var(--primary-color);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow-glow);
-  }
-
-  .comparison-table th, .comparison-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid rgba(0, 234, 255, 0.2);
-  }
-
-  .comparison-table th {
-    color: var(--primary-color);
-    font-weight: 600;
-  }
-
-  .comparison-table td {
-    color: var(--text-color);
-  }
-
   .social-media-button, .github-button, .new-discord-button, .flasher-button, .simulator-button, .newsletter-button {
     width: 140px;
     height: 40px;
@@ -465,7 +438,7 @@ title: Black Hole V1.0
 
   .flasher-card {
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     background: var(--card-bg);
     border: 2px solid var(--primary-color);
     border-radius: 8px;
@@ -473,7 +446,7 @@ title: Black Hole V1.0
     box-shadow: var(--shadow-glow);
     margin: 0 auto 20px;
     text-align: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
   }
 
   #port-select, #firmware-upload, .ota-input, #newsletter-input {
@@ -483,7 +456,7 @@ title: Black Hole V1.0
     margin: 10px 0;
     background: #111;
     border: 2px solid var(--primary-color);
-    border-radius: 6px;
+    border-radius: 5px;
     color: var(--text-color);
     font-family: 'Orbitron', sans-serif;
     font-size: 0.938rem;
@@ -507,7 +480,7 @@ title: Black Hole V1.0
   }
 
   .progress-fill {
-    width: 0%;
+    width: 0;
     height: 100%;
     background: var(--accent-color);
     transition: width 0.3s ease;
@@ -535,16 +508,16 @@ title: Black Hole V1.0
 
   .section {
     display: none;
-    padding: 30px 20px;
+    padding: 20px;
     max-width: 900px;
-    margin: 0 auto 40px;
+    margin: 0 auto 30px;
     background: var(--card-bg);
     border-radius: 8px;
     box-shadow: var(--shadow-glow);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
   }
 
-  .section.active, .section.visible {
+  .section.active {
     display: block;
   }
 
@@ -557,8 +530,8 @@ title: Black Hole V1.0
 
   .glow-block {
     border: 1px solid rgba(0, 234, 255, 0.2);
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 15px;
+    margin-bottom: 15px;
     background: var(--card-bg);
     border-radius: 8px;
     box-shadow: var(--shadow-glow);
@@ -571,12 +544,12 @@ title: Black Hole V1.0
     margin-bottom: 10px;
   }
 
-  .discord-join {
+  #discord-link {
     text-align: center;
     margin: 20px 0;
   }
 
-  .discord-join a {
+  #discord-link a {
     color: #5865F2;
     font-weight: bold;
     text-decoration: none;
@@ -584,7 +557,7 @@ title: Black Hole V1.0
     transition: color 0.3s ease;
   }
 
-  .discord-join a:hover {
+  #discord-link a:hover {
     color: #7289DA;
   }
 
@@ -596,7 +569,7 @@ title: Black Hole V1.0
     border: 2px solid var(--primary-color);
     background: #111;
     color: var(--text-color);
-    border-radius: 6px;
+    border-radius: 5px;
     font-family: 'Orbitron', sans-serif;
     transition: box-shadow 0.3s ease;
   }
@@ -610,7 +583,7 @@ title: Black Hole V1.0
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid rgba(0, 234, 255, 0.2);
-    border-radius: 6px;
+    border-radius: 5px;
     background: var(--card-bg);
     box-shadow: var(--shadow-glow);
     backdrop-filter: blur(5px);
@@ -657,7 +630,7 @@ title: Black Hole V1.0
     right: 20px;
     background: var(--card-bg);
     border: 2px solid var(--primary-color);
-    border-radius: 6px;
+    border-radius: 5px;
     padding: 5px;
     box-shadow: var(--shadow-glow);
     display: none;
@@ -683,7 +656,7 @@ title: Black Hole V1.0
     border-top: 2px solid var(--primary-color);
     box-shadow: var(--shadow-glow);
     margin-top: 40px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     display: none;
   }
 
@@ -694,7 +667,7 @@ title: Black Hole V1.0
   footer a {
     color: var(--primary-color);
     text-decoration: none;
-    margin: 10px;
+    margin: 0 10px;
     transition: color 0.3s ease;
   }
 
@@ -755,11 +728,11 @@ title: Black Hole V1.0
 
   @media (max-width: 768px) {
     .name { font-size: 2rem; }
-    .section { padding: 20px; margin: 0 10px 30px; }
+    .section { padding: 15px; margin: 0 10px 20px; }
     .glow-title { font-size: 1.8rem; }
     .card.nav-card .list { gap: 5px; }
     .card.nav-card .list .element { min-width: 80px; padding: 6px 8px; }
-    .product-card { max-width: 200px; margin: 10px; }
+    .product-card { max-width: 200px; }
     .product-card__img { height: 120px; }
     #port-select, #firmware-upload, .ota-input, #newsletter-input { width: 90%; max-width: 250px; }
     .flasher-button, .social-media-button, .github-button, .new-discord-button, .simulator-button, .newsletter-button { width: 120px; height: 35px; font-size: 0.875rem; }
@@ -767,7 +740,6 @@ title: Black Hole V1.0
     .lang-switcher { top: 60px; right: 10px; }
     .boot-logo { font-size: 2rem; }
     .start-button { width: 100px; height: 35px; font-size: 0.875rem; }
-    .comparison-table { font-size: 0.875rem; }
   }
 </style>
 
@@ -809,7 +781,7 @@ title: Black Hole V1.0
           bootScreen.classList.add('hidden');
           wrapper.classList.add('visible');
           navWrapper.classList.add('visible');
-          document.querySelector('#home').classList.add('active', 'visible');
+          document.querySelector('#home').classList.add('active');
           themeToggle.classList.add('visible');
           langSwitcher.classList.add('visible');
           footer.classList.add('visible');
@@ -857,9 +829,9 @@ title: Black Hole V1.0
 
   // Section Switching
   function showSection(id) {
-    document.querySelectorAll('.section').forEach(section => section.classList.remove('active', 'visible'));
+    document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
     const target = document.querySelector(id);
-    if (target) target.classList.add('active', 'visible');
+    if (target) target.classList.add('active');
   }
 
   // Web Flasher
@@ -1014,6 +986,7 @@ title: Black Hole V1.0
         const response = await fetch(firmwareUrl);
         if (!response.ok) throw new Error('Failed to fetch firmware');
         firmware = await response.arrayBuffer();
+        logMessage('Official firmware downloaded');
       }
 
       statusText.textContent = 'Flashing firmware...';
@@ -1183,24 +1156,24 @@ title: Black Hole V1.0
   </div>
 </div>
 
-<section id="home" class="section">
+<section id="home" class="section active">
   <h2 class="glow-title" id="home-title">🌌 Welcome to Black Hole V1.0</h2>
-  <p>Open-source wireless testing for cybersecurity enthusiasts.</p>
+  <p>An open-source platform for wireless testing and cybersecurity exploration.</p>
   <div class="glow-block">
-    <h3>Mission</h3>
-    <p>Empowering the community with tools for secure wireless exploration.</p>
+    <h3>Our Mission</h3>
+    <p>Providing tools and resources for enthusiasts to explore wireless networks securely.</p>
   </div>
   <div class="glow-block">
-    <h3>Roadmap</h3>
+    <h3>Project Roadmap</h3>
     <ul>
-      <li><strong>Q3 2025:</strong> Firmware v1.3.0 with Bluetooth enhancements.</li>
-      <li><strong>Q4 2025:</strong> V2.0 hardware prototype.</li>
+      <li><strong>Q3 2025:</strong> Firmware v1.3.0 with improved Bluetooth.</li>
+      <li><strong>Q4 2025:</strong> Community-driven feature updates.</li>
     </ul>
   </div>
   <div class="glow-block">
-    <h3>Newsletter</h3>
+    <h3>Stay Updated</h3>
     <form id="newsletter-form" class="newsletter-form">
-      <input type="email" id="newsletter-input" placeholder="Enter email" aria-label="Newsletter email" required>
+      <input type="email" id="newsletter-input" placeholder="Enter your email" aria-label="Newsletter email" required>
       <button type="submit" class="newsletter-button" aria-label="Subscribe">Subscribe</button>
     </form>
   </div>
@@ -1212,25 +1185,16 @@ title: Black Hole V1.0
 </section>
 
 <section id="product" class="section">
-  <h2 class="glow-title">📦 Products</h2>
+  <h2 class="glow-title">📦 Product</h2>
   <div class="glow-block">
-    <h3>Explore Our Tools</h3>
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-      <a href="#" onclick="showSection('#blackHole'); return false;" class="product-card" aria-label="View Black Hole V1.0">
-        <img src="https://via.placeholder.com/250x150?text=Black+Hole+V1.0" alt="Black Hole V1.0" class="product-card__img" width="250" height="150">
-        <div class="product-card__content">
-          <h3>Black Hole V1.0</h3>
-          <p>$149</p>
-        </div>
-      </a>
-      <a href="#" onclick="showSection('#blackHolePro'); return false;" class="product-card" aria-label="View Black Hole V1.0 Pro">
-        <img src="https://via.placeholder.com/250x150?text=Black+Hole+V1.0+Pro" alt="Black Hole V1.0 Pro" class="product-card__img" width="250" height="150">
-        <div class="product-card__content">
-          <h3>Black Hole V1.0 Pro</h3>
-          <p>$199</p>
-        </div>
-      </a>
-    </div>
+    <h3>Black Hole V1.0</h3>
+    <a href="#" onclick="showSection('#blackHole'); return false;" class="product-card" aria-label="View Black Hole V1.0">
+      <img src="https://via.placeholder.com/250x150?text=Black+Hole+V1.0" alt="Black Hole V1.0" class="product-card__img" width="250" height="150">
+      <div class="product-card__content">
+        <h3>Black Hole V1.0</h3>
+        <p>$149</p>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -1240,261 +1204,209 @@ title: Black Hole V1.0
     <h3>Overview</h3>
     <img src="https://via.placeholder.com/600x400?text=Black+Hole+V1.0" alt="Black Hole V1.0" width="600" height="400">
     <p><strong>Black Hole V1.0 - $149</strong></p>
-    <p>A dual-band wireless testing tool for cybersecurity enthusiasts.</p>
+    <p>An open-source wireless testing tool powered by RTL8720DN for cybersecurity enthusiasts.</p>
     <div class="product-info">
       <h4>Features</h4>
       <ul>
         <li>Dual-band WiFi (2.4/5GHz)</li>
-        <li>2 SMA antennas</li>
+        <li>2 SMA antennas for signal strength</li>
         <li>Open-source firmware</li>
-        <li>1200mAh battery</li>
+        <li>1200mAh rechargeable battery</li>
+        <li>USB-C connectivity</li>
       </ul>
       <h4>Specifications</h4>
       <ul>
-        <li><span class="key">MCU:</span> RTL8720DN</li>
-        <li><span class="key">Connectivity:</span> WiFi, Bluetooth 4.0</li>
-        <li><span class="key">Memory:</span> 4MB Flash</li>
-        <li><span class="key">Size:</span> 75x50x15mm</li>
+        <li><span class="key">MCU:</span> RTL8720DN (Dual-Core)</li>
+        <li><span class="key">Connectivity:</span> WiFi 802.11 a/b/g/n, Bluetooth 4.0</li>
+        <li><span class="key">Memory:</span> 4MB Flash, 192KB SRAM</li>
+        <li><span class="key">Dimensions:</span> 75x50x15mm</li>
+        <li><span class="key">Weight:</span> 50g</li>
       </ul>
       <h4>Use Cases</h4>
       <ul>
-        <li>Penetration testing</li>
-        <li>IoT prototyping</li>
+        <li>Ethical WiFi network testing</li>
+        <li>IoT device prototyping</li>
+        <li>Learning wireless protocols</li>
       </ul>
-      <h4>Compare Models</h4>
-      <table class="zoom">
-        <tr><th>Feature</th><th>Black Hole V1.0</th><th>Pro</th></tr>
-        <tr><td>Price</td><td>$149</td><td>$199</td></tr>
-        <tr><td>WiFi</td><td>Dual-band</td><td>Enhanced Range</td></tr>
-        <tr><td>Bluetooth</td><td>4.0</td><td>5.2</td></tr>
-        <tr><td>Storage</td><td>4MB</td><td>8MB</td></tr>
-        <tr><td>Antennas</td><td>2</td><td>4</td></tr>
-        <tr><td>Battery</td><td>1200mAh</td><td>2000mAh</td></tr>
-      </table>
-      </table>
+      <h4>Package Includes</h4>
+      <ul>
+        <li>Black Hole V1.0 device</li>
+        <li>2x SMA antennas</li>
+        <li>USB-C cable</li>
+        <li>Quick start guide</li>
+      </ul>
     </div>
-    <a href="https://discord.gg/PdpuDvVD" class="new-discord-button" target="_blank" aria-label="Join Discord">
-      <i class="fab fa-discord"></i> Join Discord</a>
+    <div id="discord-link">
+      <a href="https://discord.gg/PdpuDvVD" class="new-discord-button" target="_blank" aria-label="Join Discord">
+        <i class="fab fa-discord"></i> Join Discord
+      </a>
     </div>
   </div>
 </section>
 
-<section id="blackHolePro" class="section">
-  <h2 id="glow-title">Pro</h2>
-</section>
-<div>
-  <div class="glow-block">
-    <h3>Overview</h3>
-    <img src="https://via.placeholder.com/600x400?text=Black+Hole+V1.0+Pro" alt="Black Hole V1.0" Pro" src="https://via.placeholder.com/600x400?text=Black+Hole+V1.0+Pro" width="600" height="400">
-    <p><strong>Black Hole V1.0 - $199</strong></p>
-    <p>Advanced wireless testing with enhanced features for professionals.</p>
-</p>
-<div>
-  <div class="product-info">
-    <h4>Features</h4>
-    <ul>
-      <li>Dual-band WiFi with extended range</li>
-      <li><li>4 SMA antennas</li>
-      <li><li>Bluetooth 5.2</li>
-      <li><li>8MB flash memory</li>
-      <li><li>2000mAh battery</li>
-      </li>
-    </ul>
-    <h4>Specifications</h4>
-    <ul>
-      <li><span class="key">MCU:</span> RTL8720DN</li>
-      <li><span class="key">Connectivity:</span> WiFi, Bluetooth 5.2</li>
-      <li><span class="key">Memory:</span> 8MB Flash</li>
-      <li><li><span class="key">Size:</span> 80x55x20mm</li>
-      </ul>
-    </li>
-    <h4>Use Cases</h4>
-    <ul>
-      <ul>
-      <li>Advanced penetration testing</li>
-      <li><li>IoT development</li>
-      </ul>
-    </li>
-      <h4>Compare Models</h4>
-      <table class="zoom-table">
-        <table class="comparison-table">
-          <tr><th>Feature</th><th>Black Hole V1.0</th><th>Pro</th></tr>
-          <tr><td>Price<td>$149</td><td>$199</td></tr>
-          <tr><tr><td>WiFi</td><td>Dual-band</td><td>Enhanced Range</td></tr>
-          <tr><td>Bluetooth</td><td><td>4.0</td><td>5.2</td></tr>
-          <tr><td>Storage</td><td>4MB</td><td>8MB</td></tr>
-          <tr><td>Antennas</td><td>2</td><td>4</td></tr>
-          <tr><td>Battery</td><td>1200mAh</td><td>2000mAh</td></tr>
-        </table>
-      </table>
-    </div>
-    <a href="https://discord.gg/PdpuDvVD" class="new-discord-button" target="_blank" href="https://discord.com" aria-label="Join Discord">
-      <i class="fab fa-discord"></i> Join Discord</a>
-    </div>
-</section>
-</section>
-
 <section id="media" class="section">
   <h2 class="glow-title">📸 Media</h2>
-</section>
-<div class="glow-block">
-<h3>Demo Video</h4>
-  <div>
+  <div class="glow-block">
+    <h3>Demo Video</h3>
     <p>Watch Black Hole V1.0 in action.</p>
     <div class="video-container">
-      <div class="zoom-container">
       <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Black Hole V1.0 Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-  <div>
-    </div>
-<h3>Community Media</h3>
-  <p>
+  </div>
+  <div class="glow-block">
+    <h3>Community Media</h3>
+    <p>Explore user-generated content.</p>
     <ul>
       <li><a href="https://instagram.com/p/CyZ3XvLPMz_/" target="_blank">Instagram: Custom setup</a></li>
-      <li><li><a href="https://youtube.com/watch?v=example123" target="_blank">YouTube: Tutorial</a></li>
-      </ul>
+      <li><a href="https://youtube.com/watch?v=example123" target="_blank">YouTube: User tutorial</a></li>
+    </ul>
+    <div id="discord-link">
+      <a href="https://discord.gg/PdpuDvVD" class="new-discord-button" target="_blank" aria-label="Join Discord">
+        <i class="fab fa-discord"></i> Share on Discord
+      </a>
     </div>
-    <div class="social-media-buttons">
-      <a href="https://www.instagram.com/unnamedperson488" class="_blank" target="social-media-button" target="_blank" href="https://www.instagram.com/unnamedperson488" aria-label="Instagram">
-        <i class="fab fa-instagram"></i> Instagram</a>
-      <a href="https://youtube.com/@unnamedperson488" class="_blank" target="social-media-button" href="https://www.youtube.com/@unnamedperson488" target="_blank" aria-label="YouTube">
-        <i class="fab fa-youtube"></i> YouTube</a>
-      <a href="https://tiktok.com/@unnamedperson488" class="social-media-button" target="_blank" href="https://www.tiktok.com/@unnamedperson488" target="_blank" aria-label="TikTok">
-      <i class="fab fa-tiktok"></i> TikTok</a>
-    </div>
+  </div>
+  <div class="social-media-buttons">
+    <a href="https://instagram.com/unnamedperson488" class="social-media-button" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://youtube.com/@unnamedperson488" class="social-media-button" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i> YouTube</a>
+    <a href="https://tiktok.com/@unnamedperson488" class="social-media-button" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i> TikTok</a>
+  </div>
 </section>
 
 <section id="demos" class="section">
-  <h2 class="glow-title">🤝 Community</h3>
-</section>
-<div>
+  <h2 class="glow-title">🤝 Community</h2>
   <div class="glow-block">
-    <h3>Join Us</h4>
-  <h3>
-    <p>with other enthusiasts on Discord.</p>
-    <div class="discord_widget">
-    <div class="widget">
-      <p>TODO: Add a Discord server ID.</p>
+    <h3>Join the Community</h3>
+    <p>Connect with other cybersecurity enthusiasts.</p>
+    <div class="discord-widget">
+      <p>TODO: Add Discord server ID for widget.</p>
     </div>
-    <a href="https://discord.gg/PdpuDvVD" target="_blank" class="new-discord-button" target="_blank" href="https://discord.com" aria-label="Join Discord">
-      <i class="fab fa-discord"></i> Join Discord</a>
+    <div id="discord-link">
+      <a href="https://discord.gg/PdpuDvVD" class="new-discord-button" target="_blank" aria-label="Join Discord">
+        <i class="fab fa-discord"></i> Join Discord
+      </a>
     </div>
+  </div>
   <div class="glow-block">
     <h3>Simulator</h3>
     <p>Test the Black Hole V1.0 interface.</p>
-    <div class="simulator-button">
-      <div class="button">
+    <div class="simulator">
       <button id="simulator-button" class="simulator-button" aria-label="Simulate button press">Press</button>
     </div>
   </div>
 </section>
 
 <section id="about" class="section">
-  <h2 class="glow-title">🔭 About Us</h2>
-</section>
-<div>
+  <h2 class="glow-title">🔭 About</h2>
   <div class="glow-block">
-    <p>Black Hole V1.0 is an open-source project by unnamedperson488 to advance wireless testing.</p>
-    <p><a href="https://github.com/unnamedperson488/BlackHoleV1.0" class="github-button" target="_blank" href="https://github.com/unnamedperson488/BlackHoleV1.0" aria-label="Contribute on GitHub">
-      <i class="fab fa-github"></i> Contribute</a></p>
+    <p>Black Hole V1.0 is an open-source project by unnamedperson488 to support wireless testing and learning.</p>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0" class="github-button" target="_blank" aria-label="Contribute on GitHub">
+      <i class="fab fa-github"></i> Contribute on GitHub
+    </a>
   </div>
 </section>
 
 <section id="faq" class="section">
-  <h2 class="glow-title">❓ FAQs</h2>
-</section>
-<div>
-  <input type="faq-search" id="text" placeholder="Search..." aria-label="Search FAQs">
+  <h2 class="glow-title">❓ FAQ</h2>
+  <input type="text" id="faq-search" placeholder="Search FAQs..." aria-label="Search FAQs">
   <div class="details">
     <summary>What is Black Hole V1.0?</summary>
-    <p>A dual-band wireless testing tool for cybersecurity.</p>
-</div>
-<div class="details">
-  <summary>Is it legal to use?</summary>
-<p>Yes, for ethical hacking within legal limits.</p>
-</div>
-<div class="details">
-  <summary>How to enter Download Mode?</summary>
-<p>Connect LOG_TX (PA7) to VCC, EN to GND, then power on.</p>
-</div>
-<div class="details">
-  <summary>Can I develop custom firmware?</summary>
-<p>Yes, using the RTL8720DN SDK on GitHub.</p>
-</div>
-<div class="details">
-  <summary>What’s the Pro version?</summary>
-<p>It has enhanced WiFi, Bluetooth 5.2, and more storage.</p>
-</div>
+    <p>An open-source wireless testing tool for cybersecurity and IoT applications.</p>
+  </div>
+  <div class="details">
+    <summary>Is it legal to use?</summary>
+    <p>Yes, for ethical hacking and testing within legal boundaries.</p>
+  </div>
+  <div class="details">
+    <summary>How do I enter Download Mode?</summary>
+    <p>Connect LOG_TX (PA7) to VCC, EN to GND, power on VCC, then disconnect LOG_TX.</p>
+  </div>
+  <div class="details">
+    <summary>Can I develop custom firmware?</summary>
+    <p>Yes, use the RTL8720DN SDK and our GitHub repository.</p>
+  </div>
+  <div class="details">
+    <summary>How do I get support?</summary>
+    <p>Join our Discord community for help and updates.</p>
+  </div>
 </section>
 
 <section id="firmware" class="section">
   <h2 class="glow-title flash-title">📱 Flash Firmware</h2>
-</section>
-<div class="glow-block">
-  <h3>Firmware Update</h3>
-  <p>Flash v1.2.3 using Chrome/Edge:</p>
-  <ol>
-    <li>Connect USB-C or serial (D0: PA8 RX, D1: PA7 TX).</li>
-    <li>Refresh ports, select LOG_UART.</li>
-    <li>Connect.</li>
-    <li>Download Mode: LOG_TX (PA7) to VCC, EN to GND, connect VCC, disconnect LOG_TX.</li>
-    <li>Erase flash if needed.</li>
-    <li>Flash .bin file.</li>
-    <li>Reset (EN to VCC).</li>
+  <div class="glow-block">
+    <h3>Firmware Update</h3>
+    <p>Update to v1.2.3 for optimal performance. Use Chrome/Edge:</p>
+    <ol>
+      <li>Connect via USB-C or serial (PA8 RX, PA7 TX).</li>
+      <li>Refresh ports and select LOG_UART.</li>
+      <li>Click Connect.</li>
+      <li>Enter Download Mode: LOG_TX (PA7) to VCC, EN to GND, connect VCC, disconnect LOG_TX.</li>
+      <li>Erase flash if needed.</li>
+      <li>Flash .bin file.</li>
+      <li>Reset (EN to VCC).</li>
     </ol>
-  <svg width="200" height="100" viewBox="0 0 100 200" style="max-width: 100%; margin: auto;10px auto; display: block;">
-    <rect x="50" y="20" width="100" height="60" width="40" fill="#111" height="2" stroke="#00eaff"></rect>
-    <text x="55" y="35" fill="#FFF" font-size="10">LOG_TX (PA7)</text>
-    <text x="55" y="45" fill="#FFF" font-size="10">EN</text>
-    <text x="55" y="60" fill="#FFF" font-size="10">GND/VCC</text>
-    <line x1="45" y1="30" x2="30" y2="30" stroke="#00eaff"></line>
-    <line x1="45" y1="45" x2="30" y2="45" stroke="#00eaff"></line>
-    <line x1="45" y1="60" x2="30" y2="60" stroke="#00eaff"></line>
+    <svg width="200" height="100" viewBox="0 0 200 100" style="max-width: 100%; margin: 10px auto; display: block;">
+      <rect x="50" y="20" width="100" height="60" fill="#111" stroke="#00eaff" stroke-width="2"/>
+      <text x="55" y="35" fill="white" font-size="10">LOG_TX (PA7)</text>
+      <text x="55" y="50" fill="white" font-size="10">EN</text>
+      <text x="55" y="65" fill="white" font-size="10">GND/VCC</text>
+      <line x1="45" y1="30" x2="30" y2="30" stroke="#00eaff"/>
+      <line x1="45" y1="45" x2="30" y2="45" stroke="#00eaff"/>
+      <line x1="45" y1="60" x2="30" y2="60" stroke="#00eaff"/>
     </svg>
     <div class="flasher-card">
       <select id="port-select" aria-label="Select port"></select>
-      <input type="file" id="firmware-upload" accept=".bin". type="checkbox" aria-label="Select firmware file">
-      <input type="text" class="ota-input" placeholder="Enter OTA IP" type="text" aria-label="OTA IP">
+      <input type="file" id="firmware-upload" accept=".bin" aria-label="Select firmware file">
+      <input type="text" class="ota-input" placeholder="Enter OTA IP" aria-label="OTA IP">
       <button class="flasher-button refresh" aria-label="Refresh ports">Refresh</button>
       <button class="flasher-button connect" aria-label="Connect to device">Connect</button>
-      <button class="flasher-button erase" id="disabled" aria-label="Erase flash">Erase</button>
-      </button class="flasher-button flash" id="disabled" aria-label="Flash firmware">Flash</button>
+      <button class="flasher-button erase" disabled aria-label="Erase flash">Erase</button>
+      <button class="flasher-button flash" disabled aria-label="Flash firmware">Flash</button>
       <button class="flasher-button ota" aria-label="Check OTA updates">OTA</button>
-      </div>
       <div class="progress-bar">
-        <div id="progress-fill"></div>
+        <div class="progress-fill"></div>
       </div>
       <p id="flasher-status">Click 'Refresh' to begin.</p>
       <div id="flasher-log"></div>
-      <p><a href="https://github.com/unnamedperson488/BlackHoleV1.0/wiki/Troubleshooting" target="_blank" href="https://github.com">Troubleshooting</a> | <a href="https://discord.com" target="_blank"> href="https://discord.gg/PdpuDvVD" aria-label="Discord">Link</a></p>
-      </div>
+      <p><a href="https://github.com/unnamedperson488/BlackHoleV1.0/wiki/Troubleshooting" target="_blank">Troubleshooting</a> | <a href="https://discord.gg/PdpuDvVD" target="_blank" aria-label="Discord">Discord</a></p>
     </div>
+  </div>
   <div class="glow-block">
     <h3>Version History</h3>
     <ul>
-      <li><strong>v1.2.3 (May 2025):</strong> WiFi and battery optimizations.</li>
-      <li><strong>v1.1.0 (Jan 2025):</strong> Initial OTA support.</li>
-      </ul>
-      <a href="https://github.com/unnamedperson488/BlackHoleV1.0/releases" target="_blank" class="github-button" href="https://github.com" aria-label="Firmware">Firmware Archive</a>
-    </div>
+      <li><strong>v1.2.3 (May 2025):</strong> Improved WiFi stability and battery life.</li>
+      <li><strong>v1.1.0 (Jan 2025):</strong> Added OTA update support.</li>
+      <li><strong>v1.0.0 (Nov 2024):</strong> Initial release.</li>
+    </ul>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0/releases" class="github-button" target="_blank" aria-label="Firmware archive">Firmware Archive</a>
+  </div>
   <div class="glow-block">
     <h3>Troubleshooting</h3>
     <ul>
-      <li><strong>No Port:</strong> Check USB-to-serial drivers.</li>
-      <li><strong>Flash Error:</strong> Verify Download Mode.</li>
-      </ul>
-    </div>
+      <li><strong>Port Not Detected:</strong> Ensure USB-to-serial drivers are installed.</li>
+      <li><strong>Flash Failed:</strong> Verify Download Mode connections.</li>
+      <li><strong>OTA Issues:</strong> Check WiFi connection and IP address.</li>
+    </ul>
+  </div>
+  <div class="glow-block">
+    <h3>OTA Setup</h3>
+    <p>Enable OTA updates:</p>
+    <ol>
+      <li>Connect device to WiFi via USB configuration.</li>
+      <li>Note the device’s IP address.</li>
+      <li>Enter IP in the OTA field and click “OTA.”</li>
+    </ol>
+  </div>
 </section>
 
 <footer>
-  <footer>
-    <p>© 2025 unnamedperson488.</p>
-    <p>
-      <a href="mailto:contact@blackholev1.com">Email</a> |
-      <a href="/privacy">Privacy</a> |
-      <a href="/terms">Terms</a>
-    </div>
+  <p>© 2025 unnamedperson488. All rights reserved.</p>
+  <p>
+    <a href="mailto:contact@blackholev1.com">Email</a> |
+    <a href="/privacy">Privacy</a> |
+    <a href="/terms">Terms</a>
+  </p>
 </footer>
-</section>
+
 </body>
 </html>
