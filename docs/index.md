@@ -24,14 +24,12 @@
       --text-color: #e0e0e0;
       --shadow-glow: 0 0 10px rgba(0, 234, 255, 0.4);
     }
-
     [data-theme="light"] {
       --bg-color: #f5f5f5;
       --card-bg: rgba(255, 255, 255, 0.9);
       --text-color: #333;
       --shadow-glow: 0 0 10px rgba(0, 234, 255, 0.2);
     }
-
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
@@ -43,7 +41,6 @@
       overflow-x: hidden;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
-
     #boot-screen {
       position: fixed;
       top: 0;
@@ -59,12 +56,10 @@
       opacity: 1;
       transition: opacity 0.5s ease;
     }
-
     #boot-screen.hidden {
       opacity: 0;
       pointer-events: none;
     }
-
     .boot-logo {
       font-size: 2.5rem;
       color: var(--primary-color);
@@ -72,7 +67,6 @@
       animation: pulse 1.5s infinite;
       margin-bottom: 20px;
     }
-
     .boot-progress {
       width: 200px;
       height: 10px;
@@ -82,14 +76,12 @@
       overflow: hidden;
       margin-bottom: 20px;
     }
-
     .boot-progress-fill {
       width: 0;
       height: 100%;
       background: var(--accent-color);
-      transition: width 5s linear;
+      transition: width 0.3s ease;
     }
-
     .start-button {
       width: 120px;
       height: 40px;
@@ -104,39 +96,32 @@
       box-shadow: var(--shadow-glow);
       transition: all 0.3s ease;
     }
-
     .start-button:hover {
       background: rgba(0, 234, 255, 0.2);
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(0, 234, 255, 0.7);
       animation: neon-flicker 0.5s ease-in-out;
     }
-
     .start-button:active, .start-button.pulse {
       animation: glow-burst 0.2s;
     }
-
     .start-button:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
-
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
     }
-
     @keyframes neon-flicker {
       0%, 100% { box-shadow: 0 0 10px var(--primary-color); }
       50% { box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--primary-color); }
     }
-
     @keyframes glow-burst {
       0% { box-shadow: 0 0 10px var(--primary-color); }
       50% { box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color); }
       100% { box-shadow: 0 0 10px var(--primary-color); }
     }
-
     .stars, .twinkling, .clouds {
       position: fixed;
       top: 0;
@@ -147,36 +132,29 @@
       opacity: 0;
       transition: opacity 1s ease;
     }
-
     .stars.loaded, .twinkling.loaded, .clouds.loaded {
       opacity: 1;
     }
-
     .stars {
       background: var(--bg-color) url('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/stars.png') repeat top center;
     }
-
     .twinkling {
       background: transparent url('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/twinkling.png') repeat top center;
       animation: move-twink-back 200s linear infinite;
     }
-
     .clouds {
       background: transparent url('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/clouds.png') repeat top center;
       animation: move-clouds-back 200s linear infinite;
       opacity: 0.5;
     }
-
     @keyframes move-twink-back {
       from { background-position: 0 0; }
       to { background-position: -10000px 5000px; }
     }
-
     @keyframes move-clouds-back {
       from { background-position: 0 0; }
       to { background-position: 10000px 0; }
     }
-
     .loading-spinner {
       position: fixed;
       top: 50%;
@@ -189,19 +167,16 @@
       height: 40px;
       animation: spin 1s linear infinite;
       z-index: 9999;
-      opacity: 1;
+      opacity: 0;
       transition: opacity 0.5s ease;
     }
-
-    .loading-spinner.hidden {
-      opacity: 0;
+    .loading-spinner.visible {
+      opacity: 1;
     }
-
     @keyframes spin {
       0% { transform: translate(-50%, -50%) rotate(0deg); }
       100% { transform: translate(-50%, -50%) rotate(360deg); }
     }
-
     .wrapper {
       width: 100%;
       background: var(--card-bg);
@@ -213,11 +188,9 @@
       backdrop-filter: blur(5px);
       display: none;
     }
-
     .wrapper.visible {
       display: block;
     }
-
     .text {
       display: flex;
       justify-content: center;
@@ -228,7 +201,6 @@
       padding: 5px 0;
       box-shadow: var(--shadow-glow);
     }
-
     .name {
       font-size: 2.5rem;
       color: var(--primary-color);
@@ -238,18 +210,15 @@
       margin: 0;
       padding: 10px 0;
     }
-
     .nav-wrapper {
       display: flex;
       justify-content: center;
       padding: 10px 0;
       display: none;
     }
-
     .nav-wrapper.visible {
       display: flex;
     }
-
     .card.nav-card {
       width: 100%;
       max-width: 900px;
@@ -260,7 +229,6 @@
       box-shadow: var(--shadow-glow);
       backdrop-filter: blur(5px);
     }
-
     .card.nav-card .list {
       list-style: none;
       display: flex;
@@ -271,7 +239,6 @@
       margin: 0;
       justify-content: center;
     }
-
     .card.nav-card .list .element {
       flex: 1;
       min-width: 100px;
@@ -285,7 +252,6 @@
       transition: all 0.3s ease;
       outline: none;
     }
-
     .card.nav-card .list .element:hover {
       background: rgba(0, 234, 255, 0.2);
       color: var(--primary-color);
@@ -293,16 +259,13 @@
       box-shadow: var(--shadow-glow);
       animation: neon-flicker 0.5s ease-in-out;
     }
-
     .card.nav-card .list .element:active, .card.nav-card .list .element.pulse {
       animation: glow-burst 0.2s;
     }
-
     .card.nav-card .list .element .label {
       font-size: 0.938rem;
       font-weight: 600;
     }
-
     .card.product-card {
       width: 100%;
       max-width: 250px;
@@ -317,12 +280,10 @@
       color: inherit;
       backdrop-filter: blur(5px);
     }
-
     .product-card:hover {
       transform: scale(1.05);
       box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
     }
-
     .product-card__img {
       width: 100%;
       height: 150px;
@@ -331,24 +292,20 @@
       border-radius: 10px 10px 0 0;
       loading: lazy;
     }
-
     .product-card__content {
       padding: 10px;
       text-align: center;
     }
-
     .product-card__content h3 {
       font-size: 1.2rem;
       color: var(--primary-color);
       margin: 0 0 5px;
     }
-
     .product-card__content p {
       font-size: 0.9rem;
       color: var(--text-color);
       margin: 0;
     }
-
     .product-info {
       width: 100%;
       max-width: 600px;
@@ -360,30 +317,25 @@
       margin: 20px auto;
       backdrop-filter: blur(5px);
     }
-
     .product-info h4 {
       font-size: 1.4rem;
       color: var(--primary-color);
       margin: 0 0 10px;
     }
-
     .product-info ul {
       list-style: none;
       padding: 0;
       margin: 0 0 20px;
     }
-
     .product-info li {
       font-size: 0.938rem;
       color: var(--accent-color);
       margin-bottom: 8px;
     }
-
     .product-info li span.key {
       color: var(--text-color);
       font-weight: 600;
     }
-
     .social-media-button, .github-button, .new-discord-button, .flasher-button, .simulator-button, .newsletter-button {
       width: 140px;
       height: 40px;
@@ -403,24 +355,20 @@
       transition: all 0.3s ease;
       text-decoration: none;
     }
-
     .social-media-button:hover, .github-button:hover, .new-discord-button:hover, .flasher-button:hover, .simulator-button:hover, .newsletter-button:hover {
       background: rgba(0, 234, 255, 0.2);
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(0, 234, 255, 0.7);
       animation: neon-flicker 0.5s ease-in-out;
     }
-
     .social-media-button:active, .github-button:active, .new-discord-button:active, .flasher-button:active, .simulator-button:active, .newsletter-button:active,
     .social-media-button.pulse, .github-button.pulse, .new-discord-button.pulse, .flasher-button.pulse, .simulator-button.pulse, .newsletter-button.pulse {
       animation: glow-burst 0.2s;
     }
-
-    .social-media-button:disabled, .flasher-button:disabled {
+    .social-media-button:disabled, .flasher-button:disabled, .simulator-button:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
-
     .social-media-buttons {
       display: flex;
       justify-content: center;
@@ -428,7 +376,6 @@
       flex-wrap: wrap;
       margin: 20px 0;
     }
-
     .flasher-card {
       width: 100%;
       max-width: 500px;
@@ -441,7 +388,6 @@
       text-align: center;
       backdrop-filter: blur(10px);
     }
-
     #port-select, #firmware-upload, .ota-input, #newsletter-input {
       width: 80%;
       max-width: 300px;
@@ -456,12 +402,10 @@
       box-shadow: var(--shadow-glow);
       transition: box-shadow 0.3s ease;
     }
-
     #port-select:focus, #firmware-upload:focus, .ota-input:focus, #newsletter-input:focus {
       outline: none;
       box-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
     }
-
     .progress-bar {
       width: 80%;
       height: 10px;
@@ -471,20 +415,17 @@
       margin: 15px auto;
       overflow: hidden;
     }
-
     .progress-fill {
       width: 0;
       height: 100%;
       background: var(--accent-color);
       transition: width 0.3s ease;
     }
-
     #flasher-status {
       font-size: 0.938rem;
       color: var(--text-color);
       margin: 10px 0;
     }
-
     #flasher-log {
       width: 80%;
       max-width: 300px;
@@ -498,7 +439,6 @@
       overflow-y: auto;
       text-align: left;
     }
-
     .section {
       display: none;
       padding: 20px;
@@ -509,18 +449,15 @@
       box-shadow: var(--shadow-glow);
       backdrop-filter: blur(10px);
     }
-
     .section.active {
       display: block;
     }
-
     .glow-title {
       font-size: 2rem;
       color: var(--primary-color);
       text-shadow: 0 0 5px var(--primary-color);
       margin-bottom: 20px;
     }
-
     .glow-block {
       border: 1px solid rgba(0, 234, 255, 0.2);
       padding: 15px;
@@ -530,18 +467,15 @@
       box-shadow: var(--shadow-glow);
       backdrop-filter: blur(5px);
     }
-
     .glow-block h3 {
       font-size: 1.4rem;
       color: var(--text-color);
       margin-bottom: 10px;
     }
-
     #discord-link {
       text-align: center;
       margin: 20px 0;
     }
-
     #discord-link a {
       color: #5865F2;
       font-weight: bold;
@@ -549,11 +483,9 @@
       font-size: 1rem;
       transition: color 0.3s ease;
     }
-
     #discord-link a:hover {
       color: #7289DA;
     }
-
     #faq-search {
       width: 100%;
       max-width: 600px;
@@ -566,12 +498,10 @@
       font-family: 'Orbitron', sans-serif;
       transition: box-shadow 0.3s ease;
     }
-
     #faq-search:focus {
       outline: none;
       box-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
     }
-
     .details {
       margin-bottom: 15px;
       padding: 10px;
@@ -581,7 +511,6 @@
       box-shadow: var(--shadow-glow);
       backdrop-filter: blur(5px);
     }
-
     summary {
       font-weight: 600;
       cursor: pointer;
@@ -589,7 +518,6 @@
       font-size: 1rem;
       outline: none;
     }
-
     .theme-toggle {
       position: fixed;
       top: 20px;
@@ -607,16 +535,9 @@
       transition: all 0.3s ease;
       display: none;
     }
-
     .theme-toggle.visible {
       display: flex;
     }
-
-    .theme-toggle:hover {
-      background: rgba(0, 234, 255, 0.2);
-      animation: neon-flicker 0.5s ease-in-out;
-    }
-
     .lang-switcher {
       position: fixed;
       top: 70px;
@@ -628,11 +549,9 @@
       box-shadow: var(--shadow-glow);
       display: none;
     }
-
     .lang-switcher.visible {
       display: block;
     }
-
     .lang-switcher select {
       background: none;
       border: none;
@@ -641,7 +560,6 @@
       font-size: 0.938rem;
       cursor: pointer;
     }
-
     footer {
       background: var(--card-bg);
       padding: 20px;
@@ -652,22 +570,18 @@
       backdrop-filter: blur(10px);
       display: none;
     }
-
     footer.visible {
       display: block;
     }
-
     footer a {
       color: var(--primary-color);
       text-decoration: none;
       margin: 0 10px;
       transition: color 0.3s ease;
     }
-
     footer a:hover {
       color: var(--accent-color);
     }
-
     .discord-widget {
       max-width: 500px;
       margin: 20px auto;
@@ -678,18 +592,16 @@
       box-shadow: var(--shadow-glow);
       backdrop-filter: blur(5px);
     }
-
     .simulator {
       background: #111;
       border: 2px solid var(--primary-color);
       border-radius: 10px;
       padding: 20px;
-      margin: 20px auto;
+      margin: 20px;
       text-align: center;
       box-shadow: var(--shadow-glow);
       backdrop-filter: blur(5px);
     }
-
     .video-container {
       position: relative;
       width: 100%;
@@ -699,7 +611,6 @@
       height: 0;
       overflow: hidden;
     }
-
     .video-container iframe {
       position: absolute;
       top: 0;
@@ -710,15 +621,12 @@
       border-radius: 8px;
       box-shadow: var(--shadow-glow);
     }
-
     .newsletter-form {
       display: flex;
       justify-content: center;
       gap: 10px;
       margin: 20px 0;
     }
-
-    /* Deauther Simulator UI */
     .deauther-simulator {
       display: none;
       background: var(--card-bg);
@@ -726,17 +634,15 @@
       border-radius: 8px;
       padding: 20px;
       margin: 20px auto;
-      max-width: 800px;
+      max-width: 900px;
       box-shadow: var(--shadow-glow);
       backdrop-filter: blur(10px);
       font-family: 'Orbitron', sans-serif;
       color: var(--text-color);
     }
-
     .deauther-simulator.active {
       display: block;
     }
-
     .deauther-simulator h1 {
       font-size: 1.8rem;
       color: var(--primary-color);
@@ -749,7 +655,6 @@
       background: rgba(17, 17, 17, 0.8);
       border-radius: 3px;
     }
-
     .deauther-simulator h2 {
       font-size: 1.2rem;
       color: var(--primary-color);
@@ -759,7 +664,6 @@
       border-radius: 3px;
       margin: 1rem 0;
     }
-
     .deauther-simulator h3 {
       font-size: 1.1rem;
       color: var(--primary-color);
@@ -770,53 +674,42 @@
       width: 50%;
       margin: 0 auto 1rem;
     }
-
     .deauther-simulator table {
       border-collapse: collapse;
       width: 100%;
       margin-bottom: 2em;
     }
-
     .deauther-simulator th, .deauther-simulator td {
       border-bottom: 1px solid rgba(0, 234, 255, 0.3);
-      padding: 10px 6px;
+      padding: 10px;
       text-align: left;
     }
-
     .deauther-simulator .tdFixed {
       text-align: center;
     }
-
     .deauther-simulator .tdMeter {
       padding-right: 10px;
     }
-
     .deauther-simulator .meter_background {
       background: #111;
       width: 100%;
     }
-
     .deauther-simulator .meter_foreground {
-      color: var(--text-color);
+      background: var(--text-color);
       padding: 4px 0;
     }
-
-    .deauther-simulator .meter_green {
+    .deauther-meter_green {
       background: var(--accent-color);
     }
-
-    .deauther-simulator .meter_orange {
+    .meter_orange {
       background: #FAA61A;
     }
-
-    .deauther-simulator .meter_red {
+    .meter_red {
       background: #F04747;
     }
-
-    .deauther-simulator .meter_value {
+    .meter_value {
       padding-left: 8px;
     }
-
     .deauther-simulator .checkBoxContainer {
       position: relative;
       padding-left: 25px;
@@ -827,13 +720,11 @@
       height: 32px;
       display: block;
     }
-
     .deauther-simulator .checkBoxContainer input {
       position: absolute;
       opacity: 0;
       cursor: pointer;
     }
-
     .deauther-simulator .checkmark {
       position: absolute;
       top: 8px;
@@ -844,7 +735,6 @@
       border: 2px solid var(--primary-color);
       border-radius: 4px;
     }
-
     .deauther-simulator .checkBoxContainer input:checked ~ .checkmark:after {
       content: "";
       position: absolute;
@@ -857,21 +747,18 @@
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
     }
-
     .deauther-simulator .button-container {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      column-gap: 15px;
+      column-gap: 8px;
       margin: 10px 0;
     }
-
     .deauther-simulator .button-double {
       display: flex;
       flex-direction: column;
-      row-gap: 15px;
+      row-gap: 12px;
     }
-
     .deauther-simulator input[type=submit] {
       width: 140px;
       height: 40px;
@@ -889,18 +776,15 @@
       text-align: center;
       line-height: 40px;
     }
-
     .deauther-simulator input[type=submit]:hover {
       background: rgba(0, 234, 255, 0.2);
       transform: scale(1.05);
       box-shadow: 0 0 15px rgba(0, 234, 255, 0.7);
       animation: neon-flicker 0.5s ease-in-out;
     }
-
     .deauther-simulator input[type=submit]:active {
       animation: glow-burst 0.2s;
     }
-
     .deauther-simulator input[type=text] {
       width: 138px;
       height: 40px;
@@ -912,17 +796,14 @@
       font-family: 'Orbitron', sans-serif;
       text-align: center;
     }
-
     .deauther-simulator .right {
       display: flex;
       flex-direction: row-reverse;
     }
-
     .deauther-simulator .centered {
       display: flex;
       justify-content: center;
     }
-
     @media (max-width: 768px) {
       .name { font-size: 2rem; }
       .section { padding: 15px; margin: 0 10px 20px; }
@@ -941,8 +822,8 @@
       .deauther-simulator h2 { font-size: 1rem; }
       .deauther-simulator h3 { font-size: 0.875rem; width: 80%; }
       .deauther-simulator table { font-size: 0.875rem; }
-      .deauther-simulator .button, .deauther-simulator input[type=submit] { width: 120px; height: 35px; font-size: 0.875rem; }
-      .deauther-simulator input[type= text] { width: 120px; }
+      .deauther-simulator input[type=submit] { width: 120px; height: 35px; font-size: 0.875rem; }
+      .deauther-simulator input[type=text] { width: 120px; }
     }
   </style>
 </head>
@@ -952,13 +833,12 @@
     <div class="boot-progress" style="display: none;">
       <div class="boot-progress-fill"></div>
     </div>
-    <button class="start-button" aria-label="Start loading">Start</button>
+    <button class="start-button" aria-label="Start loading" data-target-section="#about">Start</button>
   </div>
-
+  <div class="loading-spinner"></div>
   <div class="stars"></div>
   <div class="twinkling"></div>
   <div class="clouds"></div>
-
   <div class="theme-toggle" aria-label="Toggle theme">🌑</div>
   <div class="lang-switcher">
     <select class="lang-select" aria-label="Select language">
@@ -966,31 +846,27 @@
       <option value="es">Español</option>
     </select>
   </div>
-
   <div class="wrapper">
     <div class="text">
-      <h1 class="header class="name">UNNAMEDPERSON</h1>
+      <h1 class="name">UNNAMEDPERSON</h1>
     </div>
   </div>
-
   <div class="nav-wrapper">
     <div class="card nav-card">
-      <div class="nav">
-        <nav>
-          <ul class="list">
-            <li class="element" tabindex="0" onclick="showSection('#home')"><span class="label nav-label">Home</span></li>
-            <li class="element" tabindex="0" onclick="showSection('#product')"><span class="label nav-label">Product</span></li>
-            <li class="element" tabindex="0" onclick="showSection('#media')"><span class="label nav-label">Media</span></li>
-            <li class="element" tabindex="0" onclick="showSection('#demos')"><span class="label nav-label">Community</span></li>
-            <li class="element" tabindex="0" onclick="showSection('#about')"><span class="label nav-label">About</span></li>
-            <li class="element" tabindex="0" onclick="showSection('#faq')"><span class="label nav-label">FAQ</span></li>
-            <li class="element" tabindex="0" onclick="showSection('#firmware')"><span class="label nav-label">Firmware</span></li>
-          </ul>
-        </nav>
-      </div>
+      <nav>
+        <ul class="list">
+          <li class="element" tabindex="0" onclick="showSection('#home')"><span class="label nav-label">Home</span></li>
+          <li class="element" tabindex="0" onclick="showSection('#product')"><span class="label nav-label">Product</span></li>
+          <li class="element" tabindex="0" onclick="showSection('#media')"><span class="label nav-label">Media</span></li>
+          <li class="element" tabindex="0" onclick="showSection('#demos')"><span class="label nav-label">Community</span></li>
+          <li class="element" tabindex="0" onclick="showSection('#about')"><span class="label nav-label">About</span></li>
+          <li class="element" tabindex="0" onclick="showSection('#faq')"><span class="label nav-label">FAQ</span></li>
+          <li class="element" tabindex="0" onclick="showSection('#firmware')"><span class="label nav-label">Firmware</span></li>
+        </ul>
+      </nav>
     </div>
-
-  <section id="home" class="section active">
+  </div>
+  <section id="home" class="section">
     <h2 class="glow-title" id="home-title">🌌 Welcome to Black Hole V1.0</h2>
     <p>An open-source platform for wireless testing and cybersecurity exploration.</p>
     <div class="glow-block">
@@ -1008,7 +884,7 @@
       <h3>Stay Updated</h3>
       <form id="newsletter-form" class="newsletter-form">
         <input type="email" id="newsletter-input" placeholder="Enter your email" aria-label="Newsletter email" required>
-        <button type="submit" class="newsletter-button" aria-label="Subscribe">Subscribe</button>
+        <button type="submit" class="newsletter-button">Subscribe</button>
       </form>
     </div>
     <div class="social-media-buttons">
@@ -1017,13 +893,12 @@
       <a href="https://tiktok.com/@unnamedperson488" class="social-media-button" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i> TikTok</a>
     </div>
   </section>
-
   <section id="product" class="section">
     <h2 class="glow-title">📦 Product</h2>
     <div class="glow-block">
       <h3>Black Hole V1.0</h3>
-      <a href="#" onclick="showSection('#blackHole'); return false;" class="product-card" aria-label="View Black Hole V1.0">
-        <img src="https://via.placeholder.com/250x150?text=Black+Hole+V1.0" alt="Black Hole V1.0" class="product-card__img" width="250" height="150">
+      <a href="#" onclick="showSection('#blackHole'); return false;" class="product-card">
+        <img src="https://via.placeholder.com/250x150?text=Black+Hole+V1.0" alt="Black Hole V1.0" class="product-card__img">
         <div class="product-card__content">
           <h3>Black Hole V1.0</h3>
           <p>$149</p>
@@ -1031,7 +906,6 @@
       </a>
     </div>
   </section>
-
   <section id="blackHole" class="section">
     <h2 class="glow-title">📱 Black Hole V1.0</h2>
     <div class="glow-block">
@@ -1050,35 +924,33 @@
         </ul>
         <h4>Specifications</h4>
         <ul>
-            <li><span class="key">MCU:</span> RTL8720DN (Dual-Core)</li>
-            <li><span class="key">Connectivity:</span> WiFi 802.11 a/b/g/n</li>
-            <li><span class="key">Memory:</span> 4MB Flash</li>
-            <li><span class="key">Dimensions:</span> 75x50x15mm</li>
-            <li><span class="key">Weight:</span> 50g</li>
-          </ul>
-          <h4>Use Cases</h4>
-          <ul>
-            <li>Ethical WiFi network testing</li>
-            <li>IoT device prototyping</li>
-            <li>Learning wireless protocols</li>
-          </ul>
-          <h4>Package Includes</h4>
-          <ul>
-            <li>Black Hole V1.0 device</li>
-            <li>2x SMA</li>
-            <li>USB-C cable</li>
-            <li>Quick start guide</li>
-          </ul>
-        </div>
-        <div id="discord-link">
-          <a href="https://discord.gg/PdpuDvVD" class="new-discord-button" target="_blank" aria-label="Join Discord">
-            <i class="fab fa-discord"></i> Join Discord
-          </a>
-        </div>
+          <li><span class="key">MCU:</span> RTL8720DN (Dual-Core)</li>
+          <li><span class="key">Connectivity:</span> WiFi 802.11 a/b/g/n</li>
+          <li><span class="key">Memory:</span> 4MB Flash</li>
+          <li><span class="key">Dimensions:</span> 75x50x15mm</li>
+          <li><span class="key">Weight:</span> 50g</li>
+        </ul>
+        <h4>Use Cases</h4>
+        <ul>
+          <li>Ethical WiFi network testing</li>
+          <li>IoT device prototyping</li>
+          <li>Learning wireless protocols</li>
+        </ul>
+        <h4>Package Includes</h4>
+        <ul>
+          <li>Black Hole V1.0 device</li>
+          <li>2x SMA antennas</li>
+          <li>USB-C cable</li>
+          <li>Quick start guide</li>
+        </ul>
+      </div>
+      <div id="discord-link">
+        <a href="https://discord.gg/PdpuDvVD" class="new-discord-button" target="_blank" aria-label="Join Discord">
+          <i class="fab fa-discord"></i> Join Discord
+        </a>
       </div>
     </div>
   </section>
-
   <section id="media" class="section">
     <h2 class="glow-title">📸 Media</h2>
     <div class="glow-block">
@@ -1107,7 +979,6 @@
       <a href="https://tiktok.com/@unnamedperson488" class="social-media-button" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i> TikTok</a>
     </div>
   </section>
-
   <section id="demos" class="section">
     <h2 class="glow-title">🤝 Community</h2>
     <div class="glow-block">
@@ -1129,53 +1000,60 @@
         <button id="simulator-button" class="simulator-button" aria-label="Toggle Deauther simulator">Toggle Simulator</button>
         <div id="deauther-simulator" class="deauther-simulator">
           <div class="container">
-            <h1 class="bold">Black Hole V1.0 Deauther</h1>
+            <h1>Black Hole V1.0 Deauther</h1>
             <div class="right">
               <div class="button-container">
-                <form method="post" action="#">
+                <form method="post">
                   <input type="submit" value="Rescan Network" disabled aria-label="Rescan Network">
                 </form>
-                <form method="post" action="#">
+                <form method="post">
                   <input type="submit" value="Refresh page" disabled aria-label="Refresh page">
-                </div>
+                </form>
               </div>
-            </form>
+            </div>
             <div class="right">
-              <form method="post" action="#">
+              <form method="post">
                 <div class="button-container">
-                  <input type="submit" value="Start Attack!" disabled aria-label="Start Attack">
+                  <input type="submit" value="Start Attack" disabled aria-label="Start Attack">
                 </div>
               </form>
             </div>
             <div class="right">
-              <form method="post" action="#">
+              <form method="post">
                 <div class="button-container">
                   <input type="submit" value="Stop" disabled aria-label="Stop Attack">
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
             <h2>Dashboard</h2>
             <table>
               <tr><th>State</th><th>Current Value</th></tr>
               <tr><td>Status Attack</td><td>Stopped</td></tr>
-              <tr><td>tLED Enabled</td><td>Enabled</td></tr>
-              <tr><td>Frame Sent</td><td>t0</td></tr>
-              <tr><td>Send Delay</td></td>5</td></tr>
-              <tr><td>tNumber of frames send each time</td><td>t5</td></tr>
+              <tr><td>LED Enabled</td><td>Enabled</td></tr>
+              <tr><td>Frame Sent</td><td>0</td></tr>
+              <tr><td>Send Delay</td><td>5</td></tr>
+              <tr><td>Number of frames send each time</td><td>5</td></tr>
+            </table>
+            <h2>2.4GHz</h2>
+            <table>
+              <tr><th>SSID</th><th>RSSI</th><th>Channel</th></tr>
+              <tr><td>Network1</td><td class="tdMeter"><div class="meter_background"><div class="meter_foreground deauther-meter_green" style="width: 60%;"></div></div><div class="meter_value">-60 dBm</div></td><td class="tdFixed">1</td></tr>
+              <tr><td>Network2</td><td class="tdMeter"><div class="meter_background"><div class="meter_foreground meter_orange" style="width: 40%;"></div></div><div class="meter_value">-80 dBm</div></td><td class="tdFixed">6</td></tr>
+              <tr><td>Network3</td><td class="tdMeter"><div class="meter_background"><div class="meter_foreground meter_red" style="width: 75%;"></div></div><div class="meter_value">-45 dBm</div></td><td class="tdFixed">11</td></tr>
             </table>
             <h2>Setup</h2>
             <div class="right">
               <div class="button-double">
-                <form method="post" action="#">
+                <form method="post">
                   <div class="button-container">
                     <input class="longInput" type="text" name="frames" placeholder="Number of frames" disabled>
                     <input type="submit" value="Set frames" disabled aria-label="Set frames">
                   </div>
                 </form>
-                <form method="post" action="#">
+                <form method="post">
                   <div class="button-container">
                     <input class="longInput" type="text" name="delay" placeholder="Send delay" disabled>
-                    <input type="submit" value="Set delay" disabled aria-label="Set delay">
+                    <input type="submit" value="Submit" disabled aria-label="Update delay">
                   </div>
                 </form>
               </div>
@@ -1183,198 +1061,214 @@
             <h2>LED Options</h2>
             <div class="right">
               <div class="button-container">
-                <form method="post" action="#">
+                <form method="post">
                   <input type="submit" value="Turn on LED" disabled aria-label="Turn on LED">
                 </form>
-                <form method="post" action="#">
+                <form method="post">
                   <input type="submit" value="Turn off LED" disabled aria-label="Turn off LED">
-                </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-    <section id="about" class="section">
-      <h2 class="glow-title">🔭 About</h2>
-      <div class="glow-block">
-        <p>Black Hole V1.0 is an open-source project by unnamedperson488 to support wireless testing and learning.</p>
-        <a href="https://github.com/unnamedperson488/BlackHoleV1.0" class="github-button" target="_blank" aria-label="Contribute on GitHub">
-          <i class="fab fa-github"></i> Contribute on GitHub
-        </a>
-      </div>
-    </section>
-
-    <section id="faq" class="section">
-      <h2 class="glow-title">❓ FAQ</h2>
-      <input type="text" id="faq-search" placeholder="Search FAQs..." aria-label="Search FAQs">
-      <div class="details">
-        <summary>What is Black Hole V1.0?</summary>
-        <p>An open-source wireless testing tool for cybersecurity and IoT applications.</p>
-      </div>
-      <div class="details">
-        <summary>Is it legal to use?</summary>
-        <p>Yes, for ethical hacking and testing within legal boundaries.</p>
-      </div>
-      <div class="details">
-        <summary>How do I enter Download Mode?</summary>
-        <p>Connect LOG to VCC, EN to GND, power on VCC, then disconnect LOG.</p>
-      </div>
-      <div class="details">
-        <summary>Can I develop custom firmware?</summary>
-        <p>Yes, use the RTL8720DN SDK and our GitHub repository.</p>
-      </div>
-      <div class="details">
-        <summary>How do I get support?</summary>
-        <p>Join our Discord community for help and updates.</p>
-      </div>
-    </section>
-
-    <section id="firmware" class="section">
-      <h2 class="glow-title flash-title">📱 Flash Firmware</h2>
-      <div class="glow-block">
-        <h3>Firmware Update</h3>
-        <p>Update to v1.2.3 for optimal performance. Use Chrome/Edge:</p>
-        <ol>
-          <li>Connect via USB-C or serial.</li>
-          <li>Refresh ports and select USB.</li>
-          <li>Click Connect.</li>
-          <li>Enter Flash Mode.</li>
-          <li>Erase flash if needed.</li>
-          <li>Flash .bin file.</li>
-          <li>Reset.</li>
-        </ol>
-        <svg width="200" height="100" viewBox="0 0 200 100" style="max-width: 100%; margin: 10px auto; display: block;">
-          <rect x="50" y="20" width="100" height="60" fill="#111" stroke="#00eaff" stroke-width="2"/>
-          <text x="55" y="35" fill="#fff" font-size="10">Log</text>
-          <text x="55" y="50" fill="#fff" font-size="10">EN</text>
-          <text x="55" y="65" fill="#fff" font-size="10">GND/VCC</text>
-          <line x1="45" y1="30" x2="30" y2="30" stroke="#00eaff"/>
-          <line x1="45" y1="45" x2="30" y2="45" stroke="#00eaff"/>
-          <line x1="45" y1="60" x2="30" y2="60" stroke="#00eaff"/>
-        </svg>
-        <div class="flasher-card">
-          <select id="port-select" aria-label="Select port"></select>
-          <input type="file" id="firmware-upload" accept=".bin" aria-label="Select firmware file">
-          <input type="text" class="ota-input" placeholder="Enter OTA IP" aria-label="OTA IP">
-          <button class="flasher-button refresh" aria-label="Refresh ports">Refresh</button>
-          <button class="flasher-button connect" aria-label="Connect to device">Connect</button>
-          <button class="flasher-button erase" disabled aria-label="Erase flash">Erase</button>
-          <button class="flasher-button flash" disabled aria-label="Flash firmware">Flash</button>
-          <button class="flasher-button ota" aria-label="Check OTA updates">OTA</button>
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
-          </div>
-          <p id="flasher-status">Click 'Refresh' to begin.</p>
-          <div id="flasher-log"></div>
-          <p><a href="https://github.com/unnamedperson488/BlackHoleV1.0/wiki/Troubleshooting" target="_blank">Troubleshooting</a> | <a href="https://discord.gg/PdpuDvVD" target="_blank" aria-label="Discord">Browse Discord</a></p>
+    </div>
+  </section>
+  <section id="about" class="section">
+    <h2 class="glow-title">🔭 About</h2>
+    <div class="glow-block">
+      <p>Black Hole V1.0 is an open-source project by unnamedperson488 to support wireless testing and learning.</p>
+      <a href="https://github.com/unnamedperson488/BlackHoleV1.0" class="github-button" target="_blank" aria-label="Contribute on GitHub">
+        <i class="fab fa-github"></i> Contribute on GitHub
+      </a>
+    </div>
+  </section>
+  <section id="faq" class="section">
+    <h2 class="glow-title">❓ FAQ</h2>
+    <input type="text" id="faq-search" placeholder="Search FAQs..." aria-label="Search FAQs">
+    <div class="details">
+      <summary>What is Black Hole V1.0?</summary>
+      <p>An open-source wireless testing tool for cybersecurity and IoT applications.</p>
+    </div>
+    <div class="details">
+      <summary>Is it legal to use?</summary>
+      <p>Yes, for ethical hacking and testing within legal boundaries.</p>
+    </div>
+    <div class="details">
+      <summary>How do I enter Download Mode?</summary>
+      <p>Connect LOG to VCC, EN to GND, power on VCC, then disconnect LOG.</p>
+    </div>
+    <div class="details">
+      <summary>Can I develop custom firmware?</summary>
+      <p>Yes, use the RTL8720 SDK and our GitHub repository.</p>
+    </div>
+    <div class="details">
+      <summary>How do I get support?</summary>
+      <p>Join our Discord community for help and updates.</p>
+    </div>
+  </section>
+  <section id="firmware" class="section">
+    <h2 class="glow-title flash-title">📱 Flash Firmware</h2>
+    <div class="glow-block">
+      <h3>Firmware Update</h3>
+      <p>Update to v1.2.3 for optimal performance. Use Chrome/Edge:</p>
+      <ol>
+        <li>Connect via USB-C or serial.</li>
+        <li>Refresh ports and select USB.</li>
+        <li>Click Connect to flash.</li>
+        <li>Enter Flash Mode.</li>
+        <li>Erase flash if needed.</li>
+        <li>Flash .bin file.</li>
+        <li>Reset.</li>
+      </ol>
+      <svg width="200" height="100" viewBox="0 0 200 100" style="width: 50%; max-width: 100%; margin: 10px auto; display: block;">
+        <rect x="50" y="20" width="100" height="60" fill="#111" stroke="#00eaff" stroke-width="2"/>
+        <text x="55" y="35" fill="#ffffff" font-size="10">Log</text>
+        <text x="55" y="50" fill="#ffffff" font-size="10">EN</text>
+        <text x="55" y="65" fill="#ffffff" font-size="10">GND/VCC</text>
+        <line x1="45" y1="30" x2="30" y2="30" stroke="#00eaff"/>
+        <line x1="45" y1="45" x2="30" y2="45" stroke="#00eaff"/>
+        <line x1="45" y1="60" x2="30" y2="60" stroke="#00eaff"/>
+      </svg>
+      <div class="flasher-card">
+        <select id="port-select" aria-label="Select port"></select>
+        <input type="file" id="firmware-upload" accept=".bin" aria-label="Upload firmware">
+        <input type="text" class="ota-input" placeholder="Enter OTA IP" aria-label="OTA IP">
+        <button class="flasher-button refresh" aria-label="Refresh ports">Refresh</button>
+        <button class="flasher-button connect" aria-label="Connect to port">Connect</button>
+        <button class="flasher-button erase" disabled aria-label="Erase flash">Erase</button>
+        <button class="flasher-button flash" disabled aria-label="Flash firmware">Flash</button>
+        <button class="flasher-button ota" aria-label="OTA update">OTA</button>
+        <div class="progress-bar">
+          <div class="progress-fill"></div>
         </div>
+        <p id="flasher-status">Click 'Refresh' to begin.</p>
+        <div id="flasher-log"></div>
+        <p><a href="https://github.com/SelfMadeSystem/selfFlash/blob/main/docs/Troubleshooting.md" target="_blank">Troubleshooting</a> | <a href="https://discord.gg/PdpuDvVD" target="_blank">Browse Discord</a></p>
       </div>
-      <div class="glow-block">
-        <h3>Version History</h3>
-        <ul>
-          <li><strong>v1.2.3 (May 2025):</strong> Improved WiFi stability and battery life.</li>
-          <li><strong>v1.1.0 (Jan 2025):</strong> Added OTA support.</li>
-          <li><strong>v1.0.0 (Nov 2024):</strong> Initial release.</li>
-        </ul>
-        <a href="https://github.com/unnamedperson488/BlackHoleV1.0/releases" class="github-button" target="_blank" aria-label="Firmware downloads">Firmware Downloads</a>
-      </div>
-      <div class="glow-block">
-        <h3>Troubleshooting</h3>
-        <ul>
-          <li><strong>Port Not Detected:</strong> Ensure USB drivers are installed.</li>
-          <li><strong>Flash Failed:</strong> Verify Download Mode connections.</li>
-          <li><strong>OTA Issues:</strong> Check WiFi connection and IP address.</li>
-        </ul>
-      </div>
-      <div class="glow-block">
-        <h3>OTA Setup</h3>
-        <p>Enable OTA updates:</p>
-        <ol>
-          <li>Connect device to WiFi via USB configuration.</li>
-          <li>Note the device’s IP address.</li>
-          <li>Enter IP in the OTA field and click “OTA.”</li>
-        </ol>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2025 unnamedperson488. All rights reserved.</p>
-      <p>
-        <a href="https://github.com/unnamedperson488" target="_blank" aria-label="GitHub">GitHub</a> |
-        <a href="https://discord.gg/PdpuDvVD" target="_blank" aria-label="Discord">Discord</a> |
-        <a href="mailto:support@blackholev1.org" aria-label="Email support">Contact</a>
-      </p>
-    </footer>
-
-    <script>
-      // Boot Animation
-      window.addEventListener('load', () => {
-        const bootScreen = document.querySelector('#boot-screen');
-        const bootProgress = document.querySelector('.boot-progress-fill');
-        const startButton = document.querySelector('.start-button');
-        const backgrounds = document.querySelectorAll('.stars, .twinkling, .clouds');
-        const spinner = document.querySelector('.loading-spinner') || document.createElement('div');
-        spinner.classList.add('loading-spinner');
-        document.body.appendChild(spinner);
-        const wrapper = document.querySelector('.wrapper');
-        const navWrapper = document.querySelector('.nav-wrapper');
-        const themeToggle = document.querySelector('.theme-toggle');
-        const langSwitcher = document.querySelector('.lang-switcher');
-        const footer = document.querySelector('footer');
-
-        const loadImage = (url) => new Promise(resolve => {
-          const img = new Image();
-          img.src = url;
-          img.onload = img.onerror = resolve;
-        });
-
-        startButton.addEventListener('click', () => {
-          startButton.disabled = true;
-          startButton.style.display = 'none';
-          bootProgress.parentElement.style.display = 'block';
-          spinner.classList.remove('hidden');
-
-          Promise.all([
-            loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/stars.png'),
-            loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/twinkling.png'),
-            loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/clouds.png')
-          ]).then(() => {
-            spinner.classList.add('hidden');
-            backgrounds.forEach(bg => bg.classList.add('loaded'));
-            bootProgress.style.width = '100%';
-            setTimeout(() => {
-              bootScreen.classList.add('hidden');
-              wrapper.classList.add('visible');
-              navWrapper.classList.add('visible');
-              document.querySelector('#home').classList.add('active');
-              themeToggle.classList.add('visible');
-              langSwitcher.classList.add('visible');
-              footer.classList.add('visible');
-            }, 500);
-          });
-        });
-      // Theme Toggle Switcher
+    </div>
+    <div class="glow-block">
+      <h3>Version History</h3>
+      <ul>
+        <li><strong>V1.2.3 (May 2025):</strong> Improved WiFi stability and battery life.</li>
+        <li><strong>V1.1.0 (Jan 2025):</strong> Added OTA support.</li>
+        <li><strong>V1.0.0 (Nov 2024):</strong> Initial release.</li>
+      </ul>
+      <a href="https://github.com/SelfMadeSystem/selfFlash/releases" class="github-button" target="_blank" aria-label="Firmware Downloads">
+        <i class="fab fa-github"></i> Firmware Downloads
+      </a>
+    </div>
+    <div class="glow-block">
+      <h3>Troubleshooting</h3>
+      <ul>
+        <li><strong>Port Not Detected:</strong> Ensure USB drivers are installed.</li>
+        <li><strong>Flash Failed:</strong> Verify Download Mode connections.</li>
+        <li><strong>OTA Issues:</strong> Check WiFi connection and IP address.</li>
+      </ul>
+    </div>
+    <div class="glow-block">
+      <h3>OTA Setup</h3>
+      <p>Enable OTA updates:</p>
+      <ol>
+        <li>Connect device to WiFi via USB configuration.</li>
+        <li>Note the OTA device IP.</li>
+        <li>Enter IP in the OTA field and click “OTA.”</li>
+      </ol>
+    </div>
+  </section>
+  <footer>
+    <p>© 2025 SelfMadeSystem. All rights reserved.</p>
+    <p>
+      <a href="https://github.com/SelfMadeSystem/selfFlash" target="_blank" aria-label="GitHub">GitHub</a> |
+      <a href="https://discord.gg/PdpuDvVD" target="_blank" aria-label="Discord">Discord</a> |
+      <a href="mailto:support@selfmadesystem.org" aria-label="Contact">Contact</a>
+    </p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const bootScreen = document.querySelector('#boot-screen');
+      const bootProgress = document.querySelector('.boot-progress');
+      const bootProgressFill = document.querySelector('.boot-progress-fill');
+      const startButton = document.querySelector('.start-button');
+      const backgrounds = document.querySelectorAll('.stars, .twinkling, .clouds');
+      const spinner = document.querySelector('.loading-spinner');
+      const wrapper = document.querySelector('.wrapper');
+      const navWrapper = document.querySelector('.nav-wrapper');
       const themeToggle = document.querySelector('.theme-toggle');
-      if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
+      const langSwitcher = document.querySelector('.lang-switcher');
+      const footer = document.querySelector('footer');
+      if (!bootScreen || !startButton || !bootProgress || !bootProgressFill || !wrapper || !navWrapper) {
+        console.error('Missing critical elements');
+        alert('Error: Critical UI elements not found. Check console.');
+        return;
+      }
+      const loadImage = (url) => new Promise((resolve) => {
+        const img = new Image();
+        img.src = url;
+        img.onload = img.onerror = () => resolve();
+      });
+      startButton.addEventListener('click', () => {
+        console.log('Start button clicked');
+        startButton.disabled = true;
+        startButton.style.display = 'none';
+        bootProgress.style.display = 'block';
+        spinner.classList.add('visible');
+        const targetSection = startButton.dataset.targetSection || '#home';
+        const loadProcess = async () => {
+          try {
+            console.log('Loading backgrounds...');
+            await Promise.allSettled([
+              loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/stars.png'),
+              loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/twinkling.png'),
+              loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/clouds.png')
+            ]);
+            console.log('Backgrounds processed');
+            bootProgressFill.style.width = '100%';
+            backgrounds.forEach(bg => bg.classList.add('loaded'));
+          } catch (error) {
+            console.error('Background load error:', error);
+            alert('Failed to load backgrounds, proceeding.');
+          }
+          bootScreen.classList.add('hidden');
+          spinner.classList.remove('visible');
+          wrapper.classList.add('visible');
+          navWrapper.classList.add('visible');
+          themeToggle.classList.add('visible');
+          langSwitcher.classList.add('visible');
+          footer.classList.add('visible');
+          showSection(targetSection);
+          console.log('Activated section:', targetSection);
+        };
+        const timeout = setTimeout(() => {
+          console.warn('Loading timeout');
+          bootScreen.classList.add('hidden');
+          spinner.classList.remove('visible');
+          wrapper.classList.add('visible');
+          navWrapper.classList.add('visible');
+          themeToggle.classList.add('visible');
+          langSwitcher.classList.add('visible');
+          footer.classList.add('visible');
+          showSection(targetSection);
+          alert('Loading timed out, proceeded to content.');
+        }, 10000);
+        loadProcess().finally(() => clearTimeout(timeout));
+      });
+      const themeToggleBtn = document.querySelector('.theme-toggle');
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
           const isDark = document.body.dataset.theme !== 'light';
           document.body.dataset.theme = isDark ? 'light' : 'dark';
           localStorage.setItem('theme', isDark ? 'light' : 'dark');
-          themeToggle.textContent = isDark ? '☀️' : '🌑';
+          themeToggleBtn.textContent = isDark ? '🌞' : '🌑';
         });
         const savedTheme = localStorage.getItem('theme') || 'dark';
         document.body.dataset.theme = savedTheme;
-        themeToggle.textContent = savedTheme === 'light' ? '🌑' : '☀️';
+        themeToggleBtn.textContent = savedTheme === 'light' ? '🌞' : '🌑';
       }
-
-      // Language Switcher
       const translations = {
         en: { home: 'Home', product: 'Product', media: 'Media', demos: 'Community', about: 'About', faq: 'FAQ', firmware: 'Firmware', welcome: 'Welcome to Black Hole V1.0', flash: 'Flash Firmware' },
         es: { home: 'Inicio', product: 'Producto', media: 'Medios', demos: 'Comunidad', about: 'Acerca', faq: 'Preguntas', firmware: 'Firmware', welcome: 'Bienvenido a Black Hole V1.0', flash: 'Actualizar Firmware' }
       };
-
       const langSelect = document.querySelector('.lang-select');
       if (langSelect) {
         langSelect.addEventListener('change', () => {
@@ -1383,23 +1277,24 @@
             const key = ['home', 'product', 'media', 'demos', 'about', 'faq', 'firmware'][i];
             el.textContent = translations[lang][key];
           });
-          document.querySelector('#home-title').textContent = translations[lang].welcome;
-          document.querySelector('.flash-title').textContent = translations[lang].flash;
+          document.querySelector('#home-title').textContent = `🌌 ${translations[lang].welcome}`;
+          document.querySelector('.flash-title').textContent = `📱 ${translations[lang].flash}`;
           localStorage.setItem('language', lang);
         });
         const savedLang = localStorage.getItem('language') || 'en';
         langSelect.value = savedLang;
         langSelect.dispatchEvent(new Event('change'));
       }
-
-      // Section Switching
-      function showSection(id) {
+      function showSection(sectionId) {
         document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
-        const target = document.querySelector(id);
-        if (target) target.classList.add('active');
+        const target = document.querySelector(sectionId);
+        if (target) {
+          target.classList.add('active');
+          console.log('Switched to section:', sectionId);
+        } else {
+          console.error('Section not found:', sectionId);
+        }
       }
-
-      // Web Flasher
       const portSelect = document.querySelector('#port-select');
       const refreshButton = document.querySelector('.flasher-button.refresh');
       const connectButton = document.querySelector('.flasher-button.connect');
@@ -1412,28 +1307,24 @@
       const statusText = document.querySelector('#flasher-status');
       const flasherLog = document.querySelector('#flasher-log');
       let selectedPort = null;
-
       function logMessage(msg) {
         flasherLog.innerHTML += `<p>${new Date().toLocaleTimeString()}: ${msg}</p>`;
         flasherLog.scrollTop = flasherLog.scrollHeight;
       }
-
       async function populatePorts() {
         if (!navigator.serial) {
-          statusText.textContent = 'Web Serial API not supported. Use Chrome/Edge.';
+          statusText.textContent = 'No USB Serial Support. Use Chrome/Edge.';
           logMessage('Browser not supported');
           [portSelect, refreshButton, connectButton, eraseButton, flashButton, otaButton].forEach(btn => btn.disabled = true);
           return;
         }
-
         try {
           const ports = await navigator.serial.getPorts();
           portSelect.innerHTML = '<option value="">Select Port</option>';
           ports.forEach((port, index) => {
-            const info = port.getInfo();
             const option = document.createElement('option');
             option.value = index;
-            option.text = `Port ${index + 1} (USB: ${info.usbVendorId || 'N/A'}:${info.usbProductId || 'N/A'})`;
+            option.text = `Port ${index + 1}`;
             portSelect.appendChild(option);
           });
           statusText.textContent = ports.length ? 'Select a port and click Connect.' : 'No ports detected.';
@@ -1443,7 +1334,6 @@
           logMessage(`Port error: ${error.message}`);
         }
       }
-
       if (refreshButton) {
         refreshButton.addEventListener('click', async (e) => {
           e.target.classList.add('pulse');
@@ -1453,26 +1343,22 @@
           setTimeout(() => e.target.classList.remove('pulse'), 200);
         });
       }
-
       if (connectButton) {
         connectButton.addEventListener('click', async (e) => {
           e.target.classList.add('pulse');
           const portIndex = parseInt(portSelect.value);
           if (isNaN(portIndex)) {
-            statusText.textContent = 'Please select a port';
+            statusText.textContent = 'Select a port';
             logMessage('No port selected');
             setTimeout(() => e.target.classList.remove('pulse'), 200);
             return;
           }
-
           try {
             const ports = await navigator.serial.getPorts();
             selectedPort = ports[portIndex];
-            if (!selectedPort) {
-              throw new Error('Invalid port selected');
-            }
+            if (!selectedPort) throw new Error('Invalid port');
             await selectedPort.open({ baudRate: 115200 });
-            statusText.textContent = 'Connected. Enter Download Mode (LOG_TX to VCC, EN to GND, then disconnect LOG_TX).';
+            statusText.textContent = 'Connected. Enter Download Mode (LOG to VCC, EN to GND, disconnect LOG)';
             logMessage('Connected to port');
             flashButton.disabled = false;
             eraseButton.disabled = false;
@@ -1487,114 +1373,107 @@
           }
         });
       }
-
       if (eraseButton) {
         eraseButton.addEventListener('click', async (e) => {
           e.target.classList.add('pulse');
           if (!selectedPort) {
             statusText.textContent = 'No device connected';
-            logMessage('No device for erase');
+            logMessage('No device connected');
             setTimeout(() => e.target.classList.remove('pulse'), 200);
             return;
           }
-
           statusText.textContent = 'Erasing flash...';
           eraseButton.disabled = true;
           progressFill.style.width = '0%';
-
           try {
-            logMessage('Erasing flash memory...');
-            await new Promise(resolve => setTimeout(resolve, 2000)));
+            logMessage('Erasing flash...');
+            await new Promise(resolve => setTimeout(resolve, 2000));
             progressFill.style.width = '100%';
-            statusText.textContent = 'Flash erased. Connect to port and flash new firmware.';
-            logMessage('Flash erased successfully');
+            statusText.textContent = 'Flash erased. Flash new firmware.';
+            logMessage('Flash erased');
             setTimeout(() => e.target.classList.remove('pulse'), 200);
           } catch (error) {
-            statusText.textContent = `Error erasing: ${error.message}`;
-            logMessage(`Erase failed: ${error.message}`);
-            progressFill.style.width = '0%';
+            statusText.textContent = `Erase error: ${error.message}`;
+            logMessage(`Erase error: ${error.message}`);
             eraseButton.disabled = false;
             setTimeout(() => e.target.classList.remove('pulse'), 200);
           }
         });
       }
-
       if (flashButton) {
         flashButton.addEventListener('click', async (e) => {
           e.target.classList.add('pulse');
           if (!selectedPort) {
             statusText.textContent = 'No device connected';
-            logMessage('No device for flashing');
+            logMessage('No device connected');
             setTimeout(() => e.target.classList.remove('pulse'), 200);
             return;
           }
-
           let firmware;
           if (firmwareUpload.files.length > 0) {
             const file = firmwareUpload.files[0];
             if (file.size > 1048576 || !file.name.endsWith('.bin')) {
-              statusText.textContent = 'Invalid firmware file (max 1MB, .bin only)';
+              statusText.textContent = 'Invalid firmware (max 1MB, .bin only)';
               logMessage('Invalid firmware');
               setTimeout(() => e.target.classList.remove('pulse'), 200);
               return;
             }
             firmware = await file.arrayBuffer();
-            logMessage(`Custom firmware uploaded: ${file.name}`);
+            logMessage(`Uploaded firmware: ${file.name}`);
           } else {
             statusText.textContent = 'Fetching official firmware...';
-            logMessage('Fetching official firmware');
-            const firmwareUrl = new URL('https://github.com/unnamedperson488/BlackHoleV1.0/releases/download/v1.2.3/firmware-v1.2.3.bin');
-            const response = await fetch(firmwareUrl);
-            if (!response.ok) throw new Error('Failed to fetch firmware');
-            firmware = await response.arrayBuffer();
-            logMessage('Official firmware downloaded');
+            logMessage('Downloading firmware');
+            try {
+              const response = await fetch('https://github.com/SelfMadeSystem/selfFlash/releases/firmware-v1.2.3.bin');
+              if (!response.ok) throw new Error('Failed to fetch firmware');
+              firmware = await response.arrayBuffer();
+              logMessage('Firmware downloaded');
+            } catch (error) {
+              statusText.textContent = `Firmware fetch error: ${error.message}`;
+              logMessage(`Firmware fetch error: ${error.message}`);
+              setTimeout(() => e.target.classList.remove('pulse'), 200);
+              return;
+            }
           }
-
           statusText.textContent = 'Flashing firmware...';
           flashButton.disabled = true;
           eraseButton.disabled = true;
           progressFill.style.width = '0%';
-
           try {
             const writer = selectedPort.writable.getWriter();
             let progress = 0;
             const totalSize = firmware.byteLength;
             const chunkSize = 1024;
-
             for (let offset = 0; offset < totalSize; offset += chunkSize) {
               const chunk = firmware.slice(offset, offset + chunkSize);
-              await writer.write(new Uint8Array(chunk));
+              await writer.write(chunk);
               progress = Math.min((offset + chunkSize) / totalSize * 100, 100);
               progressFill.style.width = `${progress}%`;
-              statusText.textContent = `Flashing... ${Math.round(progress)}%`;
-              logMessage(`Flashing ${Math.round(progress)}%`);
+              statusText.textContent = `Flashing: ${Math.round(progress)}%`;
+              logMessage(`Flashing: ${Math.round(progress)}%`);
               await new Promise(resolve => setTimeout(resolve, 50));
             }
-
             await writer.close();
-            statusText.textContent = 'Firmware flashed successfully! Reset your device (EN to VCC).';
-            logMessage('Firmware flashed successfully');
-            progressFill.style.width = '100%';
+            statusText.textContent = 'Firmware flashed! Reset device (EN to VCC).';
+            logMessage('Firmware flashed');
             await selectedPort.close();
             selectedPort = null;
             connectButton.disabled = false;
             refreshButton.disabled = false;
             portSelect.disabled = false;
-            eraseButton.disabled = true;
             flashButton.disabled = true;
+            eraseButton.disabled = true;
             setTimeout(() => e.target.classList.remove('pulse'), 200);
             await populatePorts();
           } catch (error) {
-            statusText.textContent = `Error flashing: ${error.message}`;
+            statusText.textContent = `Flash error: ${error.message}`;
             logMessage(`Flash error: ${error.message}`);
-            progressFill.style.width = '0%';
             flashButton.disabled = false;
             eraseButton.disabled = false;
             setTimeout(() => e.target.classList.remove('pulse'), 200);
           }
         });
       }
-
       if (otaButton) {
         otaButton.addEventListener('click', async (e) => {
           e.target.classList.add('pulse');
@@ -1605,15 +1484,14 @@
             setTimeout(() => e.target.classList.remove('pulse'), 200);
             return;
           }
-
           statusText.textContent = 'Checking OTA updates...';
           otaButton.disabled = true;
-
           try {
             logMessage(`Checking OTA at ${ip}`);
             await new Promise(resolve => setTimeout(resolve, 1000));
             statusText.textContent = 'OTA update initiated. Check device status.';
             logMessage('OTA update started');
+            otaButton.disabled = false;
             setTimeout(() => e.target.classList.remove('pulse'), 200);
           } catch (error) {
             statusText.textContent = `OTA error: ${error.message}`;
@@ -1623,12 +1501,7 @@
           }
         });
       }
-
-      if (portSelect) {
-        populatePorts();
-      }
-
-      // FAQ Search
+      if (portSelect) populatePorts();
       const searchInput = document.querySelector('#faq-search');
       const faqItems = document.querySelectorAll('.details');
       if (searchInput) {
@@ -1639,45 +1512,32 @@
             item.style.display = text.includes(query) ? 'block' : 'none';
           });
         });
-      // Newsletter Signup
+      }
       const newsletterForm = document.querySelector('#newsletter-form');
       if (newsletterForm) {
         newsletterForm.addEventListener('submit', (e) => {
           e.preventDefault();
-          const email = document.querySelector(''#newsletter-input').value;
+          const email = document.querySelector('#newsletter-input').value;
           if (email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)) {
-            alert('Thank you for subscribing!');
+            alert('Subscribed successfully!');
             newsletterForm.reset();
           } else {
-            alert('Please enter a valid email address.');
+            alert('Enter a valid email.');
           }
         });
-      // Simulator
-      document.addEventListener('DOMContentLoaded', () => {
-        const simulatorButton = document.querySelector('#simulator-button');
-        const deautherSimulator = document.querySelector('#deauther-simulator');
-        if (simulatorButton && deautherSimulator) {
-          console.log('Simulator elements found');
-          simulatorButton.addEventListener('click', () => {
-            console.log('Simulator button clicked');
-            simulatorButton.classList.add('pulse');
-            deautherSimulator.classList.toggle('active');
-            simulatorButton.textContent = deautherSimulator.classList.contains('active') ? 'Hide Simulator' : 'Toggle Simulator';
-            console.log('Deauther UI active:', deautherSimulator.classList.contains('active'));
-            setTimeout(() => simulatorButton.classList.remove('pulse'), 200);
-          });
-        } else {
-          console.error('Simulator elements missing:', { button: !!simulatorButton, simulator: !!deautherSimulator });
-          alert('Error: Simulator components not found. Please check the console for details.');
-        }
-      });
-
-      // Navigation Accessibility
-      document.querySelectorAll('.element').forEach(el => {
-        el.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') el.click();
+      }
+      const simulatorButton = document.querySelector('#simulator-button');
+      const deautherSimulator = document.querySelector('#deauther-simulator');
+      if (simulatorButton && deautherSimulator) {
+        simulatorButton.addEventListener('click', () => {
+          const isActive = deautherSimulator.classList.contains('active');
+          deautherSimulator.classList.toggle('active', !isActive);
+          simulatorButton.textContent = isActive ? 'Show Simulator' : 'Hide Simulator';
+          simulatorButton.classList.add('pulse');
+          setTimeout(() => simulatorButton.classList.remove('pulse'), 200);
         });
-      });
-    </script>
-  </body>
+      }
+    });
+  </script>
+</body>
 </html>
