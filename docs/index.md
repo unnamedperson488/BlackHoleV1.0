@@ -18,10 +18,10 @@
   <style>
     :root {
       --primary-color: #00eaff;
-      --accent-color: #ff2200;
+      --accent-color: #22ff00;
       --bg-color: #0a0a0a;
       --card-bg: rgba(17, 17, 17, 0.8);
-      --text-color: #ffffff;
+      --text-color: #e0e0e0;
       --shadow-glow: 0 0 10px rgba(0, 234, 255, 0.4);
     }
     [data-theme="light"] {
@@ -36,7 +36,6 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       font-family: 'Orbitron', sans-serif;
-      font-size: '18px';
       font-size: 18px;
       line-height: 1.6;
       margin: 0;
@@ -67,7 +66,7 @@
       font-size: 2.5rem;
       color: var(--primary-color);
       text-shadow: 0 0 10px var(--primary-color);
-      animation: pulse 1s.5s infinite;
+      animation: pulse 1.5s infinite;
       margin-bottom: 20px;
     }
     .boot-progress {
@@ -845,7 +844,7 @@
     <div class="boot-progress">
       <div class="boot-progress-fill"></div>
     </div>
-    <button class="start-button" aria-label="Start loading" data-target-section="#about">Start</button>
+    <button class="start-button" aria-label="Start loading" data-target-section="#home">Start</button>
   </div>
   <div class="loading-spinner"></div>
   <div class="stars"></div>
@@ -1064,9 +1063,9 @@
             <td>Network1</td>
             <td class="tdMeter">
               <div class="meter_background"><div class="meter_foreground deauther-meter_green" style="width: 60%;"></div></div>
-              <div class="meter_value green">-72 dBm</div>
+              <div class="meter_value green">-60 dBm</div>
             </td>
-            <td class="tdFixed">6</td>
+            <td>6</td>
           </tr>
           <tr>
             <td>Network2</td>
@@ -1074,15 +1073,15 @@
               <div class="meter_background"><div class="meter_foreground meter_orange" style="width: 40%;"></div></div>
               <div class="meter_value orange">-80 dBm</div>
             </td>
-            <td class="tdFixed">11</td>
+            <td>11</td>
           </tr>
           <tr>
             <td>Network3</td>
             <td class="tdMeter">
               <div class="meter_background"><div class="meter_foreground meter_red" style="width: 20%;"></div></div>
-              <div class="meter_value red">-92 dBm</div>
+              <div class="meter_value red">-</div>
             </td>
-            <td class="tdFixed">1</td>
+            <td>1</td>
           </tr>
         </table>
         <h2>Setup</h2>
@@ -1106,12 +1105,13 @@
         <div class="right">
           <div class="button-container">
             <form method="post">
-              <input type="submit" value="led-on" value="Turn On" disabled aria-label="Turn On LED">
+              <input type="submit" value="Turn On" disabled aria-label="Turn On LED">
             </form>
             <form method="post">
-              <input type="submit" value="led-off" value="Turn Off" disabled aria-label="Turn Off LED">
+              <input type="submit" value="Turn Off" disabled aria-label="Turn Off LED">
             </form>
           </div>
+        </div>
       </div>
     </div>
   </section>
@@ -1119,43 +1119,33 @@
     <p>© 2025 SelfMadeSystem. All Rights Reserved.</p>
     <p>
       <a href="https://github.com/SelfMadeSystem" target="_blank" aria-label="GitHub">GitHub</a> |
-      <a href="https://discord.gg/PdQz4vTVD" target="_blank" aria-label="Discord">Discord</a>
-      <a href="mailto:support@selfmadesystem.com" aria-label="Support">Email Support</a></p>
-    </footer>
-  </div>
-</div>
+      <a href="https://discord.gg/PdQz4vTVD" target="_blank" aria-label="Discord">Discord</a> |
+      <a href="mailto:support@example.com" aria-label="Support">Support</a>
+    </p>
+  </footer>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const bootScreen = document.querySelector('#boot-screen');
-    const bootProgress = document.querySelector('.boot-progress');
     const progressFill = document.querySelector('.boot-progress-fill');
     const startButton = document.querySelector('.start-button');
-    const backgrounds = document.querySelectorAll('.stars, .twinkling, .clouds');
     const loadingSpinner = document.querySelector('.loading-spinner');
     const wrapper = document.querySelector('.wrapper');
     const navWrapper = document.querySelector('.nav-wrapper');
     const themeToggle = document.querySelector('.theme-toggle');
     const langSwitcher = document.querySelector('.lang-switcher');
     const footer = document.querySelector('footer');
+    const backgrounds = document.querySelectorAll('.stars, .twinkling, .clouds');
 
-    // Validate critical elements
-    if (!bootScreen || !startButton || !bootProgress || !progressFill || !wrapper || !navWrapper || !themeToggle || !themeToggle || !langSwitcher || !footer) {
-      console.error('Critical Error: Missing DOM elements');
-      alert('Error: UI elements not loaded correctly. Please check console for details.');
+    // Validate elements
+    if (!bootScreen || !startButton || !progressFill || !wrapper || !navWrapper || !themeToggle || !langSwitcher || !footer) {
+      console.error('Missing UI elements');
+      alert('Error: UI elements not found. Check console.');
       return;
     }
 
-    // Image loading helper
-    const loadImage = (url) => new Promise(resolve => {
-      const img = new Image();
-      img.src = url;
-      img.onload = img.onerror = () => resolve();
-    });
-
-    // Show section function
+    // Show section
     function showSection(sectionId) {
-      console.log(`Activating section: ${sectionId}`);
       document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active');
         section.style.display = 'none';
@@ -1165,18 +1155,18 @@
         target.classList.add('active');
         target.style.display = 'block';
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        console.log(`Loaded section: ${sectionId}`);
       } else {
         console.error(`Section not found: ${sectionId}`);
-        alert(`Error: Section ${sectionId} not found`);
       }
     }
 
-    // Navigation event listeners
+    // Navigation
     document.querySelectorAll('.element').forEach(element => {
       element.addEventListener('click', (e) => {
+        e.preventDefault();
         const sectionId = element.dataset.section;
         if (sectionId) {
-          e.preventDefault();
           showSection(sectionId);
           element.classList.add('pulse');
           setTimeout(() => element.classList.remove('pulse'), 200);
@@ -1195,46 +1185,24 @@
       });
     });
 
-    // Start button handler
-    startButton.addEventListener('click', async () => {
+    // Start button
+    startButton.addEventListener('click', () => {
       console.log('Start button clicked');
       startButton.disabled = true;
-      startButton.classList.add('pulse');
       loadingSpinner.classList.add('visible');
-      const targetSection = startButton.dataset.targetSection || '#about';
+      progressFill.style.width = '100%';
 
-      try {
-        // Simulate loading
-        await Promise.allSettled([
-          loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/stars.png'),
-          loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/twinkling.png'),
-          loadImage('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/clouds.png')
-        ]);
-        progressFill.style.width = '100%';
+      setTimeout(() => {
+        bootScreen.classList.add('hidden');
+        loadingSpinner.classList.remove('visible');
+        wrapper.classList.add('visible');
+        navWrapper.classList.add('visible');
+        themeToggle.classList.add('visible');
+        langSwitcher.classList.add('visible');
+        footer.classList.add('visible');
         backgrounds.forEach(bg => bg.classList.add('loaded'));
-
-        // Transition
-        bootScreen.classList.add('hidden');
-        loadingSpinner.classList.remove('visible');
-        wrapper.classList.add('visible');
-        navWrapper.classList.add('visible');
-        themeToggle.classList.add('visible');
-        langSwitcher.classList.add('visible');
-        footer.classList.add('visible');
-        showSection(targetSection);
-        console.log('Loaded section:', targetSection);
-      } catch (err) {
-        console.error('Load error:', err);
-        alert('Error loading resources, proceeding...');
-        bootScreen.classList.add('hidden');
-        loadingSpinner.classList.remove('visible');
-        wrapper.classList.add('visible');
-        navWrapper.classList.add('visible');
-        themeToggle.classList.add('visible');
-        langSwitcher.classList.add('visible');
-        footer.classList.add('visible');
-        showSection(targetSection);
-      }
+        showSection('#home');
+      }, 300);
     });
 
     // Theme toggle
@@ -1242,12 +1210,12 @@
       const isDark = document.body.dataset.theme !== 'light';
       document.body.dataset.theme = isDark ? 'light' : 'dark';
       localStorage.setItem('theme', isDark ? 'light' : 'dark');
-      themeToggle.textContent = isDark ? '🌞' : '🌑';
+      themeToggle.textContent = isDark ? 'Light' : 'Dark';
       console.log('Theme:', document.body.dataset.theme);
     });
     const savedTheme = localStorage.getItem('theme') || 'dark';
     document.body.dataset.theme = savedTheme;
-    themeToggle.textContent = savedTheme === 'light' ? '🌞' : '🌑';
+    themeToggle.textContent = savedTheme === 'light' ? 'Dark' : 'Light';
 
     // Language selector
     const translations = {
@@ -1258,9 +1226,9 @@
     if (langSelect) {
       langSelect.addEventListener('change', () => {
         const lang = langSelect.value;
-        document.querySelectorAll('.nav-label').forEach((el, index) => {
+        document.querySelectorAll('.nav-label').forEach((el, idx) => {
           const keys = ['home', 'product', 'media', 'demos', 'about', 'faq', 'firmware', 'simulator'];
-          el.textContent = translations[lang][keys[index]];
+          el.textContent = translations[lang][keys[idx]];
         });
         document.querySelector('#home-title').textContent = `🌌 ${translations[lang].welcome}`;
         localStorage.setItem('language', lang);
@@ -1270,7 +1238,7 @@
       langSelect.dispatchEvent(new Event('change'));
     }
 
-    // Firmware flasher
+    // Flasher
     const portSelect = document.querySelector('#port-select');
     const refreshButton = document.querySelector('.flasher-button.refresh');
     const connectButton = document.querySelector('#connect-button');
@@ -1279,7 +1247,7 @@
     const otaButton = document.querySelector('.flasher-button.ota');
     const firmwareUpload = document.querySelector('#firmware-upload');
     const otaInput = document.querySelector('.ota-input');
-    const progressFill = document.querySelector('.progress-fill');
+    const progressBar = document.querySelector('.progress-fill');
     const statusText = document.querySelector('#flasher-status');
     const flasherLog = document.querySelector('#flasher-log');
     let selectedPort = null;
@@ -1292,10 +1260,10 @@
 
     async function populatePorts() {
       if (!navigator.serial) {
-        statusText.textContent = 'Error: Web Serial not supported. Use Chrome/Edge';
+        statusText.textContent = 'Web Serial not supported. Use Chrome/Edge';
         logMessage('Browser unsupported');
         [portSelect, refreshButton, connectButton, eraseButton, flashButton, otaButton].forEach(btn => btn.disabled = true);
-        alert('Error: Web Serial not supported. Use Chrome/Edge.');
+        alert('Web Serial not supported. Use Chrome/Edge.');
         return;
       }
       try {
@@ -1307,11 +1275,11 @@
           option.text = `Port ${index + 1}`;
           portSelect.appendChild(option);
         });
-        statusText.textContent = ports.length ? 'Select a port' : 'No ports found';
+        statusText.textContent = ports.length ? 'Select a port.' : 'No ports found.';
         logMessage(ports.length ? 'Ports detected' : 'No ports');
-      } catch (error) {
-        statusText.textContent = `Error: ${error.message}`;
-        logMessage(`Port error: ${error.message}`);
+      } catch (err) {
+        statusText.textContent = `Error: ${err.message}`;
+        logMessage(`Port error: ${err.message}`);
       }
     }
 
@@ -1337,9 +1305,9 @@
           connectButton.disabled = true;
           refreshButton.disabled = true;
           portSelect.disabled = true;
-        } catch (error) {
-          statusText.textContent = `Error: ${error.message}`;
-          logMessage(`Connection error: ${error.message}`);
+        } catch (err) {
+          statusText.textContent = `Error: ${err.message}`;
+          logMessage(`Connect error: ${err.message}`);
         }
       } else {
         statusText.textContent = 'Select a port';
@@ -1360,13 +1328,13 @@
         await new Promise(resolve => setTimeout(resolve, 1000));
         statusText.textContent = 'Flash erased';
         logMessage('Flash erased');
-      } catch (error) {
-        statusText.textContent = `Error: ${error.message}`;
-        logMessage(`Erase error: ${error.message}`);
+      } catch (err) {
+        statusText.textContent = `Error: ${err.message}`;
+        logMessage(`Erase error: ${err.message}`);
       }
     });
 
-    flashButton.addEventListener('click', async (e) => {
+    flashButton.addEventListener('click', (e) => {
       e.preventDefault();
       if (!selectedPort) {
         statusText.textContent = 'No device connected';
@@ -1374,43 +1342,35 @@
         return;
       }
       if (!firmwareUpload.files.length) {
-        statusText.textContent = 'Upload a .bin';
-        logMessage('No firmware file');
+        statusText.textContent = 'Upload a .bin file';
+        logMessage('No firmware');
         return;
       }
       const file = firmwareUpload.files[0];
       if (file.name.endsWith('.bin')) {
         statusText.textContent = 'Flashing...';
-        logMessage('Flashing firmware');
-        try {
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          progressFill.style.width = '100%';
+        logMessage('Flashing started');
+        setTimeout(() => {
+          progressBar.style.width = '100%';
           statusText.textContent = 'Flash complete';
           logMessage('Flash complete');
-        } catch (error) {
-          statusText.textContent = `Error: ${error.message}`;
-          logMessage(`Flash error: ${error.message}`);
-        }
+        }, 1000);
       } else {
         statusText.textContent = 'Invalid .bin file';
-        logMessage('Invalid firmware');
+        logMessage('Invalid file');
       }
     });
 
-    otaButton.addEventListener('click', async (e) => {
+    otaButton.addEventListener('click', (e) => {
       e.preventDefault();
       const ip = otaInput.value.trim();
       if (ip.match(/^(\d{1,3}\.){3}\d{1,3}$/)) {
         statusText.textContent = 'Starting OTA...';
         logMessage('Starting OTA');
-        try {
-          await new Promise(resolve => setTimeout(resolve, 500));
+        setTimeout(() => {
           statusText.textContent = 'OTA initiated';
           logMessage('OTA started');
-        } catch (error) {
-          statusText.textContent = `Error: ${error.message}`;
-          logMessage(`OTA error: ${error.message}`);
-        }
+        }, 500);
       } else {
         statusText.textContent = 'Invalid IP';
         logMessage('Invalid IP');
@@ -1432,18 +1392,18 @@
         if (isMatch) hasMatches = true;
       });
       faqNoResults.style.display = hasMatches ? 'none' : 'block';
-      console.log('FAQ search:', query);
+      console.log(`FAQ search: ${query}`);
     });
 
-    // Newsletter form
+    // Newsletter
     const newsletterForm = document.querySelector('#newsletter-form');
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = newsletterForm.querySelector('#newsletter-input').value;
+      const email = document.querySelector('#newsletter-input').value;
       if (email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
         alert('Subscribed!');
         newsletterForm.reset();
-        console.log('Subscribed:', email);
+        console.log('Newsletter launched:', email);
       } else {
         alert('Invalid email');
         console.log('Invalid email:', email);
