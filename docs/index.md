@@ -160,16 +160,16 @@ title: Black Hole V1.0
   }
 
   .stars {
-    background: var(--bg-color) url(https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/stars.png) repeat top center;
+    background: var(--bg-color) url('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/stars.png') repeat top center;
   }
 
   .twinkling {
-    background: transparent url(https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/twinkling.png) repeat top center;
+    background: transparent url('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/twinkling.png') repeat top center;
     animation: move-twink-back 200s linear infinite;
   }
 
   .clouds {
-    background: transparent url(https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/clouds.png) repeat top center;
+    background: transparent url('https://raw.githubusercontent.com/SelfMadeSystem/uiverse-contributions/main/quiet-snail-9/clouds.png') repeat top center;
     animation: move-clouds-back 200s linear infinite;
     opacity: 0.5;
   }
@@ -726,6 +726,211 @@ title: Black Hole V1.0
     margin: 20px 0;
   }
 
+  /* Deauther Simulator UI */
+  .deauther-simulator {
+    display: none;
+    background: var(--card-bg);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: var(--shadow-glow);
+    backdrop-filter: blur(10px);
+    font-family: 'Orbitron', sans-serif;
+    color: var(--text-color);
+  }
+
+  .deauther-simulator.active {
+    display: block;
+  }
+
+  .deauther-simulator h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+    text-align: center;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--accent-color);
+    border-right: 5px solid var(--accent-color);
+    padding: 0.2em 1em;
+    background: rgba(17, 17, 17, 0.8);
+    border-radius: 3px;
+  }
+
+  .deauther-simulator h2 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    border-left: 5px solid var(--accent-color);
+    padding: 0.4em 1em;
+    background: rgba(17, 17, 17, 0.8);
+    border-radius: 3px;
+    margin: 1rem 0;
+  }
+
+  .deauther-simulator h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    text-align: center;
+    background: rgba(17, 17, 17, 0.8);
+    padding: 0.2em 1em;
+    border-radius: 3px;
+    width: 50%;
+    margin: 0 auto 1rem;
+  }
+
+  .deauther-simulator table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 2em;
+  }
+
+  .deauther-simulator th, .deauther-simulator td {
+    border-bottom: 1px solid rgba(0, 234, 255, 0.3);
+    padding: 10px 6px;
+    text-align: left;
+  }
+
+  .deauther-simulator .tdFixed {
+    text-align: center;
+  }
+
+  .deauther-simulator .tdMeter {
+    padding-right: 10px;
+  }
+
+  .deauther-simulator .meter_background {
+    background: #111;
+    width: 100%;
+  }
+
+  .deauther-simulator .meter_foreground {
+    color: var(--text-color);
+    padding: 4px 0;
+  }
+
+  .deauther-simulator .meter_green {
+    background: var(--accent-color);
+  }
+
+  .deauther-simulator .meter_orange {
+    background: #FAA61A;
+  }
+
+  .deauther-simulator .meter_red {
+    background: #F04747;
+  }
+
+  .deauther-simulator .meter_value {
+    padding-left: 8px;
+  }
+
+  .deauther-simulator .checkBoxContainer {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    user-select: none;
+    height: 32px;
+    display: block;
+  }
+
+  .deauther-simulator .checkBoxContainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .deauther-simulator .checkmark {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    height: 28px;
+    width: 28px;
+    background: #111;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+  }
+
+  .deauther-simulator .checkBoxContainer input:checked ~ .checkmark:after {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 10px;
+    top: 7px;
+    width: 4px;
+    height: 10px;
+    border: solid var(--primary-color);
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+  .deauther-simulator .button-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 15px;
+    margin: 10px 0;
+  }
+
+  .deauther-simulator .button-double {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+  }
+
+  .deauther-simulator .button, .deauther-simulator input[type=submit] {
+    width: 140px;
+    height: 40px;
+    background: #111;
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    color: var(--primary-color);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.938rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: var(--shadow-glow);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 40px;
+  }
+
+  .deauther-simulator .button:hover, .deauther-simulator input[type=submit]:hover {
+    background: rgba(0, 234, 255, 0.2);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.7);
+    animation: neon-flicker 0.5s ease-in-out;
+  }
+
+  .deauther-simulator .button:active, .deauther-simulator input[type=submit]:active {
+    animation: glow-burst 0.2s;
+  }
+
+  .deauther-simulator input[type=text] {
+    width: 138px;
+    height: 40px;
+    padding: 0 5px;
+    background: #111;
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    color: var(--text-color);
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+  }
+
+  .deauther-simulator .right {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .deauther-simulator .centered {
+    display: flex;
+    justify-content: center;
+  }
+
   @media (max-width: 768px) {
     .name { font-size: 2rem; }
     .section { padding: 15px; margin: 0 10px 20px; }
@@ -740,6 +945,12 @@ title: Black Hole V1.0
     .lang-switcher { top: 60px; right: 10px; }
     .boot-logo { font-size: 2rem; }
     .start-button { width: 100px; height: 35px; font-size: 0.875rem; }
+    .deauther-simulator h1 { font-size: 1.5rem; }
+    .deauther-simulator h2 { font-size: 1rem; }
+    .deauther-simulator h3 { width: 80%; }
+    .deauther-simulator table { font-size: 0.875rem; }
+    .deauther-simulator .button, .deauther-simulator input[type=submit] { width: 120px; height: 35px; font-size: 0.875rem; }
+    .deauther-simulator input[type=text] { width: 120px; }
   }
 </style>
 
@@ -1097,11 +1308,13 @@ title: Black Hole V1.0
 
   // Simulator
   const simulatorButton = document.querySelector('#simulator-button');
-  if (simulatorButton) {
+  const deautherSimulator = document.querySelector('#deauther-simulator');
+  if (simulatorButton && deautherSimulator) {
     simulatorButton.addEventListener('click', () => {
       simulatorButton.classList.add('pulse');
+      deautherSimulator.classList.toggle('active');
+      simulatorButton.textContent = deautherSimulator.classList.contains('active') ? 'Hide Simulator' : 'Toggle Simulator';
       setTimeout(() => simulatorButton.classList.remove('pulse'), 200);
-      alert('Simulated button press on Black Hole V1.0!');
     });
   }
 
@@ -1217,8 +1430,8 @@ title: Black Hole V1.0
       <h4>Specifications</h4>
       <ul>
         <li><span class="key">MCU:</span> RTL8720DN (Dual-Core)</li>
-        <li><span class="key">Connectivity:</span> WiFi 802.11 a/b/g/n, Bluetooth 4.0</li>
-        <li><span class="key">Memory:</span> 4MB Flash, 192KB SRAM</li>
+        <li><span class="key">Connectivity:</span> WiFi 802.11 a/b/g/n, </li>
+        <li><span class="key">Memory:</span> 4MB Flash, </li>
         <li><span class="key">Dimensions:</span> 75x50x15mm</li>
         <li><span class="key">Weight:</span> 50g</li>
       </ul>
@@ -1231,7 +1444,7 @@ title: Black Hole V1.0
       <h4>Package Includes</h4>
       <ul>
         <li>Black Hole V1.0 device</li>
-        <li>2x SMA antennas</li>
+        <li>2x SMA chips</li>
         <li>USB-C cable</li>
         <li>Quick start guide</li>
       </ul>
@@ -1250,7 +1463,7 @@ title: Black Hole V1.0
     <h3>Demo Video</h3>
     <p>Watch Black Hole V1.0 in action.</p>
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Black Hole V1.0 Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Black Hole V1.0 Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; full screen" allowfullscreen></iframe>
     </div>
   </div>
   <div class="glow-block">
@@ -1267,7 +1480,7 @@ title: Black Hole V1.0
     </div>
   </div>
   <div class="social-media-buttons">
-    <a href="https://instagram.com/unnamedperson488" class="social-media-button" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://instagram.com/unnamedperson488" class="social-media-button" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i> Facebook</a>
     <a href="https://youtube.com/@unnamedperson488" class="social-media-button" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i> YouTube</a>
     <a href="https://tiktok.com/@unnamedperson488" class="social-media-button" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i> TikTok</a>
   </div>
@@ -1276,7 +1489,7 @@ title: Black Hole V1.0
 <section id="demos" class="section">
   <h2 class="glow-title">🤝 Community</h2>
   <div class="glow-block">
-    <h3>Join the Community</h3>
+    <h3>Join our Community</h3>
     <p>Connect with other cybersecurity enthusiasts.</p>
     <div class="discord-widget">
       <p>TODO: Add Discord server ID for widget.</p>
@@ -1289,11 +1502,176 @@ title: Black Hole V1.0
   </div>
   <div class="glow-block">
     <h3>Simulator</h3>
-    <p>Test the Black Hole V1.0 interface.</p>
+    <p>Explore the Black Hole V1.0 Deauther interface.</p>
     <div class="simulator">
-      <button id="simulator-button" class="simulator-button" aria-label="Simulate button press">Press</button>
-    </div>
-  </div>
+      <button id="simulator-button" class="simulator-button" aria-label="Toggle Deauther simulator">Toggle Simulator</button>
+      <div id="deauther-simulator" class="deauther-simulator">
+        <div class="container">
+          <h1 class="bold">Black Hole V1.0 Deauther</h1>
+          <div class="right">
+            <div class="button-container">
+              <form method="post" action="#">
+                <input type="submit" value="Rescan Network" disabled aria-label="Rescan Network">
+              </form>
+              <form method="post" action="#">
+                <input type="submit" value="Refresh page" disabled aria-label="Refresh page">
+              </form>
+            </div>
+          </div>
+          <form method="post" action="#">
+            <h2>Access Points: 4</h2>
+            <div class="centered">
+              <h3 class="bold">5 GHz Networks</h3>
+            </div>
+            <table>
+              <tr>
+                <th>SSID</th>
+                <th class="tdFixed">CH</th>
+                <th>BSSID</th>
+                <th>RSSI</th>
+                <th class="tdFixed"></th>
+                <th class="selectColumn"></th>
+              </tr>
+              <tr>
+                <td>HomeWiFi_5G</td>
+                <td class="tdFixed">36</td>
+                <td>AA:BB:CC:DD:EE:FF</td>
+                <td class="tdMeter">
+                  <div class="meter_background">
+                    <div class="meter_foreground meter_green" style="width: 80%">
+                      <div class="meter_value">-40</div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <label class="checkBoxContainer">
+                    <input type="checkbox" name="network" value="0" disabled>
+                    <span class="checkmark"></span>
+                  </label>
+                </td>
+              </tr>
+            </table>
+            <div class="centered">
+              <h3 class="bold">2.4 GHz Networks</h3>
+            </div>
+            <table>
+              <tr>
+                <th>SSID</th>
+                <th class="tdFixed">CH</th>
+                <th>BSSID</th>
+                <th>RSSI</th>
+                <th class="tdFixed"></th>
+                <th class="selectColumn"></th>
+              </tr>
+              <tr>
+                <td>GuestWiFi</td>
+                <td class="tdFixed">1</td>
+                <td>11:22:33:44:55:66</td>
+                <td class="tdMeter">
+                  <div class="meter_background">
+                    <div class="meter_foreground meter_orange" style="width: 60%">
+                      <div class="meter_value">11</div>
+                    </div>
+                    </td>
+                    <td>
+                      <label class="checkBoxContainer">
+                        <input type="checkbox" name="checkbox" value="checkbox">
+                        <span class="checkmark"></span>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>**HIDDEN**</td>
+                    <td class="tdFixed">6</td>
+                    <td>77:88:99:AA:BB:CC</td>
+                    <td class="tdMeter">
+                      <div class="meter_background">
+                        <div class="meter_foreground meter_red" style="width: 40%">
+                          <div class="meter_value">40</div>
+                        </div>
+                        <td>
+                          </div>
+                        </td>
+                        <td>
+                          <label class="checkBoxContainer">
+                            <input type="checkbox" checked name="checkbox" value="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>OfficeWiFi</td>
+                        <td class="tdFixed">11</td>
+                        <td>DD:EE:FF:11:22:33</td>
+                        <td class="tdMeter">
+                          <div class="meter_background">
+                            <div class="meter_foreground meter_green" style="width: 75%">
+                              <div class="meter_value">75</div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <label class="checkBoxContainer">
+                            <input type="checkbox" name="checkbox" value="checkbox">
+                            <span class="checkmark"></span>
+                          </label>
+                        </td>
+                      </tr>
+                    </table>
+                    <div class="right">
+                      <div class="button-container">
+                        <input type="submit" value="Start Attack!" aria-label="Start Attack">
+                      </div>
+                    </div>
+                  </form>
+                  <div class="right">
+                    <form method="post" action="#">
+                      <div class="button-container">
+                        <input type="submit" value="Stop" aria-label="Stop Attack">
+                      </div>
+                    </form>
+                  </div>
+                  <h2>Dashboard</h2>
+                  <table>
+                    <tr><th>State</th><th>Current Value</th></tr>
+                    <tr><td>Status Attack</td><td>Running</td></tr>
+                    <tr><td>LED Enabled</td><td>Yes</td></tr>
+                    <tr><td>Frame Sent</td><td>100</td></tr>
+                    <tr><td>Send Delay</td><td>5</td></tr>
+                    <tr><td>Number of frames send each time</td><td>5</td></tr>
+                  </table>
+                  <h2>Setup</h2>
+                  <div class="right">
+                    <div class="button-double">
+                      <form method="post" action="#">
+                        <div class="button-container">
+                          <input class="longInput" type="text" name="frames" placeholder="Number of frames">
+                          <input type="submit" value="Set frames" aria-label="Set frames">
+                        </div>
+                      </form>
+                      <form method="post" action="#">
+                        <div class="button-container">
+                          <input class="longInput" type="text" name="delay" placeholder="Send frames delay">
+                          <input type="submit" value="Set delay" aria-label="Set delay">
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <h2>LED Options</h2>
+                  <div class="right">
+                    <div class="button-container">
+                      <form method="post" action="#">
+                        <input type="submit" value="Turn on LED" aria-label="Turn on LED">
+                      </form>
+                      <form method="post" action="#">
+                        <input type="submit" value="Turn off LED" aria-label="Turn off LED">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 </section>
 
 <section id="about" class="section">
@@ -1319,7 +1697,7 @@ title: Black Hole V1.0
   </div>
   <div class="details">
     <summary>How do I enter Download Mode?</summary>
-    <p>Connect LOG_TX (PA7) to VCC, EN to GND, power on VCC, then disconnect LOG_TX.</p>
+    <p>Connect LOG3 to VCC, EN to GND, power on VCC, then disconnect LOG3.</p>
   </div>
   <div class="details">
     <summary>Can I develop custom firmware?</summary>
@@ -1337,17 +1715,17 @@ title: Black Hole V1.0
     <h3>Firmware Update</h3>
     <p>Update to v1.2.3 for optimal performance. Use Chrome/Edge:</p>
     <ol>
-      <li>Connect via USB-C or serial (PA8 RX, PA7 TX).</li>
-      <li>Refresh ports and select LOG_UART.</li>
+      <li>Connect via USB-C or serial.</li>
+      <li>Refresh ports and select USB.</li>
       <li>Click Connect.</li>
-      <li>Enter Download Mode: LOG_TX (PA7) to VCC, EN to GND, connect VCC, disconnect LOG_TX.</li>
+      <li>Enter Flash Mode.</li>
       <li>Erase flash if needed.</li>
       <li>Flash .bin file.</li>
-      <li>Reset (EN to VCC).</li>
+      <li>Reset.</li>
     </ol>
     <svg width="200" height="100" viewBox="0 0 200 100" style="max-width: 100%; margin: 10px auto; display: block;">
       <rect x="50" y="20" width="100" height="60" fill="#111" stroke="#00eaff" stroke-width="2"/>
-      <text x="55" y="35" fill="white" font-size="10">LOG_TX (PA7)</text>
+      <text x="55" y="35" fill="white" font-size="10">Log</text>
       <text x="55" y="50" fill="white" font-size="10">EN</text>
       <text x="55" y="65" fill="white" font-size="10">GND/VCC</text>
       <line x1="45" y1="30" x2="30" y2="30" stroke="#00eaff"/>
@@ -1378,7 +1756,7 @@ title: Black Hole V1.0
       <li><strong>v1.1.0 (Jan 2025):</strong> Added OTA update support.</li>
       <li><strong>v1.0.0 (Nov 2024):</strong> Initial release.</li>
     </ul>
-    <a href="https://github.com/unnamedperson488/BlackHoleV1.0/releases" class="github-button" target="_blank" aria-label="Firmware archive">Firmware Archive</a>
+    <a href="https://github.com/unnamedperson488/BlackHoleV1.0/releases" class="github-button" target="_blank" aria-label="Firmware downloads">Firmware Downloads</a>
   </div>
   <div class="glow-block">
     <h3>Troubleshooting</h3>
@@ -1402,9 +1780,9 @@ title: Black Hole V1.0
 <footer>
   <p>© 2025 unnamedperson488. All rights reserved.</p>
   <p>
-    <a href="mailto:contact@blackholev1.com">Email</a> |
-    <a href="/privacy">Privacy</a> |
-    <a href="/terms">Terms</a>
+    <a href="mailto:contact@blackholev1.com">Contact</a> |
+    <a href="privacy">Privacy</a> |
+    <a href="terms">Terms</a>
   </p>
 </footer>
 
