@@ -1,118 +1,55 @@
-# Black Hole V1.0
-### Dual-Band Wi-Fi Deauther (2.4GHz + 5GHz)
+🛒 Purchase Info & Features
+Black Hole V1.0 is now available for early access purchase through our Discord community. Each unit comes fully assembled and preloaded with firmware — no need to solder or flash anything yourself.
 
-**Black Hole V1.0** is an advanced Wi-Fi deauther and wireless auditing tool that supports both 2.4GHz and 5GHz frequencies. Built with both an ESP32 and BW16 (RTL8720DN) module, this device offers unmatched signal disruption capability for professional penetration testers and wireless researchers.
+💰 Price & Payment
+Price: $80 USD (Shipping not included)
 
-**Selling Product INFO**
-With this product the firmware is open sourced so if you want to beta test but I will soon be producing boards for people to buy off of my discord so there would be no trouble having to put together the board and flash the firmware and the starting price will be **$80** **Not Including Shipping**
+Shipping: Calculated at checkout depending on your location
 
----
+Accepted Payments:
 
-## 🧠 Features
+✅ PayPal
 
-- **Dual-Band Interference:** Supports both 2.4GHz (ESP32) and 5GHz (BW16)
-- **Modular Antennas:** Two SMA ports for external foldable antennas
-- **LiPo Battery Powered:** Rechargeable via USB-C using TP4056 with protection
-- **Reset + Power Buttons:** Onboard controls for full manual operation
-- **Premium Design:** 4-layer black PCB with custom silkscreen and protruding buttons
-- **Open Source:** Full access to hardware design files and flashing tools
+✅ Stripe (credit/debit cards)
+(No other payment methods are accepted at this time)
 
----
+📦 Order Policy
+Limit: 1 unit per checkout
+(You can place another order later, but only one unit is allowed per transaction to keep distribution fair.)
 
-## 🧹 Parts List
+Vouch Required:
+After receiving your product, please post a vouch (proof of purchase) in the designated Discord channel. This should include:
 
-| Part Name                         | Description                                         |
-|----------------------------------|-----------------------------------------------------|
-| **ESP32 Module**                 | 2.4GHz Wi-Fi + Bluetooth SoC                        |
-| **BW16 Module (RTL8720DN)**      | 5GHz Wi-Fi + Bluetooth 5.0 module                   |
-| **TP4056 Charging Board**        | USB-C LiPo charging and protection circuit          |
-| **3.7V 300mAh LiPo Battery**     | Rechargeable lithium polymer battery                |
-| **SMA Foldable Antennas**        | One for ESP32 (2.4GHz), one for BW16 (5GHz)         |
-| **Red Momentary Button**         | Reset; protrudes slightly at top-right corner       |
-| **Black Push Button**            | Power on/off; centered on PCB                       |
-| **UL1571 Wire (26-32 AWG)**      | Internal connection wiring                          |
-| **Rosin Core Solder Wire**       | For assembly and solder joints                      |
-| **Heat Shrink Tubing**           | For insulation and securing battery/wires           |
+A photo of your Black Hole V1.0 unit
 
----
+Optional feedback or short review
 
-## 📀 PCB Design Summary
+This helps future buyers verify legitimacy and builds trust within the community.
 
-- **Board Layers:** 4
-- **Color:** Matte black
-- **Size:** Rectangular, compact layout
-- **Connectors:** 2 × SMA (external)
-- **Buttons:**  
-  - **Reset Button:** Red, small, top-right  
-  - **Power Button:** Black, center of board
-- **Silkscreen Label:**  
-  ```
-  BLACK HOLE V1.0  
-  ENGINEERED BY unnamedperson
-  ```
+🧠 Features at a Glance
+⚡ Dual-Band Disruption
+Interferes with both 2.4GHz and 5GHz Wi-Fi networks using ESP32 and BW16 modules
 
----
+📡 Modular Antennas
+Two SMA ports allow for foldable external antennas to maximize signal range
 
-## ⚡ How to Flash Firmware
+🔋 Battery Powered
+3.7V LiPo battery rechargeable via USB-C using a TP4056 charging circuit
 
-### 🔹 ESP32 Flashing
+🧲 Manual Control
 
-1. Hold the **boot button** (center) while pressing **reset**.
-2. Connect to PC via USB-C.
-3. Flash using [esptool.py](https://github.com/espressif/esptool), [PlatformIO](https://platformio.org/), or Arduino IDE.
+Red Reset Button (top-right)
 
-Example:
-```bash
-esptool.py --chip esp32 --port COM3 write_flash 0x1000 firmware.bin
-```
+Black Power Button (center-mounted)
 
-### 🔸 BW16 Flashing
+🖤 Premium PCB Design
 
-1. Connect BW16's UART pins to a USB-to-TTL adapter.
-2. Use [ambd_flash_tool](https://github.com/ambiot/ambd_flash_tool) or Ameba SDK to upload firmware.
-3. Follow specific BW16 bootloader sequence instructions in [FLASHING.md](FLASHING.md).
+4-layer matte black PCB
 
----
+Custom silkscreen with product label
 
-## 📁 Project Structure
+Protruding buttons built for tactile control
 
-```
-BlackHole-V1.0/
-├── assets/                 # Images, renders, diagrams
-├── firmware/               # ESP32 and BW16 firmware binaries
-├── hardware/               # KiCAD files, schematics, gerbers
-├── case/                   # STL/STEP for 3D-printable custom case
-├── .github/workflows/      # CI/CD pipelines for auto builds
-├── FLASHING.md             # Extended flashing instructions
-├── LICENSE
-├── README.md
-└── .gitignore
-```
+🌐 Open Source Firmware
+Fully documented, customizable, and ready for developers or pentesting professionals
 
----
-
-## ⚠️ Legal & Ethical Use
-
-**This project is intended solely for educational and authorized security testing purposes.**  
-Do **NOT** use this tool on networks you do not own or have explicit permission to audit. Misuse of this tool may violate local, state, or federal laws.
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-## 🤝 Credits
-
-- Designed and engineered by `unnamedperson`
-- Community-sourced feedback and testing
-- Powered by open-source hardware philosophy
-
----
-
-## 💬 Contact & Community
-
-Questions or feedback? Join our Discord server:  
-👉 [https://discord.gg/YOUR-SERVER](https://discord.gg/YOUR-SERVER)
