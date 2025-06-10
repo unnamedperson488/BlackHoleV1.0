@@ -3,6 +3,9 @@
 
 **Black Hole V1.0** is an advanced Wi-Fi deauther and wireless auditing tool that supports both 2.4GHz and 5GHz frequencies. Built with both an ESP32 and BW16 (RTL8720DN) module, this device offers unmatched signal disruption capability for professional penetration testers and wireless researchers.
 
+**Selling Product INFO**
+With this product the firmware is open sourced so if you want to beta test but I will soon be producing boards for people to buy off of my discord so there would be no trouble having to put together the board and flash the firmware and the starting price will be **$80** **Not Including Shipping**
+
 ---
 
 ## 🧠 Features
