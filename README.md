@@ -1,23 +1,23 @@
-🛒 Purchase Info & Features
+**🛒 Purchase Info & Features** - 
 Black Hole V1.0 is now available for early access purchase through our Discord community. Each unit comes fully assembled and preloaded with firmware — no need to solder or flash anything yourself.
 
-💰 Price & Payment
+**💰 Price & Payment** - 
 Price: $80 USD (Shipping not included)
 
 Shipping: Calculated at checkout depending on your location
 
 Accepted Payments:
 
-✅ PayPal
+**✅ PayPal**
 
-✅ Stripe (credit/debit cards)
+**✅ Stripe (credit/debit cards)**
 (No other payment methods are accepted at this time)
 
-📦 Order Policy
+**📦 Order Policy**
 Limit: 1 unit per checkout
 (You can place another order later, but only one unit is allowed per transaction to keep distribution fair.)
 
-Vouch Required:
+**Vouch Required:**
 After receiving your product, please post a vouch (proof of purchase) in the designated Discord channel. This should include:
 
 A photo of your Black Hole V1.0 unit
