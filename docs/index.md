@@ -933,7 +933,7 @@
       <h3>Join the Discussion</h3>
       <p>Connect with enthusiasts and developers on Discord.</p>
       <div id="discord-link">
-        <a href="https://discord.gg/PdQz4vTVD" target="_blank" class="new-discord-button" aria-label="Join Discord">
+        <a href="https://discord.gg/zrmD6uzf" target="_blank" class="new-discord-button" aria-label="Join Discord">
           <i class="fab fa-discord"></i> Join Discord
         </a>
       </div>
@@ -1019,7 +1019,7 @@
         </div>
         <p id="flasher-status">Click 'Refresh' to begin.</p>
         <div id="flasher-log"></div>
-        <p><a href="https://github.com/SelfMadeSystem/selfFlash/blob/main/docs/Troubleshooting.md" target="_blank">Troubleshooting</a> | <a href="https://discord.gg/PdQz4vTVD" target="_blank">Join Discord</a></p>
+        <p><a href="https://github.com/SelfMadeSystem/selfFlash/blob/main/docs/Troubleshooting.md" target="_blank">Troubleshooting</a> | <a href="https://discord.gg/zrmD6uzf" target="_blank">Join Discord</a></p>
       </div>
     </div>
   </section>
@@ -1119,7 +1119,7 @@
     <p>© 2025 SelfMadeSystem. All Rights Reserved.</p>
     <p>
       <a href="https://github.com/SelfMadeSystem" target="_blank" aria-label="GitHub">GitHub</a> |
-      <a href="https://discord.gg/PdQz4vTVD" target="_blank" aria-label="Discord">Discord</a> |
+      <a href="https://discord.gg/zrmD6uzf" target="_blank" aria-label="Discord">Discord</a> |
       <a href="mailto:support@example.com" aria-label="Support">Support</a>
     </p>
   </footer>
